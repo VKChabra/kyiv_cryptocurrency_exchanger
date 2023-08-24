@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+// import { lazy, Suspense } from 'react';
+import { Routes, BrowserRouter } from 'react-router-dom';
 // import { PrivateRoute, PublicRoute } from './components/routes';
 // import Loader from 'components/Loader';
 import './App.css';
