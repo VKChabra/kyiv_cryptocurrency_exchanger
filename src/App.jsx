@@ -2,7 +2,6 @@ import { lazy } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 // import { PrivateRoute, PublicRoute } from './components/routes';
 // import Loader from 'components/Loader';
-import './App.css';
 
 const HomePage = lazy(() => import('./components/homepage'));
 
