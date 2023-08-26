@@ -1,19 +1,18 @@
-// import { lazy, Suspense } from 'react';
-import { Routes, BrowserRouter } from 'react-router-dom';
+import { lazy } from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 // import { PrivateRoute, PublicRoute } from './components/routes';
 // import Loader from 'components/Loader';
 import './App.css';
 
-// const Home = lazy(() => import("../pages/Home"));
+const HomePage = lazy(() => import('./components/homepage'));
 
-function App() {
-  return (
-    <>
-      <BrowserRouter basename="">
-        {/* <Suspense fallback={<Loader />}> */}
-        <Routes>
-          {/* <Route index element={<Home />} />
-              <Route
+const App = () => (
+  <>
+    <BrowserRouter basename="">
+      {/* <Suspense fallback={<Loader />}> */}
+      <Routes>
+        <Route index element={<HomePage />} />
+        {/* <Route
                 path="login"
                 element={
                   <PublicRoute restricted>
@@ -40,11 +39,10 @@ function App() {
               <Route path="partnership" element={<PartnershipPage />} />
               <Route path="news" element={<NewsPage />} />
               <Route path="*" element={<NotFound />} /> */}
-        </Routes>
-        {/* </Suspense> */}
-      </BrowserRouter>
-    </>
-  );
-}
+      </Routes>
+      {/* </Suspense> */}
+    </BrowserRouter>
+  </>
+);
 
 export default App;
