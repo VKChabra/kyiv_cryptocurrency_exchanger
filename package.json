@@ -53,6 +53,17 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "^8.47.0",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint --cache --fix",
+    "*.{js,css,scss,html,md}": "prettier --write"
   }
 }
