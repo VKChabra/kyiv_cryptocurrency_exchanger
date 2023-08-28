@@ -10,13 +10,14 @@ import theme from 'styles/theme';
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <BrowserRouter basename="">
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
-          {/* <Route
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <BrowserRouter basename="">
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<HomePage />} />
+            {/* <Route
                 path="login"
                 element={
                   <PublicRoute restricted>
@@ -40,18 +41,19 @@ const App = () => (
                   </PrivateRoute>
                 }
               /> */}
-          <Route path="exchangerates" />
-          <Route path="news" />
-          <Route path="partnership" />
-          <Route path="reviews" />
-          <Route path="faq" />
-          <Route path="contacts" />
-          <Route path="login" />
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </ThemeProvider>
-);
+            <Route path="exchangerates" />
+            <Route path="news" />
+            <Route path="partnership" />
+            <Route path="reviews" />
+            <Route path="faq" />
+            <Route path="contacts" />
+            <Route path="login" />
+            {/* <Route path="*" element={<NotFound />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+};
 
 export default App;
