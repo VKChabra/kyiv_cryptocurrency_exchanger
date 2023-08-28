@@ -1,22 +1,57 @@
-import { lazy } from 'react';
+import { lazy, useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 // import { PrivateRoute, PublicRoute } from './components/routes';
 // import Loader from 'components/Loader';
 
-import theme from 'styles/theme';
+import { GlobalStyle, themes } from 'styles/global.styles';
 // import themes from 'themes';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <BrowserRouter basename="">
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
-          {/* <Route
+const App = () => {
+  const [currentTheme, setCurrentTheme] = useState(themes.light);
+
+  const getThemeFromLocalStorage = () => {
+    const themeString = localStorage.getItem('theme');
+    if (!themeString) {
+      return null;
+    }
+    try {
+      return JSON.parse(themeString);
+    } catch (error) {
+      console.error('Error parsing theme from localStorage:', error);
+      return null;
+    }
+  };
+
+  useEffect(() => {
+    const themeFromLocalStorage = getThemeFromLocalStorage();
+    if (themeFromLocalStorage) {
+      setCurrentTheme(themeFromLocalStorage);
+    }
+  }, []);
+
+  const setThemeToLocalStorage = theme => {
+    localStorage.setItem('theme', JSON.stringify(theme));
+  };
+
+  const handleThemeChange = () => {
+    const newTheme = currentTheme.title === 'dark' ? themes.light : themes.dark;
+    setCurrentTheme(newTheme);
+    setThemeToLocalStorage(newTheme);
+  };
+
+  return (
+    <ThemeProvider theme={currentTheme}>
+      <BrowserRouter basename="">
+        <GlobalStyle theme={currentTheme} />
+        <button onClick={handleThemeChange}>Change theme</button>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<HomePage />} />
+            {/* <Route
                 path="login"
                 element={
                   <PublicRoute restricted>
@@ -40,18 +75,19 @@ const App = () => (
                   </PrivateRoute>
                 }
               /> */}
-          <Route path="exchangerates" />
-          <Route path="news" />
-          <Route path="partnership" />
-          <Route path="reviews" />
-          <Route path="faq" />
-          <Route path="contacts" />
-          <Route path="login" />
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </ThemeProvider>
-);
+            <Route path="exchangerates" />
+            <Route path="news" />
+            <Route path="partnership" />
+            <Route path="reviews" />
+            <Route path="faq" />
+            <Route path="contacts" />
+            <Route path="login" />
+            {/* <Route path="*" element={<NotFound />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+};
 
 export default App;

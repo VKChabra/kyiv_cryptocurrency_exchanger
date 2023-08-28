@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const HeaderBar = styled.div`
   display: flex;
@@ -10,12 +10,12 @@ export const HeaderBar = styled.div`
   width: 320px;
   height: 68px;
   text-align: center;
-  @media ${p => p.theme.media.tablet} {
+  @media (max-width: 1279px) and (min-width: 768px) {
     width: 768px;
     padding-left: 32px;
     padding-top: 20px;
   }
-  @media ${p => p.theme.media.desktop} {
+  @media (min-width: 1280px) {
     width: 1280px;
   }
 `;

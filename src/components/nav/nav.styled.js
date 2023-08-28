@@ -1,24 +1,24 @@
-import styled from "@emotion/styled";
-import { NavLink } from "react-router-dom";
+import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const NavHeader = styled.div`
+  color: ${({ theme }) => theme.colors.primary};
   margin-top: 60px;
-
   text-align: center;
-  font-family: "Manrope";
+  font-family: 'Manrope';
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
   line-height: 44px;
   letter-spacing: 0.04em;
   align-items: center;
-  @media ${p => p.theme.media.tablet} {
+  @media (max-width: 1279px) and (min-width: 768px) {
     margin-top: 88px;
     font-size: 48px;
     line-height: 66px;
     align-items: center;
   }
-  @media ${p => p.theme.media.desktop} {
+  @media (min-width: 1280px) {
     font-size: 20px;
     line-height: 27px;
     display: flex;
@@ -28,16 +28,16 @@ export const NavHeader = styled.div`
 `;
 
 export const Link = styled(NavLink)`
+  color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 40px;
   cursor: pointer;
   &.active {
-    color: ${p => p.theme.colors.accent};
     text-decoration: underline;
   }
 
-  @media ${p => p.theme.media.tablet} {
+  @media (max-width: 1279px) and (min-width: 768px) {
   }
-  @media ${p => p.theme.media.desktop} {
+  @media (min-width: 1280px) {
     margin-left: 80px;
     margin-bottom: 0px;
   }
