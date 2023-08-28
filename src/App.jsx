@@ -1,17 +1,22 @@
 import { lazy } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from '@emotion/react';
 // import { PrivateRoute, PublicRoute } from './components/routes';
 // import Loader from 'components/Loader';
 
-const HomePage = lazy(() => import('./components/homepage'));
+import theme from 'styles/theme';
+// import themes from 'themes';
+
+const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
+const HomePage = lazy(() => import('./pages/Home'));
 
 const App = () => (
-  <>
+  <ThemeProvider theme={theme}>
     <BrowserRouter basename="">
-      {/* <Suspense fallback={<Loader />}> */}
       <Routes>
-        <Route index element={<HomePage />} />
-        {/* <Route
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          {/* <Route
                 path="login"
                 element={
                   <PublicRoute restricted>
@@ -34,14 +39,19 @@ const App = () => (
                     <AccoutPage />
                   </PrivateRoute>
                 }
-              />
-              <Route path="partnership" element={<PartnershipPage />} />
-              <Route path="news" element={<NewsPage />} />
-              <Route path="*" element={<NotFound />} /> */}
+              /> */}
+          <Route path="exchangerates" />
+          <Route path="news" />
+          <Route path="partnership" />
+          <Route path="reviews" />
+          <Route path="faq" />
+          <Route path="contacts" />
+          <Route path="login" />
+          {/* <Route path="*" element={<NotFound />} /> */}
+        </Route>
       </Routes>
-      {/* </Suspense> */}
     </BrowserRouter>
-  </>
+  </ThemeProvider>
 );
 
 export default App;
