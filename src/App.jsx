@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
+import { createTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import './layouts/i18n/i18next'; // import { PrivateRoute, PublicRoute } from './components/routes';
 import Loader from './components/loader';
@@ -47,8 +48,12 @@ const App = () => {
     setThemeToLocalStorage(newTheme);
   };
 
+  const theme = createTheme({
+    ...currentTheme,
+  });
+
   return (
-    <ThemeProvider theme={currentTheme}>
+    <ThemeProvider theme={theme}>
       <BrowserRouter basename="">
         <Suspense fallback={<Loader />}>
           <GlobalStyle theme={currentTheme} />
