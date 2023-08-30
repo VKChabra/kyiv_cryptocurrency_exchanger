@@ -36,7 +36,14 @@ export const GlobalStyle = ({ theme }) => (
         background-color: ${theme.colors.body};
         transition: background-color 0.6s ease-in-out;
       }
-
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        box-sizing: border-box;
+      }
       ul,
       ol {
         list-style: none;
@@ -56,10 +63,11 @@ export const GlobalStyle = ({ theme }) => (
 
       button {
         cursor: pointer;
+        background: inherit;
       }
 
       input,
-      button,
+      /* button, */
       textarea,
       select {
         font: inherit;
