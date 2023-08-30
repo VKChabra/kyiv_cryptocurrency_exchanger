@@ -12,7 +12,8 @@
     "register": "register",
     "logout": "logout",
     "profile": "profile",
-    "orders": "orders"
+    "orders": "orders",
+    "information": "information"
   },
   "button": {
     "exchange": "exchange",

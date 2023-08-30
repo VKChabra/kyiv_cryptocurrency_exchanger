@@ -12,7 +12,8 @@
     "register": "зареєструватися",
     "logout": "вийти",
     "profile": "профіль",
-    "orders": "замовлення"
+    "orders": "замовлення",
+    "information": "інформація"
   },
   "button": {
     "exchange": "обміняти",

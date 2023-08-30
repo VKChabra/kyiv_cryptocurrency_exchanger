@@ -2,13 +2,11 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import './layouts/i18n/i18next';
 import { PublicRoute } from './components/routes';
 import Loader from './components/loader';
 
 import { GlobalStyle, themes } from 'styles/global.styles';
-import NeoButton from 'layouts/Button/Button';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
@@ -17,7 +15,7 @@ const RegistrationPage = lazy(() => import('./pages/Registration/Registration'))
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   const getThemeFromLocalStorage = () => {
     const themeString = localStorage.getItem('theme');
@@ -100,7 +98,6 @@ const App = () => {
             </Route>
           </Routes>
         </Suspense>
-        <NeoButton text={t('button.exchange')}></NeoButton>
       </BrowserRouter>
     </ThemeProvider>
   );
