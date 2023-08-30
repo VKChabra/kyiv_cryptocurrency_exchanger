@@ -2,7 +2,6 @@ import { useDispatch } from 'react-redux';
 import { Field, Form } from './Registration.styled';
 import { useState } from 'react';
 import { register } from 'redux/auth/operations';
-import { authErrorNotification } from 'helpers';
 
 const Registration = () => {
   const [name, setName] = useState('');
@@ -14,7 +13,7 @@ const Registration = () => {
     e.preventDefault();
 
     if (!email || !name || !password) {
-      return authErrorNotification();
+      return console.log('error wrong auth data');
     }
     dispatch(register({ name, email, password }));
     setName('');
