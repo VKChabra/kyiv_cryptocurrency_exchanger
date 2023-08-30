@@ -1,4 +1,7 @@
-import { NavHeader, Link, Text } from './nav.styled';
+import { NavHeader, Link, Text, LineImg, TextWrapper, RegistrationWrapper } from './nav.styled';
+import LanguageBtn from './Language';
+import Info from './Info';
+import Line from 'images/nav/line.svg';
 import { useTranslation } from 'react-i18next';
 import '../../layouts/i18n/i18next';
 
@@ -11,34 +14,32 @@ const Nav = () => {
         {' '}
         <Text>{t('nav.home')}</Text>
       </Link>
+      <LineImg src={Line} />
       <Link to="/exchangerates">
         {' '}
         <Text>{t('nav.exchangeRates')}</Text>{' '}
       </Link>
+      <LineImg src={Line} />
       <Link to="/news">
         {' '}
         <Text>{t('nav.news')}</Text>{' '}
       </Link>
-      <Link to="/partnership">
-        {' '}
-        <Text>{t('nav.partnership')}</Text>
-      </Link>
-      <Link to="/reviews">
-        {' '}
-        <Text>{t('nav.reviews')}</Text>{' '}
-      </Link>
-      <Link to="/faq">
-        {' '}
-        <Text>{t('nav.faq')}</Text>{' '}
-      </Link>
-      <Link to="#contacts">
-        {' '}
-        <Text>{t('nav.contacts')}</Text>{' '}
-      </Link>
-      <Link to="/login">
-        {' '}
-        <Text>{t('nav.login')}</Text>{' '}
-      </Link>
+      <LineImg src={Line} />
+      <Info />
+      <LineImg src={Line} />
+      <LanguageBtn />
+      <RegistrationWrapper>
+        <Link to="/register">
+          {' '}
+          <Text>{t('nav.register')}</Text>{' '}
+        </Link>
+        <Link to="/login">
+          {' '}
+          <TextWrapper>
+            <Text>{t('nav.login')}</Text>{' '}
+          </TextWrapper>
+        </Link>
+      </RegistrationWrapper>
     </NavHeader>
   );
 };

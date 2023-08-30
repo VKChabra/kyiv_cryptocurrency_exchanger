@@ -50,10 +50,11 @@ const App = () => {
   return (
     <ThemeProvider theme={currentTheme}>
       <BrowserRouter basename="">
-        <Suspense fallback={Loader}>
+        <Suspense fallback={<Loader />}>
           <GlobalStyle theme={currentTheme} />
-          <button onClick={handleThemeChange}>Change theme</button>
-
+          <button onClick={handleThemeChange} style={{ position: 'absolute' }}>
+            Change theme
+          </button>
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<HomePage />} />
@@ -87,6 +88,7 @@ const App = () => {
               <Route path="reviews" element={<ReviewsPage />} />
               <Route path="faq" />
               <Route path="contacts" />
+              <Route path="register" />
               <Route path="login" />
               {/* <Route path="*" element={<NotFound />} /> */}
             </Route>

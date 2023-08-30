@@ -34,6 +34,7 @@ export const GlobalStyle = ({ theme }) => (
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background-color: ${theme.colors.body};
+        transition: background-color 0.6s ease-in-out;
       }
       *,
       *::before,
