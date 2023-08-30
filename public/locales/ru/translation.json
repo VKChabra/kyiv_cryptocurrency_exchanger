@@ -12,7 +12,8 @@
     "register": "зарегистрироваться",
     "logout": "выйти",
     "profile": "профиль",
-    "orders": "заказы"
+    "orders": "заказы",
+    "information": "информация"
   },
   "button": {
     "exchange": "обменять",

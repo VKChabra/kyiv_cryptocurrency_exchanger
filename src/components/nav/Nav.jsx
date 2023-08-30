@@ -1,9 +1,9 @@
 import { NavHeader, Link, Text, LineImg, TextWrapper, RegistrationWrapper } from './nav.styled';
-import LanguageBtn from './Language';
 import Info from './Info';
 import Line from 'images/nav/line.svg';
 import { useTranslation } from 'react-i18next';
 import '../../layouts/i18n/i18next';
+import LanguageButton from './LangaugeButton/LangaugeButton';
 
 const Nav = () => {
   const { t } = useTranslation();
@@ -27,7 +27,7 @@ const Nav = () => {
       <LineImg src={Line} />
       <Info />
       <LineImg src={Line} />
-      <LanguageBtn />
+      <LanguageButton />
       <RegistrationWrapper>
         <Link to="/register">
           {' '}
