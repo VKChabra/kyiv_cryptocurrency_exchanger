@@ -4,7 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import './layouts/i18n/i18next';
-import { PrivateRoute, PublicRoute } from './components/routes';
+import { PublicRoute } from './components/routes';
 import Loader from './components/loader';
 
 import { GlobalStyle, themes } from 'styles/global.styles';
@@ -72,15 +72,15 @@ const App = () => {
                   </PublicRoute>
                 }
               /> */}
-            <Route
-              path="register"
-              element={
-                <PublicRoute restricted>
-                  <Registration />
-                </PublicRoute>
-              }
-            />
-            {/* <Route
+              <Route
+                path="register"
+                element={
+                  <PublicRoute restricted>
+                    <RegistrationPage />
+                  </PublicRoute>
+                }
+              />
+              {/* <Route
                 path="user"
                 element={
                   <PrivateRoute>
