@@ -1,3 +1,5 @@
+import { Box, Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { SelectStatus } from 'components/admin/forms/SelectStatus';
 import { useEffect, useState } from 'react';
 import { getAllReviews, updateReviewStatus } from 'services/fetchDB';
 
@@ -57,6 +59,10 @@ const AdminPage = () => {
     fetchData();
   };
 
+  const getUpdatedStatus = status => {
+    console.log(status);
+  };
+
   return (
     <div>
       <h1>AdminPage</h1>
@@ -69,13 +75,7 @@ const AdminPage = () => {
             <li key={id}>
               <p>{reviewContent}</p>
 
-              <button
-                type="button"
-                onClick={() => handleUpdateStatus(id)}
-                style={{ backgroundColor: 'green' }}
-              >
-                Update Status
-              </button>
+              <SelectStatus getUpdatedStatus={getUpdatedStatus} />
             </li>
           );
         })}
@@ -83,9 +83,9 @@ const AdminPage = () => {
 
       {isLoading && <div>Loading</div>}
 
-      <button type="button" onClick={handleClick}>
+      <Button variant="contained" type="button" onClick={handleClick}>
         load more
-      </button>
+      </Button>
     </div>
   );
 };

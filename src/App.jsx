@@ -7,6 +7,7 @@ import Loader from './components/loader';
 import { GlobalStyle, themes } from 'styles/global.styles';
 import AdminPage from 'pages/Admin/Admin';
 // import themes from 'themes';
+import { createTheme } from '@mui/material';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
@@ -45,8 +46,12 @@ const App = () => {
     setThemeToLocalStorage(newTheme);
   };
 
+  const theme = createTheme({
+    ...currentTheme,
+  });
+
   return (
-    <ThemeProvider theme={currentTheme}>
+    <ThemeProvider theme={theme}>
       <BrowserRouter basename="">
         <Suspense fallback={<Loader />}>
           <GlobalStyle theme={currentTheme} />
