@@ -35,7 +35,14 @@ export const GlobalStyle = ({ theme }) => (
         -moz-osx-font-smoothing: grayscale;
         background-color: ${theme.colors.body};
       }
-
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        box-sizing: border-box;
+      }
       ul,
       ol {
         list-style: none;
@@ -55,10 +62,11 @@ export const GlobalStyle = ({ theme }) => (
 
       button {
         cursor: pointer;
+        background: inherit;
       }
 
       input,
-      button,
+      /* button, */
       textarea,
       select {
         font: inherit;
