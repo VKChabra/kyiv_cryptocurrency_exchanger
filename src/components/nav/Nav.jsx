@@ -34,6 +34,10 @@ const Nav = () => (
       {' '}
       <Text>Увійти</Text>{' '}
     </Link>
+    <Link to="/register">
+      {' '}
+      <Text>Регістрація</Text>{' '}
+    </Link>
   </NavHeader>
 );
 

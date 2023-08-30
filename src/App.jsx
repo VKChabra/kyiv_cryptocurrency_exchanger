@@ -1,10 +1,11 @@
 import { lazy } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
-// import { PrivateRoute, PublicRoute } from './components/routes';
+import { PrivateRoute, PublicRoute } from './components/routes';
 // import Loader from 'components/Loader';
-
 import theme from 'styles/theme';
+
+import Registration from 'pages/Registration/Registration';
 // import themes from 'themes';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
@@ -24,16 +25,16 @@ const App = () => {
                     <LoginPage />
                   </PublicRoute>
                 }
-              />
-              <Route
-                path="register"
-                element={
-                  <PublicRoute restricted>
-                    <RegisterPage />
-                  </PublicRoute>
-                }
-              />
-              <Route
+              /> */}
+            <Route
+              path="register"
+              element={
+                <PublicRoute restricted>
+                  <Registration />
+                </PublicRoute>
+              }
+            />
+            {/* <Route
                 path="user"
                 element={
                   <PrivateRoute>
