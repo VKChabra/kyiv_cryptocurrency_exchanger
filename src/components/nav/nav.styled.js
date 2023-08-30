@@ -3,44 +3,39 @@ import { NavLink } from 'react-router-dom';
 
 export const NavHeader = styled.div`
   color: ${({ theme }) => theme.colors.primary};
-  margin-top: 60px;
-  text-align: center;
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 44px;
-  letter-spacing: 0.04em;
+  display: flex;
   align-items: center;
-  @media (max-width: 1279px) and (min-width: 768px) {
-    margin-top: 88px;
-    font-size: 48px;
-    line-height: 66px;
-    align-items: center;
-  }
-  @media (min-width: 1280px) {
-    font-size: 20px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
-    margin-top: 0;
-  }
+  margin-left: 40px;
 `;
 
 export const Link = styled(NavLink)`
-  color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 40px;
+  width: fit-content;
+  font-size: 16px;
+  letter-spacing: 0;
+  white-space: nowrap;
   cursor: pointer;
+  padding-right: 15px;
+  &:last-child {
+    padding-right: 0;
+  }
   &.active {
     text-decoration: underline;
   }
+`;
 
-  @media (max-width: 1279px) and (min-width: 768px) {
-  }
-  @media (min-width: 1280px) {
-    margin-left: 80px;
-    margin-bottom: 0px;
-  }
+export const LineImg = styled.img`
+  padding-right: 15px;
 `;
 
 export const Text = styled.span``;
+
+export const TextWrapper = styled.div`
+  padding: 12px 24px;
+  border: 2px solid #fff;
+`;
+
+export const RegistrationWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+`;
