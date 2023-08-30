@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "home": "home",
+    "news": "news",
+    "about": "about us",
+    "contacts": "contacts",
+    "faq": "FAQ",
+    "reviews": "reviews",
+    "partnership": "partners",
+    "exchangeRates": "exchange",
+    "login": "login",
+    "register": "register",
+    "logout": "logout",
+    "profile": "profile",
+    "orders": "orders"
+  },
+  "button": {
+    "exchange": "exchange",
+    "send": "send",
+    "cancel": "cancel"
+  }
+}
