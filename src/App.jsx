@@ -5,6 +5,7 @@ import { ThemeProvider } from '@emotion/react';
 import Loader from './components/loader';
 
 import { GlobalStyle, themes } from 'styles/global.styles';
+import AdminPage from 'pages/Admin/Admin';
 // import themes from 'themes';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
@@ -87,6 +88,8 @@ const App = () => {
               <Route path="contacts" />
               <Route path="register" />
               <Route path="login" />
+              <Route path="admin" element={<AdminPage />} />
+
               {/* <Route path="*" element={<NotFound />} /> */}
             </Route>
           </Routes>
