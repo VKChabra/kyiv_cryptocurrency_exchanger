@@ -5,7 +5,7 @@ import { ThemeProvider } from '@emotion/react';
 import Loader from './components/loader';
 
 import { GlobalStyle, themes } from 'styles/global.styles';
-import AdminPage from 'pages/Admin/Admin';
+import ReviewPage from 'pages/Admin/ReviewPage';
 // import themes from 'themes';
 import { createTheme } from '@mui/material';
 import TransactionPage from 'pages/Admin/TransactionPage';
@@ -99,7 +99,7 @@ const App = () => {
 
               <Route path="admin" element={<AdminMenu />}>
                 <Route index element={<AdminAccountPage />} />
-                <Route path="reviews" element={<AdminPage />} />
+                <Route path="reviews" element={<ReviewPage />} />
                 <Route path="transactions" element={<TransactionPage />} />
               </Route>
 
