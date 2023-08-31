@@ -3,6 +3,9 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material';
 import './layouts/i18n/i18next';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { PrivateRoute, PublicRoute } from './components/routes';
 import Loader from './components/loader';
 
@@ -113,6 +116,7 @@ const App = () => {
           </Routes>
         </Suspense>
       </BrowserRouter>
+      <ToastContainer />
     </ThemeProvider>
   );
 };
