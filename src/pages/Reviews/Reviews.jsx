@@ -1,12 +1,15 @@
 import ReviewsList from 'components/reviews/ReviewsList';
 import customerReviews from 'components/reviews/customers';
+import LoadMoreBtn from 'components/reviews/LoadMoreBtn';
+import { Container } from './Reviews.styled';
 
 const ReviewsPage = () => {
   return (
-    <div>
+    <Container>
       <h2>Що про нас говорять</h2>
       <ReviewsList reviews={customerReviews} />
-    </div>
+      <LoadMoreBtn />
+    </Container>
   );
 };
 

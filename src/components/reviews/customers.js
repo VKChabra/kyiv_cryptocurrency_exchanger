@@ -3,6 +3,7 @@ const customerReviews = [
     review:
       'Черговий переклад з Полонікса пройшов без затримок, супер! Дякую співробітникам сервісу! Відтепер я ваш постійний клієнт',
     id: '64eb5ac981281a81a9aff02f',
+    createAt: '08.08.2023',
     owner: {
       id: '64ec2488249ccdd3015cb71b',
       email: 'user1@example.com',
@@ -13,6 +14,7 @@ const customerReviews = [
     review:
       'Зізнатися, навіть не чекав такої чіткої роботи! Все відбувається швидко, у мене переклад із Полонікса і до Привату 24 зайняв близько півгодини, а головне весь процес простежується. Дякую і вдалій роботі всім. Відтепер міняю тільки через цей обмінник, тим більше свій — київський.',
     id: '64eb5ac981281a81a9aff02h',
+    createAt: '08.08.2023',
     owner: {
       id: '64ec2488249ccdd3015cb76b',
       email: 'user2@example.com',
@@ -22,6 +24,7 @@ const customerReviews = [
   {
     review: 'всі чудові та добрі консультанти завжди готові допомогти',
     id: '64eb5ac981281a81a7aff02f',
+    createAt: '08.08.2023',
     owner: {
       id: '64ec2488249ccdd6015cb71b',
       email: 'user3@example.com',
@@ -31,6 +34,7 @@ const customerReviews = [
   {
     review: 'швидкий обмін біткоїн на П24. гарний курс. дякую, сервісу удачі та розвитку',
     id: '64eb5ac981241a81a7aff02f',
+    createAt: '08.08.2023',
     owner: {
       id: '64ec2485249ccdd6015cb71b',
       email: 'user4@example.com',
@@ -40,6 +44,7 @@ const customerReviews = [
   {
     review: 'Хороший обмінник, допомагають новачкам, рекомендую.',
     id: '64eb5ac981281a81a7aff02f',
+    createAt: '08.08.2023',
     owner: {
       id: '84ec2488249ccdd6015cb71b',
       email: 'user5@example.com',
@@ -50,6 +55,7 @@ const customerReviews = [
     review:
       'Моя думка – це найкращий обмінник. За курсом – найщедріший, за часом – найшвидший.Підтримка уважно реагує на запити. Нехай так завжди буде! Дякую та успіхів команді!',
     id: '64eb5ac981281a81a7aсf02f',
+    createAt: '08.08.2023',
     owner: {
       id: '64eb5ac981281b81a7aff02f',
       email: 'user6@example.com',
