@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
+// axios.defaults.baseURL = 'http://localhost:3001';
 
 export const getAllReviews = async params => {
   try {
@@ -14,9 +14,9 @@ export const getAllReviews = async params => {
 };
 
 // admin access
-export const updateReviewStatus = async reviewId => {
+export const updateReviewStatus = async (reviewId, status) => {
   try {
-    const response = await axios.patch(`/api/review/${reviewId}`);
+    const response = await axios.patch(`/api/review/${reviewId}`, { status });
 
     return response.data;
   } catch (err) {
