@@ -38,7 +38,7 @@ const ReviewPage = () => {
   }, [filter]);
 
   const handleLoadMore = () => {
-    const params = { cursor };
+    const params = { status: filter, cursor };
 
     fetchData(params, items => {
       setReviews(prevItems => [...prevItems, ...items]);
@@ -93,7 +93,7 @@ const ReviewPage = () => {
           />
         </Button>
 
-        <SelectStatus status={filter} setStatus={setFilter} />
+        <SelectStatus status={filter} setStatus={setFilter} isAllVariant />
       </Box>
 
       {reviews.length !== 0 && <ReviewList reviews={reviews} />}
