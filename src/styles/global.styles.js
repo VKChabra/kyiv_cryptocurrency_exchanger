@@ -42,7 +42,7 @@ export const GlobalStyle = ({ theme }) => (
         padding: 0;
         margin: 0;
         border: 0;
-        box-sizing: border-box;
+        /* box-sizing: border-box; */
       }
       ul,
       ol {
@@ -84,6 +84,18 @@ export const GlobalStyle = ({ theme }) => (
         font-style: normal;
         color: inherit;
         display: block;
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 15px;
+        @media (max-width: 767px) {
+          max-width: 768px;
+        }
+        @media (max-width: 575px) {
+          max-width: 100%;
+        }
       }
 
       @keyframes spin {
