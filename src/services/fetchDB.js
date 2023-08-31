@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
-// axios.defaults.baseURL = 'http://localhost:3001';
+// axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 export const getAllReviews = async params => {
   try {
@@ -9,7 +9,7 @@ export const getAllReviews = async params => {
 
     return response.data;
   } catch (err) {
-    console.log(err.response.data.message);
+    console.log(err.response?.data?.message);
   }
 };
 
@@ -20,6 +20,6 @@ export const updateReviewStatus = async reviewId => {
 
     return response.data;
   } catch (err) {
-    console.log(err.response.data.message);
+    console.log(err.response?.data?.message);
   }
 };

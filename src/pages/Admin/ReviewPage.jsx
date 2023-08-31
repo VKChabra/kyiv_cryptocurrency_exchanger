@@ -10,60 +10,49 @@ const ReviewPage = () => {
   const [cursor, setCursor] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState('pending');
+  const [isLoadMore, setIsLoadMore] = useState(false);
 
   const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const fetchData = async (params, callback) => {
+    setIsLoading(true);
+
+    const data = await getAllReviews(params);
+
+    if (data) {
+      const { items, nextCursor, hasMore } = data;
+      callback(items);
+      setCursor(nextCursor);
+
+      setIsLoading(false);
+      setIsLoadMore(hasMore);
+    }
+  };
 
   useEffect(() => {
     const params = { status: filter };
 
-    const fetchData = async () => {
-      const { items, nextCursor } = await getAllReviews(params);
-
-      console.log(items);
+    fetchData(params, items => {
       setReviews(items);
-      setCursor(nextCursor);
-
-      setIsLoading(false);
-    };
-
-    fetchData();
+    });
   }, [filter]);
 
   const handleLoadMore = () => {
     const params = { cursor };
 
-    const fetchData = async () => {
-      setIsLoading(true);
-
-      const { items, nextCursor } = await getAllReviews(params);
-
-      console.log(items);
+    fetchData(params, items => {
       setReviews(prevItems => [...prevItems, ...items]);
-      setCursor(nextCursor);
-
-      setIsLoading(false);
-    };
-
-    fetchData();
+    });
   };
 
   const handleRefresh = () => {
     const params = { status: filter };
     setIsRefreshing(true);
 
-    const fetchData = async () => {
-      const { items, nextCursor } = await getAllReviews(params);
-
-      console.log(items);
+    fetchData(params, items => {
       setReviews(items);
-      setCursor(nextCursor);
-
-      setIsLoading(false);
-
       setIsRefreshing(false);
-    };
-
-    fetchData();
+    });
   };
 
   return (
@@ -121,7 +110,7 @@ const ReviewPage = () => {
 
       {reviews.length === 0 && !isLoading && <Typography>No results</Typography>}
 
-      {reviews.length !== 0 && (
+      {reviews.length !== 0 && isLoadMore && (
         <Box sx={{ textAlign: 'center' }}>
           <Button variant="contained" type="button" onClick={handleLoadMore} sx={{ width: 200 }}>
             {isLoading ? 'Loading' : 'Load more'}
