@@ -1,7 +1,7 @@
-import { Box, Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { SelectStatus } from 'components/admin/forms/SelectStatus';
+import { Button } from '@mui/material';
+import { ReviewList } from 'components/admin/OperationList';
 import { useEffect, useState } from 'react';
-import { getAllReviews, updateReviewStatus } from 'services/fetchDB';
+import { getAllReviews } from 'services/fetchDB';
 
 const AdminPage = () => {
   const [reviews, setReviews] = useState([]);
@@ -28,7 +28,7 @@ const AdminPage = () => {
     fetchData();
   }, []);
 
-  const handleClick = () => {
+  const handleLoadMore = () => {
     const params = { cursor };
 
     const fetchData = async () => {
@@ -46,44 +46,15 @@ const AdminPage = () => {
     fetchData();
   };
 
-  const handleUpdateStatus = reviewId => {
-    const fetchData = async () => {
-      setIsLoading(true);
-
-      const data = await updateReviewStatus(reviewId);
-      console.log(data);
-
-      setIsLoading(false);
-    };
-
-    fetchData();
-  };
-
-  const getUpdatedStatus = status => {
-    console.log(status);
-  };
-
   return (
     <div>
       <h1>AdminPage</h1>
 
-      <ul>
-        {reviews.map(review => {
-          const { _id: id, review: reviewContent } = review;
-
-          return (
-            <li key={id}>
-              <p>{reviewContent}</p>
-
-              <SelectStatus getUpdatedStatus={getUpdatedStatus} />
-            </li>
-          );
-        })}
-      </ul>
+      <ReviewList reviews={reviews} />
 
       {isLoading && <div>Loading</div>}
 
-      <Button variant="contained" type="button" onClick={handleClick}>
+      <Button variant="contained" type="button" onClick={handleLoadMore}>
         load more
       </Button>
     </div>
