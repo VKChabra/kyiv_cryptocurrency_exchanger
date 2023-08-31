@@ -7,7 +7,7 @@ export const SelectStatus = ({ status, setStatus }) => {
   };
 
   return (
-    <Box sx={{ minWidth: 150 }}>
+    <Box sx={{ minWidth: 150, width: 150 }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Status</InputLabel>
         <Select

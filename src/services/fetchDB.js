@@ -9,7 +9,7 @@ export const getAllReviews = async params => {
 
     return response.data;
   } catch (err) {
-    console.log(err);
+    console.log(err.response.data.message);
   }
 };
 
