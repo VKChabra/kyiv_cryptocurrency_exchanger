@@ -22,6 +22,7 @@ export const Button = styled.button`
     z-index: 2;
     content: '';
     backdrop-filter: blur(25px);
+    box-sizing: border-box;
   }
   &:active {
     transform: scale(0.99);
