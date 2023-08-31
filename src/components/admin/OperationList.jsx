@@ -7,24 +7,20 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { getFormattedFullDate } from 'helpers/formatDate';
 
 export const ReviewList = ({ reviews }) => {
   const [expanded, setExpanded] = useState(false);
+  const [newStatus, setNewStatus] = useState('pending');
 
   const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const getUpdatedStatus = status => {
-    console.log(status);
-  };
-
   const handleUpdateStatus = reviewId => {
     const fetchData = async () => {
-      const data = await updateReviewStatus(reviewId);
-      console.log(data);
+      await updateReviewStatus(reviewId);
     };
 
     fetchData();
@@ -61,36 +57,50 @@ export const ReviewList = ({ reviews }) => {
               </Typography>
               <Typography sx={{ color: 'text.secondary' }}>status: {status}</Typography>
             </AccordionSummary>
-            <AccordionDetails
-              sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                p: 4,
-                gap: 4,
-              }}
-            >
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Typography>
-                  Review: {reviewContent} Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Mollitia, quam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
-                  quam?
-                </Typography>
+            <AccordionDetails>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  p: 4,
+                  gap: 4,
+                }}
+              >
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                  <Typography>
+                    Review: {reviewContent} Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Mollitia, quam? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Mollitia, quam?
+                  </Typography>
 
-                <Box>
-                  <Typography>Owner Data</Typography>
+                  <Box>
+                    <Typography>Owner Data</Typography>
 
-                  <Box sx={{ marginLeft: '20px' }}>
-                    <Typography>Name: {owner.name}</Typography>
-                    <Typography>Email: {owner.email}</Typography>
-                    <Typography>Role: {owner.role}</Typography>
-                    <Typography>Date of registration: {dateOfRegistration}</Typography>
+                    <Box sx={{ marginLeft: '20px' }}>
+                      <Typography>Name: {owner.name}</Typography>
+                      <Typography>Email: {owner.email}</Typography>
+                      <Typography>Role: {owner.role}</Typography>
+                      <Typography>Date of registration: {dateOfRegistration}</Typography>
+                    </Box>
                   </Box>
+
+                  <Typography>Сredentials: credentials</Typography>
                 </Box>
 
-                <Typography>Сredentials: credentials</Typography>
+                <SelectStatus status={newStatus} setStatus={setNewStatus} />
               </Box>
 
-              <SelectStatus getUpdatedStatus={getUpdatedStatus} />
+              <Box sx={{ textAlign: 'center' }}>
+                <Button
+                  variant="contained"
+                  type="button"
+                  onClick={() => handleUpdateStatus(id)}
+                  sx={{ width: 200 }}
+                  disabled={newStatus === 'pending'}
+                >
+                  Update Status
+                </Button>
+              </Box>
             </AccordionDetails>
           </Accordion>
         );

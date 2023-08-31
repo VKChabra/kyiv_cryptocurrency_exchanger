@@ -1,17 +1,13 @@
 import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { useState } from 'react';
 
-export const SelectStatus = ({ getUpdatedStatus }) => {
-  const [status, setStatus] = useState('pending');
-
+export const SelectStatus = ({ status, setStatus }) => {
   const handleChange = event => {
     const newStatus = event.target.value;
     setStatus(newStatus);
-    getUpdatedStatus(newStatus);
   };
 
   return (
-    <Box sx={{ maxWidth: 150 }}>
+    <Box sx={{ minWidth: 150 }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Status</InputLabel>
         <Select

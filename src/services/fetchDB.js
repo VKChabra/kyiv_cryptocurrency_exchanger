@@ -20,6 +20,6 @@ export const updateReviewStatus = async reviewId => {
 
     return response.data;
   } catch (err) {
-    console.log(err);
+    console.log(err.response.data.message);
   }
 };
