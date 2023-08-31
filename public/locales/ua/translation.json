@@ -19,5 +19,11 @@
     "exchange": "обміняти",
     "send": "відправити",
     "cancel": "відмінити"
+  },
+  "userButtons": {
+    "privat": "кабінет",
+    "operation": "транзакції",
+    "feedback": "відгуки",
+    "exit": "вихід"
   }
 }

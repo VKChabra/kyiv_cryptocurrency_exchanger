@@ -3,6 +3,9 @@ import { Button, ProfileNav, ExitButton, ButtonWrapper, ButtonActive } from './b
 import TransactionHistory from '../../components/userTransaction';
 import UserData from '../../components/userData';
 import Feedback from '../../components/feedback';
+import { useTranslation } from 'react-i18next';
+import '../../layouts/i18n/i18next';
+
 const transactions = [
   {
     id: '1e0700a2-5183-4291-85cc-2065a036a683',
@@ -17,28 +20,30 @@ const transactions = [
     currency: 'WST',
   },
 ];
+
 const ButtonsMenu = () => {
   const [typeButton, setTypeButton] = useState('');
   const handler = event => {
     const { name } = event.target;
     setTypeButton(name);
   };
+  const { t } = useTranslation();
 
   return (
     <>
       <ProfileNav>
         <ButtonWrapper>
           <ButtonActive name="privat" onClick={handler} type="button">
-            Личный кабинет
+            {t('userButtons.privat')}
           </ButtonActive>
           <Button name="operation" onClick={handler} type="button">
-            Ваши оперпации
+            {t('userButtons.operation')}
           </Button>
           <Button name="feedback" onClick={handler} type="button">
-            Відгуки
+            {t('userButtons.feedback')}
           </Button>
         </ButtonWrapper>
-        <ExitButton type="button">Выход</ExitButton>
+        <ExitButton type="button">{t('userButtons.exit')}</ExitButton>
       </ProfileNav>
       <>
         {typeButton === 'privat' && <UserData />}
