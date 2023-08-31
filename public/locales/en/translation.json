@@ -19,5 +19,11 @@
     "exchange": "exchange",
     "send": "send",
     "cancel": "cancel"
+  },
+  "userButtons": {
+    "privat": "privat",
+    "operation": "operations",
+    "feedback": "feedback",
+    "exit": "exit"
   }
 }
