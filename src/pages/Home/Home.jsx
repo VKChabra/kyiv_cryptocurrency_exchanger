@@ -1,8 +1,3 @@
-import User from '../User';
-const HomePage = () => (
-  <div className="homepage">
-    <User />
-  </div>
-);
+const HomePage = () => <div className="homepage"></div>;
 
 export default HomePage;

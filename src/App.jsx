@@ -3,11 +3,12 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material';
 import './layouts/i18n/i18next';
-import { PublicRoute } from './components/routes';
+import { PrivateRoute, PublicRoute } from './components/routes';
 import Loader from './components/loader';
 
 import { GlobalStyle, themes } from 'styles/global.styles';
 import ReviewPage from 'pages/Admin/ReviewPage';
+
 // import themes from 'themes';
 import TransactionPage from 'pages/Admin/TransactionPage';
 import { AdminAccountPage } from 'pages/Admin/AdminAccountPage';
@@ -17,6 +18,7 @@ const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
 const ReviewsPage = lazy(() => import('./pages/Reviews'));
 const RegistrationPage = lazy(() => import('./pages/Registration/Registration'));
+const UserPage = lazy(() => import('./pages/User'));
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
@@ -83,14 +85,14 @@ const App = () => {
                   </PublicRoute>
                 }
               />
-              {/* <Route
+              <Route
                 path="user"
                 element={
                   <PrivateRoute>
-                    <AccoutPage />
+                    <UserPage />
                   </PrivateRoute>
                 }
-              /> */}
+              />
               <Route path="exchangerates" />
               <Route path="news" />
               <Route path="partnership" />
