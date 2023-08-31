@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "home": "главная",
+    "news": "новости",
+    "about": "о нас",
+    "contacts": "контакты",
+    "faq": "FAQ",
+    "reviews": "отзывы",
+    "partnership": "партнеры",
+    "exchangeRates": "курсы",
+    "login": "войти",
+    "register": "зарегистрироваться",
+    "logout": "выйти",
+    "profile": "профиль",
+    "orders": "заказы",
+    "information": "информация"
+  },
+  "button": {
+    "exchange": "обменять",
+    "send": "отправить",
+    "cancel": "отмена"
+  },
+  "userButtons": {
+    "privat": "кабинет",
+    "operation": "оперпации",
+    "feedback": "отзывы",
+    "exit": "выход"
+  }
+}

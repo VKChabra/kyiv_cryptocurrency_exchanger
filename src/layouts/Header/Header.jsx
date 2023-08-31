@@ -5,6 +5,7 @@ import { HeaderBar } from './Header.styled';
 const Header = () => (
   <>
     <HeaderBar>
+      {/* <Logo /> */}
       <Logo />
       <Navigation />
     </HeaderBar>

@@ -1,13 +1,14 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
-// import { PrivateRoute, PublicRoute } from './components/routes';
+import { createTheme } from '@mui/material';
+import './layouts/i18n/i18next';
+import { PublicRoute } from './components/routes';
 import Loader from './components/loader';
 
 import { GlobalStyle, themes } from 'styles/global.styles';
 import ReviewPage from 'pages/Admin/ReviewPage';
 // import themes from 'themes';
-import { createTheme } from '@mui/material';
 import TransactionPage from 'pages/Admin/TransactionPage';
 import { AdminAccountPage } from 'pages/Admin/AdminAccountPage';
 import { AdminMenu } from 'components/admin/AdminMenu';
@@ -15,9 +16,11 @@ import { AdminMenu } from 'components/admin/AdminMenu';
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
 const ReviewsPage = lazy(() => import('./pages/Reviews'));
+const RegistrationPage = lazy(() => import('./pages/Registration/Registration'));
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
+  // const { t } = useTranslation();
 
   const getThemeFromLocalStorage = () => {
     const themeString = localStorage.getItem('theme');
@@ -71,16 +74,16 @@ const App = () => {
                     <LoginPage />
                   </PublicRoute>
                 }
-              />
+              /> */}
               <Route
                 path="register"
                 element={
                   <PublicRoute restricted>
-                    <RegisterPage />
+                    <RegistrationPage />
                   </PublicRoute>
                 }
               />
-              <Route
+              {/* <Route
                 path="user"
                 element={
                   <PrivateRoute>

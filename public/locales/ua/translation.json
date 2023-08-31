@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "home": "головна",
+    "news": "новини",
+    "about": "про нас",
+    "contacts": "контакти",
+    "faq": "FAQ",
+    "reviews": "відгуки",
+    "partnership": "партнери",
+    "exchangeRates": "курси",
+    "login": "увійти",
+    "register": "зареєструватися",
+    "logout": "вийти",
+    "profile": "профіль",
+    "orders": "замовлення",
+    "information": "інформація"
+  },
+  "button": {
+    "exchange": "обміняти",
+    "send": "відправити",
+    "cancel": "відмінити"
+  },
+  "userButtons": {
+    "privat": "кабінет",
+    "operation": "транзакції",
+    "feedback": "відгуки",
+    "exit": "вихід"
+  }
+}
