@@ -7,6 +7,11 @@ import { PublicRoute } from './components/routes';
 import Loader from './components/loader';
 
 import { GlobalStyle, themes } from 'styles/global.styles';
+import ReviewPage from 'pages/Admin/ReviewPage';
+// import themes from 'themes';
+import TransactionPage from 'pages/Admin/TransactionPage';
+import { AdminAccountPage } from 'pages/Admin/AdminAccountPage';
+import { AdminMenu } from 'components/admin/AdminMenu';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
@@ -94,6 +99,13 @@ const App = () => {
               <Route path="contacts" />
               <Route path="register" />
               <Route path="login" />
+
+              <Route path="admin" element={<AdminMenu />}>
+                <Route index element={<AdminAccountPage />} />
+                <Route path="reviews" element={<ReviewPage />} />
+                <Route path="transactions" element={<TransactionPage />} />
+              </Route>
+
               {/* <Route path="*" element={<NotFound />} /> */}
             </Route>
           </Routes>
