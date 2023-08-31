@@ -1,18 +1,21 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
-// import { PrivateRoute, PublicRoute } from './components/routes';
+import { createTheme } from '@mui/material';
+import './layouts/i18n/i18next';
+import { PublicRoute } from './components/routes';
 import Loader from './components/loader';
 
 import { GlobalStyle, themes } from 'styles/global.styles';
-// import themes from 'themes';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
 const ReviewsPage = lazy(() => import('./pages/Reviews'));
+const RegistrationPage = lazy(() => import('./pages/Registration/Registration'));
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
+  // const { t } = useTranslation();
 
   const getThemeFromLocalStorage = () => {
     const themeString = localStorage.getItem('theme');
@@ -44,12 +47,18 @@ const App = () => {
     setThemeToLocalStorage(newTheme);
   };
 
+  const theme = createTheme({
+    ...currentTheme,
+  });
+
   return (
-    <ThemeProvider theme={currentTheme}>
+    <ThemeProvider theme={theme}>
       <BrowserRouter basename="">
-        <Suspense fallback={Loader}>
+        <Suspense fallback={<Loader />}>
           <GlobalStyle theme={currentTheme} />
-          <button onClick={handleThemeChange}>Change theme</button>
+          <button onClick={handleThemeChange} style={{ position: 'absolute' }}>
+            Change theme
+          </button>
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<HomePage />} />
@@ -60,16 +69,16 @@ const App = () => {
                     <LoginPage />
                   </PublicRoute>
                 }
-              />
+              /> */}
               <Route
                 path="register"
                 element={
                   <PublicRoute restricted>
-                    <RegisterPage />
+                    <RegistrationPage />
                   </PublicRoute>
                 }
               />
-              <Route
+              {/* <Route
                 path="user"
                 element={
                   <PrivateRoute>
@@ -83,6 +92,7 @@ const App = () => {
               <Route path="reviews" element={<ReviewsPage />} />
               <Route path="faq" />
               <Route path="contacts" />
+              <Route path="register" />
               <Route path="login" />
               {/* <Route path="*" element={<NotFound />} /> */}
             </Route>

@@ -5,7 +5,7 @@ const ReviewsList = ({ reviews }) => {
   return (
     <List>
       {reviews.map(item => (
-        <Item id={reviews.id}>
+        <Item id={reviews.id} key={reviews.id}>
           <ReviewsItem data={item} />
         </Item>
       ))}
