@@ -104,8 +104,6 @@ const App = () => {
               <Route path="faq" />
               <Route path="contacts" />
               <Route path="register" />
-              <Route path="login" />
-
               <Route path="admin" element={<AdminMenu />}>
                 <Route index element={<AdminAccountPage />} />
                 <Route path="reviews" element={<ReviewPage />} />
