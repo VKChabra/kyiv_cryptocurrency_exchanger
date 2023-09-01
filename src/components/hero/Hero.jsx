@@ -23,8 +23,8 @@ const Hero = () => {
         <Calculator />
       </LeftFrame>
       <RightFrame>
-        <Background src={HomeBg} />
-        <Coin src={Bitcoin} />
+        <Background src={HomeBg} alt="lines background" />
+        <Coin src={Bitcoin} alt="bitcoin" />
       </RightFrame>
     </HeroSplitter>
   );

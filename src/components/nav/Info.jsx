@@ -3,7 +3,6 @@ import { Text } from './nav.styled';
 import { DropdownMenu, InfoText, InfoImg, InfoBtn, LinkList, Link } from './info.styled';
 import Dropdown from 'images/arrowDown.svg';
 import { useTranslation } from 'react-i18next';
-import '../../layouts/i18n/i18next';
 
 const Info = () => {
   const [isOpen, setIsOpen] = useState(false);

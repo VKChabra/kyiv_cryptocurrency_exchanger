@@ -31,7 +31,7 @@
   },
   "calc": {
     "inputGive": "Віддаєте",
-    "inputTake": "Отримуєте",
+    "inputReceive": "Отримуєте",
     "submit": "Обміняти"
   }
 }

@@ -7,16 +7,20 @@ export const HeroSplitter = styled.div`
 export const LeftFrame = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 65%;
-  max-width: 800px;
-  padding-top: 105px;
+  flex: 67%;
+  padding-left: 111px;
+  padding-bottom: 74px;
+  padding-top: 80px;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
 `;
 
 export const RightFrame = styled.div`
   position: relative;
   display: flex;
+  align-items: flex-end;
   flex-direction: column;
-  flex: 35%;
+  flex: 33%;
+  border-left: 2px solid ${({ theme }) => theme.colors.primary};
 `;
 
 export const CompanyName = styled.h1`
@@ -24,6 +28,7 @@ export const CompanyName = styled.h1`
   font-size: 128px;
   font-weight: 400;
   line-height: 100%;
+  margin-bottom: 60px;
 `;
 
 export const Description = styled.h2`
@@ -32,14 +37,20 @@ export const Description = styled.h2`
   font-style: normal;
   font-weight: 300;
   line-height: 100%;
+  max-width: 750px;
+  margin-bottom: 60px;
 `;
 
 export const Background = styled.img`
   position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 `;
 
 export const Coin = styled.img`
   position: absolute;
-  left: 5%;
-  top: 20%;
+  top: 15%;
+  left: 10%;
+  height: 50%;
 `;

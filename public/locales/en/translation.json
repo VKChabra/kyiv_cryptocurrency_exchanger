@@ -31,7 +31,7 @@
   },
   "calc": {
     "inputGive": "Giving",
-    "inputTake": "Receiving",
+    "inputReceive": "Receiving",
     "submit": "Exchange"
   }
 }

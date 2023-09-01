@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Frame, Wrap, Label, Input, Form, Dropdown } from './calculator.styled';
+import NeoButton from 'layouts/Button';
 
 const Calculator = () => {
   const { t } = useTranslation();
@@ -39,7 +40,13 @@ const Calculator = () => {
       <Form onSubmit={handleSubmit}>
         <Wrap>
           <Label>
-            <Input type="text" name="exchange" value={formData.exchange} onChange={handleChange} />
+            <Input
+              type="text"
+              name="exchange"
+              value={formData.exchange}
+              onChange={handleChange}
+              placeholder={t('calc.inputGive')}
+            />
             <Dropdown name="exchangeCurr" value={formData.exchangeCurr} onChange={handleChange}>
               {options.map(option => (
                 <option key={option.value} value={option.value}>
@@ -51,7 +58,13 @@ const Calculator = () => {
         </Wrap>
         <Wrap>
           <Label>
-            <Input type="text" name="receive" value={formData.receive} onChange={handleChange} />
+            <Input
+              type="text"
+              name="receive"
+              value={formData.receive}
+              onChange={handleChange}
+              placeholder={t('calc.inputReceive')}
+            />
             <Dropdown name="receiveCurr" value={formData.receiveCurr} onChange={handleChange}>
               {options.map(option => (
                 <option key={option.value} value={option.value}>
@@ -61,7 +74,7 @@ const Calculator = () => {
             </Dropdown>
           </Label>
         </Wrap>
-        <button type="submit">{t('calc.submit')}</button>
+        <NeoButton type="submit" text={t('calc.submit')}></NeoButton>
       </Form>
     </Frame>
   );
