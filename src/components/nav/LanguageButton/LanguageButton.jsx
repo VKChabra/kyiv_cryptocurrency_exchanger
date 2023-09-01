@@ -5,7 +5,7 @@ import { Language, LanguageChosen, LanguageWrapper } from './language.styled';
 import LanguageIcon from 'images/nav/language.svg';
 
 const LanguageButton = () => {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState(cookies.get('i18next') || 'en');
 
   const languages = [
     {
