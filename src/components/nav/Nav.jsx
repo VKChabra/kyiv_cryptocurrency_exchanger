@@ -10,18 +10,15 @@ const Nav = () => {
   return (
     <NavHeader>
       <Link to="/">
-        {' '}
         <Text>{t('nav.home')}</Text>
       </Link>
       <LineImg src={Line} />
       <Link to="/exchangerates">
-        {' '}
-        <Text>{t('nav.exchangeRates')}</Text>{' '}
+        <Text>{t('nav.exchangeRates')}</Text>
       </Link>
       <LineImg src={Line} />
       <Link to="/news">
-        {' '}
-        <Text>{t('nav.news')}</Text>{' '}
+        <Text>{t('nav.news')}</Text>
       </Link>
       <LineImg src={Line} />
       <Info />
