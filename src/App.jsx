@@ -21,6 +21,7 @@ const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
 const ReviewsPage = lazy(() => import('./pages/Reviews'));
 const RegistrationPage = lazy(() => import('./pages/Registration/Registration'));
+const LoginPage = lazy(() => import('./pages/Login/Login'));
 const UserPage = lazy(() => import('./pages/User'));
 
 const App = () => {
@@ -72,14 +73,14 @@ const App = () => {
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<HomePage />} />
-              {/* <Route
+              <Route
                 path="login"
                 element={
                   <PublicRoute restricted>
                     <LoginPage />
                   </PublicRoute>
                 }
-              /> */}
+              />
               <Route
                 path="register"
                 element={
@@ -103,8 +104,6 @@ const App = () => {
               <Route path="faq" />
               <Route path="contacts" />
               <Route path="register" />
-              <Route path="login" />
-
               <Route path="admin" element={<AdminMenu />}>
                 <Route index element={<AdminAccountPage />} />
                 <Route path="reviews" element={<ReviewPage />} />

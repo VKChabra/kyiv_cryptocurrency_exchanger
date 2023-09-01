@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
-import { Field, Form } from './Registration.styled';
+import { Field, Form } from './Login.styled';
 import { useState } from 'react';
-import { register } from 'redux/auth/operations';
+import { logIn } from 'redux/auth/operations';
 
-const Registration = () => {
+const Login = () => {
   const [name, setName] = useState('');
   const [email, setMail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,9 +13,9 @@ const Registration = () => {
     e.preventDefault();
 
     if (!email || !name || !password) {
-      return console.log('error wrong auth data');
+      return console.log('error wrong user data');
     }
-    dispatch(register({ name, email, password }));
+    dispatch(logIn({ name, email, password }));
     setName('');
     setMail('');
     setPassword('');
@@ -54,9 +54,9 @@ const Registration = () => {
         Password
         <input type="password" name="password" value={password} onChange={handleChange} />
       </Field>
-      <button type="submit">Create Account</button>
+      <button type="submit">Log In</button>
     </Form>
   );
 };
 
-export default Registration;
+export default Login;
