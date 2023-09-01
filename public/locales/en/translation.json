@@ -25,5 +25,12 @@
     "operation": "operations",
     "feedback": "feedback",
     "exit": "exit"
+  },
+  "hero": {
+    "desc": "is a reliable and secure cryptocurrency exchanger for every day"
+  },
+  "calc": {
+    "inputGive": "Giving",
+    "inputTake": "Receiving"
   }
 }
