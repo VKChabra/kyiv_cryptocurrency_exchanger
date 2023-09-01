@@ -23,20 +23,16 @@ const Info = () => {
       {isOpen && (
         <LinkList>
           <Link to="/partnership">
-            {' '}
-            <Text>{t('nav.partnership')}</Text>{' '}
+            <Text>{t('nav.partnership')}</Text>
           </Link>
           <Link to="/reviews">
-            {' '}
-            <Text>{t('nav.reviews')}</Text>{' '}
+            <Text>{t('nav.reviews')}</Text>
           </Link>
           <Link to="/faq">
-            {' '}
-            <Text>FAQ</Text>{' '}
+            <Text>FAQ</Text>
           </Link>
           <Link to="#contacts">
-            {' '}
-            <Text>{t('nav.contacts')}</Text>{' '}
+            <Text>{t('nav.contacts')}</Text>
           </Link>
         </LinkList>
       )}
