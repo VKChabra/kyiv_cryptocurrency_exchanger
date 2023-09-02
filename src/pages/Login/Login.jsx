@@ -9,7 +9,6 @@ import { logIn } from 'redux/auth/operations';
 const Login = () => {
   const { t } = useTranslation();
 
-  const [name, setName] = useState('');
   const [email, setMail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -17,11 +16,11 @@ const Login = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (!email || !name || !password) {
+    if (!email || !password) {
       return console.log('error wrong user data');
     }
-    dispatch(logIn({ name, email, password }));
-    setName('');
+    dispatch(logIn({ email, password }));
+
     setMail('');
     setPassword('');
   };
@@ -30,9 +29,6 @@ const Login = () => {
     const value = e.target.value.toLowerCase().trim();
     const field = e.target.name;
     switch (field) {
-      case 'name':
-        setName(value);
-        break;
       case 'email':
         setMail(value);
         break;
@@ -47,10 +43,6 @@ const Login = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Field>
-        <span>{t('auth.name')}</span>{' '}
-        <input type="text" name="name" value={name} onChange={handleChange} />
-      </Field>
       <Field>
         <span>{t('auth.mail')}</span>{' '}
         <input type="email" name="email" value={email} onChange={handleChange} />
