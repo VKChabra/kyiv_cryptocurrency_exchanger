@@ -5,6 +5,8 @@ import UserData from '../../components/userData';
 import Feedback from '../../components/feedback';
 import { useTranslation } from 'react-i18next';
 import '../../layouts/i18n/i18next';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/operations';
 
 const transactions = [
   {
@@ -29,6 +31,9 @@ const ButtonsMenu = () => {
   };
   const { t } = useTranslation();
 
+  const dispatch = useDispatch();
+  const handleLogOut = () => dispatch(logOut());
+
   return (
     <>
       <ProfileNav>
@@ -43,7 +48,9 @@ const ButtonsMenu = () => {
             {t('userButtons.feedback')}
           </Button>
         </ButtonWrapper>
-        <ExitButton type="button">{t('userButtons.exit')}</ExitButton>
+        <ExitButton type="button" onClick={handleLogOut}>
+          {t('userButtons.exit')}
+        </ExitButton>
       </ProfileNav>
       <>
         {typeButton === 'privat' && <UserData />}

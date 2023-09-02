@@ -1,9 +1,14 @@
+import 'layouts/i18n/i18next';
+import { useTranslation } from 'react-i18next';
+
 import { useDispatch } from 'react-redux';
-import { Field, Form } from './Registration.styled';
 import { useState } from 'react';
 import { register } from 'redux/auth/operations';
+import { Field, Form } from './Registration.styled';
 
 const Registration = () => {
+  const { t } = useTranslation();
+
   const [name, setName] = useState('');
   const [email, setMail] = useState('');
   const [password, setPassword] = useState('');
@@ -43,18 +48,22 @@ const Registration = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Field>
-        User Name
+        {' '}
+        <span>{t('auth.name')}</span>{' '}
         <input type="text" name="name" value={name} onChange={handleChange} />
       </Field>
       <Field>
-        Mail
+        <span>{t('auth.mail')}</span>{' '}
         <input type="email" name="email" value={email} onChange={handleChange} />
       </Field>
       <Field>
-        Password
+        <span>{t('auth.password')}</span>{' '}
         <input type="password" name="password" value={password} onChange={handleChange} />
       </Field>
-      <button type="submit">Create Account</button>
+      <button type="submit">
+        {' '}
+        <span>{t('auth.register')}</span>{' '}
+      </button>
     </Form>
   );
 };

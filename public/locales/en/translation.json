@@ -33,5 +33,12 @@
     "inputGive": "Giving",
     "inputReceive": "Receiving",
     "submit": "Exchange"
+  },
+  "auth": {
+    "register": "Create Account",
+    "login": "Log In",
+    "name": "User Name",
+    "mail": "Mail",
+    "password": "Password"
   }
 }
