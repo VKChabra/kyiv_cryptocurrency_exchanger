@@ -54,7 +54,7 @@ const Registration = () => {
         Password
         <input type="password" name="password" value={password} onChange={handleChange} />
       </Field>
-      <button type="submit">Register</button>
+      <button type="submit">Create Account</button>
     </Form>
   );
 };
