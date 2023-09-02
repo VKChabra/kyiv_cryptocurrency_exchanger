@@ -1,12 +1,12 @@
 import 'layouts/i18n/i18next';
 import { useTranslation } from 'react-i18next';
 
-import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { register } from 'redux/auth/operations';
-import { Field, Form } from './Registration.styled';
+import { useDispatch } from 'react-redux';
+import { Field, Form } from './Login.styled';
+import { logIn } from 'redux/auth/operations';
 
-const Registration = () => {
+const Login = () => {
   const { t } = useTranslation();
 
   const [name, setName] = useState('');
@@ -18,9 +18,9 @@ const Registration = () => {
     e.preventDefault();
 
     if (!email || !name || !password) {
-      return console.log('error wrong auth data');
+      return console.log('error wrong user data');
     }
-    dispatch(register({ name, email, password }));
+    dispatch(logIn({ name, email, password }));
     setName('');
     setMail('');
     setPassword('');
@@ -48,7 +48,6 @@ const Registration = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Field>
-        {' '}
         <span>{t('auth.name')}</span>{' '}
         <input type="text" name="name" value={name} onChange={handleChange} />
       </Field>
@@ -62,10 +61,10 @@ const Registration = () => {
       </Field>
       <button type="submit">
         {' '}
-        <span>{t('auth.register')}</span>{' '}
+        <span>{t('auth.login')}</span>{' '}
       </button>
     </Form>
   );
 };
 
-export default Registration;
+export default Login;

@@ -1,9 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-  min-height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
 `;
 
@@ -13,6 +11,7 @@ export const Button = styled.button`
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: rgba(63, 70, 195, 0.9);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  width: 480px;
   &::before {
     position: absolute;
     width: 100%;
@@ -22,6 +21,7 @@ export const Button = styled.button`
     z-index: 2;
     content: '';
     backdrop-filter: blur(25px);
+    box-sizing: border-box;
   }
   &:active {
     transform: scale(0.99);
@@ -31,7 +31,6 @@ export const Button = styled.button`
 `;
 
 export const Text = styled.p`
-  width: 392px;
   padding: 24px 40px;
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   color: rgba(255, 255, 255, 1);

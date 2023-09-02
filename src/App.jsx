@@ -3,15 +3,26 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material';
 import './layouts/i18n/i18next';
-import { PublicRoute } from './components/routes';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { PrivateRoute, PublicRoute } from './components/routes';
 import Loader from './components/loader';
 
 import { GlobalStyle, themes } from 'styles/global.styles';
+import ReviewPage from 'pages/Admin/ReviewPage';
+
+// import themes from 'themes';
+import TransactionPage from 'pages/Admin/TransactionPage';
+import { AdminAccountPage } from 'pages/Admin/AdminAccountPage';
+import { AdminMenu } from 'components/admin/AdminMenu';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
 const ReviewsPage = lazy(() => import('./pages/Reviews'));
 const RegistrationPage = lazy(() => import('./pages/Registration/Registration'));
+const LoginPage = lazy(() => import('./pages/Login/Login'));
+const UserPage = lazy(() => import('./pages/User'));
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
@@ -62,14 +73,14 @@ const App = () => {
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<HomePage />} />
-              {/* <Route
+              <Route
                 path="login"
                 element={
                   <PublicRoute restricted>
                     <LoginPage />
                   </PublicRoute>
                 }
-              /> */}
+              />
               <Route
                 path="register"
                 element={
@@ -78,14 +89,14 @@ const App = () => {
                   </PublicRoute>
                 }
               />
-              {/* <Route
+              <Route
                 path="user"
                 element={
                   <PrivateRoute>
-                    <AccoutPage />
+                    <UserPage />
                   </PrivateRoute>
                 }
-              /> */}
+              />
               <Route path="exchangerates" />
               <Route path="news" />
               <Route path="partnership" />
@@ -93,12 +104,18 @@ const App = () => {
               <Route path="faq" />
               <Route path="contacts" />
               <Route path="register" />
-              <Route path="login" />
+              <Route path="admin" element={<AdminMenu />}>
+                <Route index element={<AdminAccountPage />} />
+                <Route path="reviews" element={<ReviewPage />} />
+                <Route path="transactions" element={<TransactionPage />} />
+              </Route>
+
               {/* <Route path="*" element={<NotFound />} /> */}
             </Route>
           </Routes>
         </Suspense>
       </BrowserRouter>
+      <ToastContainer />
     </ThemeProvider>
   );
 };

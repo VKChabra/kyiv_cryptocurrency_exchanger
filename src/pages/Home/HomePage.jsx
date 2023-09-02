@@ -1,7 +1,8 @@
-import User from '../User';
+import Home from 'components/home';
+
 const HomePage = () => (
   <div className="homepage">
-    <User />
+    <Home />
   </div>
 );
 

@@ -25,5 +25,20 @@
     "operation": "operations",
     "feedback": "feedback",
     "exit": "exit"
+  },
+  "hero": {
+    "desc": "is a reliable and secure cryptocurrency exchanger for every day"
+  },
+  "calc": {
+    "inputGive": "Giving",
+    "inputReceive": "Receiving",
+    "submit": "Exchange"
+  },
+  "auth": {
+    "register": "Create Account",
+    "login": "Log In",
+    "name": "User Name",
+    "mail": "Mail",
+    "password": "Password"
   }
 }
