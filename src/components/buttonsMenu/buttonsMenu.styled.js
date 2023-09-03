@@ -6,11 +6,18 @@ export const Button = styled.button`
   width: 304px;
   height: 60px;
   margin-top: 40px;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
   border-right: none;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.primary};
+  &:hover,
+  &.active {
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+    border-right: transparent;
+    background-color: ${({ theme }) => theme.colors.body};
+    margin-right: -1px;
+  }
 `;
+
 export const ProfileNav = styled.div`
   width: 390px;
   border-right: 2px solid ${({ theme }) => theme.colors.primary};
@@ -31,14 +38,7 @@ export const ExitButton = styled.button`
   border: 2px solid ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
-`;
-export const ButtonActive = styled.button`
-  margin-right: -2px;
-  width: 304px;
-  height: 60px;
-  margin-top: 40px;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
-  border-right: 2px solid ${({ theme }) => theme.colors.body};
-  color: ${({ theme }) => theme.colors.primary};
-  cursor: pointer;
+  &:hover {
+    background-color: green;
+  }
 `;

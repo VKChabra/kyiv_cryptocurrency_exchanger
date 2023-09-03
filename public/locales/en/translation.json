@@ -20,12 +20,8 @@
     "send": "send",
     "cancel": "cancel"
   },
-  "userButtons": {
-    "privat": "privat",
-    "operation": "operations",
-    "feedback": "feedback",
-    "exit": "exit"
-  },
+  "arrayUserButtons": ["privat", "operation", "feedback"],
+  "exitButton": { "exit": "exit" },
   "hero": {
     "desc": "is a reliable and secure cryptocurrency exchanger for every day"
   },
