@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material';
@@ -6,26 +7,30 @@ import './layouts/i18n/i18next';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { refresh } from 'redux/auth/operations';
+import { GlobalStyle, themes } from 'styles/global.styles';
+
 import { PrivateRoute, PublicRoute } from './components/routes';
 import Loader from './components/loader';
-
-import { GlobalStyle, themes } from 'styles/global.styles';
-import ReviewPage from 'pages/Admin/ReviewPage';
+import { AdminMenu } from 'components/admin/AdminMenu';
+import authSelectors from 'redux/auth/authSelectors';
 
 // import themes from 'themes';
-import TransactionPage from 'pages/Admin/TransactionPage';
-import { AdminAccountPage } from 'pages/Admin/AdminAccountPage';
-import { AdminMenu } from 'components/admin/AdminMenu';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
 const ReviewsPage = lazy(() => import('./pages/Reviews'));
+const AdminReviewPage = lazy(() => import('./pages/Admin/ReviewPage'));
+const AdminTransactionPage = lazy(() => import('./pages/Admin/TransactionPage'));
+const AdminAccountPage = lazy(() => import('./pages/Admin/AdminAccountPage'));
 const RegistrationPage = lazy(() => import('./pages/Registration/Registration'));
+const LoginPage = lazy(() => import('./pages/Login/Login'));
 const UserPage = lazy(() => import('./pages/User'));
+const ExchangePage = lazy(() => import('./pages/Exchange'));
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
-  // const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const getThemeFromLocalStorage = () => {
     const themeString = localStorage.getItem('theme');
@@ -40,12 +45,16 @@ const App = () => {
     }
   };
 
+  const userToken = useSelector(authSelectors.getUserToken);
+
   useEffect(() => {
+    if (userToken) dispatch(refresh());
+
     const themeFromLocalStorage = getThemeFromLocalStorage();
     if (themeFromLocalStorage) {
       setCurrentTheme(themeFromLocalStorage);
     }
-  }, []);
+  }, [dispatch, userToken]);
 
   const setThemeToLocalStorage = theme => {
     localStorage.setItem('theme', JSON.stringify(theme));
@@ -72,14 +81,14 @@ const App = () => {
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<HomePage />} />
-              {/* <Route
+              <Route
                 path="login"
                 element={
                   <PublicRoute restricted>
                     <LoginPage />
                   </PublicRoute>
                 }
-              /> */}
+              />
               <Route
                 path="register"
                 element={
@@ -96,19 +105,17 @@ const App = () => {
                   </PrivateRoute>
                 }
               />
+              <Route path="exchange" element={<ExchangePage />} />
               <Route path="exchangerates" />
               <Route path="news" />
               <Route path="partnership" />
               <Route path="reviews" element={<ReviewsPage />} />
               <Route path="faq" />
               <Route path="contacts" />
-              <Route path="register" />
-              <Route path="login" />
-
               <Route path="admin" element={<AdminMenu />}>
                 <Route index element={<AdminAccountPage />} />
-                <Route path="reviews" element={<ReviewPage />} />
-                <Route path="transactions" element={<TransactionPage />} />
+                <Route path="reviews" element={<AdminReviewPage />} />
+                <Route path="transactions" element={<AdminTransactionPage />} />
               </Route>
 
               {/* <Route path="*" element={<NotFound />} /> */}

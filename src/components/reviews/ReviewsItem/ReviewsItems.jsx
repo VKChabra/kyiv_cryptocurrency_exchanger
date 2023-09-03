@@ -5,28 +5,32 @@ import {
   NameWpapper,
   Name,
   ReviewWpapper,
+  DateStarWpapper,
 } from './ReviewsItem.styled';
-// import { Rating } from '@mui/material';
+import { Rating } from '@mui/material';
 
-const ReviewsItem = ({ data }) => {
+const ReviewsItem = ({ data = [] }) => {
+  const slicedDate = data.createdAt.slice(0, 10).toString();
+
   return (
     <Container>
-      <div>
-        <ImageWrapper>
-          <p>{data.owner.name.charAt(0).toUpperCase()}</p>
-        </ImageWrapper>
-        <NameWpapper>
-          <Name>{data.owner.name}</Name>
-        </NameWpapper>
-        <ReviewWpapper>
-          <p>{data.review}</p>
-        </ReviewWpapper>
+      <ImageWrapper>
+        <p>{data.owner.name.charAt(0).toUpperCase()}</p>
+      </ImageWrapper>
+      <NameWpapper>
+        <Name>{data.owner.name}</Name>
+      </NameWpapper>
+      <ReviewWpapper>
+        <p>{data.review}</p>
+      </ReviewWpapper>
+      <DateStarWpapper>
         <div>
-          <ReviewDate>{data.createAt}</ReviewDate>
+          <Rating name={data.owner.id} defaultValue={2} size="large" />
         </div>
-
-        {/* <Rating name={data.owner.id} defaultValue={2} size="large" /> */}
-      </div>
+        <div>
+          <ReviewDate>{slicedDate}</ReviewDate>
+        </div>
+      </DateStarWpapper>
     </Container>
   );
 };

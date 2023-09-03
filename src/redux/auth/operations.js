@@ -3,6 +3,7 @@ import axios from 'axios';
 // require('dotenv').config();
 
 axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com/';
+// axios.defaults.baseURL = 'http://localhost:3001/api';
 
 function setToken(token) {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -31,7 +32,7 @@ export const logIn = createAsyncThunk('users/logIn', async (credentials, thunkAP
 });
 export const logOut = createAsyncThunk('users/logOut', async (_, thunkAPI) => {
   try {
-    await axios.post('/users/logout');
+    await axios.get('/users/logout');
     unsetToken();
   } catch (e) {
     return thunkAPI.rejectWithValue(e);

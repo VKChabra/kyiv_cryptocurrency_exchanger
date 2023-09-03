@@ -6,6 +6,7 @@ export const LanguageChosen = styled.select`
   cursor: pointer;
   background-color: transparent;
   color: inherit;
+  background-color: ${({ theme }) => theme.colors.body};
   font: inherit;
   font-size: 16px;
   font-weight: 700;

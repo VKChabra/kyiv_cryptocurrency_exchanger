@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
   width: 430px;
-  height: 341px;
+  height: 300px;
   margin-bottom: 30px;
   padding: 52px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
@@ -16,7 +17,7 @@ export const Container = styled.div`
   }
 `;
 export const NameWpapper = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 `;
 
 export const Name = styled.p`
@@ -43,7 +44,13 @@ export const ImageWrapper = styled.div`
   }
 `;
 export const ReviewWpapper = styled.div`
-  height: 210px;
+  height: 100px;
+`;
+
+export const DateStarWpapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const ReviewDate = styled.p`
