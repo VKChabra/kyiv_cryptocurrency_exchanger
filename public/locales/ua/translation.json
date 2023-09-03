@@ -20,10 +20,6 @@
     "send": "відправити",
     "cancel": "відмінити"
   },
-  "userButtons": {
-    "privat": "кабінет",
-    "operation": "транзакції",
-    "feedback": "відгуки",
-    "exit": "вихід"
-  }
+  "arrayUserButtons": ["кабінет", "транзакції", "відгуки"],
+  "exitButton": { "exit": "вихід" }
 }

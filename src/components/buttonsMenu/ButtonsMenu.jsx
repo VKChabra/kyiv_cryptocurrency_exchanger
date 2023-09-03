@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Button, ProfileNav, ExitButton, ButtonWrapper, ButtonActive } from './buttonsMenu.styled';
+import { useState, useEffect } from 'react';
+import { Button, ProfileNav, ExitButton, ButtonWrapper } from './buttonsMenu.styled';
 import TransactionHistory from '../../components/userTransaction';
 import UserData from '../../components/userData';
 import Feedback from '../../components/feedback';
@@ -21,34 +21,46 @@ const transactions = [
   },
 ];
 
+const buttonsListUser = [{ nameBtn: 'privat' }, { nameBtn: 'operation' }, { nameBtn: 'feedback' }];
 const ButtonsMenu = () => {
-  const [typeButton, setTypeButton] = useState('');
-  const handler = event => {
-    const { name } = event.target;
-    setTypeButton(name);
+  const [activeButton, setActiveButton] = useState(0);
+  const [nameButton, setNameButton] = useState('privat');
+
+  useEffect(() => {
+    setNameButton(buttonsListUser[activeButton].nameBtn);
+  }, [activeButton, nameButton]);
+
+  const selectedBtn = index => {
+    setActiveButton(index);
   };
+  const setClassName = index => {
+    return index === activeButton ? 'active' : '';
+  };
+
   const { t } = useTranslation();
 
   return (
     <>
       <ProfileNav>
         <ButtonWrapper>
-          <ButtonActive name="privat" onClick={handler} type="button">
-            {t('userButtons.privat')}
-          </ButtonActive>
-          <Button name="operation" onClick={handler} type="button">
-            {t('userButtons.operation')}
-          </Button>
-          <Button name="feedback" onClick={handler} type="button">
-            {t('userButtons.feedback')}
-          </Button>
+          {buttonsListUser.map(({ nameBtn }, index) => (
+            <Button
+              key={index}
+              className={setClassName(index)}
+              name={nameBtn}
+              onClick={() => selectedBtn(index)}
+              type="button"
+            >
+              {t(`arrayUserButtons.${index}`)}
+            </Button>
+          ))}
         </ButtonWrapper>
-        <ExitButton type="button">{t('userButtons.exit')}</ExitButton>
+        <ExitButton type="button">{t('exitButton.exit')}</ExitButton>
       </ProfileNav>
       <>
-        {typeButton === 'privat' && <UserData />}
-        {typeButton === 'operation' && <TransactionHistory transactions={transactions} />}
-        {typeButton === 'feedback' && <Feedback />}
+        {nameButton === 'privat' && <UserData />}
+        {nameButton === 'operation' && <TransactionHistory transactions={transactions} />}
+        {nameButton === 'feedback' && <Feedback />}
       </>
     </>
   );

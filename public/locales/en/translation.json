@@ -20,10 +20,6 @@
     "send": "send",
     "cancel": "cancel"
   },
-  "userButtons": {
-    "privat": "privat",
-    "operation": "operations",
-    "feedback": "feedback",
-    "exit": "exit"
-  }
+  "arrayUserButtons": ["privat", "operation", "feedback"],
+  "exitButton": { "exit": "exit" }
 }
