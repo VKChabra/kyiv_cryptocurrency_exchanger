@@ -28,7 +28,8 @@
   "calc": {
     "inputGive": "Віддаєте",
     "inputReceive": "Отримуєте",
-    "submit": "Обміняти"
+    "submit": "Обміняти",
+    "inputEmptyError": "Заповніть поле"
   },
   "auth": {
     "register": "Зареєструватися",

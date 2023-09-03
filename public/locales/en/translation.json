@@ -28,7 +28,8 @@
   "calc": {
     "inputGive": "Giving",
     "inputReceive": "Receiving",
-    "submit": "Exchange"
+    "submit": "Exchange",
+    "inputEmptyError": "Please fill in any field"
   },
   "auth": {
     "register": "Create Account",
