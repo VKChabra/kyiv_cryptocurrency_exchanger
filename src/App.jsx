@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material';
@@ -13,23 +13,23 @@ import { GlobalStyle, themes } from 'styles/global.styles';
 import { PrivateRoute, PublicRoute } from './components/routes';
 import Loader from './components/loader';
 import { AdminMenu } from 'components/admin/AdminMenu';
-
-import ReviewPage from 'pages/Admin/ReviewPage';
-import TransactionPage from 'pages/Admin/TransactionPage';
-import { AdminAccountPage } from 'pages/Admin/AdminAccountPage';
+import authSelectors from 'redux/auth/authSelectors';
 
 // import themes from 'themes';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
 const ReviewsPage = lazy(() => import('./pages/Reviews'));
+const AdminReviewPage = lazy(() => import('./pages/Admin/ReviewPage'));
+const AdminTransactionPage = lazy(() => import('./pages/Admin/TransactionPage'));
+const AdminAccountPage = lazy(() => import('./pages/Admin/AdminAccountPage'));
 const RegistrationPage = lazy(() => import('./pages/Registration/Registration'));
 const LoginPage = lazy(() => import('./pages/Login/Login'));
 const UserPage = lazy(() => import('./pages/User'));
+const ExchangePage = lazy(() => import('./pages/Exchange'));
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
-  // const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const getThemeFromLocalStorage = () => {
@@ -45,14 +45,16 @@ const App = () => {
     }
   };
 
+  const userToken = useSelector(authSelectors.getUserToken);
+
   useEffect(() => {
-    dispatch(refresh());
+    if (userToken) dispatch(refresh());
 
     const themeFromLocalStorage = getThemeFromLocalStorage();
     if (themeFromLocalStorage) {
       setCurrentTheme(themeFromLocalStorage);
     }
-  }, [dispatch]);
+  }, [dispatch, userToken]);
 
   const setThemeToLocalStorage = theme => {
     localStorage.setItem('theme', JSON.stringify(theme));
@@ -103,17 +105,17 @@ const App = () => {
                   </PrivateRoute>
                 }
               />
+              <Route path="exchange" element={<ExchangePage />} />
               <Route path="exchangerates" />
               <Route path="news" />
               <Route path="partnership" />
               <Route path="reviews" element={<ReviewsPage />} />
               <Route path="faq" />
               <Route path="contacts" />
-              <Route path="register" />
               <Route path="admin" element={<AdminMenu />}>
                 <Route index element={<AdminAccountPage />} />
-                <Route path="reviews" element={<ReviewPage />} />
-                <Route path="transactions" element={<TransactionPage />} />
+                <Route path="reviews" element={<AdminReviewPage />} />
+                <Route path="transactions" element={<AdminTransactionPage />} />
               </Route>
 
               {/* <Route path="*" element={<NotFound />} /> */}

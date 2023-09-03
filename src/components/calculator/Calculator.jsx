@@ -1,19 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Frame, Wrap, Label, Input, Form, Dropdown } from './calculator.styled';
 import NeoButton from 'layouts/Button';
+import options from 'shared/options';
 
 const Calculator = () => {
   const { t } = useTranslation();
-
-  const options = [
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' },
-    { value: 'option4', label: 'Option 4' },
-    { value: 'option5', label: 'Option 5' },
-    { value: 'option6', label: 'Option 6' },
-  ];
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     exchange: '',
@@ -33,6 +27,7 @@ const Calculator = () => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log('Form Data:', formData);
+    navigate('/exchange');
   };
 
   return (

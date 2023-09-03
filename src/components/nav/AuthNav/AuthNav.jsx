@@ -8,13 +8,11 @@ const AuthNav = () => {
   return (
     <RegistrationWrapper>
       <Link to="/register">
-        {' '}
-        <Text>{t('nav.register')}</Text>{' '}
+        <Text>{t('nav.register')}</Text>
       </Link>
       <Link to="/login">
-        {' '}
         <TextWrapper>
-          <Text>{t('nav.login')}</Text>{' '}
+          <Text>{t('nav.login')}</Text>
         </TextWrapper>
       </Link>
     </RegistrationWrapper>

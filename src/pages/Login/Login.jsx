@@ -44,16 +44,15 @@ const Login = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Field>
-        <span>{t('auth.mail')}</span>{' '}
+        <span>{t('auth.mail')}</span>
         <input type="email" name="email" value={email} onChange={handleChange} />
       </Field>
       <Field>
-        <span>{t('auth.password')}</span>{' '}
+        <span>{t('auth.password')}</span>
         <input type="password" name="password" value={password} onChange={handleChange} />
       </Field>
       <button type="submit">
-        {' '}
-        <span>{t('auth.login')}</span>{' '}
+        <span>{t('auth.login')}</span>
       </button>
     </Form>
   );

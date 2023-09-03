@@ -1,5 +1,7 @@
 import { Box } from '@mui/material';
 
-export const AdminAccountPage = () => {
+const AdminAccountPage = () => {
   return <Box>AdminAccount</Box>;
 };
+
+export default AdminAccountPage;
