@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material';
@@ -6,16 +7,18 @@ import './layouts/i18n/i18next';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { refresh } from 'redux/auth/operations';
+import { GlobalStyle, themes } from 'styles/global.styles';
+
 import { PrivateRoute, PublicRoute } from './components/routes';
 import Loader from './components/loader';
+import { AdminMenu } from 'components/admin/AdminMenu';
 
-import { GlobalStyle, themes } from 'styles/global.styles';
 import ReviewPage from 'pages/Admin/ReviewPage';
-
-// import themes from 'themes';
 import TransactionPage from 'pages/Admin/TransactionPage';
 import { AdminAccountPage } from 'pages/Admin/AdminAccountPage';
-import { AdminMenu } from 'components/admin/AdminMenu';
+
+// import themes from 'themes';
 
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
@@ -27,6 +30,7 @@ const UserPage = lazy(() => import('./pages/User'));
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
   // const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const getThemeFromLocalStorage = () => {
     const themeString = localStorage.getItem('theme');
@@ -42,11 +46,13 @@ const App = () => {
   };
 
   useEffect(() => {
+    dispatch(refresh());
+
     const themeFromLocalStorage = getThemeFromLocalStorage();
     if (themeFromLocalStorage) {
       setCurrentTheme(themeFromLocalStorage);
     }
-  }, []);
+  }, [dispatch]);
 
   const setThemeToLocalStorage = theme => {
     localStorage.setItem('theme', JSON.stringify(theme));
