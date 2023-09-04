@@ -25,7 +25,7 @@ export const reviewsApi = createApi({
     }),
     getApprovedReviews: build.query({
       query: (page) => ({
-        url: `/review/approved?page=${page}`,
+        url: `/review/approved?limit=6&page=${page}`,
         method: "GET",
       }),
       providesTags: ["Reviews"],

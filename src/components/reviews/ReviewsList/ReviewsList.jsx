@@ -8,7 +8,7 @@ const ReviewsList = ({ reviews }) => {
 
   return (
     <List>
-      {reviews.map(item => (
+      {reviews?.map(item => (
         <Item key={item._id}>
           <ReviewsItem data={item} />
         </Item>
