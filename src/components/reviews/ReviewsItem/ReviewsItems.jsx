@@ -4,7 +4,6 @@ import {
   PurpleElipse,
   OrangeElipse,
   NameLetter,
-  ImageWrapper,
   ReviewDate,
   NameWpapper,
   Name,
@@ -17,7 +16,14 @@ import purpleElipse from '../../../images/purpleElipse.svg';
 import orangeElipse from '../../../images/orangeElipse.svg';
 
 const ReviewsItem = ({ data = [] }) => {
-  const slicedDate = data.createdAt.slice(0, 10).toString();
+  const handleDateFormat = dateString => {
+    const date = new Date(dateString);
+    const year = date.getUTCFullYear();
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    const formattedDate = `${day}.${month}.${year}`;
+    return formattedDate;
+  };
 
   return (
     <Container>
@@ -34,10 +40,10 @@ const ReviewsItem = ({ data = [] }) => {
       </ReviewWpapper>
       <DateStarWpapper>
         <div>
-          <Rating name={data.owner.id} defaultValue={2} size="large" />
+          <Rating name={data.owner.id} defaultValue={3} size="large" readOnly />
         </div>
         <div>
-          <ReviewDate>{slicedDate}</ReviewDate>
+          <ReviewDate>{handleDateFormat(data.createdAt)}</ReviewDate>
         </div>
       </DateStarWpapper>
     </Container>
