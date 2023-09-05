@@ -29,7 +29,10 @@
     "inputGive": "Giving",
     "inputReceive": "Receiving",
     "submit": "Exchange",
-    "inputEmptyError": "Please fill in any field"
+    "inputEmptyError": "Please fill in the field"
+  },
+  "exchange": {
+    "agreement": "I accept the terms of exchange"
   },
   "auth": {
     "register": "Create Account",

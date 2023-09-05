@@ -31,6 +31,9 @@
     "submit": "Обменять",
     "inputEmptyError": "Заполните поле"
   },
+  "exchange": {
+    "agreement": "Я принимаю условия обмена"
+  },
   "auth": {
     "register": "Зарегистрироваться",
     "login": "Войти",
