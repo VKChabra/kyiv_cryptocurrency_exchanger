@@ -1,5 +1,9 @@
 import {
   Container,
+  BlackElipse,
+  PurpleElipse,
+  OrangeElipse,
+  NameLetter,
   ImageWrapper,
   ReviewDate,
   NameWpapper,
@@ -8,15 +12,20 @@ import {
   DateStarWpapper,
 } from './ReviewsItem.styled';
 import { Rating } from '@mui/material';
+import blackCircle from '../../../images/blackCircle.svg';
+import purpleElipse from '../../../images/purpleElipse.svg';
+import orangeElipse from '../../../images/orangeElipse.svg';
 
 const ReviewsItem = ({ data = [] }) => {
   const slicedDate = data.createdAt.slice(0, 10).toString();
 
   return (
     <Container>
-      <ImageWrapper>
-        <p>{data.owner.name.charAt(0).toUpperCase()}</p>
-      </ImageWrapper>
+      <BlackElipse src={blackCircle} alt="avatar" />
+      <PurpleElipse src={purpleElipse} alt="avatar" />
+      <OrangeElipse src={orangeElipse} alt="avatar" />
+      <NameLetter>{data.owner.name.charAt(0).toUpperCase()}</NameLetter>
+
       <NameWpapper>
         <Name>{data.owner.name}</Name>
       </NameWpapper>

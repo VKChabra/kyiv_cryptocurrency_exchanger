@@ -4,9 +4,8 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 430px;
+  width: 530px;
   height: 300px;
-  margin-bottom: 30px;
   padding: 52px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
   border-radius: 0px 0px 0px 0px;
@@ -16,35 +15,59 @@ export const Container = styled.div`
     transform: scale(1.02);
   }
 `;
+
+export const BlackElipse = styled.img`
+  position: absolute;
+  top: -60px;
+  left: -40px;
+  fill: ${({ theme }) => theme.colors.primary};
+`;
+
+export const PurpleElipse = styled.img`
+  position: absolute;
+  top: -50px;
+  left: -30px;
+  z-index: 10;
+`;
+
+export const OrangeElipse = styled.img`
+  position: absolute;
+  top: -50px;
+  left: -30px;
+  z-index: 15;
+  width: 180px;
+  height: 184px;
+  border-radius: 183.678px;
+`;
+
+export const NameLetter = styled.p`
+  position: absolute;
+  top: -10px;
+  left: 35px;
+  z-index: 18;
+  text-align: center;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 96px;
+`;
+
 export const NameWpapper = styled.div`
   margin-bottom: 40px;
 `;
 
 export const Name = styled.p`
   text-align: center;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
-export const ImageWrapper = styled.div`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 170px;
-  width: 80px;
-  overflow: hidden;
-  top: -60px;
-  left: -40px;
-  width: 158px;
-  padding: 6px 20px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  p {
-    text-align: center;
-    font-size: 90px;
-  }
-`;
 export const ReviewWpapper = styled.div`
   height: 100px;
+  p {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const DateStarWpapper = styled.div`
@@ -55,4 +78,5 @@ export const DateStarWpapper = styled.div`
 
 export const ReviewDate = styled.p`
   text-align: right;
+  color: ${({ theme }) => theme.colors.primary};
 `;
