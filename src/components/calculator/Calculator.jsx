@@ -1,43 +1,85 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Frame, Wrap, Label, Input, Form, Dropdown } from './calculator.styled';
 import NeoButton from 'layouts/Button';
+import options from 'shared/options';
+import { notifyError } from 'helpers/notifications';
+import { PERCENT } from 'shared/shared';
 
 const Calculator = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
-  const options = [
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' },
-    { value: 'option4', label: 'Option 4' },
-    { value: 'option5', label: 'Option 5' },
-    { value: 'option6', label: 'Option 6' },
-  ];
-
+  const [receive, setReceive] = useState('');
   const [formData, setFormData] = useState({
     exchange: '',
-    receive: '',
     exchangeCurr: options[0].value,
-    receiveCurr: options[3].value,
+    receiveCurr: options[1].value,
   });
+
+  const swapOptions = () => {
+    const { exchangeCurr, receiveCurr } = formData;
+    setFormData({
+      ...formData,
+      exchangeCurr: receiveCurr,
+      receiveCurr: exchangeCurr,
+    });
+  };
+
+  const countDecimalDigits = number => {
+    const numberString = number.toString();
+    if (numberString.includes('.')) {
+      const decimalPart = numberString.split('.')[1];
+      return decimalPart.length;
+    } else {
+      return 0;
+    }
+  };
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    if (name === 'exchangeCurr' && value === formData.receiveCurr) {
+      swapOptions();
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Form Data:', formData);
+    if (
+      !formData.exchange ||
+      isNaN(parseFloat(formData.exchange)) ||
+      parseFloat(formData.exchange) === 0
+    ) {
+      notifyError(t('calc.inputEmptyError'));
+      return;
+    }
+    navigate('/exchange');
   };
+
+  useEffect(() => {
+    const { exchange, exchangeCurr, receiveCurr } = formData;
+    const exchangeObj = options.find(option => option.value === exchangeCurr);
+    const receiveObj = options.find(option => option.value === receiveCurr);
+
+    if (exchangeObj && receiveObj && !isNaN(parseFloat(exchange))) {
+      const rate = receiveObj.rate / exchangeObj.rate;
+      let result = parseFloat(exchange) * rate;
+      const decimalDigits = countDecimalDigits(result);
+      decimalDigits === 0 ? result.toFixed(0) : result.toFixed(decimalDigits);
+      const finalResult = result * (1 - PERCENT / 100);
+      setReceive(finalResult);
+    }
+  }, [formData]);
 
   return (
     <Frame>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} autoComplete="off">
         <Wrap>
           <Label>
             <Input
@@ -61,9 +103,10 @@ const Calculator = () => {
             <Input
               type="text"
               name="receive"
-              value={formData.receive}
+              value={receive}
               onChange={handleChange}
               placeholder={t('calc.inputReceive')}
+              readOnly
             />
             <Dropdown name="receiveCurr" value={formData.receiveCurr} onChange={handleChange}>
               {options.map(option => (

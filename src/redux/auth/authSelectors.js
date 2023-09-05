@@ -7,7 +7,7 @@ const authSelectors = {
   selectUser,
   selectIsLoggedIn,
   selectIsRefreshing,
-  getUserToken
+  getUserToken,
 };
 
 export default authSelectors;

@@ -8,10 +8,9 @@ export const ProfileHeader = styled.div`
   justify-content: flex-end;
   display: flex;
   height: 120px;
-  margin-top: -100px;
+  margin-top: -120px;
   width: 100%;
   align-items: center;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
 `;
 export const Avatar = styled.div`
   width: 50px;

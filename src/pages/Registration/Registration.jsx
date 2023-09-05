@@ -48,21 +48,19 @@ const Registration = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Field>
-        {' '}
-        <span>{t('auth.name')}</span>{' '}
+        <span>{t('auth.name')}</span>
         <input type="text" name="name" value={name} onChange={handleChange} />
       </Field>
       <Field>
-        <span>{t('auth.mail')}</span>{' '}
+        <span>{t('auth.mail')}</span>
         <input type="email" name="email" value={email} onChange={handleChange} />
       </Field>
       <Field>
-        <span>{t('auth.password')}</span>{' '}
+        <span>{t('auth.password')}</span>
         <input type="password" name="password" value={password} onChange={handleChange} />
       </Field>
       <button type="submit">
-        {' '}
-        <span>{t('auth.register')}</span>{' '}
+        <span>{t('auth.register')}</span>
       </button>
     </Form>
   );

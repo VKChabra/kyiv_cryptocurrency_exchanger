@@ -20,19 +20,16 @@
     "send": "отправить",
     "cancel": "отмена"
   },
-  "userButtons": {
-    "privat": "кабинет",
-    "operation": "оперпации",
-    "feedback": "отзывы",
-    "exit": "выход"
-  },
+  "arrayUserButtons": ["кабинет", "оперпации", "отзывы"],
+  "exitButton": { "exit": "выход" },
   "hero": {
     "desc": "это надёжный и безопасный обменник криптовалют для каждого дня"
   },
   "calc": {
     "inputGive": "Отдаёте",
     "inputReceive": "Получаете",
-    "submit": "Обменять"
+    "submit": "Обменять",
+    "inputEmptyError": "Заполните поле"
   },
   "auth": {
     "register": "Зарегистрироваться",
