@@ -8,7 +8,6 @@ export const Container = styled.div`
   height: 300px;
   padding: 52px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
-  border-radius: 0px 0px 0px 0px;
   border: 2px solid #ffffff;
   transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
@@ -55,18 +54,31 @@ export const NameLetter = styled.p`
 `;
 
 export const NameWpapper = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 `;
 
 export const Name = styled.p`
   text-align: center;
   color: ${({ theme }) => theme.colors.primary};
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
 `;
 
 export const ReviewWpapper = styled.div`
   height: 100px;
+  display: flex;
+  justify-content: flex-start;
   p {
     color: ${({ theme }) => theme.colors.primary};
+    text-align: left;
+    font-family: Red Hat Display;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
   }
 `;
 

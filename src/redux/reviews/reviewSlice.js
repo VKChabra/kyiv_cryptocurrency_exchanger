@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { reviewsApi } from "./reviewsApi";
 
 
 const initialState = {

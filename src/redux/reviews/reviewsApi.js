@@ -45,10 +45,10 @@ export const reviewsApi = createApi({
     }),
 
     addReview: build.mutation({
-      query: formData => ({
-        url: `review/addreview `,
+      query: data => ({
+        url: `review/my`,
         method: "POST",
-        body: formData,
+        body: data,
       }),
       invalidatesTags: ["Reviews"],
     }),
