@@ -40,7 +40,7 @@ const ReviewsItem = ({ data = [] }) => {
       </ReviewWpapper>
       <DateStarWpapper>
         <div>
-          <Rating name={data.owner.id} defaultValue={3} size="large" readOnly />
+          <Rating name={data.owner.id} defaultValue={5} size="large" readOnly />
         </div>
         <div>
           <ReviewDate>{handleDateFormat(data.createdAt)}</ReviewDate>
