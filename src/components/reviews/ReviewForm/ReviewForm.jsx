@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Rating } from '@mui/material';
 import { useState } from 'react';
 import { useAddReviewMutation } from 'redux/reviews/reviewsApi';
+import { notifySuccess, notifyWarning, notifyError } from '../../../helpers/notifications';
 
 const ReviewForm = () => {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
@@ -18,12 +19,23 @@ const ReviewForm = () => {
   };
 
   const handleSubmit = async e => {
-    e.preventDefault();
-    // const data = { review: feedback, star: starValue };
-    const data = { review: feedback };
-    console.log(data);
-    await addReview(data);
-    setFeedback('');
+    try {
+      if (!isLoggedIn) {
+        notifyWarning('Щоб залишити відгук будь-ласка залогіньтеся');
+        navigate('/login');
+        return;
+      }
+      e.preventDefault();
+      // const data = { review: feedback, star: starValue };
+      const data = { review: feedback };
+      console.log(data);
+      await addReview(data);
+      notifySuccess('Ваш відгук додано');
+      setFeedback('');
+    } catch {
+      notifyError('Щось пішло е так...Ваш відгук не додано');
+      return;
+    }
   };
 
   return (

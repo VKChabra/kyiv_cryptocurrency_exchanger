@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 530px;
-  height: 300px;
+  height: 350px;
   padding: 52px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
   border: 2px solid #ffffff;
@@ -54,7 +54,7 @@ export const NameLetter = styled.p`
 `;
 
 export const NameWpapper = styled.div`
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 `;
 
 export const Name = styled.p`
@@ -68,7 +68,9 @@ export const Name = styled.p`
 `;
 
 export const ReviewWpapper = styled.div`
-  height: 100px;
+  height: 200px;
+  width: 400px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: flex-start;
   p {
@@ -83,12 +85,11 @@ export const ReviewWpapper = styled.div`
 `;
 
 export const DateStarWpapper = styled.div`
+  width: 500px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 `;
 
 export const ReviewDate = styled.p`
-  text-align: right;
   color: ${({ theme }) => theme.colors.primary};
 `;
