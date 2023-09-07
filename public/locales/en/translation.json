@@ -36,5 +36,9 @@
     "name": "User Name",
     "mail": "Mail",
     "password": "Password"
+  },
+  "courses": {
+    "title": "TOP CRYPTOCURRSENCY",
+    "desc": "The most popular cryptocurrencies today"
   }
 }

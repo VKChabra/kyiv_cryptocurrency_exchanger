@@ -5,8 +5,9 @@ export const themes = {
     title: 'light',
     colors: {
       body: '#F6F3E0',
-      primaryText: '#4D4D4D',
+      primary: '#4D4D4D',
       secondary: '#fff',
+      curses: '#fbf6e1',
     },
   },
   dark: {
@@ -15,6 +16,7 @@ export const themes = {
       body: '#30302B',
       primary: '#fff',
       secondary: '#fff',
+      curses: '#2C2C27',
     },
   },
   media: {
@@ -30,7 +32,7 @@ export const GlobalStyle = ({ theme }) => (
       body {
         margin: 0;
         font-family: Manrope, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Phudu', 'Helvetica Neue', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background-color: ${theme.colors.body};

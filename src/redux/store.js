@@ -30,7 +30,7 @@ const middleware = getDefaultMiddleware => [
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-     [reviewsApi.reducerPath]: reviewsApi.reducer
+    [reviewsApi.reducerPath]: reviewsApi.reducer,
   },
   middleware,
 });
