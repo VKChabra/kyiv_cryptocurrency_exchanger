@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button, ProfileNav, ExitButton, ButtonWrapper } from './buttonsMenu.styled';
+import { Button, ProfileNav, ExitButton, ButtonWrapper, Text, Icon } from './buttonsMenu.styled';
 import TransactionHistory from '../../components/userTransaction';
 import UserData from '../../components/userData';
 import Feedback from '../../components/feedback';
@@ -56,12 +56,14 @@ const ButtonsMenu = () => {
               onClick={() => selectedBtn(index)}
               type="button"
             >
-              {t(`arrayUserButtons.${index}`)}
+              <Icon nameBtn={nameBtn} />
+              <Text>{t(`arrayUserButtons.${index}`)}</Text>
             </Button>
           ))}
         </ButtonWrapper>
         <ExitButton type="button" onClick={handleLogOut}>
-          {t('exitButton.exit')}
+          <Icon />
+          <Text>{t('exitButton.exit')}</Text>
         </ExitButton>
       </ProfileNav>
       <>

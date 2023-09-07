@@ -1,6 +1,9 @@
 import {
   Container,
-  ImageWrapper,
+  BlackElipse,
+  PurpleElipse,
+  OrangeElipse,
+  NameLetter,
   ReviewDate,
   NameWpapper,
   Name,
@@ -8,15 +11,27 @@ import {
   DateStarWpapper,
 } from './ReviewsItem.styled';
 import { Rating } from '@mui/material';
+import blackCircle from '../../../images/blackCircle.svg';
+import purpleElipse from '../../../images/purpleElipse.svg';
+import orangeElipse from '../../../images/orangeElipse.svg';
 
 const ReviewsItem = ({ data = [] }) => {
-  const slicedDate = data.createdAt.slice(0, 10).toString();
+  const handleDateFormat = dateString => {
+    const date = new Date(dateString);
+    const year = date.getUTCFullYear();
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    const formattedDate = `${day}.${month}.${year}`;
+    return formattedDate;
+  };
 
   return (
     <Container>
-      <ImageWrapper>
-        <p>{data.owner.name.charAt(0).toUpperCase()}</p>
-      </ImageWrapper>
+      <BlackElipse src={blackCircle} alt="avatar" />
+      <PurpleElipse src={purpleElipse} alt="avatar" />
+      <OrangeElipse src={orangeElipse} alt="avatar" />
+      <NameLetter>{data.owner.name.charAt(0).toUpperCase()}</NameLetter>
+
       <NameWpapper>
         <Name>{data.owner.name}</Name>
       </NameWpapper>
@@ -25,10 +40,10 @@ const ReviewsItem = ({ data = [] }) => {
       </ReviewWpapper>
       <DateStarWpapper>
         <div>
-          <Rating name={data.owner.id} defaultValue={2} size="large" />
+          <Rating name={data.owner.id} defaultValue={5} size="large" readOnly />
         </div>
         <div>
-          <ReviewDate>{slicedDate}</ReviewDate>
+          <ReviewDate>{handleDateFormat(data.createdAt)}</ReviewDate>
         </div>
       </DateStarWpapper>
     </Container>

@@ -1,23 +1,41 @@
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { useState } from 'react';
-// import { useGetAllReviewsQuery } from 'redux/reviews/reviewsApi';
+import { Container } from './ReviewPagination.styled';
+import { useDispatch } from 'react-redux';
+import { changePageNumber } from 'redux/reviews/reviewSlice';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const ReviewPagination = () => {
+const theme = createTheme({
+  palette: {
+    purple: '#3E45C3',
+    orange: '#FE9505',
+  },
+});
+
+const ReviewPagination = ({ total, current }) => {
   const [page, setPage] = useState(1);
-  // const { data = [], isLoading, isFetching } = useGetAllReviewsQuery(page);
+  const dispatch = useDispatch();
 
   const handleChange = (event, value) => {
     setPage(value);
-    console.log(value);
+    dispatch(changePageNumber(value));
   };
 
   return (
-    <div>
-      <Stack spacing={2}>
-        <Pagination count={10} size="large" page={page} onChange={handleChange} />
-      </Stack>
-    </div>
+    <Container>
+      <ThemeProvider theme={theme}>
+        <Stack spacing={2}>
+          <Pagination
+            count={total}
+            size="large"
+            page={page}
+            onChange={handleChange}
+            color="purple"
+          />
+        </Stack>
+      </ThemeProvider>
+    </Container>
   );
 };
 

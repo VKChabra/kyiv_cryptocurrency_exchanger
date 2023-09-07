@@ -1,24 +1,29 @@
-import ReviewsList from 'components/reviews/ReviewsList';
-import { Container } from './Reviews.styled';
+import ReviewsList from 'components/reviews/ReviewsList/ReviewsList';
+import { Container, TextWrap } from './Reviews.styled';
 import { useGetApprovedReviewsQuery } from 'redux/reviews/reviewsApi';
 import Loader from 'components/loader/Loader';
 import ReviewPagination from 'components/reviews/Pagination/ReviewPagination';
 import ReviewForm from 'components/reviews/ReviewForm';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const ReviewsPage = () => {
-  const { data = [], status } = useGetApprovedReviewsQuery(1);
+  const { pageNumber } = useSelector(state => state?.reviews);
+  const { data, status } = useGetApprovedReviewsQuery(Number(pageNumber));
 
   return (
     <Container>
-      <h2>Що про нас говорять</h2>
+      <TextWrap>
+        <h2>Що про нас говорять</h2>
+        <p>Наш сервіс відкритий, ми показуємо всі відгуки</p>
+      </TextWrap>
       {status === 'pending' && <Loader />}
       {!status === 'pending' && data?.length === 0 && <h2>No reviews found</h2>}
-      {data?.length > 0 && (
-        <>
-          <ReviewsList reviews={data} />
-          <ReviewPagination />
+      {data && (
+        <div>
+          <ReviewsList reviews={data.reviews} />
+          <ReviewPagination total={data.totalPages} current={data.currentPage} />
           <ReviewForm />
-        </>
+        </div>
       )}
     </Container>
   );

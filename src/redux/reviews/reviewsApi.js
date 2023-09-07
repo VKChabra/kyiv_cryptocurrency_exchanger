@@ -25,7 +25,7 @@ export const reviewsApi = createApi({
     }),
     getApprovedReviews: build.query({
       query: (page) => ({
-        url: `/review/approved?page=${page}`,
+        url: `/review/approved?limit=6&page=${page}`,
         method: "GET",
       }),
       providesTags: ["Reviews"],
@@ -45,10 +45,10 @@ export const reviewsApi = createApi({
     }),
 
     addReview: build.mutation({
-      query: formData => ({
-        url: `review/addreview `,
+      query: data => ({
+        url: `review/my`,
         method: "POST",
-        body: formData,
+        body: data,
       }),
       invalidatesTags: ["Reviews"],
     }),

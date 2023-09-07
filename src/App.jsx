@@ -27,6 +27,7 @@ const RegistrationPage = lazy(() => import('./pages/Registration/Registration'))
 const LoginPage = lazy(() => import('./pages/Login/Login'));
 const UserPage = lazy(() => import('./pages/User'));
 const ExchangePage = lazy(() => import('./pages/Exchange'));
+const NewsPage = lazy(() => import('./pages/News'));
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
@@ -107,7 +108,7 @@ const App = () => {
               />
               <Route path="exchange" element={<ExchangePage />} />
               <Route path="exchangerates" />
-              <Route path="news" />
+              <Route path="news" element={<NewsPage />} />
               <Route path="partnership" />
               <Route path="reviews" element={<ReviewsPage />} />
               <Route path="faq" />
