@@ -47,6 +47,9 @@
     "name": "Nickname",
     "email": "Mail",
     "data": "Date of registration",
-    "status": "Status"
+    "status": "Status",
+  "courses": {
+    "title": "TOP CRYPTOCURRSENCY",
+    "desc": "The most popular cryptocurrencies today"
   }
 }
