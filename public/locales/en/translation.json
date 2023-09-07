@@ -41,6 +41,13 @@
     "mail": "Mail",
     "password": "Password"
   },
+  "userData": {
+    "firstName": "Name",
+    "secondName": "Last name",
+    "name": "Nickname",
+    "email": "Mail",
+    "data": "Date of registration",
+    "status": "Status",
   "courses": {
     "title": "TOP CRYPTOCURRSENCY",
     "desc": "The most popular cryptocurrencies today"
