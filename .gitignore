@@ -148,6 +148,3 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-REACT_APP_RECAPTCHA_CLIENT_KEY=6LehWwAoAAAAAIlJHbhXeK960h3st2cKibgfIqDC
-REACT_APP_RECAPTCHA_SERVER_KEY=6LehWwAoAAAAAHJ4V6n6ezCDt-pLe7NIUIjf9tEl
