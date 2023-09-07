@@ -39,7 +39,8 @@ export const Text = styled.p`
 `;
 
 export const BtnDateWrap = styled.div`
-  display: wrap;
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   width: 250px;
   p {

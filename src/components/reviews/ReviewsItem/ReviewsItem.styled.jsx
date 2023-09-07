@@ -4,7 +4,7 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 530px;
+  max-width: 530px;
   height: 350px;
   padding: 52px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
@@ -68,8 +68,8 @@ export const Name = styled.p`
 `;
 
 export const ReviewWpapper = styled.div`
-  height: 200px;
-  width: 400px;
+  max-height: 200px;
+  max-width: 400px;
   margin-bottom: 40px;
   display: flex;
   justify-content: flex-start;
