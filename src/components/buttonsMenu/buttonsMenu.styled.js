@@ -29,9 +29,13 @@ export const Button = styled.button`
   border-right: none;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.primary};
+  transition: background-color 500ms linear, transform 500ms ease-in-out;
+  transition: border-color 500ms linear, transform 500ms ease-in-out;
   &:hover,
   &.active {
     border: 2px solid ${({ theme }) => theme.colors.primary};
+    transition: border-color 500ms linear, transform 500ms ease-in-out;
+    transition: background-color 500ms linear, transform 500ms ease-in-out;
     border-right: transparent;
     background-color: ${({ theme }) => theme.colors.body};
     margin-right: -2px;

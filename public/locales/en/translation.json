@@ -40,5 +40,13 @@
     "name": "User Name",
     "mail": "Mail",
     "password": "Password"
+  },
+  "userData": {
+    "firstName": "Name",
+    "secondName": "Last name",
+    "name": "Nickname",
+    "email": "Mail",
+    "data": "Date of registration",
+    "status": "Status"
   }
 }

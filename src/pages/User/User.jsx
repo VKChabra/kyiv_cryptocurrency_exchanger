@@ -1,23 +1,20 @@
 import { Text, Avatar, ProfileHeader, Profile, ProfileWrapper } from './user.styled';
 import ButtonsMenu from '../../components/buttonsMenu';
+import { useAuth } from '../../hooks';
 
 const setAvatar = name => {
   const letters = name.toUpperCase().split('');
   return letters[0];
 };
 
-const userData = {
-  username: 'Jacques Gluke',
-};
-
 const User = () => {
-  const { username } = userData;
-  const letter = setAvatar(username);
+  const { user } = useAuth();
+  const letter = setAvatar(user.name);
 
   return (
     <Profile>
       <ProfileHeader>
-        <Text>{username}</Text>
+        <Text>{user.name}</Text>
         <Avatar>{letter}</Avatar>
       </ProfileHeader>
       <ProfileWrapper>
