@@ -4,18 +4,13 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 // import authSelectors from 'redux/auth/authSelectors';
 // import Registration from 'pages/Registration';
 import { Wrap } from './Exchange.styled';
-import {
-  FormContainer,
-  Input,
-  AcceptTermsLabel,
-  AcceptTermsCheckbox,
-  SubmitButton,
-} from './Exchange.styled';
+import { FormContainer, Input, AcceptTermsLabel, ExchangeCheckbox } from './Exchange.styled';
 import { useTranslation } from 'react-i18next';
 import Calculator from 'components/calculator';
 import exchangeSelectors from 'redux/exchange/exchangeSelectors';
 import options from 'shared/options';
 import Captcha from 'components/captcha';
+import NeoButton from 'layouts/Button/Button';
 
 const Exchange = () => {
   const { t } = useTranslation();
@@ -79,7 +74,7 @@ const Exchange = () => {
             <Captcha />
           </GoogleReCaptchaProvider>
           <AcceptTermsLabel>
-            <AcceptTermsCheckbox
+            <ExchangeCheckbox
               type="checkbox"
               name="acceptTerms"
               checked={formData.acceptTerms}
@@ -88,7 +83,7 @@ const Exchange = () => {
             />
             {t('exchange.agreement')}
           </AcceptTermsLabel>
-          <SubmitButton type="submit">Submit</SubmitButton>
+          <NeoButton type="submit" text={t('calc.submit')}></NeoButton>
         </form>
       </FormContainer>
     </Wrap>

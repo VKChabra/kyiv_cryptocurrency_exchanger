@@ -4,7 +4,7 @@ import authSelectors from 'redux/auth/authSelectors';
 import { useNavigate } from 'react-router-dom';
 import { Rating } from '@mui/material';
 import { useState } from 'react';
-import { useAddReviewMutation } from 'redux/reviews/reviewsApi';
+import { useAddReviewMutation } from 'services/reviewsApi';
 import { notifySuccess, notifyWarning, notifyError } from '../../../helpers/notifications';
 
 const ReviewForm = () => {

@@ -1,6 +1,6 @@
 import ReviewsList from 'components/reviews/ReviewsList/ReviewsList';
 import { Container, TextWrap } from './Reviews.styled';
-import { useGetApprovedReviewsQuery } from 'redux/reviews/reviewsApi';
+import { useGetApprovedReviewsQuery } from 'services/reviewsApi';
 import Loader from 'components/loader/Loader';
 import ReviewPagination from 'components/reviews/Pagination/ReviewPagination';
 import ReviewForm from 'components/reviews/ReviewForm';

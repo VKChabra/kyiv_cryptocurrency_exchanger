@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Checkbox } from '@mui/material';
 
 export const Wrap = styled.div`
   display: flex;
@@ -28,7 +29,8 @@ export const AcceptTermsLabel = styled.label`
   margin-bottom: 10px;
 `;
 
-export const AcceptTermsCheckbox = styled.input`
+export const ExchangeCheckbox = styled(Checkbox)`
+  color: ${({ theme }) => theme.colors.primary};
   margin-right: 5px;
 `;
 
