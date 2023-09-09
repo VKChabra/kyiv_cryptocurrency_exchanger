@@ -2,23 +2,22 @@ import axios from 'axios';
 import { notifyError } from 'helpers/notifications';
 
 axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
+// axios.defaults.baseURL = 'http://localhost:3001';
 
 export const verifyCaptcha = async token => {
   const body = {
-    secret: process.env.REACT_APP_RECAPTCHA_SERVER_KEY,
     response: token,
   };
+
   try {
-    const response = await axios.post('https://www.google.com/recaptcha/api/siteverify', {
-      method: 'POST',
+    const response = await axios.post('/captcha', body, {
       headers: {
         'Content-Type': 'application/json',
       },
-      body,
     });
 
-    const data = await response.data;
-    console.log(data);
+    const data = response.data;
+    return data;
   } catch (error) {
     console.error('Error:', error);
     notifyError(error);

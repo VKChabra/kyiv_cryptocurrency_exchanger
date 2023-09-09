@@ -7,7 +7,7 @@ import { ExchangeCheckbox } from 'components/exchange/Exchange.styled';
 
 const Captcha = () => {
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const [verificationStatus, setVerificationStatus] = useState(null);
+  const [verificationStatus, setVerificationStatus] = useState(false);
 
   const handleReCaptchaVerify = useCallback(async () => {
     if (!executeRecaptcha) {
@@ -16,12 +16,14 @@ const Captcha = () => {
     }
 
     const token = await executeRecaptcha('userRegistration');
-    const response = await verifyCaptcha(token);
-    console.log(response);
+    let data = await verifyCaptcha(token);
+    verifySet(data);
+  }, [executeRecaptcha]);
 
-    setVerificationStatus(response?.success ? true : false);
-    console.log(verificationStatus);
-  }, [executeRecaptcha, verificationStatus]);
+  const verifySet = data => {
+    console.log(data);
+    setVerificationStatus(data?.success ? true : false);
+  };
 
   return (
     <Flex>
