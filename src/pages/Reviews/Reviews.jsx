@@ -3,7 +3,7 @@ import { Container, TextWrap } from './Reviews.styled';
 import { useGetApprovedReviewsQuery } from 'redux/reviews/reviewsApi';
 import Loader from 'components/loader/Loader';
 import ReviewPagination from 'components/reviews/Pagination/ReviewPagination';
-import ReviewForm from 'components/reviews/ReviewForm';
+import ReviewForm from 'components/reviews/ReviewForm/ReviewForm';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const ReviewsPage = () => {

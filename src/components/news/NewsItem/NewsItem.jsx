@@ -1,15 +1,19 @@
-import { Container, TitleWrap, Title, Text, BtnDateWrap, Btn } from './NewsItem.styled';
+import { Container, TitleWrap, Title, TextWrap, Text, BtnDateWrap, Btn } from './NewsItem.styled';
 
 const NewsItem = ({ data }) => {
   return (
     <Container>
       <TitleWrap>
-        <img src={data.photo} alt="article" width="100px" />
-        <Title>{data.title}</Title>
+        {/* <div>
+          <img src={data.photo} alt="article" width="60px" height="60px" />
+        </div> */}
+        <div>
+          <Title>{data.title}</Title>
+        </div>
       </TitleWrap>
-      <div>
+      <TextWrap>
         <Text>{data.news}</Text>
-      </div>
+      </TextWrap>
       <BtnDateWrap>
         <div>
           <p>{data.createAt}</p>
