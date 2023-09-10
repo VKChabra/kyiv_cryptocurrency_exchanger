@@ -1,6 +1,6 @@
 import { ReviewContainer, SubTitle, SwiperWrapper, Title, Item } from './HomePageReviews.styled';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useGetApprovedReviewsQuery } from 'redux/reviews/reviewsApi';
+import { useGetApprovedReviewsQuery } from 'services/reviewsApi';
 import ReviewsItem from 'components/reviews/ReviewsItem';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/css';
@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const HomPageReviews = () => {
-  const { data, status } = useGetApprovedReviewsQuery();
+  const { data } = useGetApprovedReviewsQuery();
   const reviews = data?.reviews;
 
   console.log(reviews);
