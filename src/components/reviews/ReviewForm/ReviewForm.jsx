@@ -6,8 +6,10 @@ import { Rating } from '@mui/material';
 import { useState } from 'react';
 import { useAddReviewMutation } from 'services/reviewsApi';
 import { notifySuccess, notifyWarning, notifyError } from '../../../helpers/notifications';
+import { useTranslation } from 'react-i18next';
 
 const ReviewForm = () => {
+  const { t } = useTranslation();
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
   const navigate = useNavigate();
   const [addReview] = useAddReviewMutation();
@@ -40,8 +42,8 @@ const ReviewForm = () => {
 
   return (
     <div>
-      <Title>Залишіть свій відгук</Title>
-      <Text>Ми будемо раді бачити і ваш відгук, який можна залишити після першої транзакції</Text>
+      <Title>{t('reviews.formTitle')}</Title>
+      <Text>{t('reviews.formSubTitle')}</Text>
       <Form onSubmit={handleSubmit}>
         <div>
           <Rating
@@ -62,13 +64,13 @@ const ReviewForm = () => {
               type="textarea"
               rows="4"
               cols="50"
-              placeholder="Напишіть відгук"
+              placeholder={t('reviews.placeholder')}
               required
               minLength="6"
               onChange={handleChange}
             />
           </label>
-          <Button type="submit">Залишити відгук</Button>
+          <Button type="submit">{t('reviews.button')}</Button>
         </div>
       </Form>
     </div>
