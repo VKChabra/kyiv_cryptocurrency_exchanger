@@ -3,9 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { register } from 'redux/auth/operations';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
-import { Wrap } from './Registration.styled';
+import { Form, Wrap, SubmitBtn } from './Registration.styled';
 import Captcha from 'components/captcha';
-import { Form } from 'components/exchange/Exchange.styled';
 import MuiCustomInput from 'components/input';
 import { notifyError } from 'helpers/notifications';
 
@@ -73,9 +72,9 @@ const Registration = ({ showSubmitButton = true, posCentre = true }) => {
           <Captcha />
         </GoogleReCaptchaProvider>
         {showSubmitButton && (
-          <button type="submit">
+          <SubmitBtn type="submit">
             <span>{t('auth.register')}</span>
-          </button>
+          </SubmitBtn>
         )}
       </Form>
     </Wrap>

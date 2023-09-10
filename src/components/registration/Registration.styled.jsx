@@ -8,14 +8,10 @@ export const Wrap = styled.div`
 `;
 
 export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: ${({ theme }) => theme.colors.primary};
-  button {
-    display: block;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 5px 15px;
-    border-radius: 10px;
-  }
 `;
 
 export const Field = styled.label`
@@ -29,4 +25,12 @@ export const Field = styled.label`
   & + & {
     margin-top: 30px;
   }
+`;
+
+export const SubmitBtn = styled.button`
+  width: fit-content;
+  color: ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 10px;
+  padding: 10px;
 `;
