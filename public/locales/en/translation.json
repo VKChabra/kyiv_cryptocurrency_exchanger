@@ -32,14 +32,30 @@
     "inputEmptyError": "Please fill in the field"
   },
   "exchange": {
+    "name": "Name",
+    "nameHelp": "Please write down full name",
+    "additionalContact": "Additional contact",
+    "additionalContactHelp": "Number of Whatsapp/Telegram (tag)",
     "agreement": "I accept the terms of exchange"
+  },
+  "captcha": {
+    "verify": "I'm not a bot"
   },
   "auth": {
     "register": "Create Account",
     "login": "Log In",
     "name": "User Name",
     "mail": "Mail",
-    "password": "Password"
+    "password": "Password",
+    "error": "Wrong auth data"
+  },
+  "userData": {
+    "firstName": "Name",
+    "secondName": "Last name",
+    "name": "Nickname",
+    "email": "Mail",
+    "data": "Date of registration",
+    "status": "Status"
   },
   "courses": {
     "title": "TOP CRYPTOCURRSENCY",
@@ -50,5 +66,25 @@
     "price": "Price",
     "change": "Change",
     "capital": "Capitalization"
+  },
+  "footer": {
+    "workingHours": "working hours",
+    "socialNetworks": "social networks",
+    "serviceWork": "Service works 24/7",
+    "tecnicalSupport": "Technical support from 08:00 till 24:00"
+  },
+   "news": {
+    "title": "Cryptocurrency news",
+    "subTitle": "Latest news for you",
+    "button": "Read"
+  },
+      "reviews": {
+    "title": "What they say about us",
+    "subTitle": "Our service is open we show all reviews",
+    "formTitle": "Leave your feedback",
+    "formSubTitle": "We will be glad to see your feedback which can be left after the first transaction",
+    "button": "Leave a review",
+    "placeholder": "Write your review",
+       "loginMessage": "To leave review please login"
   }
 }

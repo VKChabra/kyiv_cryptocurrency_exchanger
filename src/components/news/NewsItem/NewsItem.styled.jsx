@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
+
   width: 320px;
   height: 400px;
   padding: 24px;
@@ -15,6 +16,8 @@ export const Container = styled.div`
 `;
 
 export const TitleWrap = styled.div`
+  display: flex;
+  flex-direction: row !important;
   height: 80px;
   margin-bottom: 11px;
 `;
@@ -28,8 +31,13 @@ export const Title = styled.p`
   line-height: 24px;
 `;
 
-export const Text = styled.p`
+export const TextWrap = styled.div`
+  overflow: hidden;
+  height: 192px;
   margin-bottom: 25px;
+`;
+
+export const Text = styled.p`
   color: ${({ theme }) => theme.colors.primary};
   font-family: Roboto;
   font-size: 16px;
@@ -39,8 +47,9 @@ export const Text = styled.p`
 `;
 
 export const BtnDateWrap = styled.div`
-  display: wrap;
-  flex-direction: row;
+  display: flex;
+  flex-direction: row !important ;
+  justify-content: space-between;
   width: 250px;
   p {
     color: ${({ theme }) => theme.colors.primary};

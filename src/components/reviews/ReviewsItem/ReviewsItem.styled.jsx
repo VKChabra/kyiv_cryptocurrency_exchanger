@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   position: relative;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   width: 530px;
   height: 350px;
   padding: 52px;
@@ -87,7 +87,8 @@ export const ReviewWpapper = styled.div`
 export const DateStarWpapper = styled.div`
   width: 500px;
   display: flex;
-  flex-direction: row;
+  flex-direction: row !important;
+  justify-content: space-between;
 `;
 
 export const ReviewDate = styled.p`
