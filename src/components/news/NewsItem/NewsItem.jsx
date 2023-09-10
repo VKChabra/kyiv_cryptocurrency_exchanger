@@ -1,6 +1,9 @@
 import { Container, TitleWrap, Title, TextWrap, Text, BtnDateWrap, Btn } from './NewsItem.styled';
+import { useTranslation } from 'react-i18next';
 
 const NewsItem = ({ data }) => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <TitleWrap>
@@ -19,7 +22,7 @@ const NewsItem = ({ data }) => {
           <p>{data.createAt}</p>
         </div>
         <div>
-          <Btn type="button">Читати</Btn>
+          <Btn type="button">{t('news.button')}</Btn>
         </div>
       </BtnDateWrap>
     </Container>

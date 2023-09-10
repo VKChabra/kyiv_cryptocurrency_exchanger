@@ -5,16 +5,18 @@ import Loader from 'components/loader/Loader';
 import ReviewPagination from 'components/reviews/Pagination/ReviewPagination';
 import ReviewForm from 'components/reviews/ReviewForm/ReviewForm';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { useTranslation } from 'react-i18next';
 
 const ReviewsPage = () => {
+  const { t } = useTranslation();
   const { pageNumber } = useSelector(state => state?.reviews);
   const { data, status } = useGetApprovedReviewsQuery(Number(pageNumber));
 
   return (
     <Container>
       <TextWrap>
-        <h2>Що про нас говорять</h2>
-        <p>Наш сервіс відкритий, ми показуємо всі відгуки</p>
+        <h2>{t('reviews.title')}</h2>
+        <p>{t('reviews.subTitle')}</p>
       </TextWrap>
       {status === 'pending' && <Loader />}
       {!status === 'pending' && data?.length === 0 && <h2>No reviews found</h2>}
