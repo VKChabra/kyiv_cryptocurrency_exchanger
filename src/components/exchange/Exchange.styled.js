@@ -1,32 +1,16 @@
 import styled from '@emotion/styled';
 import { Checkbox } from '@mui/material';
 
-export const Wrap = styled.div`
+export const FormContainer = styled.div``;
+
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  color: ${({ theme }) => theme.colors.primary};
-  padding-top: 80px;
-`;
-
-export const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 300px;
-  margin: 0 auto;
-`;
-
-export const Input = styled.input`
-  margin-bottom: 10px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 `;
 
 export const AcceptTermsLabel = styled.label`
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
 `;
 
 export const ExchangeCheckbox = styled(Checkbox)`

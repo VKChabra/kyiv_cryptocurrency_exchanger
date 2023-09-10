@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 
-export const Form = styled.form`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: ${({ posCentre }) => (posCentre ? '80px 0px' : '0')};
+`;
 
+export const Form = styled.form`
+  color: ${({ theme }) => theme.colors.primary};
   button {
     display: block;
     margin: 0 auto;
@@ -19,7 +21,6 @@ export const Form = styled.form`
 export const Field = styled.label`
   display: block;
   input {
-    width: 100%;
     max-width: 300px;
     outline: none;
     padding: 3px 5px;

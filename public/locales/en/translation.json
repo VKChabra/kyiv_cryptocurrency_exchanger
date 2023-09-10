@@ -32,14 +32,22 @@
     "inputEmptyError": "Please fill in the field"
   },
   "exchange": {
+    "name": "Name",
+    "nameHelp": "Please write down full name",
+    "additionalContact": "Additional contact",
+    "additionalContactHelp": "Number of Whatsapp/Telegram (tag)",
     "agreement": "I accept the terms of exchange"
+  },
+  "captcha": {
+    "verify": "I'm not a bot"
   },
   "auth": {
     "register": "Create Account",
     "login": "Log In",
     "name": "User Name",
     "mail": "Mail",
-    "password": "Password"
+    "password": "Password",
+    "error": "Wrong auth data"
   },
   "userData": {
     "firstName": "Name",

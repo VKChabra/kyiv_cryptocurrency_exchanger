@@ -32,14 +32,22 @@
     "inputEmptyError": "Заповніть поле"
   },
   "exchange": {
+    "name": "Ім'я",
+    "nameHelp": "Будь ласка вкажіть своє повне ім'я (ПІБ)",
+    "additionalContact": "Додатковий контакт",
+    "additionalContactHelp": "Номер Whatsapp/Telegram (тег)",
     "agreement": "Я приймаю умови обміну"
+  },
+  "captcha": {
+    "verify": "Я не бот"
   },
   "auth": {
     "register": "Зареєструватися",
     "login": "Увійти",
     "name": "Ім'я Користувача",
     "mail": "Пошта",
-    "password": "Пароль"
+    "password": "Пароль",
+    "error": "Невірні дані"
   },
   "userData": {
     "firstName": "Ім'я",
