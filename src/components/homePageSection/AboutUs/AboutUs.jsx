@@ -1,8 +1,17 @@
+import Advantages from './Advantages/Advantages';
+import Aside from './Aside/Aside';
+import { Wrapper, AboutUsContainer, Title, SubTitle } from './AboutUs.styled';
+
 const AboutUs = () => {
   return (
-    <div>
-      <h2>About Us</h2>
-    </div>
+    <AboutUsContainer>
+      <Title>ABOUT SERVICE CRYPTOHUB</Title>
+      <SubTitle> Преимущества в работе с нашим сервисом</SubTitle>
+      <Wrapper>
+        <Aside />
+        <Advantages />
+      </Wrapper>
+    </AboutUsContainer>
   );
 };
 

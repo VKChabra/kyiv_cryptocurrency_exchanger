@@ -44,5 +44,11 @@
   "courses": {
     "title": "TOP CRYPTOCURRSENCY",
     "desc": "The most popular cryptocurrencies today"
+  },
+  "table": {
+    "name": "Name",
+    "price": "Price",
+    "change": "Change",
+    "capital": "Capitalization"
   }
 }
