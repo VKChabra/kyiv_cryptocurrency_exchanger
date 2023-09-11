@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const HomPageReviews = () => {
-  const { data, status } = useGetApprovedReviewsQuery();
+  const { data } = useGetApprovedReviewsQuery();
   const reviews = data?.reviews;
 
   console.log(reviews);
