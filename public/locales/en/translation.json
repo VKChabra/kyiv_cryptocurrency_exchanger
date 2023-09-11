@@ -20,7 +20,7 @@
     "send": "send",
     "cancel": "cancel"
   },
-  "arrayUserButtons": ["privat", "operation", "feedback"],
+  "arrayUserButtons": ["private", "operation", "feedback"],
   "exitButton": { "exit": "exit" },
   "hero": {
     "desc": "is a reliable and secure cryptocurrency exchanger for every day"
@@ -58,7 +58,7 @@
     "status": "Status"
   },
   "courses": {
-    "title": "TOP CRYPTOCURRSENCY",
+    "title": "TOP CRYPTOCURRENCY",
     "desc": "The most popular cryptocurrencies today"
   },
   "table": {
@@ -73,18 +73,18 @@
     "serviceWork": "Service works 24/7",
     "tecnicalSupport": "Technical support from 08:00 till 24:00"
   },
-   "news": {
+  "news": {
     "title": "Cryptocurrency news",
     "subTitle": "Latest news for you",
     "button": "Read"
   },
-      "reviews": {
+  "reviews": {
     "title": "What they say about us",
     "subTitle": "Our service is open we show all reviews",
     "formTitle": "Leave your feedback",
     "formSubTitle": "We will be glad to see your feedback which can be left after the first transaction",
     "button": "Leave a review",
     "placeholder": "Write your review",
-       "loginMessage": "To leave review please login"
+    "loginMessage": "To leave review please login"
   }
 }

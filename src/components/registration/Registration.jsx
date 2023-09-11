@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { register } from 'redux/auth/operations';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
-import { Form, Wrap, SubmitBtn } from './Registration.styled';
+import { Form, Wrap, SubmitBtn } from '../authShared/authShared.styled';
 import Captcha from 'components/captcha';
 import MuiCustomInput from 'components/input';
 import { notifyError } from 'helpers/notifications';
@@ -50,6 +50,7 @@ const Registration = ({ showSubmitButton = true, posCentre = true }) => {
         <MuiCustomInput
           label={t('auth.name')}
           name="name"
+          type="name"
           defaultValue={name}
           onChange={handleChange}
           required
@@ -57,6 +58,7 @@ const Registration = ({ showSubmitButton = true, posCentre = true }) => {
         <MuiCustomInput
           label={t('auth.mail')}
           name="email"
+          type="email"
           defaultValue={email}
           onChange={handleChange}
           required
@@ -64,6 +66,7 @@ const Registration = ({ showSubmitButton = true, posCentre = true }) => {
         <MuiCustomInput
           label={t('auth.password')}
           name="password"
+          type="password"
           defaultValue={password}
           onChange={handleChange}
           required
