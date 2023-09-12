@@ -123,5 +123,9 @@
     "button": "Leave a review",
     "placeholder": "Write your review",
     "loginMessage": "To leave review please login"
+  },
+  "tradepairs": {
+    "title": "Trade pairs",
+    "subTitle": "There are more than 90 cryptocurrencies available on the market"
   }
 }
