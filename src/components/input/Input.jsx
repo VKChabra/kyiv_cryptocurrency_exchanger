@@ -4,7 +4,7 @@ const MuiCustomInput = ({
   label = 'label',
   name = 'name',
   type = 'text',
-  autoComplete = false,
+  autoComplete = 'off',
   size = 'small',
   defaultValue = 'value',
   onChange,

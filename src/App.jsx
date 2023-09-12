@@ -104,8 +104,15 @@ const App = () => {
                   </PrivateRoute>
                 }
               />
-              <Route path="exchange" element={<ExchangePage />} />
-              <Route path="exchangerates" />
+              <Route
+                path="exchange"
+                element={
+                  <PrivateRoute>
+                    <ExchangePage />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="tradepairs" />
               <Route path="news" element={<NewsPage />} />
               <Route path="partnership" />
               <Route path="reviews" element={<ReviewsPage />} />

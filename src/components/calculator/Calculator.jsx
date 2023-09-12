@@ -5,10 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { Frame, Wrap, Label, Input, Form, Dropdown } from './calculator.styled';
 import NeoButton from 'layouts/Button';
 import options from 'shared/options';
-import { notifyError } from 'helpers/notifications';
+import { notifyWarning, notifyError } from 'helpers/notifications';
 import { PERCENT } from 'shared/shared';
 import { storeCalculatorFormData } from 'redux/exchange/storeCalculatorForm';
 import exchangeSelectors from 'redux/exchange/exchangeSelectors';
+import authSelectors from 'redux/auth/authSelectors';
 
 const Calculator = ({ showSubmitButton = true }) => {
   const { t } = useTranslation();
@@ -16,6 +17,8 @@ const Calculator = ({ showSubmitButton = true }) => {
   const navigate = useNavigate();
 
   const calcData = useSelector(exchangeSelectors.calcFormData);
+  const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
+
   const [receive, setReceive] = useState('');
   const [calculatorFormData, setCalculatorFormData] = useState({
     exchange: calcData?.exchange || '',
@@ -59,6 +62,10 @@ const Calculator = ({ showSubmitButton = true }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (!isLoggedIn) {
+      notifyWarning(t('alert.loginFirst'));
+      return;
+    }
     if (
       !calculatorFormData.exchange ||
       isNaN(parseFloat(calculatorFormData.exchange)) ||

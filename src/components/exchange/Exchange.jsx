@@ -16,7 +16,6 @@ const Exchange = () => {
     exchangeCurr: calcData?.exchangeCurr || options[0].value,
     receiveCurr: calcData?.receiveCurr || options[1].value,
     name: '',
-    email: '',
     additionalContact: '',
     acceptTerms: false,
   });
@@ -41,6 +40,7 @@ const Exchange = () => {
           label={t('exchange.name')}
           helperText={t('exchange.nameHelp')}
           name="name"
+          type="text"
           defaultValue={formData.name}
           onChange={handleChange}
           required
@@ -49,6 +49,7 @@ const Exchange = () => {
           label={t('exchange.additionalContact')}
           helperText={t('exchange.additionalContactHelp')}
           name="additionalContact"
+          type="text"
           size="small"
           defaultValue={formData.additionalContact}
           onChange={handleChange}

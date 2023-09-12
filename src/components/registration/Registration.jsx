@@ -8,12 +8,13 @@ import Captcha from 'components/captcha';
 import MuiCustomInput from 'components/input';
 import { notifyError } from 'helpers/notifications';
 
-const Registration = ({ showSubmitButton = true, posCentre = true }) => {
+const Registration = () => {
   const { t } = useTranslation();
 
   const [name, setName] = useState('');
   const [email, setMail] = useState('');
   const [password, setPassword] = useState('');
+  const [verificationStatus, setVerificationStatus] = useState(false);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -21,6 +22,9 @@ const Registration = ({ showSubmitButton = true, posCentre = true }) => {
 
     if (!email || !name || !password) {
       return notifyError(t('auth.error'));
+    }
+    if (!verificationStatus) {
+      return notifyError(t('captcha.error'));
     }
     dispatch(register({ name, email, password }));
   };
@@ -45,12 +49,13 @@ const Registration = ({ showSubmitButton = true, posCentre = true }) => {
   };
 
   return (
-    <Wrap posCentre={posCentre}>
+    <Wrap>
       <Form onSubmit={handleSubmit}>
         <MuiCustomInput
           label={t('auth.name')}
           name="name"
           type="name"
+          autoComplete="username"
           defaultValue={name}
           onChange={handleChange}
           required
@@ -59,6 +64,7 @@ const Registration = ({ showSubmitButton = true, posCentre = true }) => {
           label={t('auth.mail')}
           name="email"
           type="email"
+          autoComplete="email"
           defaultValue={email}
           onChange={handleChange}
           required
@@ -72,13 +78,14 @@ const Registration = ({ showSubmitButton = true, posCentre = true }) => {
           required
         />
         <GoogleReCaptchaProvider reCaptchaKey={process.env.REACT_APP_RECAPTCHA_CLIENT_KEY}>
-          <Captcha />
+          <Captcha
+            verificationStatus={verificationStatus}
+            setVerificationStatus={setVerificationStatus}
+          />
         </GoogleReCaptchaProvider>
-        {showSubmitButton && (
-          <SubmitBtn type="submit">
-            <span>{t('auth.register')}</span>
-          </SubmitBtn>
-        )}
+        <SubmitBtn type="submit">
+          <span>{t('auth.register')}</span>
+        </SubmitBtn>
       </Form>
     </Wrap>
   );

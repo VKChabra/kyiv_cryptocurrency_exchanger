@@ -33,6 +33,9 @@
     "showMore": "show more",
     "loadMore": "load more"
   },
+  "alert": {
+    "loginFirst": "Please register or login first"
+  },
   "arrayUserButtons": ["private", "operation", "feedback"],
   "exitButton": { "exit": "exit" },
   "hero": {
