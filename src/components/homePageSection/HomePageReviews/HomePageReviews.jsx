@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useGetApprovedReviewsQuery } from 'redux/reviews/reviewsApi';
 import ReviewsItem from 'components/reviews/ReviewsItem';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { useTranslation } from 'react-i18next';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -11,16 +12,14 @@ import 'swiper/css/scrollbar';
 const HomPageReviews = () => {
   const { data } = useGetApprovedReviewsQuery();
   const reviews = data?.reviews;
+  const { t } = useTranslation();
 
   console.log(reviews);
 
   return (
     <ReviewContainer>
-      <Title>REVIEW</Title>
-      <SubTitle>
-        Несколько отзывов от пользователей нашей платформы которые подтверждают преимущество наших
-        услуг
-      </SubTitle>
+      <Title>{t('homeReviews.title')}</Title>
+      <SubTitle>{t('homeReviews.subTitle')}</SubTitle>
       <SwiperWrapper>
         <Swiper
           className="swiper-container"

@@ -18,7 +18,20 @@
   "button": {
     "exchange": "exchange",
     "send": "send",
-    "cancel": "cancel"
+    "cancel": "cancel",
+    "save": "save",
+    "edit": "edit",
+    "delete": "delete",
+    "confirm": "confirm",
+    "close": "close",
+    "back": "back",
+    "next": "next",
+    "submit": "submit",
+    "add": "add",
+    "exit": "exit",
+    "readMore": "read more",
+    "showMore": "show more",
+    "loadMore": "load more"
   },
   "arrayUserButtons": ["privat", "operation", "feedback"],
   "exitButton": { "exit": "exit" },
@@ -50,5 +63,26 @@
     "price": "Price",
     "change": "Change",
     "capital": "Capitalization"
+  },
+  "about": {
+    "title": "ABOUT SERVICE CRYPTOHUB",
+    "subTitle": "Advantages of working with our service",
+    "cardTitle1": "Reliability",
+    "cardTitle2": "Profitability",
+    "cardTitle3": "Modern",
+    "cardTitle4": "Confidentially",
+    "cardTitle5": "Functionally",
+    "cardTitle6": "Beneficial partnership",
+    "cardDesc1": "Using multi-level server protection. Security and control system for digital assets. The service is included in authoritative monitoring and listings. Guarantee of receipt of funds, subject to compliance with the exchange rules of the service    ",
+    "cardDesc2": "Always up-to-date and profitable exchange rates from the world's leading exchanges. No hidden fees or additional fees. Fixing and agreeing on the exchange rate with the client subject to cash exchange",
+    "cardDesc3": "Convenient modern resource. Automatic search for the best rates of world crypto exchanges for making transactions. Automatic cryptocurrency exchange using bank cards. Accessible and understandable interface for everyone",
+    "cardDesc4": "Information about users is not stored on the service. Maintain strict confidentiality. We respect your desire not to disclose personal information about yourself. Information about applications is stored in encrypted form",
+    "cardDesc5": "Wide selection of payment systems for withdrawal of funds and exchange directions. Exchange in a currency convenient for the client. High speed of transactions and application processing. 24/7 automatic cryptocurrency exchange",
+    "cardDesc6": "We provide thoughtful tools with high conversion rates. API and other integration formats. Help and advice with connecting to the service. Providing box solutions"
+  },
+  "homeReviews": {
+    "title": "RREVIEWS",
+    "subTitle": "What our customers say about us",
+    "button": "All reviews"
   }
 }
