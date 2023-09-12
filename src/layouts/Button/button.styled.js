@@ -11,7 +11,7 @@ export const Button = styled.button`
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: rgba(63, 70, 195, 0.9);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-  width: 480px;
+  width: 100%;
   &::before {
     position: absolute;
     width: 100%;

@@ -1,25 +1,14 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
-// import authSelectors from 'redux/auth/authSelectors';
-// import Registration from 'pages/Registration';
-import { Wrap } from './Exchange.styled';
-import {
-  FormContainer,
-  Input,
-  AcceptTermsLabel,
-  AcceptTermsCheckbox,
-  SubmitButton,
-} from './Exchange.styled';
+import MuiCustomInput from 'components/input';
+import { FormContainer, Form, AcceptTermsLabel, ExchangeCheckbox } from './Exchange.styled';
 import { useTranslation } from 'react-i18next';
-import Calculator from 'components/calculator';
 import exchangeSelectors from 'redux/exchange/exchangeSelectors';
 import options from 'shared/options';
-import Captcha from 'components/captcha';
+import NeoButton from 'layouts/Button/Button';
 
 const Exchange = () => {
   const { t } = useTranslation();
-  // const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
   const calcData = useSelector(exchangeSelectors.calcFormData);
 
   const [formData, setFormData] = useState({
@@ -46,52 +35,39 @@ const Exchange = () => {
   };
 
   return (
-    <Wrap>
-      {/* <Registration /> */}
-      <Calculator showSubmitButton={false} />
-      <FormContainer>
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            name="name"
-            value={formData.name}
+    <FormContainer>
+      <Form onSubmit={handleSubmit}>
+        <MuiCustomInput
+          label={t('exchange.name')}
+          helperText={t('exchange.nameHelp')}
+          name="name"
+          defaultValue={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <MuiCustomInput
+          label={t('exchange.additionalContact')}
+          helperText={t('exchange.additionalContactHelp')}
+          name="additionalContact"
+          size="small"
+          defaultValue={formData.additionalContact}
+          onChange={handleChange}
+          margin="dense"
+          required
+        />
+        <AcceptTermsLabel>
+          <ExchangeCheckbox
+            type="checkbox"
+            name="acceptTerms"
+            checked={formData.acceptTerms}
             onChange={handleChange}
-            placeholder="Input 1"
             required
           />
-          <Input
-            type="text"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Input 2"
-            required
-          />
-          <Input
-            type="text"
-            name="additionalContact"
-            value={formData.additionalContact}
-            onChange={handleChange}
-            placeholder="Input 3"
-            required
-          />
-          <GoogleReCaptchaProvider reCaptchaKey={process.env.REACT_APP_RECAPTCHA_CLIENT_KEY}>
-            <Captcha />
-          </GoogleReCaptchaProvider>
-          <AcceptTermsLabel>
-            <AcceptTermsCheckbox
-              type="checkbox"
-              name="acceptTerms"
-              checked={formData.acceptTerms}
-              onChange={handleChange}
-              required
-            />
-            {t('exchange.agreement')}
-          </AcceptTermsLabel>
-          <SubmitButton type="submit">Submit</SubmitButton>
-        </form>
-      </FormContainer>
-    </Wrap>
+          {t('exchange.agreement')}
+        </AcceptTermsLabel>
+        <NeoButton type="submit" text={t('calc.submit')}></NeoButton>
+      </Form>
+    </FormContainer>
   );
 };
 

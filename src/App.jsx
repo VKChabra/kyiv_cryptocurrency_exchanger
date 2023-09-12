@@ -15,16 +15,14 @@ import Loader from './components/loader';
 import { AdminMenu } from 'components/admin/AdminMenu';
 import authSelectors from 'redux/auth/authSelectors';
 
-// import themes from 'themes';
-
 const SharedLayout = lazy(() => import('./layouts/SharedLayout'));
 const HomePage = lazy(() => import('./pages/Home'));
 const ReviewsPage = lazy(() => import('./pages/Reviews'));
 const AdminReviewPage = lazy(() => import('./pages/Admin/ReviewPage'));
 const AdminTransactionPage = lazy(() => import('./pages/Admin/TransactionPage'));
 const AdminAccountPage = lazy(() => import('./pages/Admin/AdminAccountPage'));
-const RegistrationPage = lazy(() => import('./pages/Registration/Registration'));
-const LoginPage = lazy(() => import('./pages/Login/Login'));
+const RegistrationPage = lazy(() => import('./pages/Registration'));
+const LoginPage = lazy(() => import('./pages/Login'));
 const UserPage = lazy(() => import('./pages/User'));
 const ExchangePage = lazy(() => import('./pages/Exchange'));
 const NewsPage = lazy(() => import('./pages/News'));

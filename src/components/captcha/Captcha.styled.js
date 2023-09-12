@@ -1,5 +1,10 @@
 import styled from '@emotion/styled';
 
+export const Flex = styled.div`
+  display: flex;
+  padding: 20px 0px;
+`;
+
 export const CaptchaBtn = styled.button`
   background-color: #007bff;
   color: #fff;

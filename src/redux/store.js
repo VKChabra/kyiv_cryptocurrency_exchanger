@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
-import { reviewsApi } from './reviews/reviewsApi';
+import { reviewsApi } from 'services/reviewsApi';
 import reviewsSlice from './reviews/reviewSlice';
 import { storeCalcFormReducer } from './exchange/storeCalculatorForm';
 

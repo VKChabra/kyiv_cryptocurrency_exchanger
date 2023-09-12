@@ -1,6 +1,6 @@
 import { ReviewContainer, SubTitle, SwiperWrapper, Title, Item } from './HomePageReviews.styled';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useGetApprovedReviewsQuery } from 'redux/reviews/reviewsApi';
+import { useGetApprovedReviewsQuery } from 'services/reviewsApi';
 import ReviewsItem from 'components/reviews/ReviewsItem';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
