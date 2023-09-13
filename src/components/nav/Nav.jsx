@@ -14,7 +14,7 @@ const Nav = () => {
         <Text>{t('nav.home')}</Text>
       </Link>
       <LineImg src={Line} />
-      <Link to="/exchangerates">
+      <Link to="/tradepairs">
         <Text>{t('nav.exchangeRates')}</Text>
       </Link>
       <LineImg src={Line} />

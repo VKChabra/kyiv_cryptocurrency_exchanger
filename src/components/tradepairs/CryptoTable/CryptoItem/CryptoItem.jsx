@@ -9,7 +9,7 @@ const CryptoItem = () => {
 
   const { t } = useTranslation();
 
-  const perPage = 9;
+  const perPage = 100;
 
   useEffect(() => {
     const fetchData = async () => {

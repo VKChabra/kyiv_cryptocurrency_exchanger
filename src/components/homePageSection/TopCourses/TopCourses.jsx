@@ -14,7 +14,7 @@ const TopCourses = () => {
       <SubTitle>{t('courses.desc')}</SubTitle>
       <CryptoTable />
 
-      <NavLink to="/exchangerates">
+      <NavLink to="/tradepairs">
         <Button text={t('button.showMore')} />
       </NavLink>
     </Wrapper>
