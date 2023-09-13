@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ThemeSwitch } from './ThemeSwitch.styled';
-import { useThemeSwitcher } from 'styles/theme';
 
-const ThemeSwitcherButton = () => {
-  const { theme, toggleTheme } = useThemeSwitcher();
+const ThemeSwitcherButton = ({ theme, toggleTheme }) => {
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import LanguageButton from './LanguageButton/LanguageButton';
 import ThemeSwitcherButton from 'components/themeSwitch/ThemeSwitch';
 
-const Nav = () => {
+const Nav = ({ theme, toggleTheme }) => {
   const { t } = useTranslation();
 
   return (
@@ -25,7 +25,7 @@ const Nav = () => {
       <Info />
       <LineImg src={Line} />
       <LanguageButton />
-      <ThemeSwitcherButton />
+      <ThemeSwitcherButton theme={theme} toggleTheme={toggleTheme} />
     </NavHeader>
   );
 };
