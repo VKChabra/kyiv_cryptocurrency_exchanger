@@ -3,6 +3,7 @@ import Info from './Info';
 import Line from 'images/nav/line.svg';
 import { useTranslation } from 'react-i18next';
 import LanguageButton from './LanguageButton/LanguageButton';
+import ThemeSwitcherButton from 'components/themeSwitch/ThemeSwitch';
 
 const Nav = () => {
   const { t } = useTranslation();
@@ -24,6 +25,7 @@ const Nav = () => {
       <Info />
       <LineImg src={Line} />
       <LanguageButton />
+      <ThemeSwitcherButton />
     </NavHeader>
   );
 };
