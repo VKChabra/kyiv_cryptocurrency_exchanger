@@ -52,7 +52,8 @@
     "nameHelp": "Укажите своё полное имя (ФИО)",
     "additionalContact": "Дополнительный контакт",
     "additionalContactHelp": "Номер Whatsapp/Telegram (тег)",
-    "agreement": "Я принимаю условия обмена"
+    "agreement": "Я принимаю условия обмена",
+    "success": "Предложение обмена успешно отправлено"
   },
   "captcha": {
     "verify": "Я не бот"

@@ -3,19 +3,28 @@ import { useSelector } from 'react-redux';
 import MuiCustomInput from 'components/input';
 import { FormContainer, Form, AcceptTermsLabel, ExchangeCheckbox } from './Exchange.styled';
 import { useTranslation } from 'react-i18next';
-import exchangeSelectors from 'redux/exchange/exchangeSelectors';
+import calculatorSelectors from 'redux/calculator/calculatorSelectors';
 import options from 'shared/options';
 import NeoButton from 'layouts/Button/Button';
+import authSelectors from 'redux/auth/authSelectors';
+import { useAddTransactionMutation } from 'services/transactionsApi';
+import { notifySuccess } from 'helpers/notifications';
 
 const Exchange = () => {
   const { t } = useTranslation();
-  const calcData = useSelector(exchangeSelectors.calcFormData);
+  const calcData = useSelector(calculatorSelectors.calcFormData);
+  const user = useSelector(authSelectors.selectUser);
+  const [addTransaction] = useAddTransactionMutation();
+
+  let fullName = `${user?.firstName} ${user?.middleName} ${user?.lastName}`;
+  if (user?.firstName === null || user?.lastName === null) fullName = null;
 
   const [formData, setFormData] = useState({
-    exchange: calcData?.exchange || '',
-    exchangeCurr: calcData?.exchangeCurr || options[0].value,
-    receiveCurr: calcData?.receiveCurr || options[1].value,
-    name: '',
+    amountToExchange: calcData?.exchange || '',
+    amountToReceive: calcData?.receive.toString() || '',
+    currencyToExchange: calcData?.exchangeCurr || options[0].value,
+    currencyToReceive: calcData?.receiveCurr || options[1].value,
+    name: fullName || '',
     additionalContact: '',
     acceptTerms: false,
   });
@@ -28,9 +37,10 @@ const Exchange = () => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    console.log(formData);
+    await addTransaction(formData);
+    notifySuccess(t('exchange.success'));
   };
 
   return (

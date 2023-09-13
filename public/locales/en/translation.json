@@ -52,7 +52,8 @@
     "nameHelp": "Please write down full name",
     "additionalContact": "Additional contact",
     "additionalContactHelp": "Number of Whatsapp/Telegram (tag)",
-    "agreement": "I accept the terms of exchange"
+    "agreement": "I accept the terms of exchange",
+    "success": "Exchange proposition is successfully sent"
   },
   "captcha": {
     "verify": "I'm not a bot"

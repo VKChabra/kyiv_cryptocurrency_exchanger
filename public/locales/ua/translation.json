@@ -52,7 +52,8 @@
     "nameHelp": "Будь ласка вкажіть своє повне ім'я (ПІБ)",
     "additionalContact": "Додатковий контакт",
     "additionalContactHelp": "Номер Whatsapp/Telegram (тег)",
-    "agreement": "Я приймаю умови обміну"
+    "agreement": "Я приймаю умови обміну",
+    "success": "Пропозиція обміну успішно відправлена"
   },
   "captcha": {
     "verify": "Я не бот"

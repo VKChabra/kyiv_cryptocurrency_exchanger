@@ -7,8 +7,8 @@ import NeoButton from 'layouts/Button';
 import options from 'shared/options';
 import { notifyWarning, notifyError } from 'helpers/notifications';
 import { PERCENT } from 'shared/shared';
-import { storeCalculatorFormData } from 'redux/exchange/storeCalculatorForm';
-import exchangeSelectors from 'redux/exchange/exchangeSelectors';
+import { storeCalculatorFormData } from 'redux/calculator/storeCalculatorForm';
+import calculatorSelectors from 'redux/calculator/calculatorSelectors';
 import authSelectors from 'redux/auth/authSelectors';
 
 const Calculator = ({ showSubmitButton = true }) => {
@@ -16,7 +16,7 @@ const Calculator = ({ showSubmitButton = true }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const calcData = useSelector(exchangeSelectors.calcFormData);
+  const calcData = useSelector(calculatorSelectors.calcFormData);
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
 
   const [receive, setReceive] = useState('');
@@ -77,7 +77,7 @@ const Calculator = ({ showSubmitButton = true }) => {
       notifyError(t('calc.inputSameCurrency'));
       return;
     } else {
-      dispatch(storeCalculatorFormData(calculatorFormData));
+      dispatch(storeCalculatorFormData({ ...calculatorFormData, receive }));
       navigate('/exchange');
     }
   };
@@ -95,7 +95,7 @@ const Calculator = ({ showSubmitButton = true }) => {
       const finalResult = result * (1 - PERCENT / 100);
       setReceive(finalResult);
     }
-  }, [calculatorFormData]);
+  }, [calculatorFormData, receive]);
 
   return (
     <Frame>
