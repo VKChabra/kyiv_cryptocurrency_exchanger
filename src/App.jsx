@@ -43,11 +43,11 @@ const App = () => {
       <BrowserRouter basename="">
         <Suspense fallback={<Loader />}>
           <GlobalStyle theme={theme} />
-          <button onClick={toggleTheme} style={{ position: 'absolute' }}>
+          {/* <button onClick={toggleTheme} style={{ position: 'absolute' }}>
             Change theme
-          </button>
+          </button> */}
           <Routes>
-            <Route path="/" element={<SharedLayout />}>
+            <Route path="/" element={<SharedLayout theme={theme} toggleTheme={toggleTheme} />}>
               <Route index element={<HomePage />} />
               <Route
                 path="login"
