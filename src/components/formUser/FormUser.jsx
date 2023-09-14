@@ -3,128 +3,114 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Input from '../input';
 import 'layouts/i18n/i18next';
-import { Form, Button, Text, BoxWrapper } from './formUser.styled';
+import { Form, Button, Text, BoxWrapper, ButtonSubmit } from './formUser.styled';
 import { update } from 'redux/auth/operations';
 import authSelectors from 'redux/auth/authSelectors';
 
 const FormUser = () => {
   const { t } = useTranslation();
-  const [visibleInput, setVisibleInput] = useState(false);
+
   const user = useSelector(authSelectors.selectUser);
-  console.log(user);
-  const { name } = user;
+  const { name, firstName, lastName } = user;
+
   const dispatch = useDispatch();
-  const [nameUser, setName] = useState(name);
+  const [visibleInput, setVisibleInput] = useState(false);
+  const [nameUser, setNameUser] = useState(name);
+  const [firstNameUser, setFirstNameUser] = useState(firstName);
+  const [lastNameUser, setLastNameUser] = useState(lastName);
+
   const setInput = () => {
     setVisibleInput(true);
   };
-  //   email, firstName, lastName,
+
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log({ name: nameUser });
-    dispatch(update({ name: nameUser }));
+    dispatch(update({ name: nameUser, firstName: firstNameUser, lastName: lastNameUser }));
+    setVisibleInput(false);
   };
+
   const handleChange = e => {
     const value = e.target.value.trim();
     const field = e.target.name;
     switch (field) {
       case 'name':
-        setName(value);
+        setNameUser(value);
         break;
-      //   case 'email':
-      //     setEmail(value);
-      //     break;
-      //   case 'firstName':
-      //     setFirstName(value);
-      //     break;
-      //   case 'lastName':
-      //     setLastName(value);
-      // break;
+      case 'firstName':
+        setFirstNameUser(value);
+        break;
+      case 'lastName':
+        setLastNameUser(value);
+        break;
       default:
         return;
     }
   };
   return (
     <Form onSubmit={handleSubmit}>
-      {/* <BoxWrapper>
+      <BoxWrapper>
         <Text>{t('userData.firstName')}</Text>
         <Text>{firstName}</Text>
-        {visibleInput && (
+        {visibleInput ? (
           <Input
             label={t('userData.firstName')}
             type="text"
             name="firstName"
+            margin="0px"
             placeholder={t(`userData.firstName`)}
             defaultValue={firstName}
             onChange={handleChange}
             required
           />
+        ) : (
+          <Button type="button" onClick={setInput}>
+            {t(`button.edit`)}
+          </Button>
         )}
-        <Button type="button" onClick={setVisibleInput}>
-          Изменить
-        </Button>
       </BoxWrapper>
       <BoxWrapper>
         <Text>{t(`userData.lastName`)}</Text>
         <Text>{lastName}</Text>
-        {visibleInput && (
+        {visibleInput ? (
           <Input
             label={t('userData.lastName')}
             type="text"
             name="lastName"
+            margin="0px"
             placeholder={t(`userData.lastName`)}
             defaultValue={lastName}
             onChange={handleChange}
             required
           />
-        )}{' '}
-        <Button type="button" onClick={setInput}>
-          Изменить
-        </Button>
-      </BoxWrapper> */}
+        ) : (
+          <Button type="button" onClick={setInput}>
+            {t(`button.edit`)}
+          </Button>
+        )}
+      </BoxWrapper>
       <BoxWrapper>
         <Text>{t('userData.name')} </Text>
         <Text>{name}</Text>
-        {visibleInput && (
+        {visibleInput ? (
           <Input
             label={t('userData.name')}
             type="text"
             name="name"
+            margin="0px"
             placeholder={t(`userData.name`)}
             defaultValue={name}
             onChange={handleChange}
             required
           />
-        )}{' '}
-        <Button type="button" onClick={setInput}>
-          Изменить
-        </Button>
+        ) : (
+          <Button type="button" onClick={setInput}>
+            {t(`button.edit`)}
+          </Button>
+        )}
       </BoxWrapper>
 
-      <Button type="submit">Отправить</Button>
+      <ButtonSubmit type="submit">{t(`button.submit`)}</ButtonSubmit>
     </Form>
   );
 };
 export default FormUser;
-
-// const handleSubmit = e => {
-//     e.preventDefault();
-//     const form = e.currentTarget;
-//     const text = form.elements.text.value;
-//     if (text !== '') {
-//       dispatch(updateUser(data));
-//       form.reset();
-//       return;
-//     }
-//     alert('Task cannot be empty. Enter some text!');
-//   };
-
-//   return (
-//     <form className={css.form} onSubmit={handleSubmit}>
-//       <input name="text" className={css.input} />
-//       <button type="submit" className={css.button}>
-//         Add task
-//       </button>
-//     </form>
-//   );
-// };
