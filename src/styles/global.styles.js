@@ -46,8 +46,7 @@ export const GlobalStyle = ({ theme }) => (
         border: 0;
         /* box-sizing: border-box; */
       }
-      ul,
-      ol {
+      ul {
         list-style: none;
         padding: 0;
         margin: 0;

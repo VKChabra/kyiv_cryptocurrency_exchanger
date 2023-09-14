@@ -5,11 +5,11 @@ import UserNav from 'components/nav/UserNav';
 import authSelectors from 'redux/auth/authSelectors';
 import { HeaderStyled } from './navigation.styled';
 
-const Navigation = () => {
+const Navigation = ({ theme, toggleTheme }) => {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
   return (
     <HeaderStyled>
-      <Nav />
+      <Nav theme={theme} toggleTheme={toggleTheme} />
       {!isLoggedIn ? <AuthNav /> : <UserNav />}
     </HeaderStyled>
   );

@@ -3,8 +3,7 @@ import styled from '@emotion/styled';
 export const ListTitle = styled.ul`
   display: flex;
   justify-content: space-around;
-
-  padding: 20px 150px 0 0;
+  padding: 30px;
   align-items: center;
   list-style: none;
 `;
@@ -18,28 +17,13 @@ export const Item = styled.li`
 `;
 
 export const CardWrapper = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
-  width: 1219px;
-  height: 564px;
+  width: 80%;
+  padding: 30px;
   flex-shrink: 0;
   opacity: 0.8;
   margin-bottom: 60px;
-  background: ${({ theme }) => theme.colors.curses};
   border: 1px solid ${({ theme }) => theme.colors.primary};
-`;
-
-export const BackgroundImage = styled.img`
-  position: absolute;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(40%);
-`;
-
-export const Image = styled.img`
-  position: absolute;
-  object-fit: cover;
-  top: 60px;
-  left: 75px;
+  box-shadow: 0px 0px 10px rgba(247, 174, 6, 0.25);
 `;

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useTranslation } from 'react-i18next';
 import { CaptchaBtn, Flex } from './Captcha.styled';
@@ -6,10 +6,9 @@ import { notifyError } from 'helpers/notifications';
 import { verifyCaptcha } from 'services/verifyCaptcha';
 import { ExchangeCheckbox } from 'components/exchange/Exchange.styled';
 
-const Captcha = () => {
+const Captcha = ({ verificationStatus, setVerificationStatus }) => {
   const { t } = useTranslation();
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const [verificationStatus, setVerificationStatus] = useState(false);
 
   const handleReCaptchaVerify = useCallback(async () => {
     if (!executeRecaptcha) {
@@ -17,14 +16,14 @@ const Captcha = () => {
       return;
     }
 
+    const verifySet = data => {
+      setVerificationStatus(data?.success ? true : false);
+    };
+
     const token = await executeRecaptcha('userRegistration');
     const data = await verifyCaptcha(token);
     verifySet(data);
-  }, [executeRecaptcha]);
-
-  const verifySet = data => {
-    setVerificationStatus(data?.success ? true : false);
-  };
+  }, [executeRecaptcha, setVerificationStatus]);
 
   return (
     <Flex>

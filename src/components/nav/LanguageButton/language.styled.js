@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
-export const Language = styled.img``;
+export const Language = styled.img`
+  color: ${({ theme }) => theme.colors.text};
+`;
 
 export const LanguageChosen = styled.select`
   cursor: pointer;
@@ -17,6 +19,7 @@ export const LanguageChosen = styled.select`
 export const LanguageWrapper = styled.div`
   position: relative;
   display: flex;
+  margin-right: 12px;
   gap: 5px;
 `;
 

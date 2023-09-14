@@ -3,8 +3,9 @@ import Info from './Info';
 import Line from 'images/nav/line.svg';
 import { useTranslation } from 'react-i18next';
 import LanguageButton from './LanguageButton/LanguageButton';
+import ThemeSwitcherButton from 'components/themeSwitch/ThemeSwitch';
 
-const Nav = () => {
+const Nav = ({ theme, toggleTheme }) => {
   const { t } = useTranslation();
 
   return (
@@ -13,7 +14,7 @@ const Nav = () => {
         <Text>{t('nav.home')}</Text>
       </Link>
       <LineImg src={Line} />
-      <Link to="/exchangerates">
+      <Link to="/tradepairs">
         <Text>{t('nav.exchangeRates')}</Text>
       </Link>
       <LineImg src={Line} />
@@ -24,6 +25,7 @@ const Nav = () => {
       <Info />
       <LineImg src={Line} />
       <LanguageButton />
+      <ThemeSwitcherButton theme={theme} toggleTheme={toggleTheme} />
     </NavHeader>
   );
 };

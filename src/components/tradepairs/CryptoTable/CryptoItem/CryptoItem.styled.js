@@ -1,49 +1,49 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justyfy-content: space-between;
   height: 100%;
   padding: 0 20px;
   color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const ListTitle = styled.ul`
-  position: absolute;
-  top: 20px;
-  width: 85%;
   display: flex;
-  align-items: center;
+  justify-content: space-around;
   color: ${({ theme }) => theme.colors.primary};
+  border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
+  margin-bottom: 30px;
 `;
 
 export const ListTitleItem = styled.li`
+  padding: 0 0 30px 0;
   color: ${({ theme }) => theme.colors.primary};
-  width: 25%;
-  padding-left: 100px;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 100%; /* 16px */
 `;
 
 export const List = styled.ul`
   color: ${({ theme }) => theme.colors.primary};
-  position: absolute;
-  top: 90px;
   display: flex;
   flex-direction: column;
-  gap: 35px;
   width: 100%;
   list-style: none;
   counter-reset: item;
+  transform: translateX(10px);
 `;
 
 export const Item = styled.li`
   display: flex;
+  justify-content: space-around;
   color: ${({ theme }) => theme.colors.primary};
-  padding-left: 70px;
+  padding: 15px;
+  :nth-of-type(odd) {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    box-shadow: 1px 1px 21px 2px rgba(17, 17, 17, 0.5) inset;
+    -webkit-box-shadow: 1px 1px 21px 2px rgba(11, 11, 11, 0.5) inset;
+    -moz-box-shadow: 1px 1px 21px 2px rgba(29, 19, 19, 0.5) inset;
+  }
   ::before {
     content: counter(item) '. ';
     counter-increment: item;
@@ -51,8 +51,8 @@ export const Item = styled.li`
     font-weight: bold;
   }
   p {
-    width: 23%;
     font-family: Roboto;
+    width: 20%;
     font-size: 18px;
     font-style: bold;
     font-weight: 700;
@@ -61,10 +61,7 @@ export const Item = styled.li`
   }
 `;
 
-export const Table = styled.div`
-  color: ${({ theme }) => theme.colors.primary};
-  width: 100%;
-`;
+export const Table = styled.div``;
 
 export const Change = styled.span`
   color: ${({ p }) => (p >= 0 ? '#06f239' : '#ff0000')};
