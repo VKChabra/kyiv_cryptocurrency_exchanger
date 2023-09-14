@@ -11,17 +11,15 @@ const setAvatar = name => {
 const User = () => {
   const user = useSelector(authSelectors.selectUser);
   console.log(user);
-  //   const user = useSelector(state => state.auth.user);
-  console.log(user);
-  // const { name, role } = user;
+  const { name, role } = user;
 
-  // const letter = setAvatar(name);
+  const letter = setAvatar(name);
 
   return (
     <Profile>
       <ProfileHeader>
-        {/* <Text>{name}</Text>
-        <Avatar role={role}>{letter}</Avatar> */}
+        <Text>{name}</Text>
+        <Avatar role={role}>{letter}</Avatar>
       </ProfileHeader>
       <ProfileWrapper>
         <ButtonsMenu />
