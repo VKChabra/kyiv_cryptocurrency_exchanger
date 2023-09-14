@@ -8,7 +8,7 @@ import options from 'shared/options';
 import NeoButton from 'layouts/Button/Button';
 import authSelectors from 'redux/auth/authSelectors';
 import { useAddTransactionMutation } from 'services/transactionsApi';
-import { notifyError, notifySuccess } from 'helpers/notifications';
+import { notifyError, notifySuccess, notifyWarning } from 'helpers/notifications';
 
 const Exchange = () => {
   const { t } = useTranslation();
@@ -57,10 +57,13 @@ const Exchange = () => {
     //   paymentMethod,
     //   ...paymentDetailsToSend,
     // };
+    if (dataToSendTransaction.creditCard === '' || dataToSendTransaction.walletNumber === '') {
+      return notifyWarning(t('exchange.emptyDetails'));
+    }
     console.log(dataToSendTransaction);
     // console.log(dataToUpdateUser);
     const response = await addTransaction(dataToSendTransaction);
-    if (response?.error) {
+    if (response.error) {
       notifyError(t('exchange.error'));
       console.log(response.error);
     } else notifySuccess(t('exchange.success'));

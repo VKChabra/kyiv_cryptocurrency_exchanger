@@ -53,7 +53,9 @@
     "additionalContact": "Additional contact",
     "additionalContactHelp": "Number of Whatsapp/Telegram (tag)",
     "agreement": "I accept the terms of exchange",
-    "success": "Exchange proposition is successfully sent"
+    "success": "Exchange proposition is successfully sent",
+    "emptyDetails": "Please rewrite your payment details",
+    "error": "There was an error, please check your data"
   },
   "captcha": {
     "verify": "I'm not a bot"
