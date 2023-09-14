@@ -25,7 +25,7 @@ const HomPageReviews = () => {
           className="swiper-container"
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={40}
-          slidesPerView={2}
+          slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
           // scrollbar={{ draggable: false }}
