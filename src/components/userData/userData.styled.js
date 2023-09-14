@@ -46,6 +46,7 @@ export const Flex = styled.div`
   align-items: center;
   justify-content: space-around;
   margin-bottom: 20px;
+  width: 950px;
 `;
 export const Box = styled.div`
   align-items: center;
