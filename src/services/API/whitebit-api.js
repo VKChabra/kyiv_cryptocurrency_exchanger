@@ -1,23 +1,20 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://whitebit.com/api/v4/public',
+  baseURL: 'https://crypto-ag2e.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-export const getCryptoData = async () => {
+export const getCryptoData = async ({ perPage }) => {
   try {
-    const response = await instance.get('/markets');
-
-    if (response.status >= 200 && response.status < 300) {
-      return response.data;
-    } else {
-      throw new Error(`Request failed with status ${response.status}`);
-    }
+    const response = await instance.get(`/ticker?page=1&perPage=${perPage}`);
+    const data = response.data;
+    console.log(data);
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error('Error fetching data:', error);
     throw error;
   }
 };

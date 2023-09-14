@@ -3,9 +3,9 @@ import Header from 'layouts/Header/Header';
 import Footer from 'layouts/Footer/Footer';
 import ChatButtons from '../../components/chat/ChatButtons';
 
-const SharedLayout = () => (
+const SharedLayout = ({ theme, toggleTheme }) => (
   <>
-    <Header />
+    <Header theme={theme} toggleTheme={toggleTheme} />
     <Outlet />
     <ChatButtons />
     <Footer />

@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const ListTitle = styled.ul`
   display: flex;
   justify-content: space-around;
+
   padding: 20px 150px 0 0;
   align-items: center;
   list-style: none;
@@ -33,6 +34,7 @@ export const BackgroundImage = styled.img`
   position: absolute;
   height: 100%;
   object-fit: cover;
+  filter: brightness(40%);
 `;
 
 export const Image = styled.img`

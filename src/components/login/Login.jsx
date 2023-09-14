@@ -1,12 +1,12 @@
-import 'layouts/i18n/i18next';
 import { useTranslation } from 'react-i18next';
-
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Field, Form } from './Login.styled';
+import { Form, Wrap, SubmitBtn } from '../authShared/authShared.styled';
+import MuiCustomInput from 'components/input';
+import { PasswordInput } from 'components/input/PasswordInput';
 import { logIn } from 'redux/auth/operations';
 
-const Login = () => {
+const Login = ({ posCentre = true }) => {
   const { t } = useTranslation();
 
   const [email, setMail] = useState('');
@@ -42,19 +42,31 @@ const Login = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Field>
-        <span>{t('auth.mail')}</span>
-        <input type="email" name="email" value={email} onChange={handleChange} />
-      </Field>
-      <Field>
-        <span>{t('auth.password')}</span>
-        <input type="password" name="password" value={password} onChange={handleChange} />
-      </Field>
-      <button type="submit">
-        <span>{t('auth.login')}</span>
-      </button>
-    </Form>
+    <Wrap posCentre={posCentre}>
+      <Form onSubmit={handleSubmit}>
+        <MuiCustomInput
+          label={t('auth.mail')}
+          name="email"
+          type="email"
+          autoComplete="current-email"
+          defaultValue={email}
+          onChange={handleChange}
+          required
+        />
+        <PasswordInput
+          label={t('auth.password')}
+          name="password"
+          type="password"
+          autoComplete="current-password"
+          defaultValue={password}
+          onChange={handleChange}
+          required
+        />
+        <SubmitBtn type="submit">
+          <span>{t('auth.login')}</span>
+        </SubmitBtn>
+      </Form>
+    </Wrap>
   );
 };
 
