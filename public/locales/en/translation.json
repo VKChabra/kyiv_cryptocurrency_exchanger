@@ -70,7 +70,7 @@
   },
   "userData": {
     "firstName": "Name",
-    "secondName": "Last name",
+    "lastName": "Last name",
     "name": "Nickname",
     "email": "Mail",
     "data": "Date of registration",

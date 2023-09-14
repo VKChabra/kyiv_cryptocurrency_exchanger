@@ -51,3 +51,12 @@ export const refresh = createAsyncThunk('users/refresh', async (_, thunkAPI) => 
     return thunkAPI.rejectWithValue(e);
   }
 });
+
+export const updata = createAsyncThunk('users/updata', async (credentials, thunkAPI) => {
+  try {
+    const data = await axios.patch('/users/updateData', credentials);
+    return data;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
