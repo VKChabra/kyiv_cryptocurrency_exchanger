@@ -47,20 +47,28 @@ const ChatButtons = () => {
       {expanded && (
         <ChatPanel expanded={expanded}>
           <li>
-            <FaTelegram
-              size={60}
-              style={{
-                color: '#0088cc',
-              }}
-            />
+            <a href="https://t.me/Bit2MeSupport" target="_blank" rel="noopener noreferrer">
+              <FaTelegram
+                size={60}
+                style={{
+                  color: '#0088cc',
+                }}
+              />
+            </a>
           </li>
           <li>
-            <FaWhatsapp
-              size={60}
-              style={{
-                color: '#28D146',
-              }}
-            />
+            <a
+              href="https://api.whatsapp.com/send?phone=34633333333"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaWhatsapp
+                size={60}
+                style={{
+                  color: '#28D146',
+                }}
+              />
+            </a>
           </li>
           <li>
             <button type="button" onClick={handleChatOpen}>
