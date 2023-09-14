@@ -1,6 +1,7 @@
 import { Text, Avatar, ProfileHeader, Profile, ProfileWrapper } from './user.styled';
 import ButtonsMenu from '../../components/buttonsMenu';
-import { useAuth } from '../../hooks';
+import { useSelector } from 'react-redux';
+import authSelectors from 'redux/auth/authSelectors';
 
 const setAvatar = name => {
   const letters = name.toUpperCase().split('');
@@ -8,14 +9,19 @@ const setAvatar = name => {
 };
 
 const User = () => {
-  const { user } = useAuth();
-  const letter = setAvatar(user.name);
+  const user = useSelector(authSelectors.selectUser);
+  console.log(user);
+  //   const user = useSelector(state => state.auth.user);
+  console.log(user);
+  // const { name, role } = user;
+
+  // const letter = setAvatar(name);
 
   return (
     <Profile>
       <ProfileHeader>
-        <Text>{user.name}</Text>
-        <Avatar>{letter}</Avatar>
+        {/* <Text>{name}</Text>
+        <Avatar role={role}>{letter}</Avatar> */}
       </ProfileHeader>
       <ProfileWrapper>
         <ButtonsMenu />

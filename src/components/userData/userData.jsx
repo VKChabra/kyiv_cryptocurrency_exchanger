@@ -1,17 +1,6 @@
-import {
-  Content,
-  Text,
-  Avatar,
-  Flex,
-  Box,
-  Title,
-  Input,
-  Form,
-  Label,
-  Button,
-  InputText,
-} from './userData.styled';
+import { Content, Text, Avatar, Flex, Box, Title } from './userData.styled';
 import { useAuth } from '../../hooks';
+import FormUser from '../../components/formUser';
 import { useTranslation } from 'react-i18next';
 import 'layouts/i18n/i18next';
 const setAvatar = name => {
@@ -22,42 +11,24 @@ const setAvatar = name => {
 const UserData = () => {
   const { user } = useAuth();
   const { t } = useTranslation();
-
-  const { firstName, role, lastName, email, createdAt, name } = user;
+  const { role, createdAt, name } = user;
   const letter = setAvatar(name);
+
   return (
     <Content>
       <Flex>
-        <Avatar>{letter}</Avatar>
+        <Avatar role={role}>{letter}</Avatar>
         <Title>{name}</Title>
         <Box>
-          <Title>{t(`userData.status`)}</Title> <Text>{role}</Text>
+          <Title>{t(`userData.status`)}</Title>
+          <Text>{role}</Text>
         </Box>
         <Box>
-          <Title>{t(`userData.data`)}</Title> <Text>{createdAt}</Text>
+          <Title>{t(`userData.data`)}</Title>
+          <Text>{createdAt}</Text>
         </Box>
       </Flex>
-      <Form>
-        <Label>{t(`userData.firstName`)}</Label>
-        {firstName ? <InputText>{firstName}</InputText> : <InputText>-</InputText>}
-        <Input type="text" name="firstName" placeholder={t(`userData.firstName`)} required />
-        <Button type="button">Отправить</Button>
-        <Button type="button">Изменить</Button>
-      </Form>
-      <Form>
-        <Label>{t(`userData.secondName`)}</Label>
-        {lastName ? <InputText>{lastName}</InputText> : <InputText>-</InputText>}
-        <Input type="text" name="secondName" placeholder={t(`userData.secondName`)} required />
-        <Button type="button">Отправить</Button>
-        <Button type="button">Изменить</Button>
-      </Form>
-      <Form>
-        <Label>{t(`userData.email`)}</Label>
-        {email ? <InputText>{email}</InputText> : <InputText>-</InputText>}
-        <Input type="text" name="email" placeholder={t(`userData.email`)} required />
-        <Button type="button">Отправить</Button>
-        <Button type="button">Изменить</Button>
-      </Form>
+      <FormUser user={user} />
     </Content>
   );
 };

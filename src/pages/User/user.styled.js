@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-
+import { setBgImage } from '../../helpers/setBgImage';
 export const Profile = styled.div`
   width: 100%;
   height: 100%;
@@ -17,7 +17,7 @@ export const Avatar = styled.div`
   height: 50px;
   border-radius: 50%;
   text-align: center;
-  background-image: radial-gradient(circle at bottom left, #a1812e 20%, #cfad56 60%, #f4de8b 80%);
+  background-image: ${setBgImage};
   margin-left: 26px;
   margin-right: 113px;
   border: 2px solid ${({ theme }) => theme.colors.primary};

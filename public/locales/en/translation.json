@@ -51,7 +51,7 @@
   },
   "userData": {
     "firstName": "Name",
-    "secondName": "Last name",
+    "lastName": "Last name",
     "name": "Nickname",
     "email": "Mail",
     "data": "Date of registration",
@@ -73,18 +73,18 @@
     "serviceWork": "Service works 24/7",
     "tecnicalSupport": "Technical support from 08:00 till 24:00"
   },
-   "news": {
+  "news": {
     "title": "Cryptocurrency news",
     "subTitle": "Latest news for you",
     "button": "Read"
   },
-      "reviews": {
+  "reviews": {
     "title": "What they say about us",
     "subTitle": "Our service is open we show all reviews",
     "formTitle": "Leave your feedback",
     "formSubTitle": "We will be glad to see your feedback which can be left after the first transaction",
     "button": "Leave a review",
     "placeholder": "Write your review",
-       "loginMessage": "To leave review please login"
+    "loginMessage": "To leave review please login"
   }
 }

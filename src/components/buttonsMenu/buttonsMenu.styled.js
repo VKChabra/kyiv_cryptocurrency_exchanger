@@ -6,7 +6,6 @@ import monitor from '../../images/icons/monitor.svg';
 import house from '../../images/icons/house.svg';
 
 const setIcon = ({ nameBtn }) => {
-  console.log(nameBtn);
   switch (nameBtn) {
     case 'privat':
       return house;
