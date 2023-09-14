@@ -24,6 +24,7 @@ export const register = createAsyncThunk('users/register', async (credentials, t
 export const logIn = createAsyncThunk('users/logIn', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/users/login', credentials);
+    console.log(data);
     setToken(data.token);
     return data;
   } catch (e) {
@@ -52,9 +53,9 @@ export const refresh = createAsyncThunk('users/refresh', async (_, thunkAPI) => 
   }
 });
 
-export const updata = createAsyncThunk('users/updata', async (credentials, thunkAPI) => {
+export const update = createAsyncThunk('users/update', async (credentials, thunkAPI) => {
   try {
-    const data = await axios.patch('/users/updateData', credentials);
+    const { data } = await axios.patch('/users/updateData', credentials);
     return data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e);

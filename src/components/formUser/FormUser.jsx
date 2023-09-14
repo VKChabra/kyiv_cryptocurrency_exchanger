@@ -4,12 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import Input from '../input';
 import 'layouts/i18n/i18next';
 import { Form, Button, Text, BoxWrapper } from './formUser.styled';
-import { updata } from 'redux/auth/operations';
+import { update } from 'redux/auth/operations';
+import authSelectors from 'redux/auth/authSelectors';
 
 const FormUser = () => {
   const { t } = useTranslation();
   const [visibleInput, setVisibleInput] = useState(false);
-  const user = useSelector(state => state.auth.user);
+  const user = useSelector(authSelectors.selectUser);
+  console.log(user);
   const { name } = user;
   const dispatch = useDispatch();
   const [nameUser, setName] = useState(name);
@@ -19,7 +21,8 @@ const FormUser = () => {
   //   email, firstName, lastName,
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(updata({ name: nameUser }));
+    // console.log({ name: nameUser });
+    dispatch(update({ name: nameUser }));
   };
   const handleChange = e => {
     const value = e.target.value.trim();
