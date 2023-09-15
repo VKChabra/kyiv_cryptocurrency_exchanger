@@ -13,6 +13,7 @@ export const AboutUsContainer = styled.div`
 `;
 
 export const Title = styled.h2`
+  font-famaly: Phudu;
   color: ${({ theme }) => theme.colors.primary};
   font-size: 64px;
   font-style: normal;
