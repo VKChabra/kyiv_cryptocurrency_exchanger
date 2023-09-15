@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Alert, Box, Button } from '@mui/material';
 import { getFormattedFullDate } from 'helpers/formatDate';
-import { updateReviewStatus } from 'services/fetchDB';
+import { updateTransactionStatus } from 'services/fetchDB';
 
 export const TransactionItem = ({ review, expanded, setExpanded, handleChangePanel }) => {
   const currentStatus = review.status;
@@ -36,7 +36,7 @@ export const TransactionItem = ({ review, expanded, setExpanded, handleChangePan
     const fetchData = async () => {
       setError(false);
 
-      const result = await updateReviewStatus(reviewId, newStatus);
+      const result = await updateTransactionStatus(reviewId, newStatus);
 
       if (result) {
         setIsUpdateStatus(true);

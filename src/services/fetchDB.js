@@ -35,3 +35,13 @@ export const getAllTransactions = async params => {
     console.log(err.response?.data?.message);
   }
 };
+
+export const updateTransactionStatus = async (id, status) => {
+  try {
+    const response = await axios.patch(`/api/transactions/${id}`, { status });
+
+    return response.data;
+  } catch (err) {
+    console.log(err.response?.data?.message);
+  }
+};
