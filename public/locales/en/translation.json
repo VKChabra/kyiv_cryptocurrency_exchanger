@@ -130,5 +130,11 @@
   "tradepairs": {
     "title": "Trade pairs",
     "subTitle": "There are more than 90 cryptocurrencies available on the market"
+  },
+  "partnership": {
+    "title": "Partnership",
+    "text1": "We are ready to offer additional discounts for regular customers for the Bitcoin exchange direction - Privat24. In this case, the discount is an additional payment to the payment received.",
+    "text2": "Let's consider an example: in total you exchanged the equivalent of 5000 USD in any currency with us. Now you are exchanging btc for 14,000 hryvnia, to this amount you will receive an additional payment of 0.05% * 14,000 = 7 hryvnia.",
+    "discount": "Discount system"
   }
 }
