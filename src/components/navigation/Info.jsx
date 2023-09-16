@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Text } from './nav.styled';
 import { DropdownMenu, InfoText, InfoImg, InfoBtn, LinkList, Link } from './info.styled';
 import Dropdown from 'images/arrowDown.svg';
 import { useTranslation } from 'react-i18next';
 
-const Info = () => {
+const Info = ({ footer = false }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { t } = useTranslation();
@@ -14,7 +13,7 @@ const Info = () => {
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu footer={footer}>
       <InfoBtn onClick={toggleDropdown}>
         <InfoText>{t('nav.information')}</InfoText>
         <InfoImg src={Dropdown} alt="dropdown"></InfoImg>
@@ -22,13 +21,13 @@ const Info = () => {
       {isOpen && (
         <LinkList>
           <Link to="/partnership">
-            <Text>{t('nav.partnership')}</Text>
+            <span>{t('nav.partnership')}</span>
           </Link>
           <Link to="/reviews">
-            <Text>{t('nav.reviews')}</Text>
+            <span>{t('nav.reviews')}</span>
           </Link>
           <Link to="/faq">
-            <Text>FAQ</Text>
+            <span>FAQ</span>
           </Link>
         </LinkList>
       )}

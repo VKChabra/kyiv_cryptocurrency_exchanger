@@ -5,12 +5,14 @@ export const DropdownMenu = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  color: ${({ footer, theme }) => (footer ? '#fff' : theme.colors.primary)};
   padding-right: 15px;
 `;
 
 export const InfoBtn = styled.div`
   display: flex;
   cursor: pointer;
+  width: max-content;
 `;
 
 export const InfoText = styled.span`

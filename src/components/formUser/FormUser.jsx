@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Input from '../input';
-import 'layouts/i18n/i18next';
 import { Form, Button, Text, BoxWrapper, ButtonSubmit } from './formUser.styled';
 import { update } from 'redux/auth/operations';
 import authSelectors from 'redux/auth/authSelectors';

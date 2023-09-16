@@ -9,3 +9,10 @@ export const HeaderBar = styled.div`
   text-align: center;
   border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
 `;
+
+export const NavWrap = styled.div`
+  color: ${({ theme }) => theme.colors.primary};
+  display: flex;
+  margin-left: 40px;
+  padding-top: ${({ footer }) => (footer ? '10px' : 0)};
+`;

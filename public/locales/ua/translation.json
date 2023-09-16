@@ -1,4 +1,7 @@
 {
+  "notFound": {
+    "button": "Перейти на головну"
+  },
   "nav": {
     "home": "головна",
     "news": "новини",
@@ -6,7 +9,7 @@
     "contacts": "контакти",
     "faq": "FAQ",
     "reviews": "відгуки",
-    "partnership": "партнери",
+    "partnership": "партнерська програма",
     "exchangeRates": "торгові пари",
     "login": "увійти",
     "register": "зареєструватися",

@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: flex-start;
   justify-content: center;
   height: 172px;
-  padding: 40px 112px 60px 112px;
+  padding-top: 20px;
   background-color: #3e45c3;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;

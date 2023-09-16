@@ -1,4 +1,4 @@
-import { Link, Text } from '../nav.styled';
+import { Link } from '../nav.styled';
 import { UserWrapper, Button } from './userNav.styled';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
@@ -11,7 +11,7 @@ const UserNav = () => {
   return (
     <UserWrapper>
       <Link to="/user">
-        <Text>{t('nav.profile')}</Text>
+        <span>{t('nav.profile')}</span>
       </Link>
       <Button type="button" onClick={handleLogOut}>
         {t('exitButton.exit')}

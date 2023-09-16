@@ -1,38 +1,31 @@
 import {
   NavFooter,
-  Link,
   Text,
   TextWrapper,
-  LineImg,
   InfoList,
   InfoItem,
   InfoText,
   SocialList,
   SocialItem,
 } from './FooterNav.styled';
-import FooterInfo from './FooterInfo';
+import { LineImg } from 'components/navigation/nav.styled';
+import Nav from 'components/navigation/Nav';
+import Info from 'components/navigation/Info';
 import Line from 'images/nav/line.svg';
 import { useTranslation } from 'react-i18next';
-import instagram from '../../images/footer/instagram.svg';
-import telegram from '../../images/footer/telegram.svg';
-import twitter from '../../images/footer/twitter.svg';
-import facebook from '../../images/footer/facebook.svg';
+import instagram from 'images/footer/instagram.svg';
+import telegram from 'images/footer/telegram.svg';
+import twitter from 'images/footer/twitter.svg';
+import facebook from 'images/footer/facebook.svg';
 
-const Nav = () => {
+const FooterNav = () => {
   const { t } = useTranslation();
 
   return (
     <NavFooter>
-      <Link to="/partnership">
-        <Text>{t('nav.partnership')}</Text>
-      </Link>
-      <LineImg src={Line} />
-      <Link to="/news">
-        <Text>{t('nav.news')}</Text>
-      </Link>
-      <LineImg src={Line} />
-      <FooterInfo />
-      <LineImg src={Line} />
+      <Nav footer={true} />
+      <Info footer={true} />
+      <LineImg src={Line} footer={true} />
       <TextWrapper>
         <Text>{t('footer.workingHours')}</Text>
         <InfoList>
@@ -49,16 +42,16 @@ const Nav = () => {
         <Text>{t('footer.socialNetworks')}</Text>
         <SocialList>
           <SocialItem>
-            <img src={instagram} alt="social media" width="30" height="30" />
+            <img src={instagram} alt="instagram" width="30" height="30" />
           </SocialItem>
           <SocialItem>
-            <img src={telegram} alt="social media" />
+            <img src={telegram} alt="telegram" />
           </SocialItem>
           <SocialItem>
-            <img src={facebook} alt="social media" />
+            <img src={facebook} alt="facebook" />
           </SocialItem>
           <SocialItem>
-            <img src={twitter} alt="social media" />
+            <img src={twitter} alt="twitter" />
           </SocialItem>
         </SocialList>
       </TextWrapper>
@@ -67,4 +60,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default FooterNav;

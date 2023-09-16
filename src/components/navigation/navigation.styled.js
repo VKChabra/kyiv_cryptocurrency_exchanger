@@ -1,7 +1,11 @@
 import styled from '@emotion/styled';
 
-export const HeaderStyled = styled.div`
-  color: ${({ theme }) => theme.colors.primary};
+export const NavHeader = styled.div`
   display: flex;
-  margin-left: 40px;
+  align-items: center;
+`;
+
+export const TextWrapper = styled.div`
+  padding: 12px 24px;
+  border: 2px solid #fff;
 `;

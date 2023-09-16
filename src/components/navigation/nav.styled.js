@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const NavHeader = styled.div`
-  display: flex;
+export const NavLinkWrapper = styled.div`
+  display: inherit;
   align-items: center;
+  color: ${({ footer, theme }) => (footer ? '#fff' : theme.colors.primary)};
 `;
 
 export const Link = styled(NavLink)`
@@ -23,11 +24,4 @@ export const Link = styled(NavLink)`
 
 export const LineImg = styled.img`
   padding-right: 15px;
-`;
-
-export const Text = styled.span``;
-
-export const TextWrapper = styled.div`
-  padding: 12px 24px;
-  border: 2px solid #fff;
 `;

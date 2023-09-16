@@ -43,12 +43,12 @@ export const Button = styled.button`
 
 export const ProfileNav = styled.div`
   width: 390px;
-  height:100%;
+  height: 100%;
   border-right: 2px solid ${({ theme }) => theme.colors.primary};
   display: flex;
   flex-wrap: wrap;
   background-size: cover;
-  background-image: url('${imageUrl}')};
+  background-image: url('${imageUrl}');
 `;
 export const ButtonWrapper = styled.div`
   height: 400px;

@@ -1,4 +1,7 @@
 {
+  "notFound": {
+    "button": "Go to home page"
+  },
   "nav": {
     "home": "home",
     "news": "news",
@@ -6,7 +9,7 @@
     "contacts": "contacts",
     "faq": "FAQ",
     "reviews": "reviews",
-    "partnership": "partners",
+    "partnership": "partnership",
     "exchangeRates": "trade pairs",
     "login": "login",
     "register": "register",

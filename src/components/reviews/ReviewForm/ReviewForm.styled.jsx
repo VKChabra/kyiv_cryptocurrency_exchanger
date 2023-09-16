@@ -29,7 +29,7 @@ export const Button = styled.button`
   padding: 9px 41px;
   background: #ffffff;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.primary};
+  color: #fff;
   text-align: center;
   font-family: Roboto;
   font-size: 32px;
