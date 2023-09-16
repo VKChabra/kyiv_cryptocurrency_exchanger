@@ -1,5 +1,19 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
+export const Content = styled.div`
+  width: 800px;
+  padding: 50px 20px;
+  text-align: center;
+`;
+export const Link = styled(NavLink)`
+  color: ${({ theme }) => theme.colors.primary};
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover {
+    color: ${({ theme }) => theme.colors.hovers};
+  }
+`;
 export const Table = styled.table`
   font-size: 12px;
   font-weight: 400;
@@ -27,8 +41,4 @@ export const TableCol = styled.td`
   padding-left: 40px;
   border-left: 0.5px solid #c0c0c0;
   border-right: 0.5px solid #c0c0c0;
-`;
-export const Content = styled.div`
-  width: 100%;
-  padding: 80px;
 `;

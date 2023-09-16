@@ -8,21 +8,6 @@ import '../../layouts/i18n/i18next';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 
-const transactions = [
-  {
-    id: '1e0700a2-5183-4291-85cc-2065a036a683',
-    type: 'invoice',
-    amount: '964.82',
-    currency: 'LRD',
-  },
-  {
-    id: 'a30f821b-4d25-4ff0-abdd-e340b3f0dd2b',
-    type: 'payment',
-    amount: '686.50',
-    currency: 'WST',
-  },
-];
-
 const buttonsListUser = [{ nameBtn: 'privat' }, { nameBtn: 'operation' }, { nameBtn: 'feedback' }];
 const ButtonsMenu = () => {
   const [activeButton, setActiveButton] = useState(0);
@@ -68,7 +53,7 @@ const ButtonsMenu = () => {
       </ProfileNav>
       <>
         {nameButton === 'privat' && <UserData />}
-        {nameButton === 'operation' && <TransactionHistory transactions={transactions} />}
+        {nameButton === 'operation' && <TransactionHistory />}
         {nameButton === 'feedback' && <Feedback />}
       </>
     </>

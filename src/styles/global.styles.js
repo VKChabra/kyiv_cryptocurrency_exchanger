@@ -8,6 +8,7 @@ export const themes = {
       primary: '#4D4D4D',
       secondary: '#fff',
       curses: '#fbf6e1',
+      hovers: '#cfad56',
     },
   },
   dark: {
@@ -17,6 +18,7 @@ export const themes = {
       primary: '#fff',
       secondary: '#fff',
       curses: '#2C2C27',
+      hovers: '#f4de8b',
     },
   },
   media: {

@@ -1,15 +1,25 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const Content = styled.div`
-  width: 100%;
-  padding: 80px;
+  width: 900px;
+  padding: 150px 80px;
+  text-align: center;
 `;
-
 export const Text = styled.p`
-  color: #fff;
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 100%;
+  color: ${({ theme }) => theme.colors.primary};
+  margin-right: 10px;
+`;
+export const Link = styled(NavLink)`
+  color: ${({ theme }) => theme.colors.primary};
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover {
+    color: ${({ theme }) => theme.colors.hovers};
+  }
+`;
+export const Box = styled.div`
+  margin-top: 50px;
+  padding: 0 80px;
+  display: flex;
 `;
