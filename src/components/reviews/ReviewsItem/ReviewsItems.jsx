@@ -11,9 +11,9 @@ import {
   DateStarWpapper,
 } from './ReviewsItem.styled';
 import { Rating } from '@mui/material';
-import blackCircle from '../../../images/blackCircle.svg';
-import purpleElipse from '../../../images/purpleElipse.svg';
-import orangeElipse from '../../../images/orangeElipse.svg';
+import blackCircle from 'images/blackCircle.svg';
+import purpleElipse from 'images/purpleElipse.svg';
+import orangeElipse from 'images/orangeElipse.svg';
 
 const ReviewsItem = ({ data = [] }) => {
   const handleDateFormat = dateString => {

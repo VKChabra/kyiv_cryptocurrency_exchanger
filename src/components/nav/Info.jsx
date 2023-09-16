@@ -30,9 +30,6 @@ const Info = () => {
           <Link to="/faq">
             <Text>FAQ</Text>
           </Link>
-          <Link to="#contacts">
-            <Text>{t('nav.contacts')}</Text>
-          </Link>
         </LinkList>
       )}
     </DropdownMenu>

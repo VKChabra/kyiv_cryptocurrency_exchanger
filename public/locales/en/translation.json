@@ -7,7 +7,7 @@
     "faq": "FAQ",
     "reviews": "reviews",
     "partnership": "partners",
-    "exchangeRates": "exchange",
+    "exchangeRates": "trade pairs",
     "login": "login",
     "register": "register",
     "logout": "logout",
@@ -39,7 +39,7 @@
   "arrayUserButtons": ["private", "operation", "feedback"],
   "exitButton": { "exit": "exit" },
   "hero": {
-    "desc": "is a reliable and secure cryptocurrency exchanger for every day"
+    "desc": "is reliable and secure cryptocurrency exchanger for every day"
   },
   "calc": {
     "inputGive": "Giving",
@@ -103,7 +103,7 @@
     "cardDesc6": "We provide thoughtful tools with high conversion rates. API and other integration formats. Help and advice with connecting to the service. Providing box solutions"
   },
   "homeReviews": {
-    "title": "RREVIEWS",
+    "title": "REVIEWS",
     "subTitle": "What our customers say about us",
     "button": "All reviews"
   },
