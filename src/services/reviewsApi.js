@@ -43,6 +43,12 @@ export const reviewsApi = createApi({
       }),
       providesTags: ['Reviews'],
     }),
+    getMyReview: build.query({
+      query: () => ({
+        url: '/review/my',
+        method: 'GET',
+      }),
+    }),
 
     addReview: build.mutation({
       query: data => ({
@@ -70,4 +76,5 @@ export const {
   useDeleteReviewMutation,
   useGetApprovedReviewsQuery,
   useGetUserReviewsQuery,
+  useGetMyReviewQuery,
 } = reviewsApi;

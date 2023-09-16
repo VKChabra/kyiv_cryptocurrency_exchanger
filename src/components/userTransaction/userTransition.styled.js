@@ -1,6 +1,21 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
+export const Content = styled.div`
+  width: 800px;
+  padding: 50px 20px;
+  text-align: center;
+`;
+export const Link = styled(NavLink)`
+  color: ${({ theme }) => theme.colors.primary};
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover {
+    color: ${({ theme }) => theme.colors.hovers};
+  }
+`;
 export const Table = styled.table`
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 12px;
   font-weight: 400;
   text-align: left;
@@ -9,11 +24,13 @@ export const Table = styled.table`
 `;
 
 export const RowColored = styled.tr`
+  color: ${({ theme }) => theme.colors.primary};
   &:nth-of-type {
     background-color: rgb(212, 224, 224);
   }
 `;
 export const TableHead = styled.th`
+  color: ${({ theme }) => theme.colors.primary};
   background-color: rgb(103, 224, 224);
   width: 200px;
   padding: 10px;
@@ -22,13 +39,10 @@ export const TableHead = styled.th`
   border-right: 0.5px solid #c0c0c0;
 `;
 export const TableCol = styled.td`
+  color: ${({ theme }) => theme.colors.primary};
   width: 200px;
   padding: 10px;
   padding-left: 40px;
   border-left: 0.5px solid #c0c0c0;
   border-right: 0.5px solid #c0c0c0;
-`;
-export const Content = styled.div`
-  width: 100%;
-  padding: 80px;
 `;

@@ -1,33 +1,63 @@
-import { Table, TableHead, RowColored, TableCol, Content } from './userTransition.styled';
+import { Table, TableHead, RowColored, TableCol, Content, Link } from './userTransition.styled';
+import { useGetMyTransactionQuery } from 'services/transactionsApi';
+import { useTranslation } from 'react-i18next';
 
-const Row = ({ type, amount, currency }) => {
+const Row = ({ amountToExchange, amountToReceive, currencyToReceive, currencyToExchange }) => {
   return (
     <RowColored>
-      <TableCol>{type}</TableCol>
-      <TableCol>{amount}</TableCol>
-      <TableCol>{currency}</TableCol>
+      <TableCol>{amountToExchange}</TableCol>
+      <TableCol>{amountToReceive}</TableCol>
+      <TableCol>{currencyToReceive}</TableCol>
+      <TableCol>{currencyToExchange}</TableCol>
     </RowColored>
   );
 };
 
-const TransactionHistory = ({ transactions }) => {
+const TransactionHistory = () => {
+  const { t } = useTranslation();
+  const { data } = useGetMyTransactionQuery();
+
+  if (!data) {
+    return;
+  }
+
   return (
     <Content>
-      <Table>
-        <thead>
-          <RowColored>
-            <TableHead>Type</TableHead>
-            <TableHead>Amount</TableHead>
-            <TableHead>Currency</TableHead>
-          </RowColored>
-        </thead>
-
-        <tbody>
-          {transactions.map(({ id, type, amount, currency }) => (
-            <Row key={id} type={type} amount={amount} currency={currency} />
-          ))}
-        </tbody>
-      </Table>
+      {data ? (
+        <Table>
+          <thead>
+            <RowColored>
+              <TableHead>{t('tableTransaction.amountToExchange')}</TableHead>
+              <TableHead>{t('tableTransaction.amountToReceive')}</TableHead>
+              <TableHead>{t('tableTransaction.currencyToReceive')}</TableHead>
+              <TableHead>{t('tableTransaction.currencyToExchange')}</TableHead>
+            </RowColored>
+          </thead>
+          <tbody>
+            {data.map(
+              ({
+                _id,
+                currencyToReceive,
+                amountToExchange,
+                amountToReceive,
+                currencyToExchange,
+              }) => (
+                <Row
+                  key={_id}
+                  currencyToReceive={currencyToReceive}
+                  amountToExchange={amountToExchange}
+                  amountToReceive={amountToReceive}
+                  currencyToExchange={currencyToExchange}
+                />
+              )
+            )}
+          </tbody>
+        </Table>
+      ) : (
+        <Content>
+          <Link to="/exchange">{t('userData.link2')}</Link>
+        </Content>
+      )}
     </Content>
   );
 };

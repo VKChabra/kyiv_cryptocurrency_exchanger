@@ -77,7 +77,13 @@
     "name": "Nickname",
     "email": "Mail",
     "data": "Date of registration",
-    "status": "Status"
+    "status": "Status",
+    "message": "You have not left a review about our service yet. We will be glad to see your feedback which can be left after the first transaction following the",
+    "message1": "Your feedback:",
+    "message2": "You can leave another review by clicking on the link",
+    "link": "link review",
+    "link1": "edit review",
+    "link2": "Make your first transaction"
   },
   "courses": {
     "title": "TOP CRYPTOCURRENCY",
@@ -139,5 +145,11 @@
     "text1": "We are ready to offer additional discounts for regular customers for the Bitcoin exchange direction - Privat24. In this case, the discount is an additional payment to the payment received.",
     "text2": "Let's consider an example: in total you exchanged the equivalent of 5000 USD in any currency with us. Now you are exchanging btc for 14,000 hryvnia, to this amount you will receive an additional payment of 0.05% * 14,000 = 7 hryvnia.",
     "discount": "Discount system"
+  },
+  "tableTransaction": {
+    "amountToExchange": "amount to exchange",
+    "amountToReceive": "amount to receive",
+    "currencyToReceive": "currency to receive",
+    "currencyToExchange": "currency to exchange"
   }
 }
