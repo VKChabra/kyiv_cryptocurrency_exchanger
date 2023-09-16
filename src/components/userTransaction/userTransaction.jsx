@@ -20,11 +20,10 @@ const TransactionHistory = () => {
   if (!data) {
     return;
   }
-  const { transactions } = data;
 
   return (
     <Content>
-      {transactions ? (
+      {data ? (
         <Table>
           <thead>
             <RowColored>
@@ -35,16 +34,16 @@ const TransactionHistory = () => {
             </RowColored>
           </thead>
           <tbody>
-            {transactions.map(
+            {data.map(
               ({
-                id,
+                _id,
                 currencyToReceive,
                 amountToExchange,
                 amountToReceive,
                 currencyToExchange,
               }) => (
                 <Row
-                  key={id}
+                  key={_id}
                   currencyToReceive={currencyToReceive}
                   amountToExchange={amountToExchange}
                   amountToReceive={amountToReceive}

@@ -15,6 +15,7 @@ export const Link = styled(NavLink)`
   }
 `;
 export const Table = styled.table`
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 12px;
   font-weight: 400;
   text-align: left;
@@ -23,11 +24,13 @@ export const Table = styled.table`
 `;
 
 export const RowColored = styled.tr`
+  color: ${({ theme }) => theme.colors.primary};
   &:nth-of-type {
     background-color: rgb(212, 224, 224);
   }
 `;
 export const TableHead = styled.th`
+  color: ${({ theme }) => theme.colors.primary};
   background-color: rgb(103, 224, 224);
   width: 200px;
   padding: 10px;
@@ -36,6 +39,7 @@ export const TableHead = styled.th`
   border-right: 0.5px solid #c0c0c0;
 `;
 export const TableCol = styled.td`
+  color: ${({ theme }) => theme.colors.primary};
   width: 200px;
   padding: 10px;
   padding-left: 40px;

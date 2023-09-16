@@ -18,7 +18,7 @@ export const transactionsApi = createApi({
   endpoints: build => ({
     addTransaction: build.mutation({
       query: data => ({
-        url: `/transactions`,
+        url: '/transactions/my',
         method: 'POST',
         body: data,
       }),
