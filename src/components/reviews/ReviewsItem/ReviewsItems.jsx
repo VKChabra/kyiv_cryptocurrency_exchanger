@@ -30,17 +30,17 @@ const ReviewsItem = ({ data = [] }) => {
       <BlackElipse src={blackCircle} alt="avatar" />
       <PurpleElipse src={purpleElipse} alt="avatar" />
       <OrangeElipse src={orangeElipse} alt="avatar" />
-      <NameLetter>{data.owner.name.charAt(0).toUpperCase()}</NameLetter>
+      <NameLetter>{data.owner?.name.charAt(0).toUpperCase()}</NameLetter>
 
       <NameWpapper>
-        <Name>{data.owner.name}</Name>
+        <Name>{data.owner?.name}</Name>
       </NameWpapper>
       <ReviewWpapper>
         <p>{data.review}</p>
       </ReviewWpapper>
       <DateStarWpapper>
         <div>
-          <Rating name={data.owner.id} defaultValue={5} size="large" readOnly />
+          <Rating name={data.owner?.id} defaultValue={5} size="large" readOnly />
         </div>
         <div>
           <ReviewDate>{handleDateFormat(data.createdAt)}</ReviewDate>
