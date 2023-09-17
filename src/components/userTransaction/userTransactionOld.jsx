@@ -1,4 +1,12 @@
-import { Table, TableHead, RowColored, TableCol, Content, Link } from './userTransition.styled';
+import {
+  Table,
+  TableHead,
+  RowColored,
+  TableCol,
+  Content,
+  Link,
+  Thead,
+} from './userTransition.styled';
 import { useGetMyTransactionQuery } from 'services/transactionsApi';
 import { useTranslation } from 'react-i18next';
 
@@ -25,14 +33,14 @@ const TransactionHistory = () => {
     <Content>
       {data ? (
         <Table>
-          <thead>
+          <Thead>
             <RowColored>
               <TableHead>{t('tableTransaction.amountToExchange')}</TableHead>
               <TableHead>{t('tableTransaction.amountToReceive')}</TableHead>
               <TableHead>{t('tableTransaction.currencyToReceive')}</TableHead>
               <TableHead>{t('tableTransaction.currencyToExchange')}</TableHead>
             </RowColored>
-          </thead>
+          </Thead>
           <tbody>
             {data.map(
               ({

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Content = styled.div`
   width: 800px;
-  padding: 50px 20px;
+  padding: 80px 80px;
   text-align: center;
 `;
 export const Link = styled(NavLink)`
@@ -25,13 +25,14 @@ export const Table = styled.table`
 
 export const RowColored = styled.tr`
   color: ${({ theme }) => theme.colors.primary};
-  &:nth-of-type {
-    background-color: rgb(212, 224, 224);
+  :nth-of-type(odd) {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    box-shadow: 1px 1px 21px 2px rgba(17, 17, 17, 0.5) inset;
   }
 `;
 export const TableHead = styled.th`
   color: ${({ theme }) => theme.colors.primary};
-  background-color: rgb(103, 224, 224);
   width: 200px;
   padding: 10px;
   padding-left: 40px;
@@ -45,4 +46,9 @@ export const TableCol = styled.td`
   padding-left: 40px;
   border-left: 0.5px solid #c0c0c0;
   border-right: 0.5px solid #c0c0c0;
+`;
+export const Thead = styled.thead`
+  background-color: #3e45c3;
+  border-top: 2px solid #c0c0c0;
+  border-bottom: 2px solid #c0c0c0;
 `;
