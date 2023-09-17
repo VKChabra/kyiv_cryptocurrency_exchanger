@@ -6,7 +6,7 @@ import MuiCustomInput from 'components/input';
 import { PasswordInput } from 'components/input/PasswordInput';
 import { logIn } from 'redux/auth/operations';
 
-const Login = ({ posCentre = true }) => {
+const Login = () => {
   const { t } = useTranslation();
 
   const [email, setMail] = useState('');
@@ -20,9 +20,6 @@ const Login = ({ posCentre = true }) => {
       return console.log('error wrong user data');
     }
     dispatch(logIn({ email, password }));
-
-    setMail('');
-    setPassword('');
   };
 
   const handleChange = e => {
@@ -42,7 +39,7 @@ const Login = ({ posCentre = true }) => {
   };
 
   return (
-    <Wrap posCentre={posCentre}>
+    <Wrap>
       <Form onSubmit={handleSubmit}>
         <MuiCustomInput
           label={t('auth.mail')}

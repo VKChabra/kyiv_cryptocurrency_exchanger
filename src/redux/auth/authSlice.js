@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, logOut, refresh, register, update } from './operations';
+import { logIn, logOut, refresh, register, verifyMail, update } from './operations';
 
 const handleUserEnter = (state, { payload }) => {
   state.isLoggedIn = true;
@@ -15,6 +15,8 @@ const authSlice = createSlice({
     user: { name: null, email: null },
     token: null,
     error: null,
+    errorCode: null,
+    verifyErrorCode: null,
     isLoggedIn: false,
     isRefreshing: false,
   },
@@ -26,14 +28,32 @@ const authSlice = createSlice({
       })
       .addCase(logIn.rejected, (state, { payload }) => {
         state.isRefreshing = false;
-        state.error = payload;
+        state.error = payload.message;
+        state.errorCode = payload.response.status;
       })
-      .addCase(register.fulfilled, handleUserEnter)
+      .addCase(register.fulfilled, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.user = payload.data.user;
+      })
       .addCase(register.pending, state => {
         state.isRefreshing = true;
       })
-      .addCase(register.rejected, state => {
+      .addCase(register.rejected, (state, { payload }) => {
         state.isRefreshing = false;
+        state.error = payload.message;
+        state.errorCode = payload.response.status;
+      })
+      .addCase(verifyMail.fulfilled, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.user = payload.data.user;
+      })
+      .addCase(verifyMail.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(verifyMail.rejected, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.error = payload.message;
+        state.verifyErrorCode = payload.response.status;
       })
       .addCase(logOut.fulfilled, state => {
         state.isLoggedIn = false;
@@ -56,8 +76,10 @@ const authSlice = createSlice({
       .addCase(refresh.pending, state => {
         state.isRefreshing = true;
       })
-      .addCase(refresh.rejected, state => {
+      .addCase(refresh.rejected, (state, { payload }) => {
         state.isRefreshing = false;
+        state.error = payload.message;
+        state.errorCode = payload.response.status;
       })
       .addCase(update.fulfilled, (state, { payload }) => {
         state.user = payload;
@@ -70,7 +92,8 @@ const authSlice = createSlice({
       })
       .addCase(update.rejected, (state, { payload }) => {
         state.isRefreshing = false;
-        state.error = payload;
+        state.error = payload.message;
+        state.errorCode = payload.response.status;
       }),
 });
 

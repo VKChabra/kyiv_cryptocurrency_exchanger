@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// require('dotenv').config();
 
 axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com/';
 // axios.defaults.baseURL = 'http://localhost:3001/api';
@@ -15,7 +14,14 @@ function unsetToken() {
 export const register = createAsyncThunk('users/register', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/users/register', credentials);
-    setToken(data.token);
+    return data;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+export const verifyMail = createAsyncThunk('users/verify', async (credentials, thunkAPI) => {
+  try {
+    const { data } = await axios.post('/users/verify', credentials);
     return data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e);

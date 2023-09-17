@@ -61,7 +61,8 @@
     "error": "There was an error, please check your data"
   },
   "captcha": {
-    "verify": "I'm not a bot"
+    "verify": "I'm not a bot",
+    "error": "Please complete captcha"
   },
   "auth": {
     "register": "Create Account",
@@ -69,7 +70,11 @@
     "name": "User Name",
     "mail": "Mail",
     "password": "Password",
-    "error": "Wrong auth data"
+    "errorData": "Wrong auth data",
+    "errorExists": "User with that email is already registered",
+    "errorNotFound": "User not found",
+    "errorVerif": "Verification code is wrong",
+    "errorVerifDone": "Verification has already been passed"
   },
   "userData": {
     "firstName": "Name",

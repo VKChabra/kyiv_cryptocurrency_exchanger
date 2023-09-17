@@ -60,7 +60,6 @@ const Exchange = () => {
     if (dataToSendTransaction.creditCard === '' || dataToSendTransaction.walletNumber === '') {
       return notifyWarning(t('exchange.emptyDetails'));
     }
-    console.log(dataToSendTransaction);
     delete dataToSendTransaction.acceptTerms;
     const response = await addTransaction(dataToSendTransaction);
     if (response.error) {
