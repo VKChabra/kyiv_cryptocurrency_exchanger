@@ -76,8 +76,7 @@
     "checkPassword": "Паролі не однакові",
     "errorExists": "Користувач з такою поштою вже зареєстрований",
     "errorNotFound": "Користувача не знайдено",
-    "errorVerif": "Верифікаційний код не вірний",
-    "errorVerifDone": "Верифікація вже пройдена"
+    "errorVerification": "Верифікаційний код не вірний"
   },
   "userData": {
     "firstName": "Ім'я",

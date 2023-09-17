@@ -33,7 +33,7 @@ const Verification = ({ email }) => {
       dispatch(resetErrors());
     }
     if (verifyErrorCode === 400) {
-      notifyError(t('auth.errorVerifDone'));
+      notifyError(t('auth.errorVerification'));
       dispatch(resetErrors());
     }
   };

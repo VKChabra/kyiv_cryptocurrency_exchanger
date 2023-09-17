@@ -76,8 +76,7 @@
     "checkPassword": "Passwords are not identical",
     "errorExists": "User with that email is already registered",
     "errorNotFound": "User not found",
-    "errorVerif": "Verification code is wrong",
-    "errorVerifDone": "Verification has already been passed"
+    "errorVerification": "Verification code is wrong or is already passed"
   },
   "userData": {
     "firstName": "Name",
