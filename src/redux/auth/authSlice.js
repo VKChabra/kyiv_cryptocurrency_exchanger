@@ -7,6 +7,7 @@ const handleUserEnter = (state, { payload }) => {
   state.token = payload.token;
   state.user = payload.user;
   state.error = null;
+  state.errorCode = null;
 };
 
 const authSlice = createSlice({
@@ -19,6 +20,12 @@ const authSlice = createSlice({
     verifyErrorCode: null,
     isLoggedIn: false,
     isRefreshing: false,
+  },
+  reducers: {
+    resetErrors: state => {
+      state.error = null;
+      state.errorCode = null;
+    },
   },
   extraReducers: builder =>
     builder
@@ -33,7 +40,7 @@ const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
-        state.user = payload.data.user;
+        state.user = payload.user;
       })
       .addCase(register.pending, state => {
         state.isRefreshing = true;
@@ -43,10 +50,7 @@ const authSlice = createSlice({
         state.error = payload.message;
         state.errorCode = payload.response.status;
       })
-      .addCase(verifyMail.fulfilled, (state, { payload }) => {
-        state.isRefreshing = false;
-        state.user = payload.data.user;
-      })
+      .addCase(verifyMail.fulfilled, handleUserEnter)
       .addCase(verifyMail.pending, state => {
         state.isRefreshing = true;
       })
@@ -97,4 +101,5 @@ const authSlice = createSlice({
       }),
 });
 
+export const { resetErrors } = authSlice.actions;
 export const authReducer = authSlice.reducer;

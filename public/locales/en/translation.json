@@ -70,6 +70,7 @@
     "name": "User Name",
     "mail": "Mail",
     "password": "Password",
+    "verifyCode": "verification code",
     "errorData": "Wrong auth data",
     "errorExists": "User with that email is already registered",
     "errorNotFound": "User not found",
