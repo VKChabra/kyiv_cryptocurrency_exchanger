@@ -24,20 +24,21 @@ const Registration = () => {
   const user = useSelector(authSelectors.selectUser);
 
   const handleChange = e => {
-    const value = e.target.value.toLowerCase().trim();
+    const value = e.target.value.trim();
+    const valueLowerCase = value.toLowerCase();
     const field = e.target.name;
     switch (field) {
       case 'name':
         setName(value);
         break;
       case 'email':
-        setMail(value);
+        setMail(valueLowerCase);
         break;
       case 'password':
         setPassword(value);
         break;
       case 'code':
-        setCode(value);
+        setCode(valueLowerCase);
         break;
 
       default:
