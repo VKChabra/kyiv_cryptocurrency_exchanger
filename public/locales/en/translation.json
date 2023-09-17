@@ -71,6 +71,7 @@
     "mail": "Mail",
     "password": "Password",
     "confirmPassword": "Confirm password",
+    "codeMissing": "Please enter a verification code",
     "verifyCode": "verification code",
     "errorData": "Wrong auth data",
     "checkPassword": "Passwords are not identical",

@@ -23,7 +23,7 @@ const Verification = ({ email }) => {
     e.preventDefault();
 
     if (!code) {
-      return notifyError('Please enter a verification code.');
+      return notifyError(t('auth.codeMissing'));
     }
 
     dispatch(verifyMail({ email, verificationCode: Number(code) }));
