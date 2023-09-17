@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com/';
-axios.defaults.baseURL = 'http://localhost:3001/api';
+axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com/';
+// axios.defaults.baseURL = 'http://localhost:3001/api';
 
 function setToken(token) {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
