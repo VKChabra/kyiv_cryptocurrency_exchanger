@@ -14,19 +14,6 @@ export const Form = styled.form`
   color: ${({ theme }) => theme.colors.primary};
 `;
 
-export const Field = styled.label`
-  display: block;
-  input {
-    max-width: 300px;
-    outline: none;
-    padding: 3px 5px;
-  }
-
-  & + & {
-    margin-top: 30px;
-  }
-`;
-
 export const SubmitBtn = styled.button`
   width: fit-content;
   color: ${({ theme }) => theme.colors.primary};
