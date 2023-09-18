@@ -10,7 +10,6 @@ const setAvatar = name => {
 
 const User = () => {
   const user = useSelector(authSelectors.selectUser);
-  console.log(user);
   const { name, role } = user;
 
   const letter = setAvatar(name);

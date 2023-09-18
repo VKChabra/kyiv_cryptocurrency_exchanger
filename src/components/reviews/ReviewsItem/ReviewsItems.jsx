@@ -11,9 +11,9 @@ import {
   DateStarWpapper,
 } from './ReviewsItem.styled';
 import { Rating } from '@mui/material';
-import blackCircle from '../../../images/blackCircle.svg';
-import purpleElipse from '../../../images/purpleElipse.svg';
-import orangeElipse from '../../../images/orangeElipse.svg';
+import blackCircle from 'images/blackCircle.svg';
+import purpleElipse from 'images/purpleElipse.svg';
+import orangeElipse from 'images/orangeElipse.svg';
 
 const ReviewsItem = ({ data = [] }) => {
   const handleDateFormat = dateString => {
@@ -30,8 +30,7 @@ const ReviewsItem = ({ data = [] }) => {
       <BlackElipse src={blackCircle} alt="avatar" />
       <PurpleElipse src={purpleElipse} alt="avatar" />
       <OrangeElipse src={orangeElipse} alt="avatar" />
-      <NameLetter>{data.owner?.name?.charAt(0).toUpperCase()}</NameLetter>
-
+      <NameLetter>{data.owner?.name.charAt(0).toUpperCase()}</NameLetter>
       <NameWpapper>
         <Name>{data.owner?.name}</Name>
       </NameWpapper>

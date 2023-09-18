@@ -1,31 +1,48 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.form`
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #30302;
-  background-opacity: 0.2;
-  margin-bottom: 10px;
-  width: 950px;
+  width: 900px;
+  padding: 10px 40px;
+  text-align: center;
+  vertical-align: middle;
 `;
 export const Button = styled.button`
-  margin: 15px;
-  color: #fff;
+  padding: 11px 82px;
+  border-radius: 10px;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary};
+  cursor: pointer;
+  background: transparent;
+  font-style: normal;
+  font-weight: 700;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.body};
+  }
 `;
 export const Text = styled.div`
   color: ${({ theme }) => theme.colors.primary};
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 100%;
-  margin-right: 50px;
-  width: 20%;
-  height: 45px;
+  width: 35%;
+  height: 30px;
 `;
 export const BoxWrapper = styled.div`
   display: flex;
-  align-items: center;
-  padding: 20px;
+  padding: 5px;
   width: 100%;
+`;
+export const ButtonSubmit = styled.button`
+  margin-top: 20px;
+  padding: 11px 82px;
+  border-radius: 10px;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary};
+  cursor: pointer;
+  background: transparent;
+  font-style: normal;
+  font-weight: 700;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.body};
+  }
 `;

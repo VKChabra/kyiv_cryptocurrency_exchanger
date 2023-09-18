@@ -28,6 +28,8 @@ const UserPage = lazy(() => import('./pages/User'));
 const ExchangePage = lazy(() => import('./pages/Exchange'));
 const NewsPage = lazy(() => import('./pages/News'));
 const TradepairsPage = lazy(() => import('./pages/Tradepairs'));
+const PartnershipPage = lazy(() => import('./pages/Partnership'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -44,9 +46,6 @@ const App = () => {
       <BrowserRouter basename="">
         <Suspense fallback={<Loader />}>
           <GlobalStyle theme={theme} />
-          {/* <button onClick={toggleTheme} style={{ position: 'absolute' }}>
-            Change theme
-          </button> */}
           <Routes>
             <Route path="/" element={<SharedLayout theme={theme} toggleTheme={toggleTheme} />}>
               <Route index element={<HomePage />} />
@@ -84,7 +83,7 @@ const App = () => {
               />
               <Route path="tradepairs" element={<TradepairsPage />} />
               <Route path="news" element={<NewsPage />} />
-              <Route path="partnership" />
+              <Route path="partnership" element={<PartnershipPage />} />
               <Route path="reviews" element={<ReviewsPage />} />
               <Route path="faq" />
               <Route path="contacts" />
@@ -94,8 +93,7 @@ const App = () => {
                 <Route path="transactions" element={<AdminTransactionPage />} />
                 <Route path="chat" element={<AdminChatPage />} />
               </Route>
-
-              {/* <Route path="*" element={<NotFound />} /> */}
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
         </Suspense>

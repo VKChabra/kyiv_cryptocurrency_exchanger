@@ -16,14 +16,17 @@ export const Input = styled(TextField)`
   p {
     color: ${({ theme }) => theme.colors.primary};
   }
-  input:-internal-autofill-selected {
-    background-color: transparent;
-    color: ${({ theme }) => theme.colors.primary};
-  }
   &.MuiOutlinedInput-root:hover {
     fieldset {
       border: 0;
     }
     border-color: ${({ theme }) => theme.colors.primary};
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.primary};
   }
 `;

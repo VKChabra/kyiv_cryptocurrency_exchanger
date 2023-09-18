@@ -1,18 +1,21 @@
-import { useSelector } from 'react-redux';
-import Nav from 'components/nav/Nav';
-import AuthNav from 'components/nav/AuthNav';
-import UserNav from 'components/nav/UserNav';
-import authSelectors from 'redux/auth/authSelectors';
-import { HeaderStyled } from './navigation.styled';
+import { NavHeader } from './navigation.styled';
+import { LineImg } from './nav.styled';
+import Nav from './Nav';
+import Info from './Info';
+import Line from 'images/nav/line.svg';
+import LanguageButton from './LanguageButton';
+import ThemeSwitcherButton from 'components/themeSwitch/ThemeSwitch';
 
-const Navigation = ({ theme, toggleTheme }) => {
-  const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
+const HeaderNavigation = ({ theme, toggleTheme }) => {
   return (
-    <HeaderStyled>
-      <Nav theme={theme} toggleTheme={toggleTheme} />
-      {!isLoggedIn ? <AuthNav /> : <UserNav />}
-    </HeaderStyled>
+    <NavHeader>
+      <Nav />
+      <Info />
+      <LineImg src={Line} />
+      <LanguageButton />
+      <ThemeSwitcherButton theme={theme} toggleTheme={toggleTheme} />
+    </NavHeader>
   );
 };
 
-export default Navigation;
+export default HeaderNavigation;

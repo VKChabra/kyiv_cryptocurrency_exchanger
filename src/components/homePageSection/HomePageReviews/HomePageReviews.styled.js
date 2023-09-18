@@ -18,8 +18,9 @@ export const SwiperWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    padding-top: 70px;
     height: 100%;
+    width: 60%;
   }
 `;
 
@@ -50,17 +51,15 @@ export const SubTitle = styled.h3`
   font-style: normal;
   font-weight: 300;
   line-height: 100%; /* 32px */
-  margin-bottom: 60px;
 `;
 
 export const Item = styled.li`
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px; */
   /* flex-basis: (calc(100% - 2 * 105px) / 2); */
   /* margin-bottom: 105px;
   &:nth-child(2n + 1) {
     margin-right: 105px;
-  } */
+  }
 `;

@@ -6,7 +6,7 @@ const MuiCustomInput = ({
   type = 'text',
   autoComplete = 'off',
   size = 'small',
-  defaultValue = 'value',
+  defaultValue,
   onChange,
   margin = 'dense',
   required = false,

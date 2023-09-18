@@ -5,7 +5,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 export const AdminMenu = () => {
   return (
-    <Box sx={{ display: 'flex', mt: 5 }}>
+    <Box sx={{ display: 'flex', mt: 5, mb: 14 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, px: 10 }}>
         <Link to="/admin">
           <Typography>Account</Typography>

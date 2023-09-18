@@ -4,7 +4,7 @@ export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${({ posCentre }) => (posCentre ? '80px 0px' : '0')};
+  padding: 200px 0px;
 `;
 
 export const Form = styled.form`
@@ -12,18 +12,11 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   color: ${({ theme }) => theme.colors.primary};
-`;
-
-export const Field = styled.label`
-  display: block;
-  input {
-    max-width: 300px;
-    outline: none;
-    padding: 3px 5px;
-  }
-
-  & + & {
-    margin-top: 30px;
+  & > * {
+    margin-top: 10px;
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 `;
 

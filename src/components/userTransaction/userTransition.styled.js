@@ -1,6 +1,21 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
+export const Content = styled.div`
+  width: 800px;
+  padding: 80px 80px;
+  text-align: center;
+`;
+export const Link = styled(NavLink)`
+  color: ${({ theme }) => theme.colors.primary};
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover {
+    color: ${({ theme }) => theme.colors.hovers};
+  }
+`;
 export const Table = styled.table`
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 12px;
   font-weight: 400;
   text-align: left;
@@ -9,12 +24,15 @@ export const Table = styled.table`
 `;
 
 export const RowColored = styled.tr`
-  &:nth-of-type {
-    background-color: rgb(212, 224, 224);
+  color: ${({ theme }) => theme.colors.primary};
+  :nth-of-type(odd) {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    box-shadow: 1px 1px 21px 2px rgba(17, 17, 17, 0.5) inset;
   }
 `;
 export const TableHead = styled.th`
-  background-color: rgb(103, 224, 224);
+  color: ${({ theme }) => theme.colors.primary};
   width: 200px;
   padding: 10px;
   padding-left: 40px;
@@ -22,13 +40,15 @@ export const TableHead = styled.th`
   border-right: 0.5px solid #c0c0c0;
 `;
 export const TableCol = styled.td`
+  color: ${({ theme }) => theme.colors.primary};
   width: 200px;
   padding: 10px;
   padding-left: 40px;
   border-left: 0.5px solid #c0c0c0;
   border-right: 0.5px solid #c0c0c0;
 `;
-export const Content = styled.div`
-  width: 100%;
-  padding: 80px;
+export const Thead = styled.thead`
+  background-color: #3e45c3;
+  border-top: 2px solid #c0c0c0;
+  border-bottom: 2px solid #c0c0c0;
 `;

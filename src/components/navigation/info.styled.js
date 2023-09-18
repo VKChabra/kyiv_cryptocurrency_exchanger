@@ -1,16 +1,23 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import mediaBp from 'styles/breakpoints';
 
 export const DropdownMenu = styled.div`
-  display: flex;
   justify-content: center;
   position: relative;
+  color: ${({ footer, theme }) => (footer ? '#fff' : theme.colors.primary)};
   padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  ${mediaBp('desktop')} {
+    flex-direction: row;
+  }
 `;
 
 export const InfoBtn = styled.div`
   display: flex;
   cursor: pointer;
+  width: max-content;
 `;
 
 export const InfoText = styled.span`

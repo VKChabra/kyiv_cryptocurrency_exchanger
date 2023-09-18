@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from '@mui/material';
-import { ReviewList } from 'components/admin/OperationList';
+import { OperationList } from 'components/admin/OperationList';
 import { SelectStatus } from 'components/admin/forms/SelectStatus';
 import { useEffect, useState } from 'react';
 import { getAllReviews } from 'services/fetchDB';
@@ -96,7 +96,7 @@ const ReviewPage = () => {
         <SelectStatus status={filter} setStatus={setFilter} isAllVariant />
       </Box>
 
-      {reviews.length !== 0 && <ReviewList reviews={reviews} />}
+      {reviews.length !== 0 && <OperationList array={reviews} operation="review" />}
 
       {isLoading && reviews.length === 0 && (
         <Box

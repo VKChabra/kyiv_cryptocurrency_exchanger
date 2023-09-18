@@ -1,4 +1,7 @@
 {
+  "notFound": {
+    "button": "Go to home page"
+  },
   "nav": {
     "home": "home",
     "news": "news",
@@ -6,8 +9,8 @@
     "contacts": "contacts",
     "faq": "FAQ",
     "reviews": "reviews",
-    "partnership": "partners",
-    "exchangeRates": "exchange",
+    "partnership": "partnership",
+    "exchangeRates": "trade pairs",
     "login": "login",
     "register": "register",
     "logout": "logout",
@@ -39,7 +42,7 @@
   "arrayUserButtons": ["private", "operation", "feedback"],
   "exitButton": { "exit": "exit" },
   "hero": {
-    "desc": "is a reliable and secure cryptocurrency exchanger for every day"
+    "desc": "is reliable and secure cryptocurrency exchanger for every day"
   },
   "calc": {
     "inputGive": "Giving",
@@ -58,7 +61,8 @@
     "error": "There was an error, please check your data"
   },
   "captcha": {
-    "verify": "I'm not a bot"
+    "verify": "I'm not a bot",
+    "error": "Please complete captcha"
   },
   "auth": {
     "register": "Create Account",
@@ -66,7 +70,24 @@
     "name": "User Name",
     "mail": "Mail",
     "password": "Password",
-    "error": "Wrong auth data"
+    "confirmPassword": "Confirm password",
+    "forgotPassword": "Forgot password?",
+    "wrongData": "Wrong user data",
+    "codeMissing": "Please enter a verification code",
+    "verifyCode": "verification code",
+    "errorData": "Wrong auth data",
+    "checkPassword": "Passwords are not identical",
+    "errorExists": "User with that email is already registered",
+    "errorNotFound": "User not found",
+    "errorVerification": "Verification code is wrong or is already passed"
+  },
+  "forgotPassword": {
+    "helper": "Write email and we'll send recovery code",
+    "backToLogin": "Back to login",
+    "success": "Mail is sent",
+    "verificationError": "Verification code is wrong",
+    "unexpected": "Error occurred",
+    "changedPassword": "Password is successfully changed"
   },
   "userData": {
     "firstName": "Name",
@@ -74,7 +95,13 @@
     "name": "Nickname",
     "email": "Mail",
     "data": "Date of registration",
-    "status": "Status"
+    "status": "Status",
+    "message": "You have not left a review about our service yet. We will be glad to see your feedback which can be left after the first transaction following the",
+    "message1": "Your feedback:",
+    "message2": "You can leave another review by clicking on the link",
+    "link": "link review",
+    "link1": "edit review",
+    "link2": "Make your first transaction"
   },
   "courses": {
     "title": "TOP CRYPTOCURRENCY",
@@ -103,7 +130,7 @@
     "cardDesc6": "We provide thoughtful tools with high conversion rates. API and other integration formats. Help and advice with connecting to the service. Providing box solutions"
   },
   "homeReviews": {
-    "title": "RREVIEWS",
+    "title": "REVIEWS",
     "subTitle": "What our customers say about us",
     "button": "All reviews"
   },
@@ -130,5 +157,17 @@
   "tradepairs": {
     "title": "Trade pairs",
     "subTitle": "There are more than 90 cryptocurrencies available on the market"
+  },
+  "partnership": {
+    "title": "Partnership",
+    "text1": "We are ready to offer additional discounts for regular customers for the Bitcoin exchange direction - Privat24. In this case, the discount is an additional payment to the payment received.",
+    "text2": "Let's consider an example: in total you exchanged the equivalent of 5000 USD in any currency with us. Now you are exchanging btc for 14,000 hryvnia, to this amount you will receive an additional payment of 0.05% * 14,000 = 7 hryvnia.",
+    "discount": "Discount system"
+  },
+  "tableTransaction": {
+    "amountToExchange": "amount to exchange",
+    "amountToReceive": "amount to receive",
+    "currencyToReceive": "currency to receive",
+    "currencyToExchange": "currency to exchange"
   }
 }

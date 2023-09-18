@@ -2,7 +2,6 @@ import { Content, Text, Avatar, Flex, Box, Title } from './userData.styled';
 import { useAuth } from '../../hooks';
 import FormUser from '../../components/formUser';
 import { useTranslation } from 'react-i18next';
-import 'layouts/i18n/i18next';
 const setAvatar = name => {
   const letters = name.toUpperCase().split('');
   return letters[0];

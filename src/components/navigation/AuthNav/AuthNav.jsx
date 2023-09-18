@@ -1,18 +1,18 @@
-import { Link, Text, TextWrapper } from '../nav.styled';
+import { Link } from '../nav.styled';
+import { TextWrapper } from '../navigation.styled';
 import { RegistrationWrapper } from './authNav.styled';
 import { useTranslation } from 'react-i18next';
-import 'layouts/i18n/i18next';
 
 const AuthNav = () => {
   const { t } = useTranslation();
   return (
     <RegistrationWrapper>
       <Link to="/register">
-        <Text>{t('nav.register')}</Text>
+        <span>{t('nav.register')}</span>
       </Link>
       <Link to="/login">
         <TextWrapper>
-          <Text>{t('nav.login')}</Text>
+          <span>{t('nav.login')}</span>
         </TextWrapper>
       </Link>
     </RegistrationWrapper>

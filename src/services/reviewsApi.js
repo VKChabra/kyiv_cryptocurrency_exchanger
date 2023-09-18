@@ -4,7 +4,7 @@ export const reviewsApi = createApi({
   reducerPath: 'reviewsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://crypto-ag2e.onrender.com/api',
-    //   baseUrl: "http://localhost:3001/api",
+    // baseUrl: 'http://localhost:3001/api',
 
     prepareHeaders: (headers, { getState }) => {
       const { token } = getState().auth;
@@ -43,6 +43,12 @@ export const reviewsApi = createApi({
       }),
       providesTags: ['Reviews'],
     }),
+    getMyReview: build.query({
+      query: () => ({
+        url: '/review/my',
+        method: 'GET',
+      }),
+    }),
 
     addReview: build.mutation({
       query: data => ({
@@ -70,4 +76,5 @@ export const {
   useDeleteReviewMutation,
   useGetApprovedReviewsQuery,
   useGetUserReviewsQuery,
+  useGetMyReviewQuery,
 } = reviewsApi;
