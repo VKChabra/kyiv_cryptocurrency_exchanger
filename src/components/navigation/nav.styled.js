@@ -4,11 +4,12 @@ import mediaBp from 'styles/breakpoints';
 
 export const NavLinkWrapper = styled.div`
   align-items: center;
-  color: ${({ footer, theme }) => (footer ? '#fff' : theme.colors.primary)};
+  color: #fff;
   display: flex;
   flex-direction: column;
   ${mediaBp('desktop')} {
     flex-direction: row;
+    color: ${({ footer, theme }) => (footer ? '#fff' : theme.colors.primary)};
   }
 `;
 

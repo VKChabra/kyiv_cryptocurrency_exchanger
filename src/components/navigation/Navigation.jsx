@@ -6,11 +6,11 @@ import Line from 'images/nav/line.svg';
 import LanguageButton from './LanguageButton';
 import ThemeSwitcherButton from 'components/themeSwitch/ThemeSwitch';
 
-const HeaderNavigation = ({ theme, toggleTheme }) => {
+const HeaderNavigation = ({ theme, toggleTheme, closeMobileMenu }) => {
   return (
     <NavHeader>
-      <Nav />
-      <Info />
+      <Nav closeMobileMenu={closeMobileMenu} />
+      <Info closeMobileMenu={closeMobileMenu} />
       <LineImg src={Line} />
       <LanguageButton />
       <ThemeSwitcherButton theme={theme} toggleTheme={toggleTheme} />

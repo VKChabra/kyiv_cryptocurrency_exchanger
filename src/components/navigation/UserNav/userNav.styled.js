@@ -17,3 +17,10 @@ export const Button = styled.button`
   font-size: inherit;
   cursor: pointer;
 `;
+
+export const Text = styled.span`
+  text-shadow: 1px 1px 4px black;
+  ${mediaBp('desktop')} {
+    text-shadow: none;
+  }
+`;

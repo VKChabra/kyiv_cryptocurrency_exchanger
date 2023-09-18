@@ -16,10 +16,10 @@ export const HeaderBar = styled.div`
 
 export const NavWrap = styled.div`
   color: #fff;
-  margin-left: 40px;
   padding-top: ${({ footer }) => (footer ? '10px' : 0)};
   display: none;
   ${mediaBp('desktop')} {
+    margin-left: 40px;
     display: flex;
     color: ${({ theme }) => theme.colors.primary};
   }
@@ -37,12 +37,14 @@ export const MobileMenu = styled.div`
   text-align: left;
   padding: 0.5rem;
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   transition: transform 0.3s ease-in-out;
-  ${mediaBp('desktop')} {
-    display: flex;
-    padding: 2rem;
+  a,
+  div,
+  span {
+    margin-top: 4px;
+    margin-bottom: 4px;
   }
 `;
 

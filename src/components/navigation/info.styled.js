@@ -5,13 +5,14 @@ import mediaBp from 'styles/breakpoints';
 export const DropdownMenu = styled.div`
   justify-content: center;
   position: relative;
-  color: ${({ footer, theme }) => (footer ? '#fff' : theme.colors.primary)};
+  color: #fff;
   padding-right: 15px;
   display: contents;
   flex-direction: column;
   ${mediaBp('desktop')} {
     display: flex;
     flex-direction: row;
+    color: ${({ footer, theme }) => (footer ? '#fff' : theme.colors.primary)};
   }
 `;
 

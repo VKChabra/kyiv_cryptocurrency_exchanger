@@ -5,7 +5,7 @@ import Dropdown from 'images/arrowDown.svg';
 import { useTranslation } from 'react-i18next';
 import { bp } from 'styles/breakpoints';
 
-const Info = ({ footer = false }) => {
+const Info = ({ footer = false, closeMobileMenu }) => {
   const { t } = useTranslation();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -26,13 +26,13 @@ const Info = ({ footer = false }) => {
       )}
       {(isOpen || !isDesktop) && (
         <LinkList>
-          <Link to="/partnership">
+          <Link to="/partnership" onClick={() => closeMobileMenu()}>
             <span>{t('nav.partnership')}</span>
           </Link>
-          <Link to="/reviews">
+          <Link to="/reviews" onClick={() => closeMobileMenu()}>
             <span>{t('nav.reviews')}</span>
           </Link>
-          <Link to="/faq">
+          <Link to="/faq" onClick={() => closeMobileMenu()}>
             <span>FAQ</span>
           </Link>
         </LinkList>
