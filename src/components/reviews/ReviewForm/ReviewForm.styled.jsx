@@ -19,31 +19,31 @@ export const Form = styled.form`
   }
 `;
 
-export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 473px;
-  height: 80px;
-  padding: 9px 41px;
-  background: #ffffff;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.primary};
-  text-align: center;
-  font-family: Roboto;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 32px;
-  background: rgb(254, 149, 5);
-  background: linear-gradient(
-    28deg,
-    rgba(254, 149, 5, 0.43461134453781514) 0%,
-    rgba(62, 69, 195, 1) 45%,
-    rgba(255, 255, 255, 0.32718837535014) 100%
-  );
-`;
+// export const Button = styled.button`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 8px;
+//   width: 473px;
+//   height: 80px;
+//   padding: 9px 41px;
+//   background: #ffffff;
+//   cursor: pointer;
+//   color: ${({ theme }) => theme.colors.primary};
+//   text-align: center;
+//   font-family: Roboto;
+//   font-size: 32px;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 32px;
+//   background: rgb(254, 149, 5);
+//   background: linear-gradient(
+//     28deg,
+//     rgba(254, 149, 5, 0.43461134453781514) 0%,
+//     rgba(62, 69, 195, 1) 45%,
+//     rgba(255, 255, 255, 0.32718837535014) 100%
+//   );
+// `;
 
 export const Title = styled.h4`
   margin-bottom: 31px;
