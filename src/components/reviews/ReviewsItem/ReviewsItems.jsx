@@ -31,7 +31,6 @@ const ReviewsItem = ({ data = [] }) => {
       <PurpleElipse src={purpleElipse} alt="avatar" />
       <OrangeElipse src={orangeElipse} alt="avatar" />
       <NameLetter>{data.owner?.name.charAt(0).toUpperCase()}</NameLetter>
-
       <NameWpapper>
         <Name>{data.owner?.name}</Name>
       </NameWpapper>
