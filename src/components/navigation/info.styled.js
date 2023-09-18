@@ -7,9 +7,10 @@ export const DropdownMenu = styled.div`
   position: relative;
   color: ${({ footer, theme }) => (footer ? '#fff' : theme.colors.primary)};
   padding-right: 15px;
-  display: flex;
+  display: contents;
   flex-direction: column;
   ${mediaBp('desktop')} {
+    display: flex;
     flex-direction: row;
   }
 `;
@@ -27,13 +28,19 @@ export const InfoText = styled.span`
 export const InfoImg = styled.img``;
 
 export const LinkList = styled.ul`
-  position: absolute;
-  padding: 10px;
-  margin-top: 40px;
-  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   list-style: none;
-  background-color: ${({ theme }) => theme.colors.body};
-  z-index: 3;
+  ${mediaBp('desktop')} {
+    display: block;
+    position: absolute;
+    padding: 10px;
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    background-color: ${({ theme }) => theme.colors.body};
+    z-index: 3;
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -42,11 +49,13 @@ export const Link = styled(NavLink)`
   letter-spacing: 0;
   white-space: nowrap;
   cursor: pointer;
-  padding-bottom: 10px;
-  &:last-child {
-    padding-bottom: 0;
-  }
   &.active {
     text-decoration: underline;
+  }
+  ${mediaBp('desktop')} {
+    padding-bottom: 10px;
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
 `;

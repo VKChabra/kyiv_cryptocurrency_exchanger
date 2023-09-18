@@ -4,10 +4,10 @@ import mediaBp from 'styles/breakpoints';
 export const UserWrapper = styled.div`
   align-items: baseline;
   align-self: center;
-  padding-left: 60px;
   display: flex;
   flex-direction: column;
   ${mediaBp('desktop')} {
+    padding-left: 60px;
     flex-direction: row;
   }
 `;

@@ -3,37 +3,47 @@ import mediaBp from 'styles/breakpoints';
 
 export const HeaderBar = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   padding-top: 16px;
   padding-bottom: 16px;
   text-align: center;
   border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
+  ${mediaBp('desktop')} {
+    justify-content: center;
+  }
 `;
 
 export const NavWrap = styled.div`
-  color: ${({ theme }) => theme.colors.primary};
+  color: #fff;
   margin-left: 40px;
   padding-top: ${({ footer }) => (footer ? '10px' : 0)};
   display: none;
   ${mediaBp('desktop')} {
     display: flex;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 export const MobileMenu = styled.div`
+  color: #fff;
+  text-shadow: 1px 1px 4px black;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: green;
+  background: linear-gradient(0deg, rgba(255, 255, 0, 1) 0%, rgba(0, 0, 255, 1) 100%);
   width: max-content;
   height: max-content;
   text-align: left;
-  padding: 2rem;
+  padding: 0.5rem;
   position: absolute;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
+  ${mediaBp('desktop')} {
+    display: flex;
+    padding: 2rem;
+  }
 `;
 
 export const MobileButton = styled.button`

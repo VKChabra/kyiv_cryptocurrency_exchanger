@@ -3,10 +3,10 @@ import mediaBp from 'styles/breakpoints';
 
 export const RegistrationWrapper = styled.div`
   align-items: center;
-  padding-left: 60px;
   display: flex;
   flex-direction: column;
   ${mediaBp('desktop')} {
+    padding-left: 60px;
     flex-direction: row;
   }
 `;

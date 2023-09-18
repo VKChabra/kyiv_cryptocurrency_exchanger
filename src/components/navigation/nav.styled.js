@@ -18,12 +18,14 @@ export const Link = styled(NavLink)`
   letter-spacing: 0;
   white-space: nowrap;
   cursor: pointer;
-  padding-right: 15px;
-  &:last-child {
-    padding-right: 0;
-  }
   &.active {
     text-decoration: underline;
+  }
+  ${mediaBp('desktop')} {
+    padding-right: 15px;
+    &:last-child {
+      padding-right: 0;
+    }
   }
 `;
 
