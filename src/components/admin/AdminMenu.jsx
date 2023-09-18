@@ -16,6 +16,9 @@ export const AdminMenu = () => {
         <Link to="/admin/transactions">
           <Typography>Transactions</Typography>
         </Link>
+        <Link to="/admin/chat">
+          <Typography>Chat</Typography>
+        </Link>
       </Box>
 
       <div style={{ width: '100%' }}>
