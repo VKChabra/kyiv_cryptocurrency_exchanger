@@ -14,7 +14,7 @@ const UserNav = () => {
         <span>{t('nav.profile')}</span>
       </Link>
       <Button type="button" onClick={handleLogOut}>
-        {t('exitButton.exit')}
+        {t('button.exit')}
       </Button>
     </UserWrapper>
   );

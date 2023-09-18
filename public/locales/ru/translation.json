@@ -158,6 +158,8 @@
     "amountToExchange": "сумма для обмена",
     "amountToReceive": "сумма к получению",
     "currencyToReceive": "валюта для получения",
-    "currencyToExchange": "валюта для обмена"
+    "currencyToExchange": "валюта для обмена",
+    "amount": "сумма",
+    "currency": "валюта"
   }
 }

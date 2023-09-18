@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
-
+import { TablePagination } from '@mui/material';
+import { TableCell } from '@mui/material';
 export const Content = styled.div`
   width: 800px;
   padding: 80px 80px;
@@ -51,4 +52,31 @@ export const Thead = styled.thead`
   background-color: #3e45c3;
   border-top: 2px solid #c0c0c0;
   border-bottom: 2px solid #c0c0c0;
+`;
+export const Pagination = styled(TablePagination)`
+  background-color: ${({ theme }) => theme.colors.body};
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  box-shadow: 1px 1px 21px 2px rgba(17, 17, 17, 0.5) inset;
+  label {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+  input {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+  &.MuiTablePagination-root {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+  svg {
+    fill: ${({ theme }) => theme.colors.primary};
+  }
+`;
+export const Cell = styled(TableCell)`
+  color: ${({ theme }) => theme.colors.primary};
+`;
+export const CellFirst = styled(TableCell)`
+  color: ${({ theme }) => theme.colors.primary};
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  box-shadow: 1px 1px 21px 2px rgba(17, 17, 17, 0.5) inset;
 `;

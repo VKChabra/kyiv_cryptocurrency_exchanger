@@ -24,6 +24,9 @@ const AdminAccountPage = lazy(() => import('./pages/Admin/AdminAccountPage'));
 const RegistrationPage = lazy(() => import('./pages/Registration'));
 const LoginPage = lazy(() => import('./pages/Login'));
 const UserPage = lazy(() => import('./pages/User'));
+const UserAccountPage = lazy(() => import('./pages/User/UserPrivate'));
+const UserReviewPage = lazy(() => import('./pages/User/UserReview'));
+const UserTransactionPage = lazy(() => import('./pages/User/UserTransaction'));
 const ExchangePage = lazy(() => import('./pages/Exchange'));
 const NewsPage = lazy(() => import('./pages/News'));
 const TradepairsPage = lazy(() => import('./pages/Tradepairs'));
@@ -67,6 +70,14 @@ const App = () => {
                   </PublicRoute>
                 }
               />
+              {/* <Route
+                path="user"
+                element={
+                  <PrivateRoute>
+                    <UserPage />
+                  </PrivateRoute>
+                }
+              /> */}
               <Route
                 path="user"
                 element={
@@ -74,7 +85,11 @@ const App = () => {
                     <UserPage />
                   </PrivateRoute>
                 }
-              />
+              >
+                <Route index element={<UserAccountPage />} />
+                <Route path="reviews" element={<UserReviewPage />} />
+                <Route path="transactions" element={<UserTransactionPage />} />
+              </Route>
               <Route
                 path="exchange"
                 element={
