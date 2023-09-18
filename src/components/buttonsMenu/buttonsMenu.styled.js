@@ -2,19 +2,6 @@ import styled from '@emotion/styled';
 import imageUrl from '../../images/background1.svg';
 import { NavLink } from 'react-router-dom';
 
-const setClassName = ({ name, theme }) => {
-  switch (name) {
-    case 'private':
-      return theme.colors.body;
-    case 'operation':
-      return theme.colors.body;
-    case 'feedback':
-      return theme.colors.body;
-    default:
-      return;
-  }
-};
-
 export const Link = styled(NavLink)`
   display: inline-flex;
   align-items: center;
@@ -25,12 +12,13 @@ export const Link = styled(NavLink)`
   border-right: none;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.primary};
-  transition: background-color border-color 500ms linear, transform 500ms ease-in-out;
+  transition: background-color 300ms linear, transform 500ms ease-in-out;
+  transition: border-color 300ms linear, transform 500ms ease-in-out;
   &:hover,
   &.active {
     border: 2px solid ${({ theme }) => theme.colors.primary};
     border-right: transparent;
-    background-color: ${setClassName};
+    background-color: ${({ theme }) => theme.colors.body};
     margin-right: -2px;
   }
 `;
