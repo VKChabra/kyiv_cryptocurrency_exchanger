@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Switch } from '@mui/material';
 
 export const ThemeSwitch = styled(Switch)`
-  width: 62px;
   height: 34px;
   padding: 7px;
 

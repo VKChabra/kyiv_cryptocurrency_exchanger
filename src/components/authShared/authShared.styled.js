@@ -12,6 +12,12 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   color: ${({ theme }) => theme.colors.primary};
+  & > * {
+    margin-top: 10px;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
 `;
 
 export const SubmitBtn = styled.button`

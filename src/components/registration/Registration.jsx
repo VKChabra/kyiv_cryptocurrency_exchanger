@@ -10,7 +10,7 @@ import MuiCustomInput from 'components/input';
 import { notifyError } from 'helpers/notifications';
 import authSelectors from 'redux/auth/authSelectors';
 import { resetErrors, resetUser } from 'redux/auth/authSlice';
-import Verification from 'components/authShared/verification';
+import Verification from 'components/verification';
 
 const Registration = () => {
   const { t } = useTranslation();
@@ -82,7 +82,7 @@ const Registration = () => {
           label={t('auth.name')}
           name="name"
           type="name"
-          autoComplete="username"
+          autoComplete="current-username"
           defaultValue={name}
           onChange={handleChange}
           required
@@ -91,7 +91,7 @@ const Registration = () => {
           label={t('auth.mail')}
           name="email"
           type="email"
-          autoComplete="email"
+          autoComplete="current-email"
           defaultValue={email}
           onChange={handleChange}
           required

@@ -23,4 +23,5 @@ margin-bottom: 105px;
   &:nth-child(2n + 1) {
     margin-right: 105px;
   }
+ 
 `;

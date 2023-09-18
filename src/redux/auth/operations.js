@@ -30,7 +30,6 @@ export const verifyMail = createAsyncThunk('users/verify', async (credentials, t
 export const logIn = createAsyncThunk('users/logIn', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/users/login', credentials);
-    console.log(data);
     setToken(data.token);
     return data;
   } catch (e) {

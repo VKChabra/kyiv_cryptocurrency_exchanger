@@ -21,11 +21,6 @@ export const themes = {
       hovers: '#f4de8b',
     },
   },
-  media: {
-    mobile: '@media (max-width: 767px)',
-    tablet: '@media (max-width: 1279px) and (min-width: 768px)',
-    desktop: '@media (min-width: 1280px)',
-  },
 };
 
 export const GlobalStyle = ({ theme }) => (

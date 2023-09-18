@@ -73,6 +73,8 @@
     "mail": "Почта",
     "password": "Пароль",
     "confirmPassword": "Подтвердите пароль",
+    "forgotPassword": "Забыли пароль?",
+    "wrongData": "Неверные данные",
     "codeMissing": "Пожалуйста введите верификационный код",
     "verifyCode": "верификационный код",
     "errorData": "Неверные данные",
@@ -80,6 +82,14 @@
     "errorExists": "Пользователь с такой почтой уже зарегистрирован",
     "errorNotFound": "Пользователь не найден",
     "errorVerification": "Код верификации не верный"
+  },
+  "forgotPassword": {
+    "helper": "Напишите почту и мы отправим код для восстановления",
+    "backToLogin": "Назад к логину",
+    "success": "Письмо отправлено",
+    "verificationError": "Верификационный код неверный",
+    "unexpected": "Произошла ошибка",
+    "changedPassword": "Пароль успешно изменён"
   },
   "userData": {
     "firstName": "Имя",

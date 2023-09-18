@@ -6,7 +6,7 @@ import { verifyMail } from 'redux/auth/operations';
 import { resetErrors } from 'redux/auth/authSlice';
 import authSelectors from 'redux/auth/authSelectors';
 import MuiCustomInput from 'components/input';
-import { SubmitBtn } from './authShared.styled';
+import { SubmitBtn } from '../authShared/authShared.styled';
 
 const Verification = ({ email }) => {
   const { t } = useTranslation();

@@ -3,14 +3,14 @@ import { TextWrapper } from '../navigation.styled';
 import { RegistrationWrapper } from './authNav.styled';
 import { useTranslation } from 'react-i18next';
 
-const AuthNav = () => {
+const AuthNav = ({ closeMobileMenu }) => {
   const { t } = useTranslation();
   return (
     <RegistrationWrapper>
-      <Link to="/register">
+      <Link to="/register" onClick={() => closeMobileMenu()}>
         <span>{t('nav.register')}</span>
       </Link>
-      <Link to="/login">
+      <Link to="/login" onClick={() => closeMobileMenu()}>
         <TextWrapper>
           <span>{t('nav.login')}</span>
         </TextWrapper>

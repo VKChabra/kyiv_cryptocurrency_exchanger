@@ -20,6 +20,7 @@ const HomePage = lazy(() => import('./pages/Home'));
 const ReviewsPage = lazy(() => import('./pages/Reviews'));
 const AdminReviewPage = lazy(() => import('./pages/Admin/ReviewPage'));
 const AdminTransactionPage = lazy(() => import('./pages/Admin/TransactionPage'));
+const AdminChatPage = lazy(() => import('./pages/Admin/ChatPage'));
 const AdminAccountPage = lazy(() => import('./pages/Admin/AdminAccountPage'));
 const RegistrationPage = lazy(() => import('./pages/Registration'));
 const LoginPage = lazy(() => import('./pages/Login'));
@@ -48,9 +49,6 @@ const App = () => {
       <BrowserRouter basename="">
         <Suspense fallback={<Loader />}>
           <GlobalStyle theme={theme} />
-          {/* <button onClick={toggleTheme} style={{ position: 'absolute' }}>
-            Change theme
-          </button> */}
           <Routes>
             <Route path="/" element={<SharedLayout theme={theme} toggleTheme={toggleTheme} />}>
               <Route index element={<HomePage />} />
@@ -100,6 +98,7 @@ const App = () => {
                 <Route index element={<AdminAccountPage />} />
                 <Route path="reviews" element={<AdminReviewPage />} />
                 <Route path="transactions" element={<AdminTransactionPage />} />
+                <Route path="chat" element={<AdminChatPage />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Route>

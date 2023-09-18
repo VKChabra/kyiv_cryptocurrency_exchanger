@@ -62,7 +62,7 @@ export const BtnDateWrap = styled.div`
 `;
 
 export const Btn = styled.button`
-  color: ${({ theme }) => theme.colors.primary};
+  color: #fff;
   display: inline-flex;
   padding: 12px 24px;
   justify-content: center;

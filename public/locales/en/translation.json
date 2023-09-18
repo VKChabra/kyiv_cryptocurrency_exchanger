@@ -73,6 +73,8 @@
     "mail": "Mail",
     "password": "Password",
     "confirmPassword": "Confirm password",
+    "forgotPassword": "Forgot password?",
+    "wrongData": "Wrong user data",
     "codeMissing": "Please enter a verification code",
     "verifyCode": "verification code",
     "errorData": "Wrong auth data",
@@ -80,6 +82,14 @@
     "errorExists": "User with that email is already registered",
     "errorNotFound": "User not found",
     "errorVerification": "Verification code is wrong or is already passed"
+  },
+  "forgotPassword": {
+    "helper": "Write email and we'll send recovery code",
+    "backToLogin": "Back to login",
+    "success": "Mail is sent",
+    "verificationError": "Verification code is wrong",
+    "unexpected": "Error occurred",
+    "changedPassword": "Password is successfully changed"
   },
   "userData": {
     "firstName": "Name",

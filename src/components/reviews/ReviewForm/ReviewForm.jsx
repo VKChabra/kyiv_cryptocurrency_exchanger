@@ -1,4 +1,5 @@
-import { Title, Text, Form, Button } from './ReviewForm.styled';
+import { Title, Text, Form } from './ReviewForm.styled';
+import NeoButton from '../../../layouts/Button';
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';
 import { useNavigate } from 'react-router-dom';
@@ -70,7 +71,7 @@ const ReviewForm = () => {
               onChange={handleChange}
             />
           </label>
-          <Button type="submit">{t('reviews.button')}</Button>
+          <NeoButton type="submit" text={t('reviews.button')}></NeoButton>
         </div>
       </Form>
     </div>
