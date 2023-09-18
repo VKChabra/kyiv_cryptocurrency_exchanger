@@ -34,13 +34,15 @@
     "exit": "вийти",
     "readMore": "читати далі",
     "showMore": "показати більше",
-    "loadMore": "завантажити більше"
+    "loadMore": "завантажити більше",
+    "private": "CHANGEprivate",
+    "operation": "CHANGEoperation",
+    "feedback": "CHANGEfeedback"
   },
   "alert": {
     "loginFirst": "Спочатку зареєструйтесь або увійдіть в акаунт"
   },
   "arrayUserButtons": ["кабінет", "транзакції", "відгуки"],
-  "exitButton": { "exit": "вихід" },
   "hero": {
     "desc": "це надійний та безпечний обмінник криптовалют для кожного дня"
   },

@@ -42,6 +42,7 @@
   "alert": {
     "loginFirst": "Please register or login first"
   },
+  "arrayUserButtons": ["cabinet", "operations", "reviews"],
   "hero": {
     "desc": "is reliable and secure cryptocurrency exchanger for every day"
   },

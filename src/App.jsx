@@ -70,14 +70,6 @@ const App = () => {
                   </PublicRoute>
                 }
               />
-              {/* <Route
-                path="user"
-                element={
-                  <PrivateRoute>
-                    <UserPage />
-                  </PrivateRoute>
-                }
-              /> */}
               <Route
                 path="user"
                 element={
