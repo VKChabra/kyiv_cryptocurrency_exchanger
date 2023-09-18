@@ -1,4 +1,4 @@
-import { Text, Avatar, ProfileHeader, Profile, ProfileWrapper } from './user.styled';
+import { Text, AvatarHeader, ProfileHeader, Profile, ProfileWrapper } from './user.styled';
 import ButtonsMenu from '../../components/buttonsMenu';
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';
@@ -18,7 +18,7 @@ const User = () => {
     <Profile>
       <ProfileHeader>
         <Text>{name}</Text>
-        <Avatar role={role}>{letter}</Avatar>
+        <AvatarHeader role={role}>{letter}</AvatarHeader>
       </ProfileHeader>
       <ProfileWrapper>
         <ButtonsMenu />

@@ -34,13 +34,15 @@
     "exit": "exit",
     "readMore": "read more",
     "showMore": "show more",
-    "loadMore": "load more"
+    "loadMore": "load more",
+    "private": "private",
+    "operation": "operation",
+    "feedback": "feedback"
   },
   "alert": {
     "loginFirst": "Please register or login first"
   },
-  "arrayUserButtons": ["private", "operation", "feedback"],
-  "exitButton": { "exit": "exit" },
+  "arrayUserButtons": ["cabinet", "operations", "reviews"],
   "hero": {
     "desc": "is reliable and secure cryptocurrency exchanger for every day"
   },
@@ -168,6 +170,8 @@
     "amountToExchange": "amount to exchange",
     "amountToReceive": "amount to receive",
     "currencyToReceive": "currency to receive",
-    "currencyToExchange": "currency to exchange"
+    "currencyToExchange": "currency to exchange",
+    "amount": "amount",
+    "currency": "currency"
   }
 }

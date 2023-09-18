@@ -17,7 +17,7 @@ const UserNav = ({ closeMobileMenu }) => {
         <span>{t('nav.profile')}</span>
       </Link>
       <Button type="button" onClick={handleLogOut}>
-        <Text>{t('exitButton.exit')}</Text>
+        <Text>{t('button.exit')}</Text>
       </Button>
     </UserWrapper>
   );

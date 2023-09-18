@@ -34,13 +34,15 @@
     "exit": "выйти",
     "readMore": "читать далее",
     "showMore": "показать больше",
-    "loadMore": "загрузить больше"
+    "loadMore": "загрузить больше",
+    "private": "CHANGEprivate",
+    "operation": "CHANGEoperation",
+    "feedback": "CHANGEfeedback"
   },
   "alert": {
     "loginFirst": "Сначала зарегистрируйтесь или войдите в аккаунт"
   },
   "arrayUserButtons": ["кабинет", "оперпации", "отзывы"],
-  "exitButton": { "exit": "выход" },
   "hero": {
     "desc": "это надёжный и безопасный обменник криптовалют для каждого дня"
   },
@@ -168,6 +170,8 @@
     "amountToExchange": "сумма для обмена",
     "amountToReceive": "сумма к получению",
     "currencyToReceive": "валюта для получения",
-    "currencyToExchange": "валюта для обмена"
+    "currencyToExchange": "валюта для обмена",
+    "amount": "сумма",
+    "currency": "валюта"
   }
 }

@@ -1,24 +1,8 @@
 import styled from '@emotion/styled';
 import imageUrl from '../../images/background1.svg';
-import unlock from '../../images/icons/unlock.svg';
-import tag from '../../images/icons/tag.svg';
-import monitor from '../../images/icons/monitor.svg';
-import house from '../../images/icons/house.svg';
+import { NavLink } from 'react-router-dom';
 
-const setIcon = ({ nameBtn }) => {
-  switch (nameBtn) {
-    case 'privat':
-      return house;
-    case 'operation':
-      return monitor;
-    case 'feedback':
-      return tag;
-    default:
-      return unlock;
-  }
-};
-
-export const Button = styled.button`
+export const Link = styled(NavLink)`
   display: inline-flex;
   align-items: center;
   padding-left: 20px;
@@ -28,19 +12,16 @@ export const Button = styled.button`
   border-right: none;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.primary};
-  transition: background-color 500ms linear, transform 500ms ease-in-out;
-  transition: border-color 500ms linear, transform 500ms ease-in-out;
+  transition: background-color 300ms linear, transform 500ms ease-in-out;
+  transition: border-color 300ms linear, transform 500ms ease-in-out;
   &:hover,
   &.active {
     border: 2px solid ${({ theme }) => theme.colors.primary};
-    transition: border-color 500ms linear, transform 500ms ease-in-out;
-    transition: background-color 500ms linear, transform 500ms ease-in-out;
     border-right: transparent;
     background-color: ${({ theme }) => theme.colors.body};
     margin-right: -2px;
   }
 `;
-
 export const ProfileNav = styled.div`
   width: 390px;
   height: 100%;
@@ -74,10 +55,4 @@ export const ExitButton = styled.button`
 `;
 export const Text = styled.p`
   margin-left: 10px;
-`;
-export const Icon = styled.div`
-  width: 20px;
-  height: 20px;
-  background-image: url('${setIcon}')};
-  background-repeat: no-repeat;
 `;
