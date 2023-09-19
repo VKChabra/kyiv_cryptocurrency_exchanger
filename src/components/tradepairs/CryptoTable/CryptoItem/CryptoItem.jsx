@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { getCryptoData } from 'services/API/whitebit-api';
 import {
   Wrapper,
@@ -42,8 +42,14 @@ const CryptoItem = ({ onCryptoItemClick }) => {
     setPerPage(30);
   };
 
+  const scrollToTop = useRef(null);
+
   const handleClick = item => {
     onCryptoItemClick(item);
+    window.scrollTo({
+      top: 200,
+      behavior: 'smooth', // Add smooth scrolling behavior
+    });
   };
 
   const cryptoDataItem = cryptoData.map(item => (
@@ -57,7 +63,7 @@ const CryptoItem = ({ onCryptoItemClick }) => {
       <p>{item.marketCap}</p>
       <NavLink to="/">
         {' '}
-        <ChangeButton key={item.id} onClick={() => handleClick(item)}>
+        <ChangeButton key={item.id} onClick={() => handleClick(item)} ref={scrollToTop}>
           {t('button.exchange')}
         </ChangeButton>
       </NavLink>
