@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { getCryptoData } from 'services/API/whitebit-api';
-import { Wrapper, Table, ListTitleItem, ListTitle, List, Item, Change } from './CryptoItem.styled';
+import {
+  Wrapper,
+  Table,
+  ListTitleItem,
+  ListTitle,
+  List,
+  Item,
+  Change,
+  ChangeButton,
+} from './CryptoItem.styled';
 import { useTranslation } from 'react-i18next';
 import Button from 'layouts/Button';
+import { NavLink } from 'react-router-dom';
 
-const CryptoItem = () => {
+const CryptoItem = ({ onCryptoItemClick }) => {
   const [cryptoData, setCryptoData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [perPage, setPerPage] = useState(50);
+  const [perPage, setPerPage] = useState(30);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -25,11 +35,15 @@ const CryptoItem = () => {
   }, [perPage]);
 
   const loadMore = () => {
-    setPerPage(perPage + 50);
+    setPerPage(perPage + 30);
   };
 
   const showLess = () => {
-    setPerPage(50);
+    setPerPage(30);
+  };
+
+  const handleClick = item => {
+    onCryptoItemClick(item);
   };
 
   const cryptoDataItem = cryptoData.map(item => (
@@ -41,6 +55,12 @@ const CryptoItem = () => {
       </p>
 
       <p>{item.marketCap}</p>
+      <NavLink to="/">
+        {' '}
+        <ChangeButton key={item.id} onClick={() => handleClick(item)}>
+          {t('button.exchange')}
+        </ChangeButton>
+      </NavLink>
     </Item>
   ));
 
@@ -59,8 +79,8 @@ const CryptoItem = () => {
             </ListTitle>
             <List>{cryptoDataItem}</List>
           </Table>
-          {perPage > 239 || <Button text={t('button.showMore')} onClick={loadMore}></Button>}
-          {perPage > 239 && <Button text={t('button.showLess')} onClick={showLess}></Button>}
+          {perPage > 259 || <Button text={t('button.showMore')} onClick={loadMore}></Button>}
+          {perPage > 259 && <Button text={t('button.showLess')} onClick={showLess}></Button>}
         </>
       )}
     </Wrapper>

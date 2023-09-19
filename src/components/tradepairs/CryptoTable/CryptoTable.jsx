@@ -4,9 +4,12 @@ import CryptoItem from './CryptoItem/CryptoItem';
 
 const CryptoTable = () => {
   // const { t } = useTranslation();
+  const handleCryptoItemClick = item => {
+    console.log('Button clicked for crypto:', item.crypto);
+  };
   return (
     <CardWrapper>
-      <CryptoItem />
+      <CryptoItem onCryptoItemClick={handleCryptoItemClick} />
     </CardWrapper>
   );
 };
