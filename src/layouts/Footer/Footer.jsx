@@ -15,7 +15,7 @@ const Footer = () => {
       {!isDesktop ? (
         <FooterInfo />
       ) : (
-        <NavWrap footer={true}>
+        <NavWrap footer={'true'}>
           <FooterNav />
         </NavWrap>
       )}

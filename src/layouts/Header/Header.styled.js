@@ -16,7 +16,7 @@ export const HeaderBar = styled.div`
 
 export const NavWrap = styled.div`
   color: #fff;
-  padding-top: ${({ footer }) => (footer ? '10px' : 0)};
+  padding-top: ${({ footer }) => (footer === 'true' ? '10px' : 0)};
   display: none;
   ${mediaBp('desktop')} {
     margin-left: 40px;

@@ -32,7 +32,7 @@ export const FooterInfo = () => {
           </InfoItem>
         </InfoList>
       </TextWrapper>
-      <LineImg src={Line} />
+      <LineImg src={Line} footer={'true'} />
       <TextWrapper>
         <Text>{t('footer.socialNetworks')}</Text>
         <SocialList>

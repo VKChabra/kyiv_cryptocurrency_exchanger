@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Box } from '@mui/material';
 import { ReviewItem } from './ReviewItem';
 import { TransactionItem } from './TransactionItem';
+import { BoxOperationListStyled } from './OperationList.styled';
 
 export const OperationList = ({ array, operation }) => {
   const [expanded, setExpanded] = useState(false);
@@ -11,7 +11,7 @@ export const OperationList = ({ array, operation }) => {
   };
 
   return (
-    <Box sx={{ px: 4 }}>
+    <BoxOperationListStyled>
       {array.map(review => (
         <div key={review._id}>
           {operation === 'review' && (
@@ -32,6 +32,6 @@ export const OperationList = ({ array, operation }) => {
           )}
         </div>
       ))}
-    </Box>
+    </BoxOperationListStyled>
   );
 };

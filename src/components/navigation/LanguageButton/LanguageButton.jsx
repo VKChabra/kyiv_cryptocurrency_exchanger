@@ -2,7 +2,6 @@ import { useState } from 'react';
 import cookies from 'js-cookie';
 import i18next from 'i18next';
 import { Language, LanguageChosen, LanguageWrapper } from './language.styled';
-import LanguageIcon from 'images/nav/language.svg';
 
 const LanguageButton = () => {
   const [language, setLanguage] = useState(cookies.get('i18next') || 'en');
@@ -34,7 +33,7 @@ const LanguageButton = () => {
 
   return (
     <LanguageWrapper>
-      <Language src={LanguageIcon} alt="language" />
+      <Language alt="language" />
       <LanguageChosen value={language} onChange={handleLanguageChange} className="language-select">
         {languages.map(({ code, name }) => (
           <option key={code} value={code}>

@@ -1,13 +1,13 @@
-import { useAuth } from '../../../../hooks';
+import { useAuth } from 'hooks';
 import { Container, List, Item, AvatarWrap } from './ChatContacts.styled';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
 const ChatContacts = ({ data }) => {
   const { user, isLoggedIn } = useAuth();
-  const { role, name } = user;
-  const [contacts, setContacts] = useState([]);
-  const [currentUser, setCurrentUser] = useState(isLoggedIn ? user : {});
-  const [currentSelected, setCurrentSelected] = useState(undefined);
+  // const { role, name } = user;
+  // const [contacts, setContacts] = useState([]);
+  // const [currentUser, setCurrentUser] = useState(isLoggedIn ? user : {});
+  // const [currentSelected, setCurrentSelected] = useState(undefined);
 
   const filteredUsers = data.filter(message => message.owner.role === 'user');
 

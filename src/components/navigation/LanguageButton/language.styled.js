@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import mediaBp from 'styles/breakpoints';
+import { ReactComponent as LanguageIcon } from 'images/nav/language.svg';
 
-export const Language = styled.img`
-  color: ${({ theme }) => theme.colors.text};
+export const Language = styled(LanguageIcon)`
+  fill: none;
+  stroke: ${({ theme }) => theme.colors.primary};
 `;
 
 export const LanguageChosen = styled.select`
