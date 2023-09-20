@@ -4,8 +4,8 @@ import { store } from 'redux/store';
 import { updateValue } from './authSlice';
 
 const instance = axios.create({
-  // baseURL: 'https://crypto-ag2e.onrender.com/',
-  baseURL: 'http://localhost:3001/',
+  baseURL: 'https://crypto-ag2e.onrender.com/',
+  // baseURL: 'http://localhost:3001/',
 });
 export default instance;
 
