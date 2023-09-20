@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const transactionsApi = createApi({
   reducerPath: 'transactionsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://crypto-ag2e.onrender.com/api',
-    // baseUrl: 'http://localhost:3001/api',
+    // baseUrl: 'https://crypto-ag2e.onrender.com/api',
+    baseUrl: 'http://localhost:3001/api',
 
     prepareHeaders: (headers, { getState }) => {
       const { token } = getState().auth;
