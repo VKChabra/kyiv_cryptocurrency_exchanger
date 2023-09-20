@@ -16,8 +16,10 @@ import {
   TypographyData,
   TypographyStatus,
 } from './adminShared.styled';
+import { useTranslation } from 'react-i18next';
 
 export const TransactionItem = ({ review, expanded, setExpanded, handleChangePanel }) => {
+  const { t } = useTranslation();
   const currentStatus = review.status;
   const [newStatus, setNewStatus] = useState(currentStatus);
   const [isUpdateStatus, setIsUpdateStatus] = useState(false);
@@ -70,31 +72,58 @@ export const TransactionItem = ({ review, expanded, setExpanded, handleChangePan
             {currencyToExchange} - {amountToReceive}
             {currencyToReceive}
           </TypographyData>
-          <TypographyStatus>status: {status}</TypographyStatus>
+          <TypographyStatus>
+            {t('userData.status')}: {status}
+          </TypographyStatus>
         </AccordionSummary>
         <AccordionDetails>
           <BoxDetailsWrap>
             <BoxDetails>
               <Box>
-                <Typography>createdAt: {createdAt}</Typography>
-                <Typography>updatedAt: {updatedAt}</Typography>
+                <Typography>
+                  {t('admin.createdAt')} {createdAt}
+                </Typography>
+                <Typography>
+                  {t('admin.updatedAt')} {updatedAt}
+                </Typography>
 
-                <Typography>currencyToExchange: {currencyToExchange}</Typography>
-                <Typography>currencyToReceive: {currencyToReceive}</Typography>
+                <Typography>
+                  {t('tableTransaction.currencyToExchange')} {currencyToExchange}
+                </Typography>
+                <Typography>
+                  {t('tableTransaction.currencyToReceive')} {currencyToReceive}
+                </Typography>
 
-                <Typography>paymentMethod: {paymentMethod}</Typography>
-                <Typography>creditCard: {creditCard ? creditCard : wallet}</Typography>
+                <Typography>
+                  {t('admin.paymentMethod')} {paymentMethod}
+                </Typography>
+                <Typography>
+                  {creditCard
+                    ? t('admin.creditCard')
+                    : wallet
+                    ? t('admin.wallet')
+                    : t('admin.cash')}
+                  {creditCard ? creditCard : wallet}
+                </Typography>
               </Box>
 
               {owner.email && (
                 <Box>
-                  <Typography>Owner Data</Typography>
+                  <Typography>{t('admin.owner')}</Typography>
 
                   <Box sx={{ marginLeft: '20px' }}>
-                    <Typography>Name: {owner.name}</Typography>
-                    <Typography>Email: {owner.email}</Typography>
-                    <Typography>Role: {owner.role}</Typography>
-                    <Typography>Date of registration: {dateOfRegistration}</Typography>
+                    <Typography>
+                      {t('userData.firstName')} {owner.name}
+                    </Typography>
+                    <Typography>
+                      {t('userData.email')} {owner.email}
+                    </Typography>
+                    <Typography>
+                      {t('admin.role')} {owner.role}
+                    </Typography>
+                    <Typography>
+                      {t('admin.registrationDate')} {dateOfRegistration}
+                    </Typography>
                   </Box>
                 </Box>
               )}

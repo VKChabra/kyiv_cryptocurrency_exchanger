@@ -28,6 +28,7 @@ const Exchange = () => {
     paymentMethod: 'wallet',
     creditCard: '',
     wallet: '',
+    cash: '',
     additionalContact: '',
     acceptTerms: false,
   });
@@ -42,9 +43,15 @@ const Exchange = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const { paymentMethod, creditCard, wallet, name, additionalContact, ...dataToSend } = formData;
+    const { paymentMethod, creditCard, wallet, cash, name, additionalContact, ...dataToSend } =
+      formData;
 
-    const paymentDetailsToSend = paymentMethod === 'creditCard' ? { creditCard } : { wallet };
+    const paymentDetailsToSend =
+      paymentMethod === 'creditCard'
+        ? { creditCard }
+        : paymentMethod === 'wallet'
+        ? { wallet }
+        : { cash: formData.cash };
     const dataToSendTransaction = {
       ...dataToSend,
       paymentMethod,
@@ -109,6 +116,20 @@ const Exchange = () => {
     );
   };
 
+  const renderCashInput = () => {
+    return (
+      <MuiCustomInput
+        label={t('exchange.cash')}
+        helperText={t('exchange.cashHelp')}
+        name="cash"
+        type="text"
+        defaultValue={formData.cash}
+        onChange={handleChange}
+        required
+      />
+    );
+  };
+
   const renderAdditionalContactInput = () => {
     return (
       <MuiCustomInput
@@ -151,9 +172,14 @@ const Exchange = () => {
           >
             <option value="wallet">Wallet</option>
             <option value="creditCard">Credit Card</option>
+            <option value="cash">Cash</option>
           </select>
         </div>
-        {formData.paymentMethod === 'creditCard' ? renderCreditCardInput() : renderWalletInput()}
+        {formData.paymentMethod === 'creditCard'
+          ? renderCreditCardInput()
+          : formData.paymentMethod === 'wallet'
+          ? renderWalletInput()
+          : renderCashInput()}
         {!user?.additionalContact && renderAdditionalContactInput()}
         <AcceptTermsLabel>
           {renderAcceptTermsCheckbox()}

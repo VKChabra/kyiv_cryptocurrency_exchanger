@@ -44,10 +44,19 @@
     "loginFirst": "Спочатку зареєструйтесь або увійдіть в акаунт"
   },
   "admin": {
-    "account": "Акаунт",
+    "account": "Обліковий запис",
     "reviews": "Відгуки",
     "transactions": "Транзакції",
-    "chat": "Чат"
+    "chat": "Чат",
+    "createAt": "створено",
+    "updatedAt": "оновлено",
+    "paymentMethod": "спосіб оплати",
+    "creditCard": "кредитна картка",
+    "wallet": "гаманець",
+    "cash": "готівка",
+    "owner": "Дані власника",
+    "role": "Роль",
+    "registrationDate": "Дата реєстрації"
   },
   "arrayUserButtons": ["кабінет", "транзакції", "відгуки"],
   "hero": {

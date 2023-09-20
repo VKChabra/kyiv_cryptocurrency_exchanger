@@ -47,7 +47,16 @@
     "account": "Аккаунт",
     "reviews": "Отзывы",
     "transactions": "Транзакции",
-    "chat": "Чат"
+    "chat": "Чат",
+    "createAt": "создано",
+    "updatedAt": "обновлено",
+    "paymentMethod": "способ оплаты",
+    "creditCard": "кредитная карта",
+    "wallet": "кошелек",
+    "cash": "наличные",
+    "owner": "Данные владельца",
+    "role": "Роль",
+    "registrationDate": "Дата регистрации"
   },
   "arrayUserButtons": ["кабинет", "оперпации", "отзывы"],
   "hero": {
