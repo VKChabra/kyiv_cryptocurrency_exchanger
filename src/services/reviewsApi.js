@@ -4,8 +4,18 @@ import instance from 'redux/auth/operations';
 export const reviewsApi = createApi({
   reducerPath: 'reviewsApi',
   baseQuery: async (args, api, extraOptions) => {
+    const { url, method, body } = args;
+
     try {
-      const result = await instance(args, extraOptions);
+      const result = await instance(
+        {
+          url,
+          method,
+          data: body,
+        },
+        extraOptions
+      );
+
       return { data: result.data };
     } catch (error) {
       return { error };
@@ -35,7 +45,7 @@ export const reviewsApi = createApi({
     }),
     getReviewById: build.query({
       query: reviewid => ({
-        url: `/apireview/${reviewid}`,
+        url: `/api/review/${reviewid}`,
         method: 'GET',
       }),
       providesTags: ['Reviews'],
@@ -49,7 +59,7 @@ export const reviewsApi = createApi({
 
     addReview: build.mutation({
       query: data => ({
-        url: `review/my`,
+        url: `/api/review/my`,
         method: 'POST',
         body: data,
       }),
@@ -58,7 +68,7 @@ export const reviewsApi = createApi({
 
     deleteReview: build.mutation({
       query: reviewId => ({
-        url: `review/${reviewId}`,
+        url: `/api/review/${reviewId}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Reviews'],
