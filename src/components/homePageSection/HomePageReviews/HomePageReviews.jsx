@@ -14,8 +14,6 @@ const HomPageReviews = () => {
   const reviews = data?.reviews;
   const { t } = useTranslation();
 
-  console.log(reviews);
-
   return (
     <ReviewContainer>
       <Title>{t('homeReviews.title')}</Title>
@@ -29,8 +27,6 @@ const HomPageReviews = () => {
           navigation
           pagination={{ clickable: true }}
           // scrollbar={{ draggable: false }}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={swiper => console.log(swiper)}
         >
           {reviews?.map(item => (
             <SwiperSlide>

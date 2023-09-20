@@ -13,12 +13,18 @@ i18next
     fallbackLng: 'en',
     dubug: false,
     detection: {
-      order: ['localStorage', 'cookie'],
-      caches: ['localStorage', 'cookie'],
+      order: ['localStorage'],
+      caches: ['localStorage'],
     },
     interpolation: {
       escapeValue: false,
     },
   });
+
+if (!localStorage.getItem('i18nextLng')) {
+  const browserLanguage = navigator.language;
+  const initialRegionCode = browserLanguage.split('-')[1].toLowerCase();
+  localStorage.setItem('i18nextLng', initialRegionCode);
+}
 
 export default i18next;
