@@ -1,28 +1,16 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import instance, { interceptor } from '../redux/auth/operations';
-
-// const customBaseQuery = fetchBaseQuery({
-//   baseUrl: instance.defaults.baseURL,
-//   headers: instance.defaults.headers,
-// });
+import { createApi } from '@reduxjs/toolkit/query/react';
+import instance from 'redux/auth/operations';
 
 export const reviewsApi = createApi({
   reducerPath: 'reviewsApi',
-  baseQuery: fetchBaseQuery({
-    // baseUrl: 'https://crypto-ag2e.onrender.com/api',
-    baseUrl: instance.defaults.baseURL,
-    interceptors: {
-      error: interceptor,
-    },
-
-    prepareHeaders: (headers, { getState }) => {
-      const { token } = getState().auth;
-      if (token) {
-        headers.set('Authorization', `Bearer ${token}`);
-      }
-      return headers;
-    },
-  }),
+  baseQuery: async (args, api, extraOptions) => {
+    try {
+      const result = await instance(args, extraOptions);
+      return { data: result.data };
+    } catch (error) {
+      return { error };
+    }
+  },
   tagTypes: ['Reviews'],
   endpoints: build => ({
     getAllReviews: build.query({
@@ -47,7 +35,7 @@ export const reviewsApi = createApi({
     }),
     getReviewById: build.query({
       query: reviewid => ({
-        url: `/api/review/${reviewid}`,
+        url: `/apireview/${reviewid}`,
         method: 'GET',
       }),
       providesTags: ['Reviews'],
@@ -61,7 +49,7 @@ export const reviewsApi = createApi({
 
     addReview: build.mutation({
       query: data => ({
-        url: `/api/review/my`,
+        url: `review/my`,
         method: 'POST',
         body: data,
       }),
@@ -70,7 +58,7 @@ export const reviewsApi = createApi({
 
     deleteReview: build.mutation({
       query: reviewId => ({
-        url: `/api/review/${reviewId}`,
+        url: `review/${reviewId}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Reviews'],

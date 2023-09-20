@@ -3,11 +3,6 @@ import axios from 'axios';
 import { store } from 'redux/store';
 import { updateValue } from './authSlice';
 
-// import * as axios from '../../shared/api/auth';
-
-// axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com/';
-// axios.defaults.baseURL = 'http://localhost:3001/';
-
 const instance = axios.create({
   // baseURL:  'https://crypto-ag2e.onrender.com/',
   baseURL: 'http://localhost:3001/',
@@ -20,34 +15,6 @@ export function setToken(token) {
 export function unsetToken() {
   instance.defaults.headers.common.Authorization = '';
 }
-// const customBaseQuery = fetchBaseQuery({
-//   baseUrl: instance.defaults.baseURL,
-//   headers: instance.defaults.headers,
-// });
-export const interceptor = async error => {
-  console.log('YEES');
-  if (error.response.status === 401) {
-    console.log(401);
-
-    const refreshToken = localStorage.getItem('refreshToken');
-
-    try {
-      const { data } = await instance.post('/users/refresh', { refreshToken });
-      console.log(data);
-      setToken(data.token);
-
-      store.dispatch(updateValue(data.token));
-
-      const newConfig = { ...error.config };
-      newConfig.headers['Authorization'] = `Bearer ${data.token}`;
-      return instance(newConfig);
-    } catch (error) {
-      return Promise.reject(error);
-    }
-  }
-
-  return Promise.reject(error);
-};
 
 instance.interceptors.response.use(
   res => res,
