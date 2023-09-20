@@ -1,5 +1,6 @@
 import { css, Global } from '@emotion/react';
-
+import imageUrl from '../images/background1.svg';
+import imageUrl1 from '../images/background2.svg';
 export const themes = {
   light: {
     title: 'light',
@@ -11,6 +12,7 @@ export const themes = {
       text: '#fff',
       curses: '#fbf6e1',
       hovers: '#cfad56',
+      background: imageUrl1,
     },
   },
   dark: {
@@ -23,6 +25,7 @@ export const themes = {
       text: '#fff',
       curses: '#2C2C27',
       hovers: '#f4de8b',
+      background: imageUrl,
     },
   },
 };

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import cookies from 'js-cookie';
 import i18next from 'i18next';
 import { Language, LanguageChosen, LanguageWrapper } from './language.styled';
+import LanguageIcon from 'images/nav/language.svg';
 
 const LanguageButton = () => {
-  const [language, setLanguage] = useState(cookies.get('i18next') || 'en');
+  const [language, setLanguage] = useState(localStorage.getItem('i18next') || 'en');
 
   const languages = [
     {
@@ -27,13 +27,13 @@ const LanguageButton = () => {
   const handleLanguageChange = event => {
     const selectedLanguageCode = event.target.value;
     i18next.changeLanguage(selectedLanguageCode);
-    cookies.set('i18next', selectedLanguageCode);
+    localStorage.setItem('i18next', selectedLanguageCode); // Update localStorage
     setLanguage(selectedLanguageCode);
   };
 
   return (
     <LanguageWrapper>
-      <Language alt="language" />
+      <Language src={LanguageIcon} alt="language" />
       <LanguageChosen value={language} onChange={handleLanguageChange} className="language-select">
         {languages.map(({ code, name }) => (
           <option key={code} value={code}>
