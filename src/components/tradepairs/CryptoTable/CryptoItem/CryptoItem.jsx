@@ -13,6 +13,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import Button from 'layouts/Button';
 import { NavLink } from 'react-router-dom';
+import Loader from 'components/loader';
 
 const CryptoItem = ({ onCryptoItemClick }) => {
   const [cryptoData, setCryptoData] = useState([]);
@@ -73,7 +74,7 @@ const CryptoItem = ({ onCryptoItemClick }) => {
   return (
     <Wrapper>
       {loading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         <>
           <Table>

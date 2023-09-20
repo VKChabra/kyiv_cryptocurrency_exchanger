@@ -43,6 +43,12 @@
   "alert": {
     "loginFirst": "Please register or login first"
   },
+  "admin": {
+    "account": "Account",
+    "reviews": "Reviews",
+    "transactions": "Transactions",
+    "chat": "Chat"
+  },
   "arrayUserButtons": ["cabinet", "operations", "reviews"],
   "hero": {
     "desc": "is reliable and secure cryptocurrency exchanger for every day"
