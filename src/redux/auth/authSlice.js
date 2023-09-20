@@ -29,6 +29,13 @@ const authSlice = createSlice({
     resetUser: state => {
       state.user = { name: null, email: null };
     },
+
+    updateValue: (state, action) => {
+      // Обновите значение в состоянии
+      console.log(action);
+      console.log(456465465);
+      state.token = action.payload;
+    },
   },
   extraReducers: builder =>
     builder
@@ -102,7 +109,24 @@ const authSlice = createSlice({
         state.error = payload.message;
         state.errorCode = payload.response.status;
       }),
+
+  // .addMatcher(
+  //   action => action.type.endsWith('/rejected'),
+  //   async (state, action) => {
+  //     const error = action.error;
+  //     if (error.response && error.response.status === 401) {
+  //       try {
+  //         const { token, response } = await refreshTokenAndRetry(action.meta.arg);
+  //         state.token = token;
+  //         console.log(response);
+  //       } catch (error) {
+  //         state.error = error.message;
+  //         // Обработка ошибок обновления токена и повторной отправки запроса
+  //       }
+  //     }
+  //   }
+  // ),
 });
 
-export const { resetErrors, resetUser } = authSlice.actions;
+export const { resetErrors, resetUser, updateValue } = authSlice.actions;
 export const authReducer = authSlice.reducer;

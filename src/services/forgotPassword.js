@@ -1,7 +1,9 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
+// // axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
 // axios.defaults.baseURL = 'http://localhost:3001';
+
+import instance from 'redux/auth/operations';
 
 export const sendForgotPassword = async email => {
   try {
@@ -22,7 +24,7 @@ export const sendForgotPassword = async email => {
 
 export const resetPassword = async credentials => {
   try {
-    const response = await axios.post('/users/verifyPassword', credentials, {
+    const response = await instance.post('/users/verifyPassword', credentials, {
       headers: {
         'Content-Type': 'application/json',
       },
