@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  // baseURL: 'https://crypto-ag2e.onrender.com/api',
-  baseURL: 'http://localhost:3001/api',
+  baseURL: 'https://crypto-ag2e.onrender.com/api',
+  // baseURL: 'http://localhost:3001/api',
   headers: {
     'Content-Type': 'application/json',
   },

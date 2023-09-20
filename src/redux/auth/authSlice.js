@@ -1,13 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  logIn,
-  logOut,
-  refresh,
-  register,
-  verifyMail,
-  update,
-  refreshTokenAndRetry,
-} from './operations';
+import { logIn, logOut, refresh, register, verifyMail, update } from './operations';
 
 const handleUserEnter = (state, { payload }) => {
   state.isLoggedIn = true;
