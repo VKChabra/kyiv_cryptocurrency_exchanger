@@ -4,8 +4,8 @@ import { store } from 'redux/store';
 import { updateValue } from './authSlice';
 
 const instance = axios.create({
-  baseURL: 'https://crypto-ag2e.onrender.com/',
-  // baseURL: 'http://localhost:3001/',
+  // baseURL: 'https://crypto-ag2e.onrender.com/',
+  baseURL: 'http://localhost:3001/',
 });
 export default instance;
 
@@ -43,34 +43,6 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-// axios.interceptors.response.use(
-//   res => res,
-//   async error => {
-//     console.log(1);
-//     if (error.response.status === 401) {
-//       console.log(401);
-
-//       const refreshToken = localStorage.getItem('refreshToken');
-
-//       try {
-//         const { data } = await axios.post('/users/refresh', { refreshToken });
-//         console.log(data);
-//         setToken(data.token);
-
-//         store.dispatch(updateValue(data.token));
-
-//         const newConfig = { ...error.config };
-//         newConfig.headers['Authorization'] = `Bearer ${data.token}`;
-//         return axios(newConfig);
-//       } catch (error) {
-//         return Promise.reject(error);
-//       }
-//     }
-
-//     return Promise.reject(error);
-//   }
-// );
 
 export const register = createAsyncThunk('users/register', async (credentials, thunkAPI) => {
   try {

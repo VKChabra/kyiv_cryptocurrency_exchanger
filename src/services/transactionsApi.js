@@ -4,8 +4,18 @@ import instance from 'redux/auth/operations';
 export const transactionsApi = createApi({
   reducerPath: 'transactionsApi',
   baseQuery: async (args, api, extraOptions) => {
+    const { url, method, body } = args;
+
     try {
-      const result = await instance(args, extraOptions);
+      const result = await instance(
+        {
+          url,
+          method,
+          data: body,
+        },
+        extraOptions
+      );
+
       return { data: result.data };
     } catch (error) {
       return { error };
