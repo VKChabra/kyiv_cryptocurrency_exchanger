@@ -1,14 +1,18 @@
 import { css, Global } from '@emotion/react';
-
+import imageUrl from '../images/background1.svg';
+import imageUrl1 from '../images/background2.svg';
 export const themes = {
   light: {
     title: 'light',
     colors: {
       body: '#F6F3E0',
       primary: '#4D4D4D',
-      secondary: '#fff',
+      secondary: '#3e45c3',
+      line: '#808080',
+      text: '#fff',
       curses: '#fbf6e1',
       hovers: '#cfad56',
+      background: imageUrl1,
     },
   },
   dark: {
@@ -16,9 +20,12 @@ export const themes = {
     colors: {
       body: '#30302B',
       primary: '#fff',
-      secondary: '#fff',
+      secondary: '#3e45c3',
+      line: '#fff',
+      text: '#fff',
       curses: '#2C2C27',
       hovers: '#f4de8b',
+      background: imageUrl,
     },
   },
 };

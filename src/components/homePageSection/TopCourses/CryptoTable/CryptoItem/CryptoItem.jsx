@@ -11,6 +11,7 @@ import {
   Button,
 } from './CryptoItem.styled';
 import { useTranslation } from 'react-i18next';
+import Loader from 'components/loader';
 
 const CryptoItem = ({ onCryptoItemClick }) => {
   const [cryptoData, setCryptoData] = useState([]);
@@ -62,7 +63,7 @@ const CryptoItem = ({ onCryptoItemClick }) => {
   return (
     <Wrapper>
       {loading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         <Table>
           <ListTitle>

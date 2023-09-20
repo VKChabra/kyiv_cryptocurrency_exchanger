@@ -76,7 +76,7 @@ const App = () => {
                   </PrivateRoute>
                 }
               >
-                <Route index element={<UserAccountPage />} />
+                <Route extend path="private" element={<UserAccountPage />} />
                 <Route path="reviews" element={<UserReviewPage />} />
                 <Route path="transactions" element={<UserTransactionPage />} />
               </Route>

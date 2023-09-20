@@ -1,14 +1,21 @@
 import { SelectStatus } from './forms/SelectStatus';
 import { useState } from 'react';
 
-import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Alert, Box, Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { getFormattedFullDate } from 'helpers/formatDate';
 import { updateReviewStatus } from 'services/fetchDB';
+import {
+  AccordionStyled,
+  AlertStyled,
+  BoxDetails,
+  BoxDetailsWrap,
+  TypographyData,
+  TypographyStatus,
+} from './adminShared.styled';
 
 export const ReviewItem = ({ review, expanded, setExpanded, handleChangePanel }) => {
   const currentStatus = review.status;
@@ -40,44 +47,19 @@ export const ReviewItem = ({ review, expanded, setExpanded, handleChangePanel })
 
   return (
     <>
-      {error && (
-        <Alert sx={{ mb: 3 }} severity="error">
-          {error}
-        </Alert>
-      )}
+      {error && <AlertStyled severity="error">{error}</AlertStyled>}
 
-      <Accordion
-        expanded={expanded === `${id}`}
-        onChange={handleChangePanel(`${id}`)}
-        sx={{ width: '100%' }}
-      >
+      <AccordionStyled expanded={expanded === `${id}`} onChange={handleChangePanel(`${id}`)}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            sx={{
-              width: '60%',
-              flexShrink: 0,
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              mr: 4,
-            }}
-          >
+          <TypographyData>
             Review: {reviewContent} Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Mollitia, quam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quam?
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>status: {status}</Typography>
+          </TypographyData>
+          <TypographyStatus>status: {status}</TypographyStatus>
         </AccordionSummary>
         <AccordionDetails>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              p: 4,
-              gap: 4,
-            }}
-          >
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <BoxDetailsWrap>
+            <BoxDetails>
               <Typography>
                 Review: {reviewContent} Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Mollitia, quam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
@@ -96,10 +78,10 @@ export const ReviewItem = ({ review, expanded, setExpanded, handleChangePanel })
               </Box>
 
               <Typography>Credentials: credentials</Typography>
-            </Box>
+            </BoxDetails>
 
             <SelectStatus status={newStatus} setStatus={setNewStatus} />
-          </Box>
+          </BoxDetailsWrap>
 
           <Box sx={{ textAlign: 'center' }}>
             <Button
@@ -113,7 +95,7 @@ export const ReviewItem = ({ review, expanded, setExpanded, handleChangePanel })
             </Button>
           </Box>
         </AccordionDetails>
-      </Accordion>
+      </AccordionStyled>
     </>
   );
 };

@@ -1,1 +1,1 @@
-export const PERCENT = 6;
+export const PERCENT = 2;

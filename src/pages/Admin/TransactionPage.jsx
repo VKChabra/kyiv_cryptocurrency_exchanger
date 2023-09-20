@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { getAllTransactions } from 'services/fetchDB';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { SelectDate } from 'components/admin/forms/SelectDate';
+import Loader from 'components/loader';
 
 const TransactionPage = () => {
   const [transactions, seTransactions] = useState([]);
@@ -104,15 +105,7 @@ const TransactionPage = () => {
 
       {transactions.length !== 0 && <OperationList array={transactions} operation="transaction" />}
 
-      {isLoading && transactions.length === 0 && (
-        <Box
-          sx={{
-            textAlign: 'center',
-          }}
-        >
-          Loading
-        </Box>
-      )}
+      {isLoading && transactions.length === 0 && <Loader />}
 
       {transactions.length === 0 && !isLoading && <Typography>No results</Typography>}
 

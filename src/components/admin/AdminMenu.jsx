@@ -1,31 +1,34 @@
-import { Box, Typography } from '@mui/material';
-import Loader from 'components/loader/Loader';
+import { Typography } from '@mui/material';
+import Loader from 'components/loader';
 import { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, Outlet } from 'react-router-dom';
+import { AdminWrap, LinksWrap } from './AdminMenu.styled';
 
 export const AdminMenu = () => {
+  const { t } = useTranslation();
   return (
-    <Box sx={{ display: 'flex', mt: 5, mb: 14 }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, px: 10 }}>
+    <AdminWrap sx={{ display: 'flex', mt: 5, mb: 14 }}>
+      <LinksWrap>
         <Link to="/admin">
-          <Typography>Account</Typography>
+          <Typography>{t('admin.account')}</Typography>
         </Link>
         <Link to="/admin/reviews">
-          <Typography>Reviews</Typography>
+          <Typography>{t('admin.reviews')}</Typography>
         </Link>
         <Link to="/admin/transactions">
-          <Typography>Transactions</Typography>
+          <Typography>{t('admin.transactions')}</Typography>
         </Link>
         <Link to="/admin/chat">
-          <Typography>Chat</Typography>
+          <Typography>{t('admin.chat')}</Typography>
         </Link>
-      </Box>
+      </LinksWrap>
 
       <div style={{ width: '100%' }}>
         <Suspense fallback={<Loader />} style={{ width: '100%' }}>
           <Outlet />
         </Suspense>
       </div>
-    </Box>
+    </AdminWrap>
   );
 };

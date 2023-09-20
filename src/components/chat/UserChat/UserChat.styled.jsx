@@ -16,19 +16,19 @@ export const Container = styled.div`
 `;
 
 export const ChatHeader = styled.div`
- width: 400px;
-    // height: 50px;
-    height:10%;
-    display: flex;
-    align-items: center;
-    background-color: #3e45c3;
-    padding: 10px 20px 10px 20px;
-  }
+  width: 400px;
+  // height: 50px;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  background-color: #3e45c3;
+  padding: 10px 20px 10px 20px;
   span {
     position: absolute;
     right: 97px;
     top: 5px;
-  }`;
+  }
+`;
 
 export const ChatTitle = styled.p`
   margin-right: 90px;

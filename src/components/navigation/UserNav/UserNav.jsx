@@ -9,7 +9,7 @@ const UserNav = ({ closeMobileMenu }) => {
   const dispatch = useDispatch();
   const handleLogOut = () => {
     dispatch(logOut());
-    closeMobileMenu();
+    closeMobileMenu && closeMobileMenu();
   };
   return (
     <UserWrapper>

@@ -1,11 +1,11 @@
-import loader from '../../images/loader.gif';
+import loader from 'images/loader.gif';
 
 const Loader = () => {
   return (
-    <div>
+    <div style={{ backgroundColor: 'transparent', width: '100%', height: '100%' }}>
       <img
         src={loader}
-        style={{ width: '200px', margin: 'auto', display: 'block' }}
+        style={{ minWidth: '200px', maxWidth: '30%', margin: 'auto', display: 'block' }}
         alt="Loading..."
       />
     </div>

@@ -1,11 +1,6 @@
-import { Pagination, Cell, CellFirst } from './userTransition.styled';
+import { Pagination, Cell } from './userTransition.styled';
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import { Paper, Table, TableBody, TableContainer, TableHead, TableRow } from '@mui/material';
 import { useGetMyTransactionQuery } from 'services/transactionsApi';
 import { useTranslation } from 'react-i18next';
 
@@ -61,12 +56,12 @@ const TransactionHistory = () => {
         <Table stickyHeader aria-label="sticky table">
           <TableHead sx={{ backgroundColor: 'transparent' }}>
             <TableRow>
-              <CellFirst align="center" colSpan={2} sx={{ backgroundColor: 'transparent' }}>
+              <Cell align="center" colSpan={2} sx={{ backgroundColor: 'transparent' }}>
                 {t('tableTransaction.amount')}
-              </CellFirst>
-              <CellFirst align="center" colSpan={3} sx={{ backgroundColor: 'transparent' }}>
+              </Cell>
+              <Cell align="center" colSpan={3} sx={{ backgroundColor: 'transparent' }}>
                 {t('tableTransaction.currency')}
-              </CellFirst>
+              </Cell>
             </TableRow>
             <TableRow>
               <Cell style={{ top: 57 }} sx={{ backgroundColor: 'transparent' }}>

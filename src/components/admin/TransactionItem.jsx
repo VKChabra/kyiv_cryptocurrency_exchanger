@@ -1,16 +1,25 @@
 import { SelectStatus } from './forms/SelectStatus';
 import { useState } from 'react';
 
-import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Alert, Box, Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { getFormattedFullDate } from 'helpers/formatDate';
 import { updateTransactionStatus } from 'services/fetchDB';
+import {
+  AccordionStyled,
+  AlertStyled,
+  BoxDetails,
+  BoxDetailsWrap,
+  TypographyData,
+  TypographyStatus,
+} from './adminShared.styled';
+import { useTranslation } from 'react-i18next';
 
 export const TransactionItem = ({ review, expanded, setExpanded, handleChangePanel }) => {
+  const { t } = useTranslation();
   const currentStatus = review.status;
   const [newStatus, setNewStatus] = useState(currentStatus);
   const [isUpdateStatus, setIsUpdateStatus] = useState(false);
@@ -25,6 +34,7 @@ export const TransactionItem = ({ review, expanded, setExpanded, handleChangePan
     createdAt,
     updatedAt,
     creditCard,
+    wallet,
     currencyToExchange,
     currencyToReceive,
     paymentMethod,
@@ -53,72 +63,74 @@ export const TransactionItem = ({ review, expanded, setExpanded, handleChangePan
 
   return (
     <>
-      {error && (
-        <Alert sx={{ mb: 3 }} severity="error">
-          {error}
-        </Alert>
-      )}
+      {error && <AlertStyled severity="error">{error}</AlertStyled>}
 
-      <Accordion
-        expanded={expanded === `${id}`}
-        onChange={handleChangePanel(`${id}`)}
-        sx={{ width: '100%', mb: 1, bgcolor: 'transparent' }}
-      >
+      <AccordionStyled expanded={expanded === `${id}`} onChange={handleChangePanel(`${id}`)}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            sx={{
-              width: '60%',
-              flexShrink: 0,
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              mr: 4,
-            }}
-          >
+          <TypographyData>
             {amountToExchange}
             {currencyToExchange} - {amountToReceive}
             {currencyToReceive}
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>status: {status}</Typography>
+          </TypographyData>
+          <TypographyStatus>
+            {t('userData.status')}: {status}
+          </TypographyStatus>
         </AccordionSummary>
         <AccordionDetails>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              p: 4,
-              gap: 4,
-            }}
-          >
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <BoxDetailsWrap>
+            <BoxDetails>
               <Box>
-                <Typography>createdAt: {createdAt}</Typography>
-                <Typography>updatedAt: {updatedAt}</Typography>
+                <Typography>
+                  {t('admin.createdAt')} {createdAt}
+                </Typography>
+                <Typography>
+                  {t('admin.updatedAt')} {updatedAt}
+                </Typography>
 
-                <Typography>currencyToExchange: {currencyToExchange}</Typography>
-                <Typography>currencyToReceive: {currencyToReceive}</Typography>
+                <Typography>
+                  {t('tableTransaction.currencyToExchange')} {currencyToExchange}
+                </Typography>
+                <Typography>
+                  {t('tableTransaction.currencyToReceive')} {currencyToReceive}
+                </Typography>
 
-                <Typography>paymentMethod: {paymentMethod}</Typography>
-                <Typography>creditCard: {creditCard}</Typography>
+                <Typography>
+                  {t('admin.paymentMethod')} {paymentMethod}
+                </Typography>
+                <Typography>
+                  {creditCard
+                    ? t('admin.creditCard')
+                    : wallet
+                    ? t('admin.wallet')
+                    : t('admin.cash')}
+                  {creditCard ? creditCard : wallet}
+                </Typography>
               </Box>
 
               {owner.email && (
                 <Box>
-                  <Typography>Owner Data</Typography>
+                  <Typography>{t('admin.owner')}</Typography>
 
                   <Box sx={{ marginLeft: '20px' }}>
-                    <Typography>Name: {owner.name}</Typography>
-                    <Typography>Email: {owner.email}</Typography>
-                    <Typography>Role: {owner.role}</Typography>
-                    <Typography>Date of registration: {dateOfRegistration}</Typography>
+                    <Typography>
+                      {t('userData.firstName')} {owner.name}
+                    </Typography>
+                    <Typography>
+                      {t('userData.email')} {owner.email}
+                    </Typography>
+                    <Typography>
+                      {t('admin.role')} {owner.role}
+                    </Typography>
+                    <Typography>
+                      {t('admin.registrationDate')} {dateOfRegistration}
+                    </Typography>
                   </Box>
                 </Box>
               )}
-            </Box>
+            </BoxDetails>
 
             <SelectStatus status={newStatus} setStatus={setNewStatus} />
-          </Box>
+          </BoxDetailsWrap>
 
           <Box sx={{ textAlign: 'center' }}>
             <Button
@@ -132,7 +144,7 @@ export const TransactionItem = ({ review, expanded, setExpanded, handleChangePan
             </Button>
           </Box>
         </AccordionDetails>
-      </Accordion>
+      </AccordionStyled>
     </>
   );
 };
