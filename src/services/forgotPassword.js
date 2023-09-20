@@ -3,6 +3,8 @@ import axios from 'axios';
 // axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
 axios.defaults.baseURL = 'http://localhost:3001';
 
+// import * as axios from '../shared/api/auth';
+
 export const sendForgotPassword = async email => {
   try {
     // const response = await axios.post('/users/passwordReset', email, {

@@ -4,6 +4,8 @@ import { notifyError } from 'helpers/notifications';
 // axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
 axios.defaults.baseURL = 'http://localhost:3001';
 
+// import instance from '../';
+
 export const verifyCaptcha = async token => {
   const body = {
     response: token,

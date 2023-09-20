@@ -1,12 +1,14 @@
 import axios from 'axios';
 
 // axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
-axios.defaults.baseURL = 'http://localhost:3001';
+// axios.defaults.baseURL = 'http://localhost:3001';
+
+import instance from '../redux/auth/operations';
 
 // reviews
 export const getAllReviews = async params => {
   try {
-    const response = await axios.get(`/api/review`, { params });
+    const response = await instance.get(`/api/review`, { params });
 
     return response.data;
   } catch (err) {
@@ -17,7 +19,7 @@ export const getAllReviews = async params => {
 // admin access
 export const updateReviewStatus = async (reviewId, status) => {
   try {
-    const response = await axios.patch(`/api/review/${reviewId}`, { status });
+    const response = await instance.patch(`/api/review/${reviewId}`, { status });
 
     return response.data;
   } catch (err) {
@@ -28,7 +30,7 @@ export const updateReviewStatus = async (reviewId, status) => {
 // transactions
 export const getAllTransactions = async params => {
   try {
-    const response = await axios.get(`/api/transactions`, { params });
+    const response = await instance.get(`/api/transactions`, { params });
 
     return response.data;
   } catch (err) {
@@ -38,7 +40,7 @@ export const getAllTransactions = async params => {
 
 export const updateTransactionStatus = async (id, status) => {
   try {
-    const response = await axios.patch(`/api/transactions/${id}`, { status });
+    const response = await instance.patch(`/api/transactions/${id}`, { status });
 
     return response.data;
   } catch (err) {

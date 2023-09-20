@@ -1,10 +1,19 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import instance, { interceptor } from '../redux/auth/operations';
+
+// const customBaseQuery = fetchBaseQuery({
+//   baseUrl: instance.defaults.baseURL,
+//   headers: instance.defaults.headers,
+// });
 
 export const reviewsApi = createApi({
   reducerPath: 'reviewsApi',
   baseQuery: fetchBaseQuery({
     // baseUrl: 'https://crypto-ag2e.onrender.com/api',
-    baseUrl: 'http://localhost:3001/api',
+    baseUrl: instance.defaults.baseURL,
+    interceptors: {
+      error: interceptor,
+    },
 
     prepareHeaders: (headers, { getState }) => {
       const { token } = getState().auth;
@@ -18,41 +27,41 @@ export const reviewsApi = createApi({
   endpoints: build => ({
     getAllReviews: build.query({
       query: page => ({
-        url: `/review?page=${page}`,
+        url: `/api/review?page=${page}`,
         method: 'GET',
       }),
       providesTags: ['Reviews'],
     }),
     getApprovedReviews: build.query({
       query: page => ({
-        url: `/review/approved?limit=6&page=${page}`,
+        url: `/api/review/approved?limit=6&page=${page}`,
         method: 'GET',
       }),
       providesTags: ['Reviews'],
     }),
     getUserReviews: build.query({
       query: userId => ({
-        url: `/owner/${userId}`,
+        url: `/api/owner/${userId}`,
       }),
       providesTags: ['Reviews'],
     }),
     getReviewById: build.query({
       query: reviewid => ({
-        url: `review/${reviewid}`,
+        url: `/api/review/${reviewid}`,
         method: 'GET',
       }),
       providesTags: ['Reviews'],
     }),
     getMyReview: build.query({
       query: () => ({
-        url: '/review/my',
+        url: '/api/review/my',
         method: 'GET',
       }),
     }),
 
     addReview: build.mutation({
       query: data => ({
-        url: `review/my`,
+        url: `/api/review/my`,
         method: 'POST',
         body: data,
       }),
@@ -61,7 +70,7 @@ export const reviewsApi = createApi({
 
     deleteReview: build.mutation({
       query: reviewId => ({
-        url: `review/${reviewId}`,
+        url: `/api/review/${reviewId}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Reviews'],
