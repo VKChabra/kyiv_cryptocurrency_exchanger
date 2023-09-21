@@ -19,10 +19,8 @@ export function unsetToken() {
 instance.interceptors.response.use(
   res => res,
   async error => {
-    console.log(1);
     if (error.response.status === 401) {
       console.log(401);
-
       const refreshToken = localStorage.getItem('refreshToken');
 
       try {

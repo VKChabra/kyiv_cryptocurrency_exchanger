@@ -7,6 +7,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
+  bottom: 0;
+  position: relative;
+  width: 100%;
   height: 172px;
   padding-left: 20px;
   background-color: #3e45c3;

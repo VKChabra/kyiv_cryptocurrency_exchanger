@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { IconButton } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Input } from './Input.styled';
+import { useTranslation } from 'react-i18next';
 
 export const PasswordInput = ({ size = 'small', onChange, margin = 'dense', required = true }) => {
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword(show => !show);
@@ -13,7 +15,7 @@ export const PasswordInput = ({ size = 'small', onChange, margin = 'dense', requ
 
   return (
     <Input
-      label="Password"
+      label={t('auth.password')}
       name="password"
       type={showPassword ? 'text' : 'password'}
       autoComplete="on"

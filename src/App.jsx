@@ -33,6 +33,7 @@ const NewsPage = lazy(() => import('./pages/News'));
 const TradepairsPage = lazy(() => import('./pages/Tradepairs'));
 const PartnershipPage = lazy(() => import('./pages/Partnership'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const Faq = lazy(() => import('./pages/Faq'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -92,8 +93,7 @@ const App = () => {
               <Route path="news" element={<NewsPage />} />
               <Route path="partnership" element={<PartnershipPage />} />
               <Route path="reviews" element={<ReviewsPage />} />
-              <Route path="faq" />
-              <Route path="contacts" />
+              <Route path="faq" element={<Faq />} />
               <Route path="admin" element={<AdminMenu />}>
                 <Route index element={<AdminAccountPage />} />
                 <Route path="reviews" element={<AdminReviewPage />} />
