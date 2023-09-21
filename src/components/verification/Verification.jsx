@@ -41,15 +41,16 @@ const Verification = ({ email }) => {
   return (
     <>
       <MuiCustomInput
-        label="Verification Code"
+        label={t('verification.verificationCode')}
         name="code"
         type="text"
+        helperText={t('verification.helper')}
         defaultValue={code}
         onChange={handleChange}
         required
       />
       <SubmitBtn type="button" onClick={handleVerification}>
-        Verify
+        {t('verification.verify')}
       </SubmitBtn>
     </>
   );

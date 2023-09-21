@@ -107,6 +107,11 @@
     "unexpected": "Произошла ошибка",
     "changedPassword": "Пароль успешно изменён"
   },
+  "verification": {
+    "verificationCode": "Верификационный код",
+    "helper": "В случае отсутствия письма проверьте спам",
+    "verify": "Подтвердить"
+  },
   "userData": {
     "firstName": "Имя",
     "lastName": "Фамилия",

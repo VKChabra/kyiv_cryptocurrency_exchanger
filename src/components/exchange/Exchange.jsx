@@ -19,7 +19,7 @@ const Exchange = () => {
   let fullName = `${user?.firstName} ${user?.middleName} ${user?.lastName}`;
   if (user?.firstName === null || user?.lastName === null) fullName = null;
 
-  const [formData, setFormData] = useState({
+  const defaultFormData = {
     amountToExchange: calcData?.exchange || '',
     amountToReceive: calcData?.receive.toString() || '',
     currencyToExchange: calcData?.exchangeCurr || options[0].value,
@@ -31,7 +31,13 @@ const Exchange = () => {
     cash: '',
     additionalContact: '',
     acceptTerms: false,
-  });
+  };
+
+  const [formData, setFormData] = useState(defaultFormData);
+
+  const resetFormData = () => {
+    setFormData(defaultFormData);
+  };
 
   const handleChange = e => {
     const { name, value, type, checked } = e.target;
@@ -70,8 +76,10 @@ const Exchange = () => {
     const response = await addTransaction(dataToSendTransaction);
     if (response.error) {
       notifyError(t('exchange.error'));
-      console.log(response.error);
-    } else notifySuccess(t('exchange.success'));
+    } else {
+      notifySuccess(t('exchange.success'));
+      resetFormData();
+    }
   };
 
   const renderNameInput = () => {

@@ -103,9 +103,14 @@
     "helper": "Напишіть пошту і ми відправимо код для відновлення",
     "backToLogin": "Назад до логіну",
     "success": "Лист відправлено",
-    "verificationError": "Верифікаційний код невірний",
+    "verificationError": "Верифікаційний код не вірний",
     "unexpected": "Сталася помилка",
     "changedPassword": "Пароль вдало змінений"
+  },
+  "verification": {
+    "verificationCode": "Верифікаційний код",
+    "helper": "У випадку відсутності листа перевірте спам",
+    "verify": "Підтвердити"
   },
   "userData": {
     "firstName": "Ім'я",

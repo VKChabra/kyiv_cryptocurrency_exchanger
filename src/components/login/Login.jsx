@@ -32,13 +32,15 @@ const Login = () => {
     }
   }, [dispatch, location]);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     if (!email || !password) {
       return notifyError(t('auth.wrongData'));
     }
-    dispatch(logIn({ email, password }));
+
+    const response = await dispatch(logIn({ email, password }));
+    if (response.payload.status === 401) notifyError(t('auth.errorData'));
   };
 
   const handleChange = e => {
