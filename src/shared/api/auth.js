@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { updateValue } from 'redux/auth/authSlice';
+import { updateToken } from 'redux/auth/authSlice';
 import { store } from 'redux/store';
 
 const instance = axios.create({
@@ -26,7 +26,7 @@ instance.interceptors.response.use(
         setToken(data.token);
         localStorage.setItem('refreshToken', data.refreshToken);
 
-        store.dispatch(updateValue(data.token));
+        store.dispatch(updateToken(data.token));
 
         const newConfig = { ...error.config };
         newConfig.headers['Authorization'] = `Bearer ${data.token}`;

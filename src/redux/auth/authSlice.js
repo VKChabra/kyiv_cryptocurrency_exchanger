@@ -30,10 +30,7 @@ const authSlice = createSlice({
       state.user = { name: null, email: null };
     },
 
-    updateValue: (state, action) => {
-      // Обновите значение в состоянии
-      console.log(action);
-      console.log(456465465);
+    updateToken: (state, action) => {
       state.token = action.payload;
     },
   },
@@ -130,5 +127,5 @@ const authSlice = createSlice({
   // ),
 });
 
-export const { resetErrors, resetUser, updateValue } = authSlice.actions;
+export const { resetErrors, resetUser, updateToken } = authSlice.actions;
 export const authReducer = authSlice.reducer;
