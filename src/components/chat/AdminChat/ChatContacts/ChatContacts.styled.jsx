@@ -33,6 +33,12 @@ export const Item = styled.li`
     transform: scale(1.02);
     background-color: #3e45c3;
   }
+  .selected {
+    background-color: #cfad56;
+  }
+  .none {
+    background-color: white;
+  }
 `;
 
 export const AvatarWrap = styled.div`
