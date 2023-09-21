@@ -20,7 +20,7 @@ const Hero = () => {
     <>
       <HeroSplitter>
         <LeftFrame>
-          <CompanyName>CRYPTOHUB</CompanyName>
+          <CompanyName>CoinCryptoHub</CompanyName>
           <Description>{t('hero.desc')}</Description>
           <Calculator />
         </LeftFrame>
