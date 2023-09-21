@@ -3,8 +3,8 @@ import { addError, updateToken } from 'redux/auth/authSlice';
 import { store } from 'redux/store';
 
 const instance = axios.create({
-  // baseURL: 'https://crypto-ag2e.onrender.com/',
-  baseURL: 'http://localhost:3001/',
+  baseURL: 'https://crypto-ag2e.onrender.com/',
+  //   baseURL: 'http://localhost:3001/',
 });
 export default instance;
 
@@ -32,9 +32,15 @@ instance.interceptors.response.use(
         newConfig.headers['Authorization'] = `Bearer ${data.token}`;
         return instance(newConfig);
       } catch (error) {
-        console.log('THSOSDFJ');
-        const errorData = { message: error.message, status: error.response.status };
+        localStorage.removeItem('refreshToken');
+
+        const errorData = {
+          isLoggedIn: false,
+          message: error.message,
+          status: error.response.status,
+        };
         store.dispatch(addError(errorData));
+
         return Promise.reject(error);
       }
     }
@@ -56,8 +62,10 @@ export const login = async credentials => {
 };
 
 export const logout = async () => {
-  const data = await instance.get('/users/logout');
   unsetToken();
+  localStorage.removeItem('refreshToken');
+
+  const data = await instance.get('/users/logout');
   return data;
 };
 

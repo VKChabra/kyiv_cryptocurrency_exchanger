@@ -33,10 +33,10 @@ const authSlice = createSlice({
     updateToken: (state, action) => {
       state.token = action.payload;
     },
-    addError: (state, action) => {
-      console.log(action.payload);
-      state.error = action.payload.message;
-      state.errorCode = action.payload.status;
+    addError: (state, { payload }) => {
+      state.error = payload.message;
+      state.errorCode = payload.status;
+      state.isLoggedIn = payload.isLoggedIn; // maybe update this logig/ change action name
     },
   },
   extraReducers: builder =>
