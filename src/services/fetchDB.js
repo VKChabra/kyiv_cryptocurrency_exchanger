@@ -1,4 +1,4 @@
-import instance from 'redux/auth/operations';
+import instance from 'shared/api/auth';
 
 // reviews
 export const getAllReviews = async params => {

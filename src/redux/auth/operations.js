@@ -1,101 +1,90 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { store } from 'redux/store';
-import { updateValue } from './authSlice';
 
-const instance = axios.create({
-  baseURL: 'https://crypto-ag2e.onrender.com/',
-  // baseURL: 'http://localhost:3001/',
-});
-export default instance;
-
-export function setToken(token) {
-  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-}
-export function unsetToken() {
-  instance.defaults.headers.common.Authorization = '';
-}
-
-instance.interceptors.response.use(
-  res => res,
-  async error => {
-    if (error.response.status === 401) {
-      console.log(401);
-      const refreshToken = localStorage.getItem('refreshToken');
-
-      try {
-        const { data } = await instance.post('/users/refresh', { refreshToken });
-        console.log(data);
-        setToken(data.token);
-
-        store.dispatch(updateValue(data.token));
-
-        const newConfig = { ...error.config };
-        newConfig.headers['Authorization'] = `Bearer ${data.token}`;
-        return instance(newConfig);
-      } catch (error) {
-        return Promise.reject(error);
-      }
-    }
-
-    return Promise.reject(error);
-  }
-);
+import * as api from 'shared/api/auth';
 
 export const register = createAsyncThunk('users/register', async (credentials, thunkAPI) => {
   try {
-    const { data } = await instance.post('/users/register', credentials);
+    const data = await api.register(credentials);
     return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });
-export const verifyMail = createAsyncThunk('users/verify', async (credentials, thunkAPI) => {
-  try {
-    const { data } = await instance.post('/users/verify', credentials);
-    return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
-  }
-});
+
 export const logIn = createAsyncThunk('users/logIn', async (credentials, thunkAPI) => {
   try {
-    const { data } = await instance.post('/users/login', credentials);
-    setToken(data.token);
-
-    localStorage.setItem('refreshToken', data?.refreshToken);
+    const data = await api.login(credentials);
     return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });
+
 export const logOut = createAsyncThunk('users/logOut', async (_, thunkAPI) => {
   try {
-    await instance.get('/users/logout');
-    unsetToken();
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+    await api.logout();
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });
+
+export const verifyMail = createAsyncThunk('users/verify', async (credentials, thunkAPI) => {
+  try {
+    const data = await api.verifyMail(credentials);
+    return data;
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
+  }
+});
+
 export const refresh = createAsyncThunk('users/refresh', async (_, thunkAPI) => {
-  const token = await thunkAPI.getState().auth.token;
+  const { token } = await thunkAPI.getState().auth;
   if (token === null) {
     return thunkAPI.rejectWithValue('No token');
   }
   try {
-    setToken(token);
-    const { data } = await instance.get('/users/current');
+    const data = await api.getCurrent(token);
     return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });
 
 export const update = createAsyncThunk('users/update', async (credentials, thunkAPI) => {
   try {
-    const { data } = await instance.patch('/users/updateData', credentials);
+    const data = await api.update(credentials);
     return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });
