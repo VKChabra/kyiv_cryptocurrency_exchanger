@@ -6,8 +6,13 @@ export const register = createAsyncThunk('users/register', async (credentials, t
   try {
     const data = await api.register(credentials);
     return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });
 
@@ -15,16 +20,26 @@ export const logIn = createAsyncThunk('users/logIn', async (credentials, thunkAP
   try {
     const data = await api.login(credentials);
     return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });
 
 export const logOut = createAsyncThunk('users/logOut', async (_, thunkAPI) => {
   try {
     await api.logout();
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });
 
@@ -32,8 +47,13 @@ export const verifyMail = createAsyncThunk('users/verify', async (credentials, t
   try {
     const data = await api.verifyMail(credentials);
     return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });
 
@@ -45,8 +65,13 @@ export const refresh = createAsyncThunk('users/refresh', async (_, thunkAPI) => 
   try {
     const data = await api.getCurrent(token);
     return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });
 
@@ -54,7 +79,12 @@ export const update = createAsyncThunk('users/update', async (credentials, thunk
   try {
     const data = await api.update(credentials);
     return data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+  } catch ({ response }) {
+    const { status, data } = response;
+    const error = {
+      status,
+      message: data.message,
+    };
+    return thunkAPI.rejectWithValue(error);
   }
 });

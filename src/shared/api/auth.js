@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { updateToken } from 'redux/auth/authSlice';
+import { addError, updateToken } from 'redux/auth/authSlice';
 import { store } from 'redux/store';
 
 const instance = axios.create({
@@ -18,9 +18,9 @@ export function unsetToken() {
 instance.interceptors.response.use(
   res => res,
   async error => {
-    if (error.response.status === 401) {
-      const refreshToken = localStorage.getItem('refreshToken');
+    const refreshToken = localStorage.getItem('refreshToken');
 
+    if (error.response.status === 401 && refreshToken) {
       try {
         const { data } = await instance.post('/users/refresh', { refreshToken });
         setToken(data.token);
@@ -32,6 +32,9 @@ instance.interceptors.response.use(
         newConfig.headers['Authorization'] = `Bearer ${data.token}`;
         return instance(newConfig);
       } catch (error) {
+        console.log('THSOSDFJ');
+        const errorData = { message: error.message, status: error.response.status };
+        store.dispatch(addError(errorData));
         return Promise.reject(error);
       }
     }
