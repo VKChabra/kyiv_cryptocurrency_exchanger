@@ -1,20 +1,23 @@
 import { Link } from '../nav.styled';
-import { UserWrapper, Button } from './userNav.styled';
+import { UserWrapper, Button, Text } from './userNav.styled';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 
-const UserNav = () => {
+const UserNav = ({ closeMobileMenu }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const handleLogOut = () => dispatch(logOut());
+  const handleLogOut = () => {
+    dispatch(logOut());
+    closeMobileMenu && closeMobileMenu();
+  };
   return (
     <UserWrapper>
-      <Link to="/user">
+      <Link to="/user" onClick={() => closeMobileMenu()}>
         <span>{t('nav.profile')}</span>
       </Link>
       <Button type="button" onClick={handleLogOut}>
-        {t('exitButton.exit')}
+        <Text>{t('button.exit')}</Text>
       </Button>
     </UserWrapper>
   );

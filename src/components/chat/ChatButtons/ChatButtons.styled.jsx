@@ -15,9 +15,10 @@ export const ChatButton = styled.button`
   z-index: 50;
   cursor: pointer;
   transition: all 300ms cubic-bezier(0.4, 0, 0.1, 1);
-    &:hover {
-      transform: scale(1.07);
-      box-shadow: 3px 7px 49px 17px rgba(62, 69, 195, 0.95);
+  &:hover {
+    transform: scale(1.07);
+    box-shadow: 3px 7px 49px 17px rgba(62, 69, 195, 0.95);
+  }
 `;
 
 export const ChatPanel = styled.ul`

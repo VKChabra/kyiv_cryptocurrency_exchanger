@@ -1,13 +1,14 @@
-import { Content, Text, Avatar, Flex, Box, Title } from './userData.styled';
+import { Content, Text, Avatar, Flex, Title } from './user.styled';
 import { useAuth } from '../../hooks';
 import FormUser from '../../components/formUser';
 import { useTranslation } from 'react-i18next';
+import { handleDateFormat } from '../../helpers/formatDate';
 const setAvatar = name => {
   const letters = name.toUpperCase().split('');
   return letters[0];
 };
 
-const UserData = () => {
+const UserPrivate = () => {
   const { user } = useAuth();
   const { t } = useTranslation();
   const { role, createdAt, name } = user;
@@ -18,17 +19,17 @@ const UserData = () => {
       <Flex>
         <Avatar role={role}>{letter}</Avatar>
         <Title>{name}</Title>
-        <Box>
+        <div>
           <Title>{t(`userData.status`)}</Title>
           <Text>{role}</Text>
-        </Box>
-        <Box>
+        </div>
+        <div>
           <Title>{t(`userData.data`)}</Title>
-          <Text>{createdAt}</Text>
-        </Box>
+          <Text>{handleDateFormat(createdAt)}</Text>
+        </div>
       </Flex>
       <FormUser user={user} />
     </Content>
   );
 };
-export default UserData;
+export default UserPrivate;

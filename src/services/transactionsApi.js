@@ -1,24 +1,31 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
+import instance from 'redux/auth/operations';
 
 export const transactionsApi = createApi({
   reducerPath: 'transactionsApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://crypto-ag2e.onrender.com/api',
-    // baseUrl: 'http://localhost:3001/api',
+  baseQuery: async (args, api, extraOptions) => {
+    const { url, method, body } = args;
 
-    prepareHeaders: (headers, { getState }) => {
-      const { token } = getState().auth;
-      if (token) {
-        headers.set('Authorization', `Bearer ${token}`);
-      }
-      return headers;
-    },
-  }),
+    try {
+      const result = await instance(
+        {
+          url,
+          method,
+          data: body,
+        },
+        extraOptions
+      );
+
+      return { data: result.data };
+    } catch (error) {
+      return { error };
+    }
+  },
   tagTypes: ['Transaction'],
   endpoints: build => ({
     addTransaction: build.mutation({
       query: data => ({
-        url: '/transactions/my',
+        url: '/api/transactions/my',
         method: 'POST',
         body: data,
       }),
@@ -26,7 +33,7 @@ export const transactionsApi = createApi({
     }),
     getMyTransaction: build.query({
       query: () => ({
-        url: '/transactions/my',
+        url: '/api/transactions/my',
         method: 'GET',
       }),
       invalidatesTags: ['Transaction'],

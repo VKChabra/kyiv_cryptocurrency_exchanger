@@ -4,6 +4,7 @@ import { SelectStatus } from 'components/admin/forms/SelectStatus';
 import { useEffect, useState } from 'react';
 import { getAllReviews } from 'services/fetchDB';
 import RefreshIcon from '@mui/icons-material/Refresh';
+import Loader from 'components/loader';
 
 const ReviewPage = () => {
   const [reviews, setReviews] = useState([]);
@@ -98,15 +99,7 @@ const ReviewPage = () => {
 
       {reviews.length !== 0 && <OperationList array={reviews} operation="review" />}
 
-      {isLoading && reviews.length === 0 && (
-        <Box
-          sx={{
-            textAlign: 'center',
-          }}
-        >
-          Loading
-        </Box>
-      )}
+      {isLoading && reviews.length === 0 && <Loader />}
 
       {reviews.length === 0 && !isLoading && <Typography>No results</Typography>}
 

@@ -1,19 +1,50 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { store } from 'redux/store';
+import { updateValue } from './authSlice';
 
-axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com/';
-// axios.defaults.baseURL = 'http://localhost:3001/api';
+const instance = axios.create({
+  baseURL: 'https://crypto-ag2e.onrender.com/',
+  // baseURL: 'http://localhost:3001/',
+});
+export default instance;
 
-function setToken(token) {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+export function setToken(token) {
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
-function unsetToken() {
-  axios.defaults.headers.common.Authorization = '';
+export function unsetToken() {
+  instance.defaults.headers.common.Authorization = '';
 }
+
+instance.interceptors.response.use(
+  res => res,
+  async error => {
+    if (error.response.status === 401) {
+      console.log(401);
+      const refreshToken = localStorage.getItem('refreshToken');
+
+      try {
+        const { data } = await instance.post('/users/refresh', { refreshToken });
+        console.log(data);
+        setToken(data.token);
+
+        store.dispatch(updateValue(data.token));
+
+        const newConfig = { ...error.config };
+        newConfig.headers['Authorization'] = `Bearer ${data.token}`;
+        return instance(newConfig);
+      } catch (error) {
+        return Promise.reject(error);
+      }
+    }
+
+    return Promise.reject(error);
+  }
+);
 
 export const register = createAsyncThunk('users/register', async (credentials, thunkAPI) => {
   try {
-    const { data } = await axios.post('/users/register', credentials);
+    const { data } = await instance.post('/users/register', credentials);
     return data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e);
@@ -21,7 +52,7 @@ export const register = createAsyncThunk('users/register', async (credentials, t
 });
 export const verifyMail = createAsyncThunk('users/verify', async (credentials, thunkAPI) => {
   try {
-    const { data } = await axios.post('/users/verify', credentials);
+    const { data } = await instance.post('/users/verify', credentials);
     return data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e);
@@ -29,8 +60,10 @@ export const verifyMail = createAsyncThunk('users/verify', async (credentials, t
 });
 export const logIn = createAsyncThunk('users/logIn', async (credentials, thunkAPI) => {
   try {
-    const { data } = await axios.post('/users/login', credentials);
+    const { data } = await instance.post('/users/login', credentials);
     setToken(data.token);
+
+    localStorage.setItem('refreshToken', data?.refreshToken);
     return data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e);
@@ -38,7 +71,7 @@ export const logIn = createAsyncThunk('users/logIn', async (credentials, thunkAP
 });
 export const logOut = createAsyncThunk('users/logOut', async (_, thunkAPI) => {
   try {
-    await axios.get('/users/logout');
+    await instance.get('/users/logout');
     unsetToken();
   } catch (e) {
     return thunkAPI.rejectWithValue(e);
@@ -51,7 +84,7 @@ export const refresh = createAsyncThunk('users/refresh', async (_, thunkAPI) => 
   }
   try {
     setToken(token);
-    const { data } = await axios.get('/users/current');
+    const { data } = await instance.get('/users/current');
     return data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e);
@@ -60,7 +93,7 @@ export const refresh = createAsyncThunk('users/refresh', async (_, thunkAPI) => 
 
 export const update = createAsyncThunk('users/update', async (credentials, thunkAPI) => {
   try {
-    const { data } = await axios.patch('/users/updateData', credentials);
+    const { data } = await instance.patch('/users/updateData', credentials);
     return data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e);

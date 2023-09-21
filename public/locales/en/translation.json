@@ -34,13 +34,31 @@
     "exit": "exit",
     "readMore": "read more",
     "showMore": "show more",
-    "loadMore": "load more"
+    "showLess": "show less",
+    "loadMore": "load more",
+    "private": "private",
+    "operation": "operation",
+    "feedback": "feedback"
   },
   "alert": {
     "loginFirst": "Please register or login first"
   },
-  "arrayUserButtons": ["private", "operation", "feedback"],
-  "exitButton": { "exit": "exit" },
+  "admin": {
+    "account": "Account",
+    "reviews": "Reviews",
+    "transactions": "Transactions",
+    "chat": "Chat",
+    "createAt": "created at",
+    "updatedAt": "updated at",
+    "paymentMethod": "payment method",
+    "creditCard": "credit card",
+    "wallet": "wallet",
+    "cash": "cash",
+    "owner": "Owner data",
+    "role": "Role",
+    "registrationDate": "Date of registration"
+  },
+  "arrayUserButtons": ["cabinet", "operations", "reviews"],
   "hero": {
     "desc": "is reliable and secure cryptocurrency exchanger for every day"
   },
@@ -68,7 +86,7 @@
     "register": "Create Account",
     "login": "Log In",
     "name": "User Name",
-    "mail": "Mail",
+    "mail": "Email",
     "password": "Password",
     "confirmPassword": "Confirm password",
     "forgotPassword": "Forgot password?",
@@ -93,7 +111,7 @@
     "firstName": "Name",
     "lastName": "Last name",
     "name": "Nickname",
-    "email": "Mail",
+    "email": "Email",
     "data": "Date of registration",
     "status": "Status",
     "message": "You have not left a review about our service yet. We will be glad to see your feedback which can be left after the first transaction following the",
@@ -164,10 +182,27 @@
     "text2": "Let's consider an example: in total you exchanged the equivalent of 5000 USD in any currency with us. Now you are exchanging btc for 14,000 hryvnia, to this amount you will receive an additional payment of 0.05% * 14,000 = 7 hryvnia.",
     "discount": "Discount system"
   },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "question1": "Why should I choose your cryptocurrency exchange?",
+    "question2": "How do I create an account on your platform?",
+    "question3": "Is my personal and financial information safe with your exchange?",
+    "question4": "What cryptocurrencies can I trade on your platform?",
+    "question5": "What are your trading fees?",
+    "question6": "How long do withdrawals take to process?",
+    "answer1": "We offer a secure and user-friendly platform with competitive fees, a wide range of supported cryptocurrencies, and a track record of reliability. Our commitment to customer service and compliance with industry standards sets us apart.",
+    "answer2": "Creating an account is simple. Just click on the \"Sign Up\" button. Follow the on-screen instructions to provide the necessary information and you'll be ready to start trading.",
+    "answer3": "Yes, we take security seriously. We employ advanced encryption and multi-factor authentication to protect your data. Additionally, our platform complies with industry best practices for data privacy and security.",
+    "answer4": "We support a wide variety of cryptocurrencies, including Bitcoin (BTC), Ethereum (ETH), Litecoin (LTC), Ripple (XRP), and many others.",
+    "answer5": "Our trading fees vary depending on the trading pair and your trading volume.",
+    "answer6": "Withdrawal processing times depend on the cryptocurrency and network congestion. Generally, cryptocurrency withdrawals are processed quickly, while fiat withdrawals may take a few business days to reach your bank account."
+  },
   "tableTransaction": {
     "amountToExchange": "amount to exchange",
     "amountToReceive": "amount to receive",
     "currencyToReceive": "currency to receive",
-    "currencyToExchange": "currency to exchange"
+    "currencyToExchange": "currency to exchange",
+    "amount": "amount",
+    "currency": "currency"
   }
 }

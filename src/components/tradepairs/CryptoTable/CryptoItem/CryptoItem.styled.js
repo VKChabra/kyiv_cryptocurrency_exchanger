@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 
 export const ListTitle = styled.ul`
   display: flex;
-  justify-content: space-around;
+  padding-left: 7%;
   color: ${({ theme }) => theme.colors.primary};
   border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
   margin-bottom: 30px;
@@ -16,6 +16,7 @@ export const ListTitle = styled.ul`
 
 export const ListTitleItem = styled.li`
   padding: 0 0 30px 0;
+  width: 22%;
   color: ${({ theme }) => theme.colors.primary};
   font-size: 16px;
   font-style: normal;
@@ -35,6 +36,7 @@ export const List = styled.ul`
 export const Item = styled.li`
   display: flex;
   justify-content: space-around;
+  align-items: center;
   color: ${({ theme }) => theme.colors.primary};
   padding: 15px;
   :nth-of-type(odd) {
@@ -65,4 +67,20 @@ export const Table = styled.div``;
 
 export const Change = styled.span`
   color: ${({ p }) => (p >= 0 ? '#06f239' : '#ff0000')};
+`;
+
+export const ChangeButton = styled.button`
+  color: ${({ theme }) => theme.colors.primary};
+  border: none;
+  background-color: #3e45c3;
+  display: inline-flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  &:active {
+    transform: scale(0.99);
+    transition: transform 0.1s ease-in-out;
+    background-color: rgba(63, 70, 195, 0.4);
+  }
 `;

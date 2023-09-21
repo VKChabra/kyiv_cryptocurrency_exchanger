@@ -25,7 +25,6 @@ export const useThemeSwitcher = () => {
     const newTheme = currentTheme.title === 'dark' ? themes.light : themes.dark;
     setCurrentTheme(newTheme);
     setThemeToLocalStorage(newTheme);
-    console.log('new theme is ', newTheme);
   };
 
   const theme = createTheme({

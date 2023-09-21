@@ -1,8 +1,9 @@
-import axios from 'axios';
-import { notifyError } from 'helpers/notifications';
-
-axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
+// import axios from 'axios';
+// // axios.defaults.baseURL = 'https://crypto-ag2e.onrender.com';
 // axios.defaults.baseURL = 'http://localhost:3001';
+
+import instance from 'redux/auth/operations';
+import { notifyError } from 'helpers/notifications';
 
 export const verifyCaptcha = async token => {
   const body = {
@@ -10,7 +11,7 @@ export const verifyCaptcha = async token => {
   };
 
   try {
-    const response = await axios.post('/captcha', body, {
+    const response = await instance.post('/captcha', body, {
       headers: {
         'Content-Type': 'application/json',
       },

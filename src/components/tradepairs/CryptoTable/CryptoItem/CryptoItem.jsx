@@ -1,15 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { getCryptoData } from 'services/API/whitebit-api';
-import { Wrapper, Table, ListTitleItem, ListTitle, List, Item, Change } from './CryptoItem.styled';
+import {
+  Wrapper,
+  Table,
+  ListTitleItem,
+  ListTitle,
+  List,
+  Item,
+  Change,
+  ChangeButton,
+} from './CryptoItem.styled';
 import { useTranslation } from 'react-i18next';
+import Button from 'layouts/Button';
+import { NavLink } from 'react-router-dom';
+import Loader from 'components/loader';
 
-const CryptoItem = () => {
+const CryptoItem = ({ onCryptoItemClick }) => {
   const [cryptoData, setCryptoData] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [perPage, setPerPage] = useState(30);
   const { t } = useTranslation();
-
-  const perPage = 100;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +33,25 @@ const CryptoItem = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [perPage]);
+
+  const loadMore = () => {
+    setPerPage(perPage + 30);
+  };
+
+  const showLess = () => {
+    setPerPage(30);
+  };
+
+  const scrollToTop = useRef(null);
+
+  const handleClick = item => {
+    onCryptoItemClick(item);
+    window.scrollTo({
+      top: 200,
+      behavior: 'smooth', // Add smooth scrolling behavior
+    });
+  };
 
   const cryptoDataItem = cryptoData.map(item => (
     <Item key={item.id}>
@@ -34,23 +62,33 @@ const CryptoItem = () => {
       </p>
 
       <p>{item.marketCap}</p>
+      <NavLink to="/">
+        {' '}
+        <ChangeButton key={item.id} onClick={() => handleClick(item)} ref={scrollToTop}>
+          {t('button.exchange')}
+        </ChangeButton>
+      </NavLink>
     </Item>
   ));
 
   return (
     <Wrapper>
       {loading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
-        <Table>
-          <ListTitle>
-            <ListTitleItem>{t('table.name')}</ListTitleItem>
-            <ListTitleItem>{t('table.price')}</ListTitleItem>
-            <ListTitleItem>{t('table.change')}</ListTitleItem>
-            <ListTitleItem>{t('table.capital')}</ListTitleItem>
-          </ListTitle>
-          <List>{cryptoDataItem}</List>
-        </Table>
+        <>
+          <Table>
+            <ListTitle>
+              <ListTitleItem>{t('table.name')}</ListTitleItem>
+              <ListTitleItem>{t('table.price')}</ListTitleItem>
+              <ListTitleItem>{t('table.change')}</ListTitleItem>
+              <ListTitleItem>{t('table.capital')}</ListTitleItem>
+            </ListTitle>
+            <List>{cryptoDataItem}</List>
+          </Table>
+          {perPage > 259 || <Button text={t('button.showMore')} onClick={loadMore}></Button>}
+          {perPage > 259 && <Button text={t('button.showLess')} onClick={showLess}></Button>}
+        </>
       )}
     </Wrapper>
   );

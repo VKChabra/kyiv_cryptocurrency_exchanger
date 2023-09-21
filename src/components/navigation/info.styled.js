@@ -1,16 +1,19 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 import mediaBp from 'styles/breakpoints';
+import { ReactComponent as Dropdown } from 'images/arrowDown.svg';
 
 export const DropdownMenu = styled.div`
   justify-content: center;
   position: relative;
-  color: ${({ footer, theme }) => (footer ? '#fff' : theme.colors.primary)};
+  color: #fff;
   padding-right: 15px;
-  display: flex;
+  display: contents;
   flex-direction: column;
   ${mediaBp('desktop')} {
+    display: flex;
     flex-direction: row;
+    color: ${({ footer, theme }) => (footer === 'true' ? '#fff' : theme.colors.primary)};
   }
 `;
 
@@ -24,16 +27,27 @@ export const InfoText = styled.span`
   padding-right: 20px;
 `;
 
-export const InfoImg = styled.img``;
+export const InfoImg = styled(Dropdown)`
+  stroke: ${({ footer, theme }) => (footer === 'true' ? '#fff' : theme.colors.line)};
+  background-color: transparent;
+`;
 
 export const LinkList = styled.ul`
-  position: absolute;
-  padding: 10px;
-  margin-top: 40px;
-  border: 1px solid #ccc;
+  display: flex;
+  color: '#fff';
+  flex-direction: column;
+  align-items: center;
   list-style: none;
-  background-color: ${({ theme }) => theme.colors.body};
-  z-index: 3;
+  ${mediaBp('desktop')} {
+    display: block;
+    position: absolute;
+    padding: 10px;
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.body};
+    z-index: 3;
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -42,11 +56,13 @@ export const Link = styled(NavLink)`
   letter-spacing: 0;
   white-space: nowrap;
   cursor: pointer;
-  padding-bottom: 10px;
-  &:last-child {
-    padding-bottom: 0;
-  }
   &.active {
     text-decoration: underline;
+  }
+  ${mediaBp('desktop')} {
+    padding-bottom: 10px;
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
 `;

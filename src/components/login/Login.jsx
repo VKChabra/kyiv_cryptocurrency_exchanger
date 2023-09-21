@@ -83,7 +83,7 @@ const Login = () => {
               onChange={handleChange}
               required
             />
-            <BackBtn onClick={() => setShowForgotPassword(true)}>
+            <BackBtn type="button" onClick={() => setShowForgotPassword(true)}>
               {t('auth.forgotPassword')}
             </BackBtn>
             <SubmitBtn type="submit">

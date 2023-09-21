@@ -1,4 +1,4 @@
-const bp = {
+export const bp = {
   mobile: 320,
   tablet: 768,
   desktop: 1280,
