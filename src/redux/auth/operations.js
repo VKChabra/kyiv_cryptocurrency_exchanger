@@ -4,8 +4,8 @@ import { store } from 'redux/store';
 import { updateValue } from './authSlice';
 
 const instance = axios.create({
-  baseURL: 'https://crypto-ag2e.onrender.com/',
-  // baseURL: 'http://localhost:3001/',
+  // baseURL: 'https://crypto-ag2e.onrender.com/',
+  baseURL: 'http://localhost:3001/',
 });
 export default instance;
 
@@ -20,13 +20,12 @@ instance.interceptors.response.use(
   res => res,
   async error => {
     if (error.response.status === 401) {
-      console.log(401);
       const refreshToken = localStorage.getItem('refreshToken');
 
       try {
         const { data } = await instance.post('/users/refresh', { refreshToken });
-        console.log(data);
         setToken(data.token);
+        localStorage.setItem('refreshToken', data.refreshToken);
 
         store.dispatch(updateValue(data.token));
 
