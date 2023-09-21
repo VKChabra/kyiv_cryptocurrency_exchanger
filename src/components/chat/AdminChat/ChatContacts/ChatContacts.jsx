@@ -2,32 +2,35 @@ import { useAuth } from 'hooks';
 import { Container, List, Item, AvatarWrap } from './ChatContacts.styled';
 // import { useState, useEffect } from 'react';
 
-const ChatContacts = ({ data }) => {
-  const { user, isLoggedIn } = useAuth();
-  // const { role, name } = user;
-  // const [contacts, setContacts] = useState([]);
-  // const [currentUser, setCurrentUser] = useState(isLoggedIn ? user : {});
-  // const [currentSelected, setCurrentSelected] = useState(undefined);
+const ChatContacts = ({ data, changeChat }) => {
+  //   const { user, isLoggedIn } = useAuth();
+  //   const { role, name } = user;
+  //   const [currentUser, setCurrentUser] = useState(isLoggedIn ? user : {});
+  const [currentSelected, setCurrentSelected] = useState(0);
 
-  const filteredUsers = data.filter(message => message.owner.role === 'user');
+  const changeCurrentChat = (index, item) => {
+    setCurrentSelected(index);
+    console.log(currentSelected, index);
+    changeChat(item);
+  };
 
-  console.log(user);
+  const filteredUsers = data?.filter(item => item.role === 'user');
 
   return (
     <Container>
       <List>
-        {filteredUsers?.map(item => (
-          <Item key={item.id}>
-            {item.owner.role === 'user' && (
-              <>
-                <AvatarWrap>
-                  <p>{item.owner?.name?.charAt(0).toUpperCase()}</p>
-                </AvatarWrap>
-                <div>
-                  <p>{item.owner?.name}</p>
-                </div>
-              </>
-            )}
+        {filteredUsers?.map((item, index) => (
+          <Item
+            key={item._id}
+            className={index === currentSelected ? 'selected' : 'none'}
+            onClick={() => changeCurrentChat(index, item)}
+          >
+            <AvatarWrap>
+              <p>{item.name?.charAt(0).toUpperCase()}</p>
+            </AvatarWrap>
+            <div>
+              <p>{item.name}</p>
+            </div>
           </Item>
         ))}
       </List>

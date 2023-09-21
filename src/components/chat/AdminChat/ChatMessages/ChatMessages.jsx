@@ -6,9 +6,15 @@ import {
   MessageContainer,
   InputContainer,
 } from './ChatMessages.styled';
+import { useEffect, useState, useRef } from 'react';
 import ChatInput from '../ChatInput';
+import { sendMessageRoute, recieveMessageRoute } from '../../../../services/chatApi';
 
 const ChatMessages = ({ data }) => {
+  const [messages, setMessages] = useState([]);
+  const scrollRef = useRef();
+  const [arrivalMessage, setArrivalMessage] = useState(null);
+
   const handleSendMsg = async msg => {
     console.log(msg);
     //   const data = await JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY));
