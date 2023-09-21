@@ -1,5 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import instance from 'redux/auth/operations';
+import instance from 'shared/api/auth';
 
 export const transactionsApi = createApi({
   reducerPath: 'transactionsApi',
