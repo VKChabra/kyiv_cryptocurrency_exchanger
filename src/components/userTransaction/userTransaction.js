@@ -8,32 +8,32 @@ const columns = [
   {
     id: 'amountToExchange',
     label: 'amountToExchange',
-    minWidth: 170,
+    minWidth: 160,
     format: value => value.toFixed(2),
   },
   {
     id: 'amountToReceive',
     label: 'amountToReceive',
-    minWidth: 170,
+    minWidth: 160,
     format: value => value.toFixed(2),
   },
   {
     id: 'currencyToExchange',
     label: 'currencyToExchange',
-    minWidth: 170,
+    minWidth: 160,
     align: 'center',
   },
   {
     id: 'currencyToReceive',
     label: 'currencyToReceive',
-    minWidth: 170,
+    minWidth: 160,
     align: 'center',
   },
 ];
 
 const TransactionHistory = () => {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const { data } = useGetMyTransactionQuery();
   const { t } = useTranslation();
 
@@ -64,16 +64,16 @@ const TransactionHistory = () => {
               </Cell>
             </TableRow>
             <TableRow>
-              <Cell style={{ top: 57 }} sx={{ backgroundColor: 'transparent' }}>
+              <Cell style={{ top: 30 }} sx={{ backgroundColor: 'transparent' }}>
                 {t('tableTransaction.amountToExchange')}
               </Cell>
-              <Cell style={{ top: 57 }} sx={{ backgroundColor: 'transparent' }}>
+              <Cell style={{ top: 30 }} sx={{ backgroundColor: 'transparent' }}>
                 {t('tableTransaction.amountToReceive')}
               </Cell>
-              <Cell style={{ top: 57 }} sx={{ backgroundColor: 'transparent' }}>
+              <Cell style={{ top: 30 }} sx={{ backgroundColor: 'transparent' }}>
                 {t('tableTransaction.currencyToReceive')}
               </Cell>
-              <Cell style={{ top: 57 }} sx={{ backgroundColor: 'transparent' }}>
+              <Cell style={{ top: 30 }} sx={{ backgroundColor: 'transparent' }}>
                 {t('tableTransaction.currencyToExchange')}
               </Cell>
             </TableRow>
@@ -97,7 +97,7 @@ const TransactionHistory = () => {
         </Table>
       </TableContainer>
       <Pagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPageOptions={[5, 10, 100]}
         component="div"
         count={data.length}
         rowsPerPage={rowsPerPage}

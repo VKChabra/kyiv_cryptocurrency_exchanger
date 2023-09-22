@@ -12,7 +12,7 @@ export const themes = {
       text: '#fff',
       curses: '#fbf6e1',
       hovers: '#cfad56',
-      background: imageUrl1,
+      background: `${imageUrl1}`,
     },
   },
   dark: {
@@ -25,7 +25,7 @@ export const themes = {
       text: '#fff',
       curses: '#2C2C27',
       hovers: '#f4de8b',
-      background: imageUrl,
+      background: `${imageUrl}`,
     },
   },
 };

@@ -2,31 +2,50 @@ import styled from '@emotion/styled';
 import { setBgImage } from '../../helpers/setBgImage';
 import { NavLink } from 'react-router-dom';
 import mediaBp from 'styles/breakpoints';
+
 export const Profile = styled.div`
+  margin: auto;
+  ${mediaBp('tablet')} {
+  }
   ${mediaBp('desktop')} {
-    width: 100%;
-    height: 100%;
+    max-width: 1440px;
   }
 `;
+
 export const ProfileHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 120px;
+  margin-top: -120px;
+`;
+export const TextHeader = styled.p`
   display: none;
-  @media ${mediaBp('desktop')} {
-    justify-content: flex-end;
-    display: flex;
-    height: 120px;
-    margin-top: -120px;
-    width: 100%;
-    align-items: center;
+  ${mediaBp('desktop')} {
+    display: block;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 export const AvatarHeader = styled.div`
-  displey: none;
-  @media ${mediaBp('tablet')} {
+  display: none;
+  ${mediaBp('tablet')} {
+    display: block;
     border-radius: 50%;
     text-align: center;
     background-image: ${setBgImage};
-    margin-left: 26px;
-    margin-right: 113px;
+    margin: 20px;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+    color: white;
+    line-height: 3em;
+    width: 50px;
+    height: 50px;
+  }
+  ${mediaBp('desktop')} {
+    display: block;
+    border-radius: 50%;
+    text-align: center;
+    background-image: ${setBgImage};
+    margin: 20px;
     border: 2px solid ${({ theme }) => theme.colors.primary};
     color: white;
     line-height: 3em;
@@ -36,61 +55,71 @@ export const AvatarHeader = styled.div`
 `;
 export const Text = styled.p`
   color: ${({ theme }) => theme.colors.primary};
-
-  @media ${mediaBp('tablet')} {
-  }
-  @media ${mediaBp('desktop')} {
     font-size: 16px;
     font-weight: 700;
     line-height: 100%;
   }
 `;
 export const ProfileWrapper = styled.div`
-  @media ${mediaBp('tablet')} {
-  }
-  @media ${mediaBp('desktop')} {
+  ${mediaBp('tablet')} {
     display: flex;
+    margin: 0 auto;
+  }
+  ${mediaBp('desktop')} {
+    display: flex;
+    margin: 0 auto;
   }
 `;
+
 export const Content = styled.div`
+  overflow: hidden;
   text-align: center;
-  @media ${mediaBp('tablet')} {
+  padding: 10px 10px;
+  height: 400px;
+  ${mediaBp('tablet')} {
+    text-align: center;
+    padding: 0 20px;
   }
-  @media ${mediaBp('desktop')} {
-    width: 900px;
-    padding: 80px 80px;
+  ${mediaBp('desktop')} {
+    text-align: center;
+    padding: 50px 50px;
   }
 `;
 export const Avatar = styled.div`
   border-radius: 50%;
   text-align: center;
   background-image: ${setBgImage};
-  margin-left: 26px;
-  margin-right: 113px;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
+  margin: 0 20px;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   color: white;
   line-height: 3em;
   width: 50px;
   height: 50px;
-  @media ${mediaBp('tablet')} {
+  ${mediaBp('tablet')} {
+    display: none;
   }
-  @media ${mediaBp('desktop')} {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    text-align: center;
-    background-image: ${setBgImage};
-    border: 2px solid ${({ theme }) => theme.colors.primary};
-    color: white;
-    line-height: 3em;
-    font-size: 2em;
+  ${mediaBp('desktop')} {
+    display: none;
   }
 `;
+export const Flex = styled.div`
+  padding: 10px 20px;
+  ${mediaBp('desktop')} {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 50px;
+`;
+export const FlexWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+// ====================================
 export const InputText = styled.p`
   color: ${({ theme }) => theme.colors.primary};
-  @media ${mediaBp('tablet')} {
+  ${mediaBp('tablet')} {
   }
-  @media ${mediaBp('desktop')} {
+  ${mediaBp('desktop')} {
     margin-right: 50px;
     font-size: 16px;
     font-weight: 700;
@@ -98,33 +127,18 @@ export const InputText = styled.p`
 `;
 export const Title = styled.p`
   color: ${({ theme }) => theme.colors.primary};
+  margin-right: 20px;
+  ${mediaBp('tablet')} {
+    margin-right: 25px;
+  }
+  ${mediaBp('desktop')} {
+    margin-right: 60px;
+    font-size: 18px;
+  }
+`;
 
-  @media ${mediaBp('tablet')} {
-  }
-  @media ${mediaBp('desktop')} {
-    font-weight: 700;
-    line-height: 100%;
-    margin-bottom: 20px;
-    font-size: 20px;
-  }
-`;
-export const Flex = styled.div`
-  @media ${mediaBp('tablet')} {
-  }
-  @media ${mediaBp('desktop')} {
-    display: flex;
-    height: 120px;
-    align-items: center;
-    justify-content: space-around;
-    margin-bottom: 20px;
-  }
-`;
 export const BoxR = styled.div`
   align-items: center;
-  @media ${mediaBp('tablet')} {
-  }
-  @media ${mediaBp('desktop')} {
-  }
 `;
 
 export const LinkGo = styled(NavLink)`
@@ -147,81 +161,149 @@ export const Link = styled(NavLink)`
   svg {
     display: none;
   }
-  @media ${mediaBp('tablet')} {
-  }
-  @media ${mediaBp('desktop')} {
-    display: inline-flex;
-    align-items: center;
+  ${mediaBp('tablet')} {
+    margin-right: 0px;
+    margin-top: 50px;
     padding-left: 20px;
-    width: 304px;
-    height: 60px;
-    margin-top: 40px;
+    align-items: center;
+    width: 160px;
+    height: 50px;
     border-right: none;
+    svg {
+      width: 25px;
+      height: 25px;
+      display: block;
+      fill: ${({ theme }) => theme.colors.primary};
+      margin-right: 10px;
+    }
     &.active {
       border: 2px solid ${({ theme }) => theme.colors.primary};
       border-right: transparent;
       background-color: ${({ theme }) => theme.colors.body};
       margin-right: -2px;
+      text-decoration: none;
+    }
+  }
+  ${mediaBp('desktop')} {
+    padding-left: 20px;
+    align-items: center;
+    max-width: 304px;
+    height: 60px;
+    margin-top: 60px;
+    margin-right: 0;
+    margin-left: 20%;
+    border-right: none;
+    overflow: hidden;
+    svg {
+      width: 25px;
+      height: 25px;
+      display: block;
+      fill: ${({ theme }) => theme.colors.primary};
+      margin-right: 10px;
+    }
+    &.active {
+      border: 2px solid ${({ theme }) => theme.colors.primary};
+      border-right: transparent;
+      background-color: ${({ theme }) => theme.colors.body};
+      margin-right: -2px;
+      text-decoration: none;
     }
   }
 `;
 export const ProfileNav = styled.div`
+  border-right: 2px solid ${({ theme }) => theme.colors.primary};
   display: flex;
-  padding: 15px 50px;
-  @media ${mediaBp('tablet')} {
-  }
-  @media ${mediaBp('desktop')} {
-    border-right: 2px solid ${({ theme }) => theme.colors.primary};
+  padding: 10px 20px;
+  ${mediaBp('tablet')} {
     background-image: url('${({ theme }) => theme.colors.background}');
     background-size: cover;
+    max-width: 250px;
+    display: block;
+    padding: 0;
+    flex-direction: column;
+    height: 100%;
+  }
+  ${mediaBp('desktop')} {
+    padding: 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    background-image: url('${({ theme }) => theme.colors.background}');
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 390px;
     height: 100%;
   }
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  @media ${mediaBp('tablet')} {
+  ${mediaBp('tablet')} {
+    flex-direction: column;
+    margin: 0 0 40px 70px;
   }
-  @media ${mediaBp('desktop')} {
-    height: 400px;
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+  ${mediaBp('desktop')} {
+    flex-direction: column;
   }
 `;
 
 export const ExitButton = styled.button`
-cursor: pointer;
-font-size: 16px;
-color: ${({ theme }) => theme.colors.primary};
-svg {
+  cursor: pointer;
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.primary};
+  svg {
     display: none;
   }
-  &.active {
+  :hover {
     color: ${({ theme }) => theme.colors.hovers};
     text-decoration: underline;
   }
+
+  ${mediaBp('tablet')} {
+    background: transparent;
+    :hover {
+      text-decoration: none;
+      background-color: ${({ theme }) => theme.colors.body};
+    }
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 44px;
+    margin: 140px 100px 40px 100px;
+    svg {
+      width: 25px;
+      height: 25px;
+      display: block;
+      fill: ${({ theme }) => theme.colors.primary};
+      margin-right: 10px;
+    }
   }
-  @media ${mediaBp('tablet')} {
-  }
-  @media ${mediaBp('desktop')} {
-  
+  ${mediaBp('desktop')} {
     background: transparent;
     border: 2px solid ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.primary};
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.body};
-    display: inline-flex;
+    &.active,
+    :hover {
+      color: ${({ theme }) => theme.colors.hovers};
+      text-decoration: none;
+    }
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 140px;
     height: 44px;
-    margin: 140px 120px 40px 120px;
+    margin: 140px 120px 80px 120px;
+    svg {
+      width: 25px;
+      height: 25px;
+      display: block;
+      fill: ${({ theme }) => theme.colors.primary};
+      margin-right: 10px;
+    }
+    :hover {
+      color: ${({ theme }) => theme.colors.hovers};
+      text-decoration: none;
+      background-color: ${({ theme }) => theme.colors.body};
+    }
   }
 `;
-// export const Text = styled.p`
-//   margin-left: 10px;
-// `;
