@@ -55,7 +55,7 @@ const FormUser = () => {
             label={t('userData.firstName')}
             type="text"
             name="firstName"
-            margin="0px"
+            margin="none"
             placeholder={t(`userData.firstName`)}
             defaultValue={firstName}
             onChange={handleChange}
