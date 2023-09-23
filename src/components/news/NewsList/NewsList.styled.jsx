@@ -26,3 +26,10 @@ export const Item = styled.li`
   //     margin-right: 30px;
   //   }
 `;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 30px;
+`;
