@@ -203,11 +203,11 @@
     "answer6": "Withdrawal processing times depend on the cryptocurrency and network congestion. Generally, cryptocurrency withdrawals are processed quickly, while fiat withdrawals may take a few business days to reach your bank account."
   },
   "tableTransaction": {
-    "amountToExchange": "amount to exchange",
-    "amountToReceive": "amount to receive",
-    "currencyToReceive": "currency to receive",
-    "currencyToExchange": "currency to exchange",
-    "amount": "amount",
-    "currency": "currency"
+    "amountToExchange": "exchange",
+    "amountToReceive": "receive",
+    "currencyToReceive": "receive",
+    "currencyToExchange": "exchange",
+    "amount": "amount to ",
+    "currency": "currency to "
   }
 }

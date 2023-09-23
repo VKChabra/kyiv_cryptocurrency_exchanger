@@ -36,9 +36,9 @@
     "showMore": "показать больше",
     "showLess": "показать меньше",
     "loadMore": "загрузить больше",
-    "private": "CHANGEprivate",
-    "operation": "CHANGEoperation",
-    "feedback": "CHANGEfeedback"
+    "private": "кабинет",
+    "operation": "оперпации",
+    "feedback": "отзывы"
   },
   "alert": {
     "loginFirst": "Сначала зарегистрируйтесь или войдите в аккаунт"
@@ -58,7 +58,6 @@
     "role": "Роль",
     "registrationDate": "Дата регистрации"
   },
-  "arrayUserButtons": ["кабинет", "оперпации", "отзывы"],
   "hero": {
     "desc": "это надёжный и безопасный обменник криптовалют для каждого дня"
   },
@@ -203,11 +202,11 @@
     "answer6": "Время обработки вывода средств зависит от криптовалюты и загруженности сети. Как правило, вывод средств в криптовалюте обрабатывается быстро, в то время как вывод средств в фиате может занять несколько рабочих дней и поступить на ваш банковский счет."
   },
   "tableTransaction": {
-    "amountToExchange": "сумма для обмена",
-    "amountToReceive": "сумма к получению",
-    "currencyToReceive": "валюта для получения",
-    "currencyToExchange": "валюта для обмена",
-    "amount": "сумма",
-    "currency": "валюта"
+    "amountToExchange": "обмена",
+    "amountToReceive": "получения",
+    "currencyToReceive": "получения",
+    "currencyToExchange": "обмена",
+    "amount": "сумма для",
+    "currency": "валюта для"
   }
 }

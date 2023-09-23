@@ -1,4 +1,4 @@
-import { Content, Text, LinkGo, BoxR } from './user.styled';
+import { Content, Text, LinkGo, BoxR, TextReview } from './user.styled';
 import { useGetMyReviewQuery } from 'services/reviewsApi';
 import { useTranslation } from 'react-i18next';
 
@@ -17,7 +17,7 @@ const Feedback = () => {
   return (
     <Content>
       <Text>{t('userData.message1')}</Text>
-      <Text>{review}</Text>
+      <TextReview>{review}</TextReview>
       <BoxR>
         <Text>{t('userData.message2')}</Text>
         <LinkGo to="/reviews">{t('userData.link1')}</LinkGo>

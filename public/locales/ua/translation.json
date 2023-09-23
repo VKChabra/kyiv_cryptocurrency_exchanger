@@ -36,9 +36,9 @@
     "showMore": "показати більше",
     "showLess": "показати менше",
     "loadMore": "завантажити більше",
-    "private": "CHANGEprivate",
-    "operation": "CHANGEoperation",
-    "feedback": "CHANGEfeedback"
+    "private": "кабінет",
+    "operation": "транзакції",
+    "feedback": "відгуки"
   },
   "alert": {
     "loginFirst": "Спочатку зареєструйтесь або увійдіть в акаунт"
@@ -58,7 +58,6 @@
     "role": "Роль",
     "registrationDate": "Дата реєстрації"
   },
-  "arrayUserButtons": ["кабінет", "транзакції", "відгуки"],
   "hero": {
     "desc": "це надійний та безпечний обмінник криптовалют для кожного дня"
   },
@@ -203,11 +202,11 @@
     "answer6": "Час обробки виведення коштів залежить від криптовалюти та перевантаженості мережі. Як правило, виведення коштів у криптовалюті обробляється швидко, тоді як виведення коштів у фіатній валюті може зайняти кілька робочих днів, перш ніж вони надійдуть на ваш банківський рахунок."
   },
   "tableTransaction": {
-    "amountToExchange": "сума для обміну",
-    "amountToReceive": "сума для отримання",
-    "currencyToReceive": "валюта для отримання",
-    "currencyToExchange": "валюта для обміну",
-    "amount": "Cума",
-    "currency": "Валюта"
+    "amountToExchange": "обміну",
+    "amountToReceive": "отримання",
+    "currencyToReceive": "отримання",
+    "currencyToExchange": "обміну",
+    "amount": "Cума для",
+    "currency": "Валюта для"
   }
 }
