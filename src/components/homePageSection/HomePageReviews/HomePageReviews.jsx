@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const HomPageReviews = () => {
+const HomePageReviews = () => {
   const { data } = useGetApprovedReviewsQuery();
   const reviews = data?.reviews;
   const { t } = useTranslation();
@@ -28,9 +28,9 @@ const HomPageReviews = () => {
           pagination={{ clickable: true }}
           // scrollbar={{ draggable: false }}
         >
-          {reviews?.map(item => (
-            <SwiperSlide>
-              <Item key={item._id}>
+          {reviews?.map((item, index) => (
+            <SwiperSlide key={item._id || index}>
+              <Item>
                 <ReviewsItem className="reviewItem" data={item} />
               </Item>
             </SwiperSlide>
@@ -41,4 +41,4 @@ const HomPageReviews = () => {
   );
 };
 
-export default HomPageReviews;
+export default HomePageReviews;

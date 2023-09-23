@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import mediaBp from 'styles/breakpoints';
 
 export const ProfileHeader = styled.div`
-  max-width: 1400px;
+  max-width: 1600px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
