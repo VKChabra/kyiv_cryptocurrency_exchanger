@@ -13,7 +13,7 @@ const UserNav = ({ closeMobileMenu }) => {
   };
   return (
     <UserWrapper>
-      <Link to="/user" onClick={() => closeMobileMenu()}>
+      <Link to="/user/private" onClick={() => closeMobileMenu()}>
         <span>{t('nav.profile')}</span>
       </Link>
       <Button type="button" onClick={handleLogOut}>

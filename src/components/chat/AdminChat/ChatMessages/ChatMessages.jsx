@@ -7,7 +7,7 @@ import {
   InputContainer,
 } from './ChatMessages.styled';
 import { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
+import instance from 'shared/api/auth';
 import { v4 as uuidv4 } from 'uuid';
 import { useAuth } from 'hooks/';
 import { getCurrentTime } from 'helpers/getCurrentTime';
@@ -25,7 +25,7 @@ const ChatMessages = ({ currentChat, socket }) => {
   useEffect(() => {
     const handleMsgReceived = async () => {
       try {
-        const response = await axios.post(recieveMessageRoute, {
+        const response = await instance.post(recieveMessageRoute, {
           from: user.id,
           to: currentChat._id,
         });
@@ -37,7 +37,7 @@ const ChatMessages = ({ currentChat, socket }) => {
     if (currentChat) {
       handleMsgReceived();
     }
-  }, [currentChat]);
+  }, [currentChat, user]);
 
   const handleSendMsg = async msg => {
     const timeSent = getCurrentTime();
@@ -47,7 +47,7 @@ const ChatMessages = ({ currentChat, socket }) => {
       msg,
       time: timeSent,
     });
-    await axios.post(sendMessageRoute, {
+    await instance.post(sendMessageRoute, {
       from: user.id,
       to: currentChat._id,
       message: msg,

@@ -38,7 +38,7 @@ const AdminChat = () => {
     } else {
       setCurrentUser(user);
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, navigate, user]);
 
   useEffect(() => {
     if (currentUser) {
@@ -46,7 +46,7 @@ const AdminChat = () => {
     } else {
       navigate('/login');
     }
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
   useEffect(() => {
     if (currentUser) {
@@ -55,7 +55,7 @@ const AdminChat = () => {
     } else {
       navigate('/login');
     }
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
   const handleChatChange = chat => {
     setCurrentChat(chat);

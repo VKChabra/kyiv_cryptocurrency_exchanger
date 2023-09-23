@@ -1,7 +1,7 @@
 import { Content, LinkGo } from './user.styled';
 import { useGetMyTransactionQuery } from 'services/transactionsApi';
 import { useTranslation } from 'react-i18next';
-import TransactionHistory from '../../components/userTransaction';
+import TransactionHistory from 'components/userTransaction';
 
 const UserTransaction = () => {
   const { data } = useGetMyTransactionQuery();

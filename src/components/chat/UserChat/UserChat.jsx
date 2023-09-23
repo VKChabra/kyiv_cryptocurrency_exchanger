@@ -23,7 +23,7 @@ const UserChat = () => {
       setIsOnline(true);
       setAdminId(user.id);
     }
-  }, [isLoggedIn, user.role, user.id]);
+  }, [isLoggedIn, user]);
 
   useEffect(() => {
     if (isLoggedIn && user?.role === 'user') {
@@ -32,7 +32,8 @@ const UserChat = () => {
       const inkognitoId = uuidv4();
       setUserId(inkognitoId);
     }
-  }, [isLoggedIn, user.role, user.id]);
+  }, [isLoggedIn, user]);
+  console.log('adminId: ', adminId, 'userId: ', userId);
 
   return (
     <Container>
