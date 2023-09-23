@@ -4,6 +4,14 @@ export const Container = styled.div`
   width: 300px;
   height: 600px;
   border: 1px solid #d3d3d3;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+      width: 0.2rem;
+      &-thumb {
+        background-color: #A1812E;
+        width: 0.1rem;
+        border-radius: 1rem;
+      }
 `;
 
 export const List = styled.ul`

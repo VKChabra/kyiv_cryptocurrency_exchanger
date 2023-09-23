@@ -1,7 +1,5 @@
-import { useAuth } from 'hooks';
 import { Container, List, Item, AvatarWrap } from './ChatContacts.styled';
 import { useState } from 'react';
-// import { useState, useEffect } from 'react';
 
 const ChatContacts = ({ data, changeChat }) => {
   //   const { user, isLoggedIn } = useAuth();

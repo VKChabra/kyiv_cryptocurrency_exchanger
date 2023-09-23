@@ -6,12 +6,34 @@ import {
   MessageContainer,
   InputWrap,
 } from './UserChat.styled';
-import Logotype from '../../../images/logo.svg';
+import Logotype from 'images/logo.svg';
+import { useAuth } from 'hooks/';
 import ChatInput from '../AdminChat/ChatInput';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const UserChat = () => {
-  const [isOnline, setIsOnline] = useState(true);
+  const [isOnline, setIsOnline] = useState(false);
+  const [adminId, setAdminId] = useState(undefined);
+  const [userId, setUserId] = useState(undefined);
+  const { user, isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    if (user.role === 'admin' && isLoggedIn) {
+      setIsOnline(true);
+      setAdminId(user.id);
+    }
+  }, [isLoggedIn, user.role, user.id]);
+
+  useEffect(() => {
+    if (isLoggedIn && user?.role === 'user') {
+      setUserId(user.id);
+    } else {
+      const inkognitoId = uuidv4();
+      setUserId(inkognitoId);
+    }
+  }, [isLoggedIn, user.role, user.id]);
+
   return (
     <Container>
       <ChatHeader>
