@@ -10,7 +10,6 @@ import {
   Text,
   AvatarHeader,
   ProfileHeader,
-  Profile,
   ProfileWrapper,
   Link,
   ProfileNav,
@@ -20,7 +19,7 @@ import {
   Avatar,
   Flex,
   Title,
-  FlexWrapper,
+  Box,
 } from './user.styled';
 import authSelectors from 'redux/auth/authSelectors';
 
@@ -38,49 +37,44 @@ const User = () => {
   const letter = setAvatar(name);
   return (
     <>
-      <Profile>
-        <ProfileHeader>
-          <TextHeader>{name}</TextHeader>
-          <AvatarHeader role={role}>{letter}</AvatarHeader>
-        </ProfileHeader>
-        <ProfileWrapper>
-          <ProfileNav>
-            <ButtonWrapper>
-              <Link to="private">
-                <RiHome2Line />
-                <Text>{t(`button.private`)}</Text>
-              </Link>
-              <Link to="transactions">
-                <RiMacLine />
-                <Text>{t(`button.operation`)}</Text>
-              </Link>
-              <Link to="reviews">
-                <RiPriceTag3Line />
-                <Text>{t(`button.feedback`)}</Text>
-              </Link>
-            </ButtonWrapper>
-            <ExitButton type="button" onClick={handleLogOut}>
-              <RiLockUnlockLine />
-              <Text>{t('button.exit')}</Text>
-            </ExitButton>
-          </ProfileNav>
+      <ProfileHeader>
+        <TextHeader>{name}</TextHeader>
+        <AvatarHeader role={role}>{letter}</AvatarHeader>
+      </ProfileHeader>
+      <ProfileWrapper>
+        <ProfileNav>
+          <ButtonWrapper>
+            <Link to="private">
+              <RiHome2Line />
+              <Text>{t(`button.private`)}</Text>
+            </Link>
+            <Link to="transactions">
+              <RiMacLine />
+              <Text>{t(`button.operation`)}</Text>
+            </Link>
+            <Link to="reviews">
+              <RiPriceTag3Line />
+              <Text>{t(`button.feedback`)}</Text>
+            </Link>
+          </ButtonWrapper>
+          <ExitButton type="button" onClick={handleLogOut}>
+            <RiLockUnlockLine />
+            <Text>{t('button.exit')}</Text>
+          </ExitButton>
+        </ProfileNav>
+        <Box>
           <Avatar role={role}>{letter}</Avatar>
-          <FlexWrapper>
-            <Flex>
-              <Title>{name}</Title>
-              <Title>
-                {t(`userData.status`)}: {role}
-              </Title>
-              <Title>
-                {t(`userData.data`)}: {handleDateFormat(createdAt)}
-              </Title>
-            </Flex>
-            <Suspense fallback={<Loader />} style={{ width: '100%' }}>
-              <Outlet />
-            </Suspense>
-          </FlexWrapper>
-        </ProfileWrapper>
-      </Profile>
+          <Flex>
+            <Title>{name}</Title>
+            <Title>
+              {t(`userData.data`)}: {handleDateFormat(createdAt)}
+            </Title>
+          </Flex>
+          <Suspense fallback={<Loader />} style={{ width: '100%' }}>
+            <Outlet />
+          </Suspense>
+        </Box>
+      </ProfileWrapper>
     </>
   );
 };
