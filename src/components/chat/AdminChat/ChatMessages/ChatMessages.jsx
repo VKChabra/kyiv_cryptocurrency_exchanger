@@ -40,22 +40,26 @@ const ChatMessages = ({ currentChat, socket }) => {
   }, [currentChat, user]);
 
   const handleSendMsg = async msg => {
-    const timeSent = getCurrentTime();
-    socket.current.emit('send-msg', {
-      to: currentChat._id,
-      from: user.id,
-      msg,
-      time: timeSent,
-    });
-    await instance.post(sendMessageRoute, {
-      from: user.id,
-      to: currentChat._id,
-      message: msg,
-    });
-    const msgs = [...messages];
+    try {
+      const timeSent = getCurrentTime();
+      socket.current.emit('send-msg', {
+        to: currentChat._id,
+        from: user.id,
+        msg,
+        time: timeSent,
+      });
+      await instance.post(sendMessageRoute, {
+        from: user.id,
+        to: currentChat._id,
+        message: msg,
+      });
+      const msgs = [...messages];
 
-    msgs.push({ fromSelf: true, message: msg, time: timeSent });
-    setMessages(msgs);
+      msgs.push({ fromSelf: true, message: msg, time: timeSent });
+      setMessages(msgs);
+    } catch (err) {
+      console.error('An error occurred:', err);
+    }
   };
 
   useEffect(() => {

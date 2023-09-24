@@ -14,6 +14,7 @@ const UserNav = ({ closeMobileMenu }) => {
     dispatch(logOut());
     closeMobileMenu && closeMobileMenu();
   };
+
   return (
     <UserWrapper>
       <Link to="/user/private" onClick={handleMenu}>

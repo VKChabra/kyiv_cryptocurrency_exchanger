@@ -51,23 +51,37 @@ instance.interceptors.response.use(
 );
 
 export const register = async credentials => {
-  const { data } = await instance.post('/users/register', credentials);
-  return data;
+  try {
+    const { data } = await instance.post('/users/register', credentials);
+    return data;
+  } catch (error) {
+    console.error('An error occurred during registration:', error);
+    throw error;
+  }
 };
 
 export const login = async credentials => {
-  const { data } = await instance.post('/users/login', credentials);
-  setToken(data.token);
-  localStorage.setItem('refreshToken', data?.refreshToken);
-  return data;
+  try {
+    const { data } = await instance.post('/users/login', credentials);
+    setToken(data.token);
+    localStorage.setItem('refreshToken', data?.refreshToken);
+    return data;
+  } catch (error) {
+    console.error('An error occurred during login:', error);
+    throw error;
+  }
 };
 
 export const logout = async () => {
-  unsetToken();
-  localStorage.removeItem('refreshToken');
-
-  const data = await instance.get('/users/logout');
-  return data;
+  try {
+    unsetToken();
+    localStorage.removeItem('refreshToken');
+    const data = await instance.get('/users/logout');
+    return data;
+  } catch (error) {
+    console.error('An error occurred during logout:', error);
+    throw error;
+  }
 };
 
 export const getCurrent = async token => {
@@ -82,11 +96,21 @@ export const getCurrent = async token => {
 };
 
 export const verifyMail = async credentials => {
-  const { data } = await instance.post('/users/verify', credentials);
-  return data;
+  try {
+    const { data } = await instance.post('/users/verify', credentials);
+    return data;
+  } catch (error) {
+    console.error('An error occurred during email verification:', error);
+    throw error;
+  }
 };
 
 export const update = async credentials => {
-  const { data } = await instance.patch('/users/updateData', credentials);
-  return data;
+  try {
+    const { data } = await instance.patch('/users/updateData', credentials);
+    return data;
+  } catch (error) {
+    console.error('An error occurred during user data update:', error);
+    throw error;
+  }
 };

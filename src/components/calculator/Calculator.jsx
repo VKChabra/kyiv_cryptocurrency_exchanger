@@ -10,6 +10,8 @@ import calculatorSelectors from 'redux/calculator/calculatorSelectors';
 import authSelectors from 'redux/auth/authSelectors';
 import { getMostPopular } from 'services/API/whitebit-api';
 const PERCENT = 2;
+const uahRate = 37;
+const eurRate = 1.07;
 
 const Calculator = ({ showSubmitButton = true }) => {
   const { t } = useTranslation();
@@ -20,9 +22,9 @@ const Calculator = ({ showSubmitButton = true }) => {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
 
   const [options, setOptions] = useState([
-    { value: 'hrn', label: 'hrn', rate: 38 },
+    { value: 'uah', label: 'uah', rate: uahRate },
     { value: 'usd', label: 'usd', rate: 1 },
-    { value: 'eur', label: 'eur', rate: 1.1 },
+    { value: 'eur', label: 'eur', rate: eurRate },
     { value: 'usdt', label: 'USDT', rate: 1 },
   ]);
 
