@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { reviewsApi } from 'services/reviewsApi';
+import { newsApi } from 'services/newsApi'; // Import the 'api' object from your 'newsApi' file
 import reviewsSlice from './reviews/reviewSlice';
 import { storeCalcDataReducer } from './calculator/storeCalculatorForm';
 import { transactionsApi } from 'services/transactionsApi';
@@ -29,7 +30,7 @@ const middleware = getDefaultMiddleware => [
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-  }).concat(reviewsApi.middleware, transactionsApi.middleware),
+  }).concat(reviewsApi.middleware, transactionsApi.middleware, newsApi.middleware),
 ];
 
 export const store = configureStore({
@@ -38,6 +39,7 @@ export const store = configureStore({
     [reviewsApi.reducerPath]: reviewsApi.reducer,
     reviews: reviewsSlice,
     [transactionsApi.reducerPath]: transactionsApi.reducer,
+    [newsApi.reducerPath]: newsApi.reducer,
     calcData: persistReducer(storeCalcFormConfig, storeCalcDataReducer),
   },
   middleware,

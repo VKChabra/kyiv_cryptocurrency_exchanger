@@ -7,13 +7,13 @@ const NewsItem = ({ data }) => {
   return (
     <Container>
       <TitleWrap>
-        {/* <div>
-          <img src={data.photo} alt="article" width="60px" height="60px" />
-        </div> */}
         <div>
           <Title>{data.title}</Title>
         </div>
       </TitleWrap>
+      <div>
+        <img src={data.photo} alt="article" width="160px" height="160px" />
+      </div>
       <TextWrap>
         <Text>{data.news}</Text>
       </TextWrap>
