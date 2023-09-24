@@ -21,9 +21,6 @@ export const Button = styled.button`
   }
   ${mediaBp('desktop')} {
     padding: 11px 82px;
-    // border-radius: 10px;
-    // border: 1px solid ${({ theme }) => theme.colors.primary};
-    // color: ${({ theme }) => theme.colors.primary};
     // cursor: pointer;
     // background: transparent;
     // font-style: normal;
@@ -63,6 +60,9 @@ export const Select = styled.select`
   border: 1px solid ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.body};
   color: ${({ theme }) => theme.colors.primary};
+  border-radius: 4px;
+  padding: 4px 20px;
+  margin: 4px;
 `;
 
 export const Label = styled.label`

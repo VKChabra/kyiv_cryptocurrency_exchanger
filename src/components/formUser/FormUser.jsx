@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Form, BoxWrapper, ButtonSubmit, Select, Label } from './formUser.styled';
+import { Form, BoxWrapper, ButtonSubmit, Select, Label, Text } from './formUser.styled';
 import { update } from 'redux/auth/operations';
 import authSelectors from 'redux/auth/authSelectors';
 import FormUserInput from './FormUserInput';
@@ -103,7 +103,7 @@ const FormUser = () => {
       <BoxWrapper>
         <FormUserInput
           fieldName="additionalContact"
-          labelKey="userData.additionalContact"
+          labelKey="exchange.additionalContact"
           visibleInput={visibleInput}
           setInput={setInput}
           user={user}
@@ -111,7 +111,9 @@ const FormUser = () => {
         />
       </BoxWrapper>
       <BoxWrapper>
-        <Label htmlFor="paymentMethod">{t('userData.paymentMethod')}</Label>
+        <Text>
+          <Label htmlFor="paymentMethod">{t('admin.paymentMethod')}</Label>
+        </Text>
         <Select
           name="paymentMethod"
           id="paymentMethod"
@@ -123,8 +125,8 @@ const FormUser = () => {
           <option value="cash">{t('admin.cash')}</option>
         </Select>
       </BoxWrapper>
-      {paymentMethod && (
-        <BoxWrapper>
+      <BoxWrapper>
+        {paymentMethod && (
           <FormUserInput
             fieldName="paymentValue"
             labelKey={`userData.${paymentMethodUser}.paymentValue`}
@@ -133,8 +135,8 @@ const FormUser = () => {
             user={user}
             handleChange={handleChange}
           />
-        </BoxWrapper>
-      )}
+        )}
+      </BoxWrapper>
 
       <ButtonSubmit type="submit">{t(`button.submit`)}</ButtonSubmit>
     </Form>

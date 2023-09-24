@@ -4,7 +4,7 @@ import { store } from 'redux/store';
 
 const instance = axios.create({
   baseURL: 'https://crypto-ag2e.onrender.com/',
-  // baseURL: 'http://localhost:3001/',
+  //   baseURL: 'http://localhost:3001/',
   timeout: 10000,
 });
 export default instance;

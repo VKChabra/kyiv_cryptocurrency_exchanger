@@ -30,11 +30,12 @@ const setAvatar = name => {
 const User = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const handleLogOut = () => dispatch(logOut());
   const user = useSelector(authSelectors.selectUser);
   const { role, createdAt, name } = user;
-
   const letter = setAvatar(name);
+
+  const handleLogOut = () => dispatch(logOut());
+
   return (
     <>
       <ProfileHeader>
