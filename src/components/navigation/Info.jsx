@@ -6,6 +6,9 @@ import { bp } from 'styles/breakpoints';
 
 const Info = ({ footer = 'false', closeMobileMenu }) => {
   const { t } = useTranslation();
+  const handleMenu = () => {
+    closeMobileMenu && closeMobileMenu();
+  };
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,13 +28,13 @@ const Info = ({ footer = 'false', closeMobileMenu }) => {
       )}
       {(isOpen || !isDesktop) && (
         <LinkList footer={footer}>
-          <Link to="/partnership" onClick={() => closeMobileMenu()}>
+          <Link to="/partnership" onClick={handleMenu}>
             <span>{t('nav.partnership')}</span>
           </Link>
-          <Link to="/reviews" onClick={() => closeMobileMenu()}>
+          <Link to="/reviews" onClick={handleMenu}>
             <span>{t('nav.reviews')}</span>
           </Link>
-          <Link to="/faq" onClick={() => closeMobileMenu()}>
+          <Link to="/faq" onClick={handleMenu}>
             <span>FAQ</span>
           </Link>
         </LinkList>

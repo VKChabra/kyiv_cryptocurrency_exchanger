@@ -5,12 +5,16 @@ import { useTranslation } from 'react-i18next';
 
 const AuthNav = ({ closeMobileMenu }) => {
   const { t } = useTranslation();
+  const handleMenu = () => {
+    closeMobileMenu && closeMobileMenu();
+  };
+
   return (
     <RegistrationWrapper>
-      <Link to="/register" onClick={() => closeMobileMenu()}>
+      <Link to="/register" onClick={handleMenu}>
         <span>{t('nav.register')}</span>
       </Link>
-      <Link to="/login" onClick={() => closeMobileMenu()}>
+      <Link to="/login" onClick={handleMenu}>
         <TextWrapper>
           <span>{t('nav.login')}</span>
         </TextWrapper>
