@@ -26,7 +26,7 @@ export const Input = styled.input`
   outline: none;
 `;
 
-export const Dropdown = styled.select`
+export const DropdownSelect = styled.select`
   cursor: pointer;
   color: inherit;
   border: 2px solid ${({ theme }) => theme.colors.primary};

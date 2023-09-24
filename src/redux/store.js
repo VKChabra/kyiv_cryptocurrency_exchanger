@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { reviewsApi } from 'services/reviewsApi';
 import reviewsSlice from './reviews/reviewSlice';
-import { storeCalcFormReducer } from './calculator/storeCalculatorForm';
+import { storeCalcDataReducer } from './calculator/storeCalculatorForm';
 import { transactionsApi } from 'services/transactionsApi';
 
 const authPersistConfig = {
@@ -38,7 +38,7 @@ export const store = configureStore({
     [reviewsApi.reducerPath]: reviewsApi.reducer,
     reviews: reviewsSlice,
     [transactionsApi.reducerPath]: transactionsApi.reducer,
-    calcFormData: persistReducer(storeCalcFormConfig, storeCalcFormReducer),
+    calcData: persistReducer(storeCalcFormConfig, storeCalcDataReducer),
   },
   middleware,
 });

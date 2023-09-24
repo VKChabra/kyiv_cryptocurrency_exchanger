@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const calculatorFormDataSlice = createSlice({
-  name: 'calculatorFormData',
+const calculatorDataSlice = createSlice({
+  name: 'calculatorData',
   initialState: {
-    calculatorFormData: null,
+    calculatorData: null,
   },
   reducers: {
-    storeCalculatorFormData: (state, action) => {
-      state.calculatorFormData = action.payload;
+    storeCalculatorData: (state, action) => {
+      state.calculatorData = action.payload;
     },
   },
 });
 
-export const { storeCalculatorFormData } = calculatorFormDataSlice.actions;
-export const storeCalcFormReducer = calculatorFormDataSlice.reducer;
+export const { storeCalculatorData } = calculatorDataSlice.actions;
+export const storeCalcDataReducer = calculatorDataSlice.reducer;

@@ -40,6 +40,7 @@ export const Text = styled.div`
 `;
 export const BoxWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
   padding: 5px;
   width: 100%;
 `;
@@ -56,4 +57,14 @@ export const ButtonSubmit = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.body};
   }
+`;
+
+export const Select = styled.select`
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.body};
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
+export const Label = styled.label`
+  color: ${({ theme }) => theme.colors.primary};
 `;
