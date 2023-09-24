@@ -2,8 +2,6 @@ import { List, Item } from './ReviewsList.styled';
 import ReviewsItem from '../ReviewsItem/ReviewsItems';
 
 const ReviewsList = ({ reviews }) => {
-  console.log(reviews);
-
   return (
     <List>
       {reviews?.map(item => (

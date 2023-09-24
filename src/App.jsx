@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { refresh } from 'redux/auth/operations';
 import { GlobalStyle } from 'styles/global.styles';
 
-import { PrivateRoute, PublicRoute } from './components/routes';
+import { PrivateRoute, PublicRoute, AdminRoute } from './components/routes';
 import Loader from './components/loader';
 import { AdminMenu } from 'components/admin/AdminMenu';
 import authSelectors from 'redux/auth/authSelectors';
@@ -82,6 +82,19 @@ const App = () => {
                 <Route path="transactions" element={<UserTransactionPage />} />
               </Route>
               <Route
+                path="admin"
+                element={
+                  <AdminRoute>
+                    <AdminMenu />
+                  </AdminRoute>
+                }
+              >
+                <Route index element={<AdminAccountPage />} />
+                <Route path="reviews" element={<AdminReviewPage />} />
+                <Route path="transactions" element={<AdminTransactionPage />} />
+                <Route path="chat" element={<AdminChatPage />} />
+              </Route>
+              <Route
                 path="exchange"
                 element={
                   <PrivateRoute>
@@ -94,12 +107,6 @@ const App = () => {
               <Route path="partnership" element={<PartnershipPage />} />
               <Route path="reviews" element={<ReviewsPage />} />
               <Route path="faq" element={<Faq />} />
-              <Route path="admin" element={<AdminMenu />}>
-                <Route index element={<AdminAccountPage />} />
-                <Route path="reviews" element={<AdminReviewPage />} />
-                <Route path="transactions" element={<AdminTransactionPage />} />
-                <Route path="chat" element={<AdminChatPage />} />
-              </Route>
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

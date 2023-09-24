@@ -9,7 +9,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     purple: '#3E45C3',
-    orange: '#FE9505',
   },
 });
 
@@ -31,7 +30,21 @@ const ReviewPagination = ({ total, current }) => {
             size="large"
             page={page}
             onChange={handleChange}
-            color="purple"
+            sx={{
+              '& .MuiPaginationItem-page.Mui-selected': {
+                backgroundColor: theme.palette.purple,
+                color: '#fff',
+              },
+              '& .MuiPaginationItem-page': {
+                color: theme.palette.purple,
+              },
+              '& .MuiPaginationItem-ellipsis': {
+                color: theme.palette.purple,
+              },
+              '& .MuiPaginationItem-previous, & .MuiPaginationItem-next': {
+                color: theme.palette.purple,
+              },
+            }}
           />
         </Stack>
       </ThemeProvider>
