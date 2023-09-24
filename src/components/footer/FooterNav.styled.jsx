@@ -4,6 +4,12 @@ import mediaBp from 'styles/breakpoints';
 export const NavFooter = styled.div`
   display: flex;
   align-items: center;
+  ${mediaBp('tablet')} {
+    & > * {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
 `;
 
 export const Text = styled.span`
@@ -18,9 +24,10 @@ export const Text = styled.span`
 export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   ${mediaBp('desktop')} {
+    align-items: flex-start;
     margin-left: 10px;
     margin-right: 190px;
   }
@@ -38,7 +45,6 @@ export const InfoList = styled.ul`
 
 export const InfoItem = styled.li`
   width: fit-content;
-  font-size: 16px;
   letter-spacing: 0;
   white-space: nowrap;
   ${mediaBp('desktop')} {
@@ -52,7 +58,7 @@ export const InfoItem = styled.li`
 export const InfoText = styled.p`
   color: #fff;
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 90%;
   font-style: normal;
   font-weight: 300;
   line-height: 16px;

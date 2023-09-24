@@ -18,6 +18,11 @@ export const NavWrap = styled.div`
   color: #fff;
   padding-top: ${({ footer }) => (footer === 'true' ? '10px' : 0)};
   display: none;
+  ${mediaBp('tablet')} {
+    display: ${({ footer }) => (footer === 'true' ? 'flex' : 'none')};
+    padding-top: 0;
+    color: ${({ theme }) => theme.colors.primary};
+  }
   ${mediaBp('desktop')} {
     margin-left: 40px;
     display: flex;

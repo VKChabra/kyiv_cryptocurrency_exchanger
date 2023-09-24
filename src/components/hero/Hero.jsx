@@ -1,12 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import {
-  HeroSplitter,
+  Wrap,
   LeftFrame,
   RightFrame,
   CompanyName,
   Description,
   Background,
   Coin,
+  HeroSplitter,
+  LeftWrap,
 } from './hero.styled';
 import Calculator from 'components/calculator';
 import HomeBg from 'images/background1.svg';
@@ -17,12 +19,14 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <Wrap>
       <HeroSplitter>
         <LeftFrame>
-          <CompanyName>CoinCryptoHub</CompanyName>
-          <Description>{t('hero.desc')}</Description>
-          <Calculator />
+          <LeftWrap>
+            <CompanyName>CoinCryptoHub</CompanyName>
+            <Description>{t('hero.desc')}</Description>
+            <Calculator />
+          </LeftWrap>
         </LeftFrame>
         <RightFrame>
           <Background src={HomeBg} alt="lines background" />
@@ -30,7 +34,7 @@ const Hero = () => {
         </RightFrame>
       </HeroSplitter>
       <Payments />
-    </>
+    </Wrap>
   );
 };
 

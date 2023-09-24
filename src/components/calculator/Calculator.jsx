@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Frame, Wrap, Label, Input, Form, DropdownSelect } from './calculator.styled';
+import { Wrap, Label, Input, Form, DropdownSelect } from './calculator.styled';
 import NeoButton from 'layouts/Button';
 import { notifyWarning, notifyError } from 'helpers/notifications';
 import { storeCalculatorData } from 'redux/calculator/storeCalculatorForm';
@@ -125,8 +125,8 @@ const Calculator = ({ showSubmitButton = true }) => {
   }, [calculatorFormData, options, receive]);
 
   return (
-    <Frame>
-      <Form onSubmit={handleSubmit} autoComplete="off">
+    <Form onSubmit={handleSubmit} autoComplete="off">
+      <div>
         <Wrap>
           <Label>
             <Input
@@ -172,9 +172,9 @@ const Calculator = ({ showSubmitButton = true }) => {
             </DropdownSelect>
           </Label>
         </Wrap>
-        {showSubmitButton && <NeoButton type="submit" text={t('calc.submit')}></NeoButton>}
-      </Form>
-    </Frame>
+      </div>
+      {showSubmitButton && <NeoButton type="submit" text={t('calc.submit')}></NeoButton>}
+    </Form>
   );
 };
 
