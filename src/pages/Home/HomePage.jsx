@@ -7,9 +7,9 @@ import { HPWrap } from './HomePage.styled';
 const HomePage = () => (
   <HPWrap className="homepage">
     <Hero />
-    {/* <TopCourses />
+    <TopCourses />
     <AboutUs />
-    <HomePageReviews /> */}
+    <HomePageReviews />
   </HPWrap>
 );
 
