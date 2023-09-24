@@ -41,12 +41,12 @@ const CryptoItem = ({ onCryptoItemClick }) => {
     onCryptoItemClick(item);
     window.scrollTo({
       top: 200,
-      behavior: 'smooth', // Add smooth scrolling behavior
+      behavior: 'smooth',
     });
   };
 
-  const cryptoDataItem = cryptoData.map(item => (
-    <Item key={item.id}>
+  const cryptoDataItem = cryptoData.map((item, index) => (
+    <Item key={item.id || index}>
       <p>{item.crypto}</p>
       <p>{item.priceInUSDT}</p>
       <p>
@@ -54,7 +54,7 @@ const CryptoItem = ({ onCryptoItemClick }) => {
       </p>
 
       <p>{item.marketCap}</p>
-      <Button key={item.id} onClick={() => handleClick(item)} ref={scrollToTop}>
+      <Button onClick={() => handleClick(item)} ref={scrollToTop}>
         {t('button.exchange')}
       </Button>
     </Item>

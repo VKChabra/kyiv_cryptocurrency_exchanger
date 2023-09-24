@@ -1,6 +1,6 @@
-import { Pagination, Cell } from './userTransition.styled';
+import { Pagination, Cell, TContainer } from './userTransition.styled';
 import * as React from 'react';
-import { Paper, Table, TableBody, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Paper, Table, TableBody, TableHead, TableRow } from '@mui/material';
 import { useGetMyTransactionQuery } from 'services/transactionsApi';
 import { useTranslation } from 'react-i18next';
 
@@ -52,7 +52,7 @@ const TransactionHistory = () => {
 
   return (
     <Paper sx={{ width: '100%', backgroundColor: 'transparent' }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
+      <TContainer>
         <Table stickyHeader aria-label="sticky table">
           <TableHead sx={{ backgroundColor: 'transparent' }}>
             <TableRow>
@@ -64,18 +64,10 @@ const TransactionHistory = () => {
               </Cell>
             </TableRow>
             <TableRow>
-              <Cell style={{ top: 30 }} sx={{ backgroundColor: 'transparent' }}>
-                {t('tableTransaction.amountToExchange')}
-              </Cell>
-              <Cell style={{ top: 30 }} sx={{ backgroundColor: 'transparent' }}>
-                {t('tableTransaction.amountToReceive')}
-              </Cell>
-              <Cell style={{ top: 30 }} sx={{ backgroundColor: 'transparent' }}>
-                {t('tableTransaction.currencyToReceive')}
-              </Cell>
-              <Cell style={{ top: 30 }} sx={{ backgroundColor: 'transparent' }}>
-                {t('tableTransaction.currencyToExchange')}
-              </Cell>
+              <Cell>{t('tableTransaction.amountToExchange')}</Cell>
+              <Cell>{t('tableTransaction.amountToReceive')}</Cell>
+              <Cell>{t('tableTransaction.currencyToReceive')}</Cell>
+              <Cell>{t('tableTransaction.currencyToExchange')}</Cell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -95,7 +87,7 @@ const TransactionHistory = () => {
             })}
           </TableBody>
         </Table>
-      </TableContainer>
+      </TContainer>
       <Pagination
         rowsPerPageOptions={[5, 10, 100]}
         component="div"

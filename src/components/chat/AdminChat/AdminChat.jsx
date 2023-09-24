@@ -1,17 +1,16 @@
 import { ChatContainer } from './AdminChat.styled';
-// import WellcomWrap from './ChatMessages/WellcomWrap';
 import { useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
-import { getAllUsers, chatHost } from '../../../services/chatApi';
-import { useAuth } from '../../../hooks/';
+import { getAllUsers, chatHost } from 'services/chatApi';
+import { useAuth } from 'hooks/';
 import { useNavigate } from 'react-router-dom';
 import ChatContacts from './ChatContacts/ChatContacts';
 import ChatMessages from './ChatMessages/ChatMessages';
+import Loader from 'components/loader/Loader';
 
 const AdminChat = () => {
   const socket = useRef();
   const { user, isLoggedIn } = useAuth();
-  const { role, name, id } = user;
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [contacts, setContacts] = useState([]);
@@ -34,12 +33,12 @@ const AdminChat = () => {
   };
 
   useEffect(() => {
-    if (!user) {
+    if (!isLoggedIn) {
       navigate('/login');
     } else {
       setCurrentUser(user);
     }
-  }, [user]);
+  }, [isLoggedIn, navigate, user]);
 
   useEffect(() => {
     if (currentUser) {
@@ -47,7 +46,7 @@ const AdminChat = () => {
     } else {
       navigate('/login');
     }
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
   useEffect(() => {
     if (currentUser) {
@@ -56,7 +55,7 @@ const AdminChat = () => {
     } else {
       navigate('/login');
     }
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
   const handleChatChange = chat => {
     setCurrentChat(chat);
@@ -64,9 +63,9 @@ const AdminChat = () => {
 
   return (
     <ChatContainer>
+      {isLoading && <Loader />}
       <ChatContacts data={contacts} changeChat={handleChatChange} />
-      {/* {currentChat === undefined ? <WellcomWrap /> : <ChatMessages currentChat={currentChat} />} */}
-      <ChatMessages currentChat={currentChat} />
+      <ChatMessages currentChat={currentChat} socket={socket} />
     </ChatContainer>
   );
 };

@@ -39,6 +39,7 @@ export const MobileMenu = styled.div`
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 1;
   transition: transform 0.3s ease-in-out;
   a,
   div,

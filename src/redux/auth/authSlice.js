@@ -36,7 +36,7 @@ const authSlice = createSlice({
     addError: (state, { payload }) => {
       state.error = payload.message;
       state.errorCode = payload.status;
-      state.isLoggedIn = payload.isLoggedIn; // maybe update this logig/ change action name
+      state.isLoggedIn = payload.isLoggedIn; // maybe update this logic/ change action name
     },
   },
   extraReducers: builder =>

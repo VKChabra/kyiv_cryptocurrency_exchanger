@@ -14,7 +14,7 @@ import { authReducer } from './auth/authSlice';
 import { reviewsApi } from 'services/reviewsApi';
 import { newsApi } from 'services/newsApi'; // Import the 'api' object from your 'newsApi' file
 import reviewsSlice from './reviews/reviewSlice';
-import { storeCalcFormReducer } from './calculator/storeCalculatorForm';
+import { storeCalcDataReducer } from './calculator/storeCalculatorForm';
 import { transactionsApi } from 'services/transactionsApi';
 
 const authPersistConfig = {
@@ -40,7 +40,7 @@ export const store = configureStore({
     reviews: reviewsSlice,
     [transactionsApi.reducerPath]: transactionsApi.reducer,
     [newsApi.reducerPath]: newsApi.reducer,
-    calcFormData: persistReducer(storeCalcFormConfig, storeCalcFormReducer),
+    calcData: persistReducer(storeCalcFormConfig, storeCalcDataReducer),
   },
   middleware,
 });

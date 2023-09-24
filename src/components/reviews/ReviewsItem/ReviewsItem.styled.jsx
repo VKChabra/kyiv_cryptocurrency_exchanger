@@ -74,7 +74,7 @@ export const ReviewWpapper = styled.div`
   width: 400px;
   margin-bottom: 40px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   p {
     color: ${({ theme }) => theme.colors.primary};
     text-align: left;

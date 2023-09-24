@@ -48,8 +48,8 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter basename="">
+        <GlobalStyle theme={theme} />
         <Suspense fallback={<Loader />}>
-          <GlobalStyle theme={theme} />
           <Routes>
             <Route path="/" element={<SharedLayout theme={theme} toggleTheme={toggleTheme} />}>
               <Route index element={<HomePage />} />

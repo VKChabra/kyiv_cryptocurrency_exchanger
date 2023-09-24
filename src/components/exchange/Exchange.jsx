@@ -1,18 +1,19 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import MuiCustomInput from 'components/input';
 import { FormContainer, Form, AcceptTermsLabel, ExchangeCheckbox } from './Exchange.styled';
 import { useTranslation } from 'react-i18next';
 import calculatorSelectors from 'redux/calculator/calculatorSelectors';
-import options from 'shared/options';
 import NeoButton from 'layouts/Button/Button';
 import authSelectors from 'redux/auth/authSelectors';
 import { useAddTransactionMutation } from 'services/transactionsApi';
 import { notifyError, notifySuccess, notifyWarning } from 'helpers/notifications';
+import { update } from 'redux/auth/operations';
 
 const Exchange = () => {
   const { t } = useTranslation();
-  const calcData = useSelector(calculatorSelectors.calcFormData);
+  const dispatch = useDispatch();
+  const calcData = useSelector(calculatorSelectors.calcData);
   const user = useSelector(authSelectors.selectUser);
   const [addTransaction] = useAddTransactionMutation();
 
@@ -22,8 +23,8 @@ const Exchange = () => {
   const defaultFormData = {
     amountToExchange: calcData?.exchange || '',
     amountToReceive: calcData?.receive.toString() || '',
-    currencyToExchange: calcData?.exchangeCurr || options[0].value,
-    currencyToReceive: calcData?.receiveCurr || options[1].value,
+    currencyToExchange: calcData?.exchangeCurr,
+    currencyToReceive: calcData?.receiveCurr,
     name: fullName || '',
     paymentMethod: 'wallet',
     creditCard: '',
@@ -63,17 +64,18 @@ const Exchange = () => {
       paymentMethod,
       ...paymentDetailsToSend,
     };
-    // const dataToUpdateUser = {
-    //   name,
-    //   additionalContact,
-    //   paymentMethod,
-    //   ...paymentDetailsToSend,
-    // };
     if (dataToSendTransaction.creditCard === '' || dataToSendTransaction.wallet === '') {
       return notifyWarning(t('exchange.emptyDetails'));
     }
     delete dataToSendTransaction.acceptTerms;
     const response = await addTransaction(dataToSendTransaction);
+    dispatch(
+      update({
+        additionalContact,
+        paymentMethod,
+        ...paymentDetailsToSend,
+      })
+    );
     if (response.error) {
       notifyError(t('exchange.error'));
     } else {

@@ -1,7 +1,7 @@
-export const calcFormData = state => state.calcFormData.calculatorFormData;
+export const calcData = state => state.calcData.calculatorData;
 
 const exchangeSelectors = {
-  calcFormData,
+  calcData,
 };
 
 export default exchangeSelectors;
