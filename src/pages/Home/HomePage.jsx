@@ -8,8 +8,8 @@ const HomePage = () => (
   <HPWrap className="homepage">
     <Hero />
     <TopCourses />
-    {/* <AboutUs />
-    <HomePageReviews /> */}
+    <AboutUs />
+    <HomePageReviews />
   </HPWrap>
 );
 
