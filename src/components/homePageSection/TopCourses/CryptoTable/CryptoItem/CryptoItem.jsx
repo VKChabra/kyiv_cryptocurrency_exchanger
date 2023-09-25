@@ -12,6 +12,8 @@ import {
 } from './CryptoItem.styled';
 import { useTranslation } from 'react-i18next';
 import Loader from 'components/loader';
+import { useMediaQuery } from 'react-responsive';
+import { bp } from 'styles/breakpoints';
 
 const CryptoItem = ({ onCryptoItemClick }) => {
   const [cryptoData, setCryptoData] = useState([]);
@@ -36,6 +38,7 @@ const CryptoItem = ({ onCryptoItemClick }) => {
   }, []);
 
   const scrollToTop = useRef(null);
+  const isMobile = useMediaQuery({ maxWidth: bp.tablet });
 
   const handleClick = item => {
     onCryptoItemClick(item);
@@ -52,8 +55,7 @@ const CryptoItem = ({ onCryptoItemClick }) => {
       <p>
         <Change p={item.change24h}>{item.change24h}%</Change>
       </p>
-
-      <p>{item.marketCap}</p>
+      {!isMobile && <p>{item.marketCap}</p>}
       <Button onClick={() => handleClick(item)} ref={scrollToTop}>
         {t('button.exchange')}
       </Button>
@@ -70,9 +72,9 @@ const CryptoItem = ({ onCryptoItemClick }) => {
             <ListTitleItem>{t('table.name')}</ListTitleItem>
             <ListTitleItem>{t('table.price')}</ListTitleItem>
             <ListTitleItem>{t('table.change')}</ListTitleItem>
-            <ListTitleItem>{t('table.capital')}</ListTitleItem>
+            {!isMobile && <ListTitleItem>{t('table.capital')}</ListTitleItem>}
           </ListTitle>
-          <List>{cryptoDataItem} </List>
+          <List>{cryptoDataItem}</List>
         </Table>
       )}
     </Wrapper>

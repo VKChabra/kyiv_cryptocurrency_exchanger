@@ -9,7 +9,7 @@ import CryptoTable from './CryptoTable/CryptoTable';
 const TopCourses = () => {
   const { t } = useTranslation();
   return (
-    <Wrapper className="container">
+    <Wrapper>
       <Title>{t('courses.title')}</Title>
       <SubTitle>{t('courses.desc')}</SubTitle>
       <CryptoTable />
