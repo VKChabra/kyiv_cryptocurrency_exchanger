@@ -68,7 +68,7 @@ const ChatMessages = ({ currentChat, socket }) => {
     if (socket.current) {
       socket.current.on('msg-recieve', data => {
         setArrivalMessage({ fromSelf: false, message: data.msg, time: data.time });
-        console.log(arrivalMessage);
+        // console.log(arrivalMessage);
       });
     }
   }, [socket]);
