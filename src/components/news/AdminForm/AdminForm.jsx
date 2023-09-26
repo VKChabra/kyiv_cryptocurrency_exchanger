@@ -13,7 +13,7 @@ import {
   RightSide,
   SideWrapper,
 } from './AdminForm.styled';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { useAddNewsMutation } from 'services/newsApi';
 
 const AdminForm = () => {
@@ -44,7 +44,7 @@ const AdminForm = () => {
     });
   };
 
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   const toDataURL = element => {
     return new Promise(resolve => {
@@ -72,16 +72,16 @@ const AdminForm = () => {
 
   return (
     <Wrapper>
-      <Title>AdminForm</Title>
+      <Title> {t('admin.adminForm')}</Title>
       <Form onSubmit={onHandleSubmit}>
         <SideWrapper>
           <LeftSide>
             <Label>
-              <Span>Title</Span>
+              <Span>{t('admin.title')}</Span>
               <Input type="text" name="title" value={state.title} onChange={onHandleChange} />
             </Label>
             <Label>
-              <Span>Content</Span>
+              <Span>{t('admin.content')}</Span>
               <Textarea
                 type="text"
                 name="description"
@@ -108,14 +108,14 @@ const AdminForm = () => {
                     alt={state.image || ': file not selected'}
                   />
                   <button type="button" id="custom-button">
-                    Select file
+                    {t('button.chooseFile')}
                   </button>
                 </label>
               </div>
             </ImageWrapper>
           </RightSide>
         </SideWrapper>
-        <Button type="submit">Add news</Button>
+        <Button type="submit">{t('button.addNews')}</Button>
       </Form>
     </Wrapper>
   );

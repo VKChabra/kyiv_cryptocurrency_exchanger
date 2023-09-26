@@ -32,6 +32,8 @@
     "submit": "submit",
     "add": "add",
     "exit": "exit",
+    "addNews": "add news",
+    "chooseFile": "choose file max 2mb",
     "readMore": "read more",
     "showMore": "show more",
     "showLess": "show less",
@@ -56,7 +58,10 @@
     "cash": "cash",
     "owner": "Owner data",
     "role": "Role",
-    "registrationDate": "Date of registration"
+    "registrationDate": "Date of registration",
+    "title": "Title",
+    "content": "Content",
+    "adminForm": "Admin form"
   },
   "arrayUserButtons": ["cabinet", "operations", "reviews"],
   "hero": {
