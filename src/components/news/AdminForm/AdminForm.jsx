@@ -13,14 +13,14 @@ import {
   RightSide,
   SideWrapper,
 } from './AdminForm.styled';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { useAddNewsMutation } from 'services/newsApi';
 
 const AdminForm = () => {
   const [state, setState] = useState({
     title: '',
     image: '',
-    news: '',
+    description: '',
   });
 
   const [addNews, { data, error }] = useAddNewsMutation();
@@ -40,11 +40,11 @@ const AdminForm = () => {
     setState({
       title: '',
       image: '',
-      news: '',
+      description: '',
     });
   };
 
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   const toDataURL = element => {
     return new Promise(resolve => {
@@ -82,7 +82,12 @@ const AdminForm = () => {
             </Label>
             <Label>
               <Span>Content</Span>
-              <Textarea type="text" name="news" value={state.news} onChange={onHandleChange} />
+              <Textarea
+                type="text"
+                name="description"
+                value={state.description}
+                onChange={onHandleChange}
+              />
             </Label>
           </LeftSide>
           <RightSide>

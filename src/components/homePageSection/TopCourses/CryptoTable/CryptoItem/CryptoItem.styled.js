@@ -72,7 +72,7 @@ export const Change = styled.span`
 `;
 
 export const Button = styled.button`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.text};
   border: none;
   background-color: #3e45c3;
   display: inline-flex;
