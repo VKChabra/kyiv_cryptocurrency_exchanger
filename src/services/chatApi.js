@@ -1,5 +1,5 @@
 import instance from 'shared/api/auth';
-export const chatHost = 'http://localhost:3002';
+export const chatHost = 'http://localhost:3001';
 
 export const allUsersRoute = `/users/all`;
 export const sendMessageRoute = `/api/chat/addmsg`;
