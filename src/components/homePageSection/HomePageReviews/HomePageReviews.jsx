@@ -8,11 +8,28 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useMediaQuery } from 'react-responsive';
+import { bp } from 'styles/breakpoints';
 
 const HomePageReviews = () => {
   const { data } = useGetApprovedReviewsQuery();
   const reviews = data?.reviews;
   const { t } = useTranslation();
+
+  const isMobile = useMediaQuery({ maxWidth: bp.tablet });
+  const isTablet = useMediaQuery({ minWidth: bp.mobile, maxWidth: bp.desktop });
+
+  // swiper settings
+  const swiperSpaceBetween = () => {
+    if (isMobile) {
+      return 120;
+    } else if (isTablet) {
+      return 80;
+    } else {
+      return 40;
+    }
+  };
+  const swiperWidth = () => window.screen.width;
 
   return (
     <ReviewContainer>
@@ -22,11 +39,12 @@ const HomePageReviews = () => {
         <Swiper
           className="swiper-container"
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={40}
+          spaceBetween={swiperSpaceBetween()}
           slidesPerView={1}
-          navigation
+          navigation={true}
+          width={swiperWidth()}
+          centeredSlides={true}
           pagination={{ clickable: true }}
-          // scrollbar={{ draggable: false }}
         >
           {reviews?.map((item, index) => (
             <SwiperSlide key={item._id || index}>

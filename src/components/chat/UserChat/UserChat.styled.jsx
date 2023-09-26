@@ -10,6 +10,7 @@ export const Container = styled.div`
   position: fixed;
   bottom: 110px;
   right: 20px;
+  z-index: 1;
   box-shadow: 10px 10px 13px -6px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 10px 10px 13px -6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 13px -6px rgba(0, 0, 0, 0.75);

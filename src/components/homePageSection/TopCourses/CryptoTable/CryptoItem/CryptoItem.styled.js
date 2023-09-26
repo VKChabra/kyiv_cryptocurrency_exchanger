@@ -25,7 +25,6 @@ export const ListTitle = styled.ul`
   padding-left: 30px;
   ${mediaBp('tablet')} {
     font-size: 18px;
-    width: 100%;
   }
   ${mediaBp('desktop')} {
     width: 85%;
@@ -35,7 +34,7 @@ export const ListTitle = styled.ul`
 `;
 
 export const ListTitleItem = styled.li`
-  margin-right: calc(25% - 10px);
+  margin-right: calc(30% - 20px);
   &:nth-child(2) {
     margin-right: calc(31% - 50px);
   }
@@ -43,12 +42,12 @@ export const ListTitleItem = styled.li`
     margin-right: 0;
   }
   ${mediaBp('tablet')} {
-    margin-right: calc(25% - 75px);
+    margin-right: calc(30% - 35px);
     &:nth-child(2) {
-      margin-right: calc(22% - 50px);
+      margin-right: calc(30% - 80px);
     }
     &:nth-child(3) {
-      margin-right: calc(25% - 95px);
+      margin-right: calc(30% - 75px);
     }
   }
   ${mediaBp('desktop')} {

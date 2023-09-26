@@ -32,6 +32,7 @@ export const ChatPanel = styled.ul`
   position: fixed;
   bottom: 110px;
   right: 20px;
+  z-index: 1;
   li {
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.8);

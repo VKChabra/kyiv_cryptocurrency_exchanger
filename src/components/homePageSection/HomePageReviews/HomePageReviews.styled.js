@@ -1,26 +1,26 @@
 import styled from '@emotion/styled';
+import mediaBp from 'styles/breakpoints';
 
 export const SwiperWrapper = styled.div`
-  width: 90%;
-  padding: 60px;
-  /* .swiper-button-prev {
-    top: 90%;
-  }
-  .swiper-button-next {
-    top: 90%;
-  } */
+  width: 100vw;
   .swiper-pagination {
     position: relative;
     padding-top: 60px;
   }
   .swiper-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding-top: 70px;
-    height: 100%;
-    width: 60%;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+    ${mediaBp('tablet')} {
+      display: block;
+      padding: 20px 100px;
+    }
+    ${mediaBp('desktop')} {
+      display: block;
+      padding: 40px 200px;
+    }
   }
 `;
 
@@ -35,22 +35,34 @@ export const ReviewContainer = styled.div`
 
 export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 64px;
+  font-size: 32px;
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 64px */
   margin-bottom: 30px;
+  ${mediaBp('tablet')} {
+    font-size: 48px;
+  }
+  ${mediaBp('desktop')} {
+    font-size: 64px;
+  }
 `;
 
 export const SubTitle = styled.h3`
   color: ${({ theme }) => theme.colors.primary};
   font-family: Roboto;
-  width: 892px;
   text-align: center;
-  font-size: 32px;
+  font-size: 28px;
   font-style: normal;
   font-weight: 300;
   line-height: 100%; /* 32px */
+  ${mediaBp('tablet')} {
+    font-size: 48px;
+  }
+  ${mediaBp('desktop')} {
+    width: 892px;
+    font-size: 64px;
+  }
 `;
 
 export const Item = styled.li`
