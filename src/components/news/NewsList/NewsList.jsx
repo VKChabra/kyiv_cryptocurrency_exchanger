@@ -7,7 +7,7 @@ const NewsList = ({ data }) => {
     <Container>
       <List>
         {data?.map(item => (
-          <Item key={item.id}>
+          <Item key={item._id}>
             <NewsItem data={item} />
           </Item>
         ))}
