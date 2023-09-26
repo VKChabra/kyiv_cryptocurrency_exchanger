@@ -4,9 +4,9 @@ import {
   Title,
   ImageContainer,
   Image,
-  Text,
   BtnDateWrap,
   Btn,
+  TextWrap,
   TitleWrapEdit,
   TextWrapEdit,
   ImageWrapper,
@@ -51,14 +51,6 @@ const NewsItem = ({ data }) => {
       reader.readAsDataURL(element.files[0]);
     });
   };
-
-  // const onHandleChange = e => {
-  //   const { name, value } = e.target;
-  //   setEditNews(prev => ({
-  //     ...prev,
-  //     [name]: value,
-  //   }));
-  // };
 
   const onHandleChange = async e => {
     const { name, value, type } = e.target;
@@ -112,7 +104,7 @@ const NewsItem = ({ data }) => {
                   accept="image/*" // Specify allowed file types
                 />
                 <button type="button" id="custom-button">
-                  Select file
+                  {t('button.chooseFile')}
                 </button>
               </label>
             </div>
@@ -136,7 +128,7 @@ const NewsItem = ({ data }) => {
             <ImageContainer>
               <Image src={data.image} alt="article" width="160px" height="160px" />
             </ImageContainer>
-            <Text>{data.description}</Text>
+            <TextWrap readOnly="true">{data.description}</TextWrap>
           </Container>
           <BtnDateWrap>
             <div>

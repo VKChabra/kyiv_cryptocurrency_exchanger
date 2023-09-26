@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 80vw;
+  margin-top: 40px;
   padding: 24px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
   border-top: 2px solid ${({ theme }) => theme.colors.primary};
@@ -34,7 +35,7 @@ export const Label = styled.label`
 `;
 
 export const Textarea = styled.textarea`
-  width: 600px;
+  width: 60vw;
   height: 200px;
   margin-bottom: 40px;
   padding: 8px 16px;
@@ -46,7 +47,7 @@ export const Textarea = styled.textarea`
   }
 `;
 export const Input = styled.input`
-  width: 600px;
+  width: 60vw;
   margin-bottom: 40px;
   padding: 8px 16px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -76,7 +77,7 @@ export const Button = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.text};
   font-family: Roboto;
   font-size: 14px;
   font-style: normal;
@@ -130,6 +131,7 @@ export const ImageWrapper = styled.div`
     margin-bottom: 10px;
     border-radius: 14px;
     border: none;
+    color: ${({ theme }) => theme.colors.text};
     cursor: pointer;
     &:hover,
     &:focus {
@@ -144,7 +146,7 @@ export const ImageWrapper = styled.div`
   #file-name {
     margin-bottom: 4px;
 
-    color: #555;
+    color: ${({ theme }) => theme.colors.text};
   }
 
   .advFormLabel {

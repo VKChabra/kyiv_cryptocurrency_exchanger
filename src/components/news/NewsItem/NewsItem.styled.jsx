@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  // display: flex;
   // flex-direction: column;
+  // display: flex;
 
-  width: 320px;
-  height: 600px;
+  width: 300px;
   padding: 24px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
   transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -30,16 +29,6 @@ export const Title = styled.p`
   line-height: 24px;
 `;
 
-export const TextWrap = styled.div`
-  display: flex;
-  align-items: center; /* Vertically align the content */
-  height: 320px;
-  margin-bottom: 25px;
-  width: 320px;
-  padding: 8px 16px;
-  border: 1px solid #3e45c3;
-`;
-
 export const ImageContainer = styled.div`
   display: flex;
 `;
@@ -49,21 +38,31 @@ export const Image = styled.img`
   object-fit: cover;
 `;
 
-export const Text = styled.p`
-  flex: 1; /* Allow the text to grow and take up available space */
-  color: ${({ theme }) => theme.colors.primary};
-  border: 1px solid #3e45c3;
-  width: 100%;
-  new-line: auto;
+export const TextWrap = styled.span`
+  box-sizing: border-box;
+  overflow-y: scroll;
+  align-items: center;
+  height: 320px;
+  margin-bottom: 25px;
+  width: 300px;
   padding: 8px 16px;
-  overflow: new-line;
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  margin-left: 16px; /* Add some spacing between the text and image */
+  white-space: wrap;
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.primary};
 `;
+
+// export const Text = styled.p`
+//   color: ${({ theme }) => theme.colors.primary};
+//   white-space: wrap;
+//   width: 100%;
+//   padding: 8px 16px;
+//   font-family: Roboto;
+//   font-size: 16px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 24px;
+//   margin-left: 16px; /* Add some spacing between the text and image */
+// `;
 
 export const BtnDateWrap = styled.div`
   display: flex;
@@ -84,7 +83,7 @@ export const Btn = styled.button`
   margin: 5px;
   color: #fff;
   display: inline-flex;
-  padding: 12px 24px;
+  padding: 12px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -112,7 +111,7 @@ export const TitleWrapEdit = styled.input`
 `;
 
 export const TextWrapEdit = styled.textarea`
-  overflow: hidden;
+  overflow: scroll;
   height: 192px;
   width: 320px;
   padding: 8px 16px;
@@ -156,6 +155,7 @@ export const ImageWrapper = styled.div`
 
   #custom-button {
     background: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.text};
     width: 100%;
     padding: 8px 20px;
     margin-bottom: 10px;
