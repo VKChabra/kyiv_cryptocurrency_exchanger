@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { IoMdSend } from 'react-icons/io';
 import { StyledForm, SBtnWrap, InputWrap } from './ChatInput.styled';
 
-const ChatInput = ({ handleSendMsg }) => {
+const ChatInput = ({ handleSendMsg, disabled }) => {
   const [msg, setMsg] = useState('');
 
   const sendChat = event => {
@@ -24,7 +24,7 @@ const ChatInput = ({ handleSendMsg }) => {
           />
         </InputWrap>
         <SBtnWrap>
-          <button type="submit">
+          <button type="submit" isDisabled={disabled}>
             <IoMdSend
               size={40}
               style={{

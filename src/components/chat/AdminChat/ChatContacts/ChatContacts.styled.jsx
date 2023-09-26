@@ -26,7 +26,7 @@ export const List = styled.ul`
 export const Item = styled.li`
   width: 95%;
   height: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -41,12 +41,7 @@ export const Item = styled.li`
     transform: scale(1.02);
     background-color: #3e45c3;
   }
-  .selected {
-    background-color: #cfad56;
-  }
-  .none {
-    background-color: white;
-  }
+  background-color: ${({ isSelected }) => (isSelected ? '#cfad56' : 'rgba(255, 255, 255, 0.3)')};
 `;
 
 export const AvatarWrap = styled.div`
@@ -59,6 +54,6 @@ export const AvatarWrap = styled.div`
   p {
     text-align: center;
     font-size: 26px;
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ isSelected }) => (isSelected ? ({ theme }) => theme.colors.text : 'black')};
   }
 `;

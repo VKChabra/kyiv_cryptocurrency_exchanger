@@ -21,6 +21,7 @@ const ChatMessages = ({ currentChat, socket }) => {
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
+  const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
     const handleMsgReceived = async () => {
@@ -36,6 +37,7 @@ const ChatMessages = ({ currentChat, socket }) => {
     };
     if (currentChat) {
       handleMsgReceived();
+      setDisabled(false);
     }
   }, [currentChat, user]);
 
@@ -66,6 +68,7 @@ const ChatMessages = ({ currentChat, socket }) => {
     if (socket.current) {
       socket.current.on('msg-recieve', data => {
         setArrivalMessage({ fromSelf: false, message: data.msg, time: data.time });
+        console.log(arrivalMessage);
       });
     }
   }, [socket]);
@@ -91,7 +94,7 @@ const ChatMessages = ({ currentChat, socket }) => {
       <MessageContainer>
         {currentChat ? (
           <div className="chat-messages">
-            {messages.map(message => {
+            {messages?.map(message => {
               return (
                 <div ref={scrollRef} key={uuidv4()}>
                   <div className={`message ${message.fromSelf ? 'sended' : 'recieved'}`}>
@@ -109,7 +112,7 @@ const ChatMessages = ({ currentChat, socket }) => {
         )}
       </MessageContainer>
       <InputContainer>
-        <ChatInput handleSendMsg={handleSendMsg} />
+        <ChatInput handleSendMsg={handleSendMsg} disabled={disabled} />
       </InputContainer>
     </Container>
   );
