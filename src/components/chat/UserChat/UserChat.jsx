@@ -6,45 +6,147 @@ import {
   MessageContainer,
   InputWrap,
 } from './UserChat.styled';
+import { chatHost } from 'services/chatApi';
+import { sendMessageRoute, recieveMessageRoute } from 'services/chatApi';
+import instance from 'shared/api/auth';
+import { getCurrentTime } from 'helpers/getCurrentTime';
+import { getFormattedFullDate } from 'helpers/formatDate';
+import { io } from 'socket.io-client';
 import Logotype from 'images/logo.svg';
 import { useAuth } from 'hooks/';
 import ChatInput from '../AdminChat/ChatInput';
-import { useState, useEffect } from 'react';
+import WellcomWrap from 'components/chat/AdminChat/ChatMessages/WellcomWrap';
+import { useState, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 const UserChat = () => {
-  const [isOnline, setIsOnline] = useState(false);
-  const [adminId, setAdminId] = useState(undefined);
+  const socket = useRef();
+  const scrollRef = useRef();
+  const { user } = useAuth();
+  const [isAdminOnline, setIsAdminOnline] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+  // поставити id адміна за замовчуванням
+  const [adminId, setAdminId] = useState('65089d5b79d9033e5f8f7e46');
   const [userId, setUserId] = useState(undefined);
-  const { user, isLoggedIn } = useAuth();
-
-  useEffect(() => {
-    if (user.role === 'admin' && isLoggedIn) {
-      setIsOnline(true);
-      setAdminId(user.id);
-    }
-  }, [isLoggedIn, user]);
-
-  useEffect(() => {
-    if (isLoggedIn && user?.role === 'user') {
-      setUserId(user.id);
-    } else {
-      const inkognitoId = uuidv4();
-      setUserId(inkognitoId);
-    }
-  }, [isLoggedIn, user]);
+  const [messages, setMessages] = useState([]);
+  const [arrivalMessage, setArrivalMessage] = useState(null);
+  const [onlineUsers, setOnlineUsers] = useState([]);
+  console.log(onlineUsers);
   console.log('adminId: ', adminId, 'userId: ', userId);
+  console.log(arrivalMessage);
+
+  useEffect(() => {
+    const handleMsgReceived = async () => {
+      try {
+        const response = await instance.post(recieveMessageRoute, {
+          from: adminId,
+          to: userId,
+        });
+        setMessages(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    if (userId) {
+      handleMsgReceived();
+    }
+  }, [userId, adminId]);
+
+  const handleSendMsg = async msg => {
+    const timeSent = getCurrentTime();
+    socket.current.emit('send-msg', {
+      to: adminId,
+      from: userId,
+      msg,
+      time: timeSent,
+    });
+    await instance.post(sendMessageRoute, {
+      from: userId,
+      to: adminId,
+      message: msg,
+    });
+    const msgs = [...messages];
+
+    msgs.push({ fromSelf: true, message: msg, time: timeSent });
+    setMessages(msgs);
+  };
+
+  useEffect(() => {
+    if (socket.current) {
+      socket.current.on('msg-recieve', data => {
+        setArrivalMessage({ fromSelf: false, message: data.msg, time: data.time });
+        // console.log(arrivalMessage);
+      });
+    }
+  }, [socket]);
+
+  useEffect(() => {
+    arrivalMessage && setMessages(prev => [...prev, arrivalMessage]);
+  }, [arrivalMessage]);
+
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  // якщо один адмін
+  useEffect(() => {
+    if (onlineUsers) {
+      const admin = onlineUsers.find(user => user.role === 'admin');
+      console.log(admin);
+      if (admin) {
+        setIsAdminOnline(true);
+        setAdminId(admin.userId);
+      }
+      const currentUser = onlineUsers.find(user => user.role === 'user');
+
+      if (currentUser) {
+        setUserId(currentUser.userId);
+      } else {
+        const inkognitoId = uuidv4();
+        setUserId(inkognitoId);
+      }
+    }
+  }, [onlineUsers]);
+
+  useEffect(() => {
+    if (user) {
+      socket.current = io(chatHost);
+      socket.current.emit('add-user', user.id, user.role);
+      socket.current.on('get-users', users => {
+        setOnlineUsers(users);
+      });
+    }
+  }, [user]);
 
   return (
     <Container>
       <ChatHeader>
         <ChatTitle>Questions? Chat with us</ChatTitle>
         <LogoImg src={Logotype} alt="Logo" />
-        {isOnline ? <span>🟢</span> : <span>🔴</span>}
+        {isAdminOnline ? <span>🟢</span> : <span>🔴</span>}
       </ChatHeader>
-      <MessageContainer>Messages</MessageContainer>
+      <MessageContainer>
+        {user ? (
+          <div className="chat-messages">
+            {messages.map(message => {
+              return (
+                <div ref={scrollRef} key={uuidv4()}>
+                  <div className={`message ${message.fromSelf ? 'sended' : 'recieved'}`}>
+                    <div className="content ">
+                      <p>{message.message}</p>
+                      <p className="time">{getFormattedFullDate(message.time)}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <WellcomWrap />
+        )}
+      </MessageContainer>
       <InputWrap>
-        <ChatInput />
+        <ChatInput handleSendMsg={handleSendMsg} />
       </InputWrap>
     </Container>
   );

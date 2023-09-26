@@ -28,6 +28,6 @@ export const SBtnWrap = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
   }
 `;

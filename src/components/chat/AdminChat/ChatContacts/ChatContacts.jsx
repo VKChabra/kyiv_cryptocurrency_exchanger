@@ -1,7 +1,7 @@
 import { Container, List, Item, AvatarWrap } from './ChatContacts.styled';
 import { useState } from 'react';
 
-const ChatContacts = ({ data, changeChat }) => {
+const ChatContacts = ({ data, changeChat, onlineUsers }) => {
   //   const { user, isLoggedIn } = useAuth();
   //   const { role, name } = user;
   //   const [currentUser, setCurrentUser] = useState(isLoggedIn ? user : {});
@@ -13,6 +13,8 @@ const ChatContacts = ({ data, changeChat }) => {
     changeChat(item);
   };
 
+  console.log(onlineUsers);
+
   const filteredUsers = data?.filter(item => item.role === 'user');
 
   return (
@@ -21,7 +23,7 @@ const ChatContacts = ({ data, changeChat }) => {
         {filteredUsers?.map((item, index) => (
           <Item
             key={item._id}
-            className={index === currentSelected ? 'selected' : 'none'}
+            isSelected={index === currentSelected}
             onClick={() => changeCurrentChat(index, item)}
           >
             <AvatarWrap>

@@ -16,6 +16,7 @@ const AdminChat = () => {
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState({});
+  const [onlineUsers, setOnlineUsers] = useState([]);
 
   const loadData = async () => {
     setIsLoading(true);
@@ -51,7 +52,10 @@ const AdminChat = () => {
   useEffect(() => {
     if (currentUser) {
       socket.current = io(chatHost);
-      socket.current.emit('add-user', currentUser.id);
+      socket.current.emit('add-user', currentUser.id, currentUser.role);
+      socket.current.on('get-users', users => {
+        setOnlineUsers(users);
+      });
     } else {
       navigate('/login');
     }
@@ -64,7 +68,7 @@ const AdminChat = () => {
   return (
     <ChatContainer>
       {isLoading && <Loader />}
-      <ChatContacts data={contacts} changeChat={handleChatChange} />
+      <ChatContacts onlineUsers={onlineUsers} data={contacts} changeChat={handleChatChange} />
       <ChatMessages currentChat={currentChat} socket={socket} />
     </ChatContainer>
   );
