@@ -33,7 +33,7 @@ const UserChat = () => {
   const [onlineUsers, setOnlineUsers] = useState([]);
   console.log(onlineUsers);
   console.log('adminId: ', adminId, 'userId: ', userId);
-  console.log(arrivalMessage);
+  // console.log(arrivalMessage);
 
   useEffect(() => {
     const handleMsgReceived = async () => {
@@ -53,22 +53,26 @@ const UserChat = () => {
   }, [userId, adminId]);
 
   const handleSendMsg = async msg => {
-    const timeSent = getCurrentTime();
-    socket.current.emit('send-msg', {
-      to: adminId,
-      from: userId,
-      msg,
-      time: timeSent,
-    });
-    await instance.post(sendMessageRoute, {
-      from: userId,
-      to: adminId,
-      message: msg,
-    });
-    const msgs = [...messages];
+    try {
+      const timeSent = getCurrentTime();
+      socket.current.emit('send-msg', {
+        to: adminId,
+        from: userId,
+        msg,
+        time: timeSent,
+      });
+      await instance.post(sendMessageRoute, {
+        from: userId,
+        to: adminId,
+        message: msg,
+      });
+      const msgs = [...messages];
 
-    msgs.push({ fromSelf: true, message: msg, time: timeSent });
-    setMessages(msgs);
+      msgs.push({ fromSelf: true, message: msg, time: timeSent });
+      setMessages(msgs);
+    } catch (err) {
+      console.error('An error occurred:', err);
+    }
   };
 
   useEffect(() => {
