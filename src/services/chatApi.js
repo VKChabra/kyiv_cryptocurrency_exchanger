@@ -1,5 +1,5 @@
 import instance from 'shared/api/auth';
-export const chatHost = 'https://crypto-ag2e.onrender.com:3001';
+export const chatHost = 'https://crypto-ag2e.onrender.com';
 
 export const allUsersRoute = `/users/all`;
 export const sendMessageRoute = `/api/chat/addmsg`;
