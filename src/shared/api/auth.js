@@ -74,9 +74,9 @@ export const login = async credentials => {
 
 export const logout = async () => {
   try {
+    const data = await instance.get('/users/logout');
     unsetToken();
     localStorage.removeItem('refreshToken');
-    const data = await instance.get('/users/logout');
     return data;
   } catch (error) {
     console.error('An error occurred during logout:', error);

@@ -14,6 +14,8 @@ import { useTranslation } from 'react-i18next';
 import Button from 'layouts/Button';
 import { NavLink } from 'react-router-dom';
 import Loader from 'components/loader';
+import { useMediaQuery } from 'react-responsive';
+import { bp } from 'styles/breakpoints';
 
 const CryptoItem = ({ onCryptoItemClick }) => {
   const [cryptoData, setCryptoData] = useState([]);
@@ -53,6 +55,8 @@ const CryptoItem = ({ onCryptoItemClick }) => {
     });
   };
 
+  const isMobile = useMediaQuery({ maxWidth: bp.tablet });
+
   const cryptoDataItem = cryptoData.map(item => (
     <Item key={item.id}>
       <p>{item.crypto}</p>
@@ -61,9 +65,8 @@ const CryptoItem = ({ onCryptoItemClick }) => {
         <Change p={item.change24h}>{item.change24h}%</Change>
       </p>
 
-      <p>{item.marketCap}</p>
+      {!isMobile && <p>{item.marketCap}</p>}
       <NavLink to="/">
-        {' '}
         <ChangeButton key={item.id} onClick={() => handleClick(item)} ref={scrollToTop}>
           {t('button.exchange')}
         </ChangeButton>
@@ -82,7 +85,7 @@ const CryptoItem = ({ onCryptoItemClick }) => {
               <ListTitleItem>{t('table.name')}</ListTitleItem>
               <ListTitleItem>{t('table.price')}</ListTitleItem>
               <ListTitleItem>{t('table.change')}</ListTitleItem>
-              <ListTitleItem>{t('table.capital')}</ListTitleItem>
+              {!isMobile && <ListTitleItem>{t('table.capital')}</ListTitleItem>}
             </ListTitle>
             <List>{cryptoDataItem}</List>
           </Table>

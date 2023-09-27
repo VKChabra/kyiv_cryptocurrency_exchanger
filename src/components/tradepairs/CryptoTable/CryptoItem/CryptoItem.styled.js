@@ -1,26 +1,51 @@
 import styled from '@emotion/styled';
+import mediaBp from 'styles/breakpoints';
 
 export const Wrapper = styled.div`
   height: 100%;
-  padding: 0 20px;
   color: ${({ theme }) => theme.colors.primary};
+  ${mediaBp('tablet')} {
+    padding: 0 20px;
+  }
+  ${mediaBp('desktop')} {
+    padding: 0 20px;
+  }
 `;
 
 export const ListTitle = styled.ul`
   display: flex;
-  padding-left: 7%;
+  padding-left: calc(25% - 38px);
+  padding-right: calc(25% + 38px);
+  justify-content: space-between;
   color: ${({ theme }) => theme.colors.primary};
   border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
   margin-bottom: 30px;
+  ${mediaBp('tablet')} {
+    padding-left: calc(20% - 38px);
+    padding-right: calc(20% + 38px);
+  }
+  ${mediaBp('desktop')} {
+    padding-left: 7%;
+    padding-right: 0;
+    justify-content: normal;
+  }
 `;
 
 export const ListTitleItem = styled.li`
-  padding: 0 0 30px 0;
-  width: 22%;
+  padding-bottom: 30px;
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 16px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 700;
+  ${mediaBp('tablet')} {
+    padding-bottom: 30px;
+    font-size: 16px;
+  }
+  ${mediaBp('desktop')} {
+    padding-bottom: 30px;
+    width: 22%;
+    font-size: 18px;
+  }
 `;
 
 export const List = styled.ul`
@@ -35,10 +60,13 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: ${({ theme }) => theme.colors.primary};
-  padding: 15px;
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
   :nth-of-type(odd) {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
@@ -49,21 +77,50 @@ export const Item = styled.li`
   ::before {
     content: counter(item) '. ';
     counter-increment: item;
-    margin-right: 15px;
     font-weight: bold;
+    font-size: 10px;
   }
   p {
     font-family: Roboto;
-    width: 20%;
-    font-size: 18px;
+    font-size: 12px;
     font-style: bold;
     font-weight: 700;
     line-height: 100%; /* 16px */
     color: ${({ theme }) => theme.colors.primary};
   }
+  ${mediaBp('tablet')} {
+    padding: 15px;
+    ::before {
+      font-size: initial;
+      margin-right: 15px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+  ${mediaBp('desktop')} {
+    justify-content: space-around;
+    padding: 15px;
+    ::before {
+      font-size: initial;
+      margin-right: 15px;
+    }
+    p {
+      width: 20%;
+      font-size: 18px;
+    }
+  }
 `;
 
-export const Table = styled.div``;
+export const Table = styled.div`
+  margin-bottom: 20px;
+  ${mediaBp('tablet')} {
+    margin-bottom: 0;
+  }
+  ${mediaBp('desktop')} {
+    margin-bottom: 0;
+  }
+`;
 
 export const Change = styled.span`
   color: ${({ p }) => (p >= 0 ? '#06f239' : '#ff0000')};
