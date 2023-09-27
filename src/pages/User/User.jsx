@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Loader from 'components/loader/Loader';
 import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -30,9 +30,18 @@ const setAvatar = name => {
 const User = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const user = useSelector(authSelectors.selectUser);
   const { role, createdAt, name } = user;
   const letter = setAvatar(name);
+
+  const onAvatarAdminClick = () => {
+    if (role === 'admin') {
+      navigate('/admin');
+    } else {
+      return;
+    }
+  };
 
   const handleLogOut = () => dispatch(logOut());
 
@@ -40,7 +49,9 @@ const User = () => {
     <>
       <ProfileHeader>
         <TextHeader>{name}</TextHeader>
-        <AvatarHeader role={role}>{letter}</AvatarHeader>
+        <AvatarHeader role={role} onClick={onAvatarAdminClick}>
+          {letter}
+        </AvatarHeader>
       </ProfileHeader>
       <ProfileWrapper>
         <ProfileNav>

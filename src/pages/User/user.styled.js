@@ -19,6 +19,7 @@ export const TextHeader = styled.p`
   }
 `;
 export const AvatarHeader = styled.div`
+  cursor: ${({ role }) => (role === 'admin' ? 'pointer' : 'auto')};
   display: none;
   ${mediaBp('tablet')} {
     display: block;
@@ -47,10 +48,9 @@ export const AvatarHeader = styled.div`
 `;
 export const Text = styled.p`
   color: ${({ theme }) => theme.colors.primary};
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 100%;
-  }
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 100%;
 `;
 export const ProfileWrapper = styled.div`
   ${mediaBp('tablet')} {
@@ -76,10 +76,9 @@ export const Box = styled.div`
   }
 `;
 export const Content = styled.div`
- text-align: center;
- padding: 10px 10px;
- height: 300px;
-  }
+  text-align: center;
+  padding: 10px 10px;
+  height: 300px;
 `;
 export const Avatar = styled.div`
   border-radius: 50%;
