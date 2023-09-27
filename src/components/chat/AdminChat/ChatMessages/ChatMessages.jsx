@@ -22,6 +22,7 @@ const ChatMessages = ({ currentChat, socket }) => {
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [disabled, setDisabled] = useState(true);
+  // console.log(arrivalMessage);
 
   useEffect(() => {
     const handleMsgReceived = async () => {
