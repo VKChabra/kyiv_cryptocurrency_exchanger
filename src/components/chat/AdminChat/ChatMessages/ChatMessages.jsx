@@ -72,7 +72,7 @@ const ChatMessages = ({ currentChat, socket }) => {
         // console.log(arrivalMessage);
       });
     }
-  }, [socket]);
+  }, []);
 
   useEffect(() => {
     arrivalMessage && setMessages(prev => [...prev, arrivalMessage]);
