@@ -53,13 +53,21 @@ const NewsItem = ({ data }) => {
   };
 
   const onHandleChange = async e => {
-    const { name, value, type } = e.target;
+    const { name, type, value } = e.target;
+
     if (type === 'file') {
-      const res = await toDataURL(e.target);
-      setEditNews(prevState => ({
-        ...prevState,
-        image: res,
-      }));
+      const file = e.target.files[0];
+      const maxSize = 100000;
+      if (file.size > maxSize) {
+        alert('Файл занадто великий. Максимальний розмір - 100 кілобайт');
+        e.target.value = '';
+      } else {
+        const res = await toDataURL(e.target);
+        setEditNews(prevState => ({
+          ...prevState,
+          image: res,
+        }));
+      }
     } else {
       setEditNews(prevState => ({
         ...prevState,
@@ -128,7 +136,7 @@ const NewsItem = ({ data }) => {
             <ImageContainer>
               <Image src={data.image} alt="article" width="160px" height="160px" />
             </ImageContainer>
-            <TextWrap readOnly="true">{data.description}</TextWrap>
+            <TextWrap>{data.description}</TextWrap>
           </Container>
           <BtnDateWrap>
             <div>

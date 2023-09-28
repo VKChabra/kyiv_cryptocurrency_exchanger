@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   // flex-direction: column;
   // display: flex;
-
+  height: 54vw;
   width: 300px;
   padding: 24px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
   transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
   }
 `;
 
@@ -30,20 +30,23 @@ export const Title = styled.p`
 `;
 
 export const ImageContainer = styled.div`
-  display: flex;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Image = styled.img`
-  width: 160px;
-  object-fit: cover;
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
 `;
 
 export const TextWrap = styled.span`
   box-sizing: border-box;
   overflow-y: scroll;
   align-items: center;
-  height: 320px;
   margin-bottom: 25px;
+  height: 300px;
   width: 300px;
   padding: 8px 16px;
   white-space: wrap;
@@ -100,7 +103,7 @@ export const TitleWrapEdit = styled.input`
   flex-direction: row !important;
   padding: 8px 16px;
   height: 40px;
-  width: 320px;
+  width: 300px;
   margin-bottom: 11px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.primary};
@@ -112,8 +115,8 @@ export const TitleWrapEdit = styled.input`
 
 export const TextWrapEdit = styled.textarea`
   overflow: scroll;
-  height: 192px;
-  width: 320px;
+  height: 500px;
+  width: 300px;
   padding: 8px 16px;
   margin-bottom: 25px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
