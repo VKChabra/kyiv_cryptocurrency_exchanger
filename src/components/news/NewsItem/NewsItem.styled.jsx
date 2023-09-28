@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   // flex-direction: column;
   // display: flex;
-  height: 54vw;
   width: 300px;
   padding: 24px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
@@ -70,7 +69,7 @@ export const TextWrap = styled.span`
 export const BtnDateWrap = styled.div`
   display: flex;
   flex-direction: row !important ;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 250px;
   p {
     color: ${({ theme }) => theme.colors.primary};
@@ -83,7 +82,7 @@ export const BtnDateWrap = styled.div`
 `;
 
 export const Btn = styled.button`
-  margin: 5px;
+  margin: 10px;
   color: #fff;
   display: inline-flex;
   padding: 12px;
