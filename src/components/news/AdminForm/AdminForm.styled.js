@@ -110,7 +110,7 @@ export const ImageWrapper = styled.div`
     cursor: pointer;
   }
   .addedImageInput {
-    margin: 10px;
+    margin-bottom: 10px;
     width: 300px;
   }
   .advFormLabelCheckbox {
@@ -176,7 +176,6 @@ export const ImageWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 10px;
   }
 `;
 

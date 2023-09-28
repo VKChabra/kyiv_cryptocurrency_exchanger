@@ -136,7 +136,7 @@ const NewsItem = ({ data }) => {
             <ImageContainer>
               <Image src={data.image} alt="article" width="160px" height="160px" />
             </ImageContainer>
-            <TextWrap readOnly="true">{data.description}</TextWrap>
+            <TextWrap readOnly={true} value={data.description}></TextWrap>
           </Container>
           <BtnDateWrap>
             <div>

@@ -4,7 +4,6 @@ export const Container = styled.div`
   // flex-direction: column;
   // display: flex;
   width: 300px;
-  padding: 24px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
   transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
@@ -18,7 +17,7 @@ export const TitleWrap = styled.div`
   justify-content: center;
   flex-direction: row !important;
   height: 80px;
-  margin-bottom: 11px;
+  margin-bottom: 8px;
 `;
 
 export const Title = styled.p`
@@ -110,7 +109,7 @@ export const TitleWrapEdit = styled.input`
   flex-direction: row !important;
   padding: 8px 16px;
   height: 40px;
-  width: 300px;
+  width: 280px;
   margin-bottom: 11px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.primary};
@@ -123,7 +122,7 @@ export const TitleWrapEdit = styled.input`
 export const TextWrapEdit = styled.textarea`
   overflow: scroll;
   height: 500px;
-  width: 300px;
+  width: 280px;
   padding: 8px 16px;
   margin-bottom: 25px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -149,7 +148,7 @@ export const ImageWrapper = styled.div`
     cursor: pointer;
   }
   .addedImageInput {
-    margin: 10px;
+    margin-bottom: 10px;
     width: 300px;
   }
   .advFormLabelCheckbox {
@@ -215,7 +214,7 @@ export const ImageWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 550px;
-    margin: 10px;
+    width: 300px;
+    margin-bottom: 10px;
   }
 `;
