@@ -4,16 +4,16 @@ export const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   margin-bottom: 60px;
-  padding: 61px 110px 120px 110px;
+  padding: 60px 110px;
   display: flex;
   flex-direction: column;
   @media (max-width: 768px) {
     max-width: 768px;
-    padding: 40px 60px 60px 40px;
+    padding: 40px 60px;
   }
   @media (max-width: 575px) {
     max-width: 100%;
-    padding: 20px 30px 30px 20px;
+    padding: 20px 30px;
   }
   div {
     display: flex;
@@ -33,7 +33,6 @@ export const TextWrap = styled.div`
   }
   h2 {
     margin-bottom: 30px;
-    text-align: left;
     color: ${({ theme }) => theme.colors.primary};
     font-family: Phudu;
     font-size: 64px;
@@ -46,6 +45,7 @@ export const TextWrap = styled.div`
       line-height: 32px;
     }
     @media (max-width: 575px) {
+      text-align: center;
       margin-bottom: 12px;
       font-size: 24px;
       line-height: 24px;

@@ -14,6 +14,8 @@ export const Container = styled.div`
 
 export const TitleWrap = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: row !important;
   height: 80px;
   margin-bottom: 11px;
@@ -70,7 +72,6 @@ export const BtnDateWrap = styled.div`
   display: flex;
   flex-direction: row !important ;
   justify-content: space-around;
-  width: 250px;
   p {
     color: ${({ theme }) => theme.colors.primary};
     font-family: Roboto;

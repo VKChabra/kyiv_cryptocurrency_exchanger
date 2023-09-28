@@ -176,7 +176,6 @@ export const ImageWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 550px;
     margin: 10px;
   }
 `;
