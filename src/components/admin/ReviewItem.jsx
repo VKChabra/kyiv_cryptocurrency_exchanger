@@ -24,6 +24,7 @@ export const ReviewItem = ({ review, expanded, setExpanded, handleChangePanel })
   const [error, setError] = useState(false);
 
   const { _id: id, review: reviewContent, status, owner } = review;
+  if (owner === null) return;
   const dateOfRegistration = getFormattedFullDate(new Date(owner.createdAt));
 
   const handleUpdateStatus = reviewId => {

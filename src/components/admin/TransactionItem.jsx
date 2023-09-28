@@ -40,6 +40,7 @@ export const TransactionItem = ({ review, expanded, setExpanded, handleChangePan
     paymentMethod,
   } = review;
 
+  if (owner === null) return;
   const dateOfRegistration = getFormattedFullDate(new Date(owner.createdAt));
 
   const handleUpdateStatus = reviewId => {

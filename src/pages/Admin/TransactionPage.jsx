@@ -8,7 +8,7 @@ import { SelectDate } from 'components/admin/forms/SelectDate';
 import Loader from 'components/loader';
 
 const TransactionPage = () => {
-  const [transactions, seTransactions] = useState([]);
+  const [transactions, setTransactions] = useState([]);
   const [cursor, setCursor] = useState(null);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -39,14 +39,14 @@ const TransactionPage = () => {
 
   useEffect(() => {
     fetchData(items => {
-      seTransactions(items);
+      setTransactions(items);
     });
   }, [filterByStatus, fetchData]);
 
   const handleLoadMore = () => {
     fetchData(
       items => {
-        seTransactions(prevItems => [...prevItems, ...items]);
+        setTransactions(prevItems => [...prevItems, ...items]);
       },
       { cursor }
     );
@@ -56,7 +56,7 @@ const TransactionPage = () => {
     setIsRefreshing(true);
 
     fetchData(items => {
-      seTransactions(items);
+      setTransactions(items);
       setIsRefreshing(false);
     });
   };
