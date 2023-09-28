@@ -1,8 +1,11 @@
+import { useSelector } from 'react-redux';
 import AdminForm from '../AdminForm/AdminForm';
 import NewsItem from '../NewsItem';
 import { List, Item, Container } from './NewsList.styled';
+import { selectUser } from 'redux/auth/authSelectors';
 
 const NewsList = ({ data }) => {
+  const user = useSelector(selectUser);
   return (
     <Container>
       <List>
@@ -12,7 +15,7 @@ const NewsList = ({ data }) => {
           </Item>
         ))}
       </List>
-      <AdminForm />
+      {user.role === 'admin' && <AdminForm />}
     </Container>
   );
 };

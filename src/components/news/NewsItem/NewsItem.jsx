@@ -14,6 +14,8 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useDeleteNewsMutation, useUpdateNewsMutation } from 'services/newsApi';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/authSelectors';
 
 const NewsItem = ({ data }) => {
   const [editMode, setEditMode] = useState(false);
@@ -22,6 +24,8 @@ const NewsItem = ({ data }) => {
     description: '',
     image: '',
   });
+
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     setEditNews({
@@ -143,15 +147,16 @@ const NewsItem = ({ data }) => {
               <p>{formatDate(data.updatedAt)}</p>
             </div>
 
-            <Btn type="button" onClick={onHandleEdit}>
-              {t('button.edit')}
-            </Btn>
-
-            <Btn type="button" onClick={onHandleDelete}>
-              {t('button.delete')}
-            </Btn>
-
-            {/* !!!!!!!!!!!!!!!!!!!!!! as admin */}
+            {user.role === 'admin' && (
+              <Btn type="button" onClick={onHandleEdit}>
+                {t('button.edit')}
+              </Btn>
+            )}
+            {user.role === 'admin' && (
+              <Btn type="button" onClick={onHandleDelete}>
+                {t('button.delete')}
+              </Btn>
+            )}
           </BtnDateWrap>
         </>
       )}
