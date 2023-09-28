@@ -36,6 +36,16 @@ const UserChat = () => {
   // console.log(arrivalMessage);
 
   useEffect(() => {
+    if (user) {
+      socket.current = io(chatHost);
+      socket.current.emit('add-user', user.id, user.role);
+      socket.current.on('get-users', users => {
+        setOnlineUsers(users);
+      });
+    }
+  }, [user]);
+
+  useEffect(() => {
     const handleMsgReceived = async () => {
       try {
         const response = await instance.post(recieveMessageRoute, {
@@ -82,7 +92,7 @@ const UserChat = () => {
         // console.log(arrivalMessage);
       });
     }
-  }, [socket]);
+  }, []);
 
   useEffect(() => {
     arrivalMessage && setMessages(prev => [...prev, arrivalMessage]);
@@ -111,16 +121,6 @@ const UserChat = () => {
       }
     }
   }, [onlineUsers]);
-
-  useEffect(() => {
-    if (user) {
-      socket.current = io(chatHost);
-      socket.current.emit('add-user', user.id, user.role);
-      socket.current.on('get-users', users => {
-        setOnlineUsers(users);
-      });
-    }
-  }, [user]);
 
   return (
     <Container>
