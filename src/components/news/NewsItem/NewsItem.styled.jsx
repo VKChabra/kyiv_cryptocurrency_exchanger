@@ -42,15 +42,22 @@ export const Image = styled.img`
   object-fit: contain;
 `;
 
-export const TextWrap = styled.span`
+export const TextWrap = styled.textarea`
   box-sizing: border-box;
-  overflow-y: scroll;
+  resize: none;
+  &::-webkit-scrollbar {
+    width: 0.2rem;
+    &-thumb {
+      background-color: rgba(3, 3, 103, 0.1);
+      width: 0.1rem;
+      border-radius: 1rem;
+    }
+  }
   align-items: center;
   margin-bottom: 25px;
   height: 300px;
   width: 300px;
   padding: 8px 16px;
-  white-space: wrap;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.primary};
 `;
