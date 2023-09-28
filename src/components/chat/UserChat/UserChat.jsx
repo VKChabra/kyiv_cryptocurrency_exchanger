@@ -33,7 +33,7 @@ const UserChat = () => {
   const [onlineUsers, setOnlineUsers] = useState([]);
   console.log(onlineUsers);
   console.log('adminId: ', adminId, 'userId: ', userId);
-  // console.log(arrivalMessage);
+  console.log(arrivalMessage);
 
   useEffect(() => {
     if (user) {
@@ -89,10 +89,10 @@ const UserChat = () => {
     if (socket.current) {
       socket.current.on('msg-recieve', data => {
         setArrivalMessage({ fromSelf: false, message: data.msg, time: data.time });
-        // console.log(arrivalMessage);
+        console.log(arrivalMessage);
       });
     }
-  }, []);
+  }, [arrivalMessage]);
 
   useEffect(() => {
     arrivalMessage && setMessages(prev => [...prev, arrivalMessage]);
