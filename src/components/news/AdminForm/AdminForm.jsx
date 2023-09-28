@@ -55,13 +55,21 @@ const AdminForm = () => {
   };
 
   const onHandleChange = async e => {
-    const { name, value, type } = e.target;
+    const { name, type, value } = e.target;
+
     if (type === 'file') {
-      const res = await toDataURL(e.target);
-      setState(prevState => ({
-        ...prevState,
-        image: res,
-      }));
+      const file = e.target.files[0];
+      const maxSize = 100000;
+      if (file.size > maxSize) {
+        alert('Файл занадто великий. Максимальний розмір - 100 кілобайт');
+        e.target.value = '';
+      } else {
+        const res = await toDataURL(e.target);
+        setState(prevState => ({
+          ...prevState,
+          image: res,
+        }));
+      }
     } else {
       setState(prevState => ({
         ...prevState,

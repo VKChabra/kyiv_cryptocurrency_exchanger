@@ -33,7 +33,7 @@
     "add": "add",
     "exit": "exit",
     "addNews": "add news",
-    "chooseFile": "choose file max 2mb",
+    "chooseFile": "choose file max 100KB",
     "readMore": "read more",
     "showMore": "show more",
     "showLess": "show less",
