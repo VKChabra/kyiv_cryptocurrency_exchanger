@@ -180,7 +180,8 @@
     "formSubTitle": "We will be glad to see your feedback which can be left after the first transaction",
     "button": "Leave a review",
     "placeholder": "Write your review",
-    "loginMessage": "To leave review please login"
+    "loginMessage": "To leave review please login",
+    "success": "Your review was sent for verification"
   },
   "tradepairs": {
     "title": "Trade pairs",

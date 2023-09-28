@@ -28,7 +28,7 @@ export const TextWrap = styled.div`
     margin-bottom: 54px;
   }
   @media (max-width: 575px) {
-    margin-bottom: 24px;
+    margin-bottom: 100px;
   }
   h2 {
     margin-bottom: 30px;

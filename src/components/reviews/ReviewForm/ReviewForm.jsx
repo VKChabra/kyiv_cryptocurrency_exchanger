@@ -1,12 +1,12 @@
 import { Title, Text, Form } from './ReviewForm.styled';
-import NeoButton from '../../../layouts/Button';
+import NeoButton from 'layouts/Button';
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';
 import { useNavigate } from 'react-router-dom';
 import { Rating } from '@mui/material';
 import { useState } from 'react';
 import { useAddReviewMutation } from 'services/reviewsApi';
-import { notifySuccess, notifyWarning, notifyError } from '../../../helpers/notifications';
+import { notifySuccess, notifyWarning, notifyError } from 'helpers/notifications';
 import { useTranslation } from 'react-i18next';
 
 const ReviewForm = () => {
@@ -31,9 +31,8 @@ const ReviewForm = () => {
       e.preventDefault();
       // const data = { review: feedback, star: starValue };
       const data = { review: feedback };
-      console.log(data);
       await addReview(data);
-      notifySuccess('Ваш відгук додано');
+      notifySuccess(t('reviews.success'));
       setFeedback('');
     } catch {
       notifyError('Щось пішло е так...Ваш відгук не додано');
@@ -58,19 +57,17 @@ const ReviewForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="review">
-            <input
-              name="review"
-              value={feedback}
-              type="textarea"
-              rows="4"
-              cols="50"
-              placeholder={t('reviews.placeholder')}
-              required
-              minLength="6"
-              onChange={handleChange}
-            />
-          </label>
+          <label htmlFor="review" />
+          <textarea
+            name="review"
+            value={feedback}
+            rows="4"
+            cols="50"
+            placeholder={t('reviews.placeholder')}
+            minLength="4"
+            onChange={handleChange}
+            required
+          />
           <NeoButton type="submit" text={t('reviews.button')}></NeoButton>
         </div>
       </Form>

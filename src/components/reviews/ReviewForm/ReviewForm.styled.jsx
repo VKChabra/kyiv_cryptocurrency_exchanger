@@ -1,21 +1,31 @@
 import styled from '@emotion/styled';
+import mediaBp from 'styles/breakpoints';
 
 export const Form = styled.form`
-  dasplay: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
-  width: 800px;
-  height: 400px;
+  padding: 10px;
+  width: 90%;
   border: 1px solid ${({ theme }) => theme.colors.primary};
-  input {
-    width: 600px;
-    height: 200px;
+  textarea {
+    height: 300px;
+    width: 80%;
     margin-bottom: 40px;
     padding: 8px 16px;
+    resize: none;
     border: 1px solid ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.primary};
     background-color: transparent;
+  }
+  ${mediaBp('desktop')} {
+    padding: 40px;
+    width: 800px;
+    height: 400px;
+    textarea {
+      width: 600px;
+      height: 200px;
+    }
   }
 `;
 
