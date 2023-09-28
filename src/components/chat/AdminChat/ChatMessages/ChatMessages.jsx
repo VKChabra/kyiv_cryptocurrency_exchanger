@@ -22,7 +22,7 @@ const ChatMessages = ({ currentChat, socket }) => {
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [disabled, setDisabled] = useState(true);
-  console.log(arrivalMessage);
+  // console.log(arrivalMessage);
 
   useEffect(() => {
     const handleMsgReceived = async () => {
@@ -66,12 +66,13 @@ const ChatMessages = ({ currentChat, socket }) => {
   };
 
   useEffect(() => {
-    if (currentChat) {
+    if (socket.current) {
       socket.current.on('msg-recieve', data => {
         setArrivalMessage({ fromSelf: false, message: data.msg, time: data.time });
+        // console.log(arrivalMessage);
       });
     }
-  }, [currentChat]);
+  }, []);
 
   useEffect(() => {
     arrivalMessage && setMessages(prev => [...prev, arrivalMessage]);
