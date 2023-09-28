@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import mediaBp from 'styles/breakpoints';
 
 export const Container = styled.div`
   display: flex;
@@ -10,6 +11,9 @@ export const Image = styled.img`
   object-fit: cover;
   object-position: center;
   padding-bottom: 0;
+  ${mediaBp('tablet')} {
+    width: 50%;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -40,9 +44,12 @@ export const Title = styled.h2`
   padding: 60px 0;
 
   font-famaly: Phudu;
-  font-size: 64px;
+  font-size: 48px;
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 64px */
   color: ${({ theme }) => theme.colors.primary};
+  ${mediaBp('desktop')} {
+    font-size: 64px;
+  }
 `;

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import mediaBp from 'styles/breakpoints';
 
 export const Container = styled.div`
   display: flex;
@@ -10,7 +11,9 @@ export const Image = styled.img`
   object-fit: cover;
   object-position: center;
   padding-bottom: 0;
-  height: 100%;
+  ${mediaBp('tablet')} {
+    width: 50%;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -39,6 +42,7 @@ export const Title = styled.h2`
   justify-content: center;
   width: 100%;
   padding: 60px 0;
+  text-align: center;
 
   font-family: Phudu;
   font-size: 64px;
