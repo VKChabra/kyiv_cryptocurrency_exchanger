@@ -80,7 +80,9 @@ const Exchange = () => {
     if (response.error) {
       notifyError(t('exchange.error'));
     } else {
-      notifySuccess(t('exchange.success'));
+      paymentMethod === 'cash'
+        ? notifySuccess(t('exchange.cashSuccess'))
+        : notifySuccess(t('exchange.success'));
       resetFormData();
     }
   };

@@ -63,7 +63,6 @@
     "content": "Content",
     "adminForm": "Admin form"
   },
-  "arrayUserButtons": ["cabinet", "operations", "reviews"],
   "hero": {
     "desc": "is reliable and secure cryptocurrency exchanger for every day"
   },
@@ -80,6 +79,7 @@
     "additionalContactHelp": "Number of Whatsapp/Telegram (tag)",
     "agreement": "I accept the terms of exchange",
     "success": "Exchange proposition is successfully sent",
+    "cashSuccess": "We'll contact you shortly about details",
     "emptyDetails": "Please rewrite your payment details",
     "error": "There was an error, please check your data"
   },
@@ -175,7 +175,7 @@
   },
   "reviews": {
     "title": "What they say about us",
-    "subTitle": "Our service is open we show all reviews",
+    "subTitle": "Our service is open, we show all reviews",
     "formTitle": "Leave your feedback",
     "formSubTitle": "We will be glad to see your feedback which can be left after the first transaction",
     "button": "Leave a review",
