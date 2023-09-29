@@ -32,7 +32,7 @@ const UserChat = () => {
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
   console.log(onlineUsers);
-  console.log('adminId: ', adminId, 'userId: ', userId);
+  console.log('adminId: ', adminId, 'userId: ', userId, 'userId2: ', user.id);
   console.log(arrivalMessage);
 
   useEffect(() => {
@@ -111,7 +111,7 @@ const UserChat = () => {
         setIsAdminOnline(true);
         setAdminId(admin.userId);
       }
-      const currentUser = onlineUsers.find(user => user.role === 'user');
+      const currentUser = onlineUsers.find(client => client.userId === user.id);
 
       if (currentUser) {
         setUserId(currentUser.userId);
@@ -120,7 +120,7 @@ const UserChat = () => {
         setUserId(inkognitoId);
       }
     }
-  }, [onlineUsers]);
+  }, [onlineUsers, user.id]);
 
   return (
     <Container>

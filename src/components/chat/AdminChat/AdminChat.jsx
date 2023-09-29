@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import ChatContacts from './ChatContacts/ChatContacts';
 import ChatMessages from './ChatMessages/ChatMessages';
 import Loader from 'components/loader/Loader';
+import { notifyWarning } from 'helpers/notifications';
 
 const AdminChat = () => {
   const socket = useRef();
@@ -17,6 +18,7 @@ const AdminChat = () => {
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState({});
   const [onlineUsers, setOnlineUsers] = useState([]);
+  const [notificationId, setNotificationId] = useState('');
 
   const loadData = async () => {
     setIsLoading(true);
@@ -65,11 +67,21 @@ const AdminChat = () => {
     setCurrentChat(chat);
   };
 
+  const handleMsgNotif = id => {
+    setNotificationId(id);
+    notifyWarning('У вас нові повідомлення 👀');
+  };
+
   return (
     <ChatContainer>
       {isLoading && <Loader />}
-      <ChatContacts onlineUsers={onlineUsers} data={contacts} changeChat={handleChatChange} />
-      <ChatMessages currentChat={currentChat} socket={socket} />
+      <ChatContacts
+        onlineUsers={onlineUsers}
+        data={contacts}
+        changeChat={handleChatChange}
+        notificationId={notificationId}
+      />
+      <ChatMessages currentChat={currentChat} socket={socket} handleMsgNotif={handleMsgNotif} />
     </ChatContainer>
   );
 };

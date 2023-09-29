@@ -16,13 +16,15 @@ import ChatInput from '../ChatInput';
 import WellcomWrap from 'components/chat/AdminChat/ChatMessages/WellcomWrap';
 import { sendMessageRoute, recieveMessageRoute } from 'services/chatApi';
 
-const ChatMessages = ({ currentChat, socket }) => {
+const ChatMessages = ({ currentChat, socket, handleMsgNotif }) => {
   const { user } = useAuth();
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
+  const [newMsgId, setNewMsgId] = useState('');
   const [disabled, setDisabled] = useState(true);
   console.log(arrivalMessage);
+  console.log(newMsgId, '- цей відправив повідомлення');
 
   useEffect(() => {
     const handleMsgReceived = async () => {
@@ -38,6 +40,7 @@ const ChatMessages = ({ currentChat, socket }) => {
     };
     if (currentChat) {
       handleMsgReceived();
+      // setNewMsgId('');
       setDisabled(false);
     }
   }, [currentChat, user]);
@@ -69,7 +72,8 @@ const ChatMessages = ({ currentChat, socket }) => {
     if (currentChat) {
       socket.current.on('msg-recieve', data => {
         setArrivalMessage({ fromSelf: false, message: data.msg, time: data.time });
-        // console.log(arrivalMessage);
+        setNewMsgId(data.from);
+        handleMsgNotif(newMsgId);
       });
     }
   }, [currentChat, socket]);
