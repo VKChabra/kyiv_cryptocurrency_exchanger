@@ -1,10 +1,7 @@
 import { Container, List, Item, AvatarWrap } from './ChatContacts.styled';
 import { useState } from 'react';
 
-const ChatContacts = ({ data, changeChat, onlineUsers }) => {
-  //   const { user, isLoggedIn } = useAuth();
-  //   const { role, name } = user;
-  //   const [currentUser, setCurrentUser] = useState(isLoggedIn ? user : {});
+const ChatContacts = ({ data, changeChat, onlineUsers, notificationId }) => {
   const [currentSelected, setCurrentSelected] = useState(0);
 
   const changeCurrentChat = (index, item) => {
@@ -14,6 +11,7 @@ const ChatContacts = ({ data, changeChat, onlineUsers }) => {
   };
 
   console.log(onlineUsers);
+  console.log('*** ID юзера що відправив ***', notificationId);
 
   const filteredUsers = data?.filter(item => item.role === 'user');
 
@@ -30,7 +28,9 @@ const ChatContacts = ({ data, changeChat, onlineUsers }) => {
               <p>{item.name?.charAt(0).toUpperCase()}</p>
             </AvatarWrap>
             <div>
-              <p>{item.name}</p>
+              <p>
+                {item.name} {notificationId === item._id ? '🤚' : ''}
+              </p>
             </div>
           </Item>
         ))}
