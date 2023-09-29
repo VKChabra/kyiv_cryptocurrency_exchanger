@@ -25,7 +25,7 @@ export const newsApi = createApi({
   endpoints: build => ({
     getAllNews: build.query({
       query: page => ({
-        url: `/api/news?page=${page}`,
+        url: `/api/news?page=${page}&limit=20`,
         method: 'GET',
       }),
       providesTags: ['News'],
