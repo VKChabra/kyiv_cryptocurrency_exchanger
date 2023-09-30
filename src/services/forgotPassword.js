@@ -13,7 +13,7 @@ export const sendForgotPassword = async email => {
     // };
     return response;
   } catch (error) {
-    console.log('An error occurred:', error);
+    return error;
   }
 };
 
@@ -26,6 +26,6 @@ export const resetPassword = async credentials => {
     });
     return response;
   } catch (error) {
-    console.log('An error occurred:', error);
+    return error;
   }
 };

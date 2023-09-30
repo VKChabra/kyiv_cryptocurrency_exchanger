@@ -45,10 +45,10 @@ const ForgotPassword = ({ onBack }) => {
       return notifyError(t('auth.wrongData'));
     }
     const response = await sendForgotPassword({ email });
-    if (response.status === 404) {
+    if (response?.response?.status === 404) {
       return notifyError(t('auth.errorNotFound'));
     }
-    if (response.status === 200) {
+    if (response?.status === 200) {
       setStatus(200);
       notifySuccess(t('forgotPassword.success'));
     }
@@ -89,10 +89,12 @@ const ForgotPassword = ({ onBack }) => {
         </>
       ) : (
         <>
+          <input style={{ display: 'none' }} />
           <MuiCustomInput
             label={t('auth.verifyCode')}
             name="verificationCode"
             type="text"
+            defaultValue=""
             onChange={handleChange}
             required
           />
