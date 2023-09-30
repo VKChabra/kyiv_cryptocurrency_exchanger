@@ -26,10 +26,10 @@ const Exchange = () => {
     currencyToExchange: calcData?.exchangeCurr,
     currencyToReceive: calcData?.receiveCurr,
     name: fullName || '',
-    paymentMethod: 'wallet',
-    creditCard: '',
-    wallet: '',
-    additionalContact: '',
+    paymentMethod: user?.creditCard ? 'creditCard' : 'wallet',
+    creditCard: user?.creditCard || '',
+    wallet: user?.wallet || '',
+    additionalContact: user?.additionalContact || '',
     acceptTerms: false,
   };
 
@@ -57,11 +57,16 @@ const Exchange = () => {
         : paymentMethod === 'wallet'
         ? { wallet }
         : undefined;
+
     const dataToSendTransaction = {
       ...dataToSend,
       paymentMethod,
       ...paymentDetailsToSend,
     };
+    const dataToUpdateUser = { ...paymentDetailsToSend };
+    if (!user?.additonalContact && additionalContact !== '')
+      dataToUpdateUser.additionalContact = additionalContact;
+
     if (
       (paymentMethod !== 'cash' && dataToSendTransaction.creditCard === '') ||
       dataToSendTransaction.wallet === ''
@@ -70,13 +75,8 @@ const Exchange = () => {
     }
     delete dataToSendTransaction.acceptTerms;
     const response = await addTransaction(dataToSendTransaction);
-    dispatch(
-      update({
-        additionalContact,
-        paymentMethod,
-        ...paymentDetailsToSend,
-      })
-    );
+    const userHasAllNecessaryData = user?.creditCard && user?.wallet && user?.additionalContact;
+    if (!userHasAllNecessaryData) dispatch(update(dataToUpdateUser));
     if (response.error) {
       notifyError(t('exchange.error'));
     } else {
@@ -174,11 +174,12 @@ const Exchange = () => {
             <option value="cash">Cash</option>
           </select>
         </div>
-        {formData.paymentMethod === 'creditCard'
-          ? renderCreditCardInput()
-          : formData.paymentMethod === 'wallet'
-          ? renderWalletInput()
-          : null}
+        {(!user?.wallet || !user?.creditCard) &&
+          (formData.paymentMethod === 'creditCard'
+            ? renderCreditCardInput()
+            : formData.paymentMethod === 'wallet'
+            ? renderWalletInput()
+            : null)}
         {!user?.additionalContact && renderAdditionalContactInput()}
         <AcceptTermsLabel>
           {renderAcceptTermsCheckbox()}

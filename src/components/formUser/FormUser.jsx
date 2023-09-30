@@ -10,7 +10,7 @@ const FormUser = () => {
   const { t } = useTranslation();
 
   const user = useSelector(authSelectors.selectUser);
-  const { name, firstName, lastName, additionalContact, paymentMethod, paymentValue } = user;
+  const { name, firstName, lastName, additionalContact, paymentMethod, wallet, creditCard } = user;
 
   const dispatch = useDispatch();
   const [visibleInput, setVisibleInput] = useState(false);
@@ -18,8 +18,9 @@ const FormUser = () => {
   const [firstNameUser, setFirstNameUser] = useState(firstName);
   const [lastNameUser, setLastNameUser] = useState(lastName);
   const [additionalContactUser, setAdditionalContactUser] = useState(additionalContact);
-  const [paymentMethodUser, setPaymentMethodUser] = useState(paymentMethod);
-  const [paymentValueUser, setPaymentValueUser] = useState(paymentValue);
+  const [paymentMethodUser, setPaymentMethodUser] = useState(paymentMethod || 'wallet');
+  const [walletUser, setWalletUser] = useState(wallet);
+  const [creditCardUser, setCreditCardUser] = useState(creditCard);
 
   const setInput = () => {
     setVisibleInput(true);
@@ -33,8 +34,8 @@ const FormUser = () => {
         firstName: firstNameUser,
         lastName: lastNameUser,
         additionalContact: additionalContactUser,
-        paymentMethod: paymentMethodUser,
-        paymentValue: paymentValueUser,
+        wallet: walletUser,
+        creditCard: creditCardUser,
       })
     );
     setVisibleInput(false);
@@ -59,13 +60,43 @@ const FormUser = () => {
       case 'paymentMethod':
         setPaymentMethodUser(value);
         break;
-      case 'paymentValue':
-        setPaymentValueUser(value);
+      case 'wallet':
+        setWalletUser(value);
+        break;
+      case 'creditCard':
+        setCreditCardUser(value);
         break;
       default:
         return;
     }
   };
+
+  const renderWalletInput = () => {
+    return (
+      <FormUserInput
+        fieldName="wallet"
+        labelKey="userData.wallet"
+        visibleInput={visibleInput}
+        setInput={setInput}
+        user={user}
+        handleChange={handleChange}
+      />
+    );
+  };
+
+  const renderCreditCardInput = () => {
+    return (
+      <FormUserInput
+        fieldName="creditCard"
+        labelKey="userData.creditCard"
+        visibleInput={visibleInput}
+        setInput={setInput}
+        user={user}
+        handleChange={handleChange}
+      />
+    );
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <BoxWrapper>
@@ -122,20 +153,10 @@ const FormUser = () => {
         >
           <option value="wallet">{t('admin.wallet')}</option>
           <option value="creditCard">{t('admin.creditCard')}</option>
-          <option value="cash">{t('admin.cash')}</option>
         </Select>
       </BoxWrapper>
       <BoxWrapper>
-        {paymentMethod && (
-          <FormUserInput
-            fieldName="paymentValue"
-            labelKey={`userData.${paymentMethodUser}.paymentValue`}
-            visibleInput={visibleInput}
-            setInput={setInput}
-            user={user}
-            handleChange={handleChange}
-          />
-        )}
+        {paymentMethodUser === 'wallet' ? renderWalletInput() : renderCreditCardInput()}
       </BoxWrapper>
 
       <ButtonSubmit type="submit">{t(`button.submit`)}</ButtonSubmit>
