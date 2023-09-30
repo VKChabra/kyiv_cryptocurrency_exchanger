@@ -185,7 +185,7 @@ const Exchange = () => {
           {renderAcceptTermsCheckbox()}
           {t('exchange.agreement')}
         </AcceptTermsLabel>
-        <NeoButton type="submit" text={t('calc.submit')}></NeoButton>
+        <NeoButton type="submit" text={t('button.exchange')}></NeoButton>
       </Form>
     </FormContainer>
   );

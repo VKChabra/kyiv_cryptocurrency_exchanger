@@ -173,7 +173,7 @@ const Calculator = ({ showSubmitButton = true }) => {
           </Label>
         </Wrap>
       </div>
-      {showSubmitButton && <NeoButton type="submit" text={t('calc.submit')}></NeoButton>}
+      {showSubmitButton && <NeoButton type="submit" text={t('button.exchange')}></NeoButton>}
     </Form>
   );
 };

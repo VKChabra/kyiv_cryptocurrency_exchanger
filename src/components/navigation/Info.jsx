@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { DropdownMenu, InfoText, InfoImg, InfoBtn, LinkList, Link } from './info.styled';
 import { useTranslation } from 'react-i18next';
@@ -8,9 +8,11 @@ const Info = ({ footer = 'false', closeMobileMenu }) => {
   const { t } = useTranslation();
   const handleMenu = () => {
     closeMobileMenu && closeMobileMenu();
+    setIsOpen(false);
   };
 
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const isDesktop = useMediaQuery({ minWidth: bp.desktop });
 
@@ -18,8 +20,26 @@ const Info = ({ footer = 'false', closeMobileMenu }) => {
     setIsOpen(!isOpen);
   };
 
+  const handleClickOutside = event => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
-    <DropdownMenu footer={footer}>
+    <DropdownMenu ref={dropdownRef} footer={footer}>
       {isDesktop && (
         <InfoBtn onClick={toggleDropdown}>
           <InfoText>{t('nav.information')}</InfoText>

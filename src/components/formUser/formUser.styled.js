@@ -5,7 +5,7 @@ export const Form = styled.form`
   vertical-align: middle;
 `;
 export const Button = styled.button`
-  padding: 4px 30px;
+  padding: 4px 10px;
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.primary};
