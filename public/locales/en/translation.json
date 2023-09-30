@@ -183,7 +183,8 @@
     "button": "Leave a review",
     "placeholder": "Write your review",
     "loginMessage": "To leave review please login",
-    "success": "Your review was sent for verification"
+    "success": "Your review was sent for verification",
+    "noReviews": "Be the first one to leave review!"
   },
   "tradepairs": {
     "title": "Trade pairs",

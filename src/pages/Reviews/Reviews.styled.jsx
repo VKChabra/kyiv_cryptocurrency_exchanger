@@ -66,3 +66,8 @@ export const TextWrap = styled.div`
     }
   }
 `;
+
+export const NoReviews = styled.h3`
+  margin-top: 30px;
+  color: ${({ theme }) => theme.colors.primary};
+`;

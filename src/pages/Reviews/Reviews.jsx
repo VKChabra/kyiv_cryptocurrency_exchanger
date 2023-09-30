@@ -1,5 +1,5 @@
 import ReviewsList from 'components/reviews/ReviewsList/ReviewsList';
-import { Container, TextWrap } from './Reviews.styled';
+import { Container, NoReviews, TextWrap } from './Reviews.styled';
 import { useGetApprovedReviewsQuery } from 'services/reviewsApi';
 import Loader from 'components/loader/Loader';
 import ReviewPagination from 'components/reviews/Pagination/ReviewPagination';
@@ -17,13 +17,17 @@ const ReviewsPage = () => {
       <TextWrap>
         <h2>{t('reviews.title')}</h2>
         <p>{t('reviews.subTitle')}</p>
+        {status !== 'pending' && data?.totalPages === 0 && (
+          <NoReviews>{t('reviews.noReviews')}</NoReviews>
+        )}
       </TextWrap>
       {status === 'pending' && <Loader />}
-      {!status === 'pending' && data?.length === 0 && <h2>No reviews found</h2>}
       {data && (
         <div>
-          <ReviewsList reviews={data.reviews} />
-          <ReviewPagination total={data.totalPages} current={data.currentPage} />
+          {data.totalPages >= 1 && <ReviewsList reviews={data.reviews} />}
+          {data.totalPages > 1 && (
+            <ReviewPagination total={data.totalPages} current={data.currentPage} />
+          )}
           <ReviewForm />
         </div>
       )}
