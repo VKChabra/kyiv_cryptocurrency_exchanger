@@ -69,7 +69,7 @@ const AdminChat = () => {
 
   const handleMsgNotif = id => {
     setNotificationId(id);
-    notifyWarning('У вас нові повідомлення 👀');
+    notifyWarning(`У вас нові повідомлення 👀`);
   };
 
   return (

@@ -15,6 +15,7 @@ import { getFormattedFullDate } from 'helpers/formatDate';
 import ChatInput from '../ChatInput';
 import WellcomWrap from 'components/chat/AdminChat/ChatMessages/WellcomWrap';
 import { sendMessageRoute, recieveMessageRoute } from 'services/chatApi';
+import { notifyWarning } from 'helpers/notifications';
 
 const ChatMessages = ({ currentChat, socket, handleMsgNotif }) => {
   const { user } = useAuth();
@@ -24,7 +25,7 @@ const ChatMessages = ({ currentChat, socket, handleMsgNotif }) => {
   const [newMsgId, setNewMsgId] = useState('');
   const [disabled, setDisabled] = useState(true);
   console.log(arrivalMessage);
-  console.log(newMsgId, '- цей відправив повідомлення');
+  // console.log(newMsgId, '- id відправника', currentChat._id, '- чат ');
 
   useEffect(() => {
     const handleMsgReceived = async () => {
@@ -51,6 +52,7 @@ const ChatMessages = ({ currentChat, socket, handleMsgNotif }) => {
       socket.current.emit('send-msg', {
         to: currentChat._id,
         from: user.id,
+        name: user.name,
         msg,
         time: timeSent,
       });
@@ -69,11 +71,29 @@ const ChatMessages = ({ currentChat, socket, handleMsgNotif }) => {
   };
 
   useEffect(() => {
+    // if (currentChat) {
+    //   socket.current.on('msg-recieve', data => {
+    //     if (currentChat._id === data.from) {
+    //       setArrivalMessage({ fromSelf: false, message: data.msg, time: data.time });
+    //       setNewMsgId(data.from);
+    //       handleMsgNotif(newMsgId);
+    //     } else {
+    //       notifyWarning(`New message from ${data.name}`);
+    //     }
+    //   });
+    // }
+
     if (currentChat) {
       socket.current.on('msg-recieve', data => {
-        setArrivalMessage({ fromSelf: false, message: data.msg, time: data.time });
-        setNewMsgId(data.from);
-        handleMsgNotif(newMsgId);
+        if (data.from === currentChat._id) {
+          setArrivalMessage({ fromSelf: false, message: data.msg, time: data.time });
+          notifyWarning(`New message from ${data.name} 👀`, { autoClose: false });
+          console.log(data.from, '- id відправника', currentChat._id, '- чат ');
+        } else {
+          setNewMsgId(data.from);
+          handleMsgNotif(newMsgId);
+          notifyWarning(`New message from ${data.name} 👀`, { autoClose: false });
+        }
       });
     }
   }, [currentChat, socket]);
