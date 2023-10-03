@@ -68,6 +68,7 @@ const UserChat = () => {
       socket.current.emit('send-msg', {
         to: adminId,
         from: userId,
+        name: user.name,
         msg,
         time: timeSent,
       });

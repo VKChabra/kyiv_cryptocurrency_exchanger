@@ -10,8 +10,8 @@ const ChatContacts = ({ data, changeChat, onlineUsers, notificationId }) => {
     changeChat(item);
   };
 
-  console.log(onlineUsers);
-  console.log('*** ID юзера що відправив ***', notificationId);
+  // console.log(onlineUsers);
+  console.log(notificationId);
 
   const filteredUsers = data?.filter(item => item.role === 'user');
 
