@@ -60,11 +60,10 @@ const CryptoItem = ({ onCryptoItemClick }) => {
   const cryptoDataItem = cryptoData.map(item => (
     <Item key={item.id}>
       <p>{item.crypto}</p>
-      <p>{item.priceInUSDT}</p>
+      <p>{item.priceInUSD.toFixed(2)}</p>
       <p>
         <Change p={item.change24h}>{item.change24h}%</Change>
       </p>
-
       {!isMobile && <p>{item.marketCap}</p>}
       <NavLink to="/">
         <ChangeButton key={item.id} onClick={() => handleClick(item)} ref={scrollToTop}>

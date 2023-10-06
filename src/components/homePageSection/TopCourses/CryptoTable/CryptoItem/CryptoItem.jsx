@@ -51,7 +51,7 @@ const CryptoItem = ({ onCryptoItemClick }) => {
   const cryptoDataItem = cryptoData.map((item, index) => (
     <Item key={item.id || index}>
       <p>{item.crypto}</p>
-      <p>{item.priceInUSDT}</p>
+      <p>{item.priceInUSD.toFixed(2)}</p>
       <p>
         <Change p={item.change24h}>{item.change24h}%</Change>
       </p>

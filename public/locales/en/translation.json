@@ -81,7 +81,8 @@
     "success": "Exchange proposition is successfully sent",
     "cashSuccess": "We'll contact you shortly about details",
     "emptyDetails": "Please rewrite your payment details",
-    "error": "There was an error, please check your data"
+    "error": "There was an error, please check your data",
+    "walletHelp": "Be careful when filling in this column, focusing on the network (Bep-20, Trc20, etc.)"
   },
   "captcha": {
     "verify": "I'm not a bot",

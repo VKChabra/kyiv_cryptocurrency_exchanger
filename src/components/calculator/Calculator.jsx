@@ -8,10 +8,8 @@ import { notifyWarning, notifyError } from 'helpers/notifications';
 import { storeCalculatorData } from 'redux/calculator/storeCalculatorForm';
 import calculatorSelectors from 'redux/calculator/calculatorSelectors';
 import authSelectors from 'redux/auth/authSelectors';
-import { getMostPopular } from 'services/API/whitebit-api';
-const PERCENT = 2;
-const uahRate = 37;
-const eurRate = 1.07;
+import { getMarketActivity } from 'services/API/whitebit-api';
+import { PERCENT, rates } from 'shared/options';
 
 const Calculator = ({ showSubmitButton = true }) => {
   const { t } = useTranslation();
@@ -22,10 +20,9 @@ const Calculator = ({ showSubmitButton = true }) => {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
 
   const [options, setOptions] = useState([
-    { value: 'uah', label: 'uah', rate: uahRate },
-    { value: 'usd', label: 'usd', rate: 1 },
-    { value: 'eur', label: 'eur', rate: eurRate },
-    { value: 'usdt', label: 'USDT', rate: 1 },
+    { value: 'uah', label: 'UAH', rate: rates.uahRate },
+    { value: 'usd', label: 'USD (Kyiv)', rate: 1 },
+    { value: 'eur', label: 'EUR', rate: 1 / rates.eurRate },
   ]);
 
   const [receive, setReceive] = useState('');
@@ -38,11 +35,11 @@ const Calculator = ({ showSubmitButton = true }) => {
   useEffect(() => {
     const fetchOptions = async () => {
       try {
-        const apiData = await getMostPopular();
+        const apiData = await getMarketActivity();
         const apiOptions = apiData.map(item => ({
           value: item.crypto,
           label: item.crypto,
-          rate: 1 / item.priceInUSDT,
+          rate: 1 / item.priceInUSD,
         }));
         setOptions(options => [...options, ...apiOptions]);
       } catch (error) {

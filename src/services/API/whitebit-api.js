@@ -10,9 +10,9 @@ export const getCryptoData = async ({ perPage }) => {
     throw error;
   }
 };
-export const getMostPopular = async () => {
+export const getMarketActivity = async () => {
   try {
-    const response = await instance.get(`/api/ticker?page=1&perPage=50`);
+    const response = await instance.get(`/api/ticker?page=1&perPage=30`);
     const data = response.data;
     return data;
   } catch (error) {

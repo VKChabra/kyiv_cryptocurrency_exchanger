@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MuiCustomInput from 'components/input';
 import { FormContainer, Form, AcceptTermsLabel, ExchangeCheckbox } from './Exchange.styled';
@@ -12,6 +13,7 @@ import { update } from 'redux/auth/operations';
 
 const Exchange = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const calcData = useSelector(calculatorSelectors.calcData);
   const user = useSelector(authSelectors.selectUser);
@@ -84,6 +86,7 @@ const Exchange = () => {
         ? notifySuccess(t('exchange.cashSuccess'))
         : notifySuccess(t('exchange.success'));
       resetFormData();
+      navigate('./user/transactions');
     }
   };
 
@@ -174,12 +177,11 @@ const Exchange = () => {
             <option value="cash">Cash</option>
           </select>
         </div>
-        {(!user?.wallet || !user?.creditCard) &&
-          (formData.paymentMethod === 'creditCard'
-            ? renderCreditCardInput()
-            : formData.paymentMethod === 'wallet'
-            ? renderWalletInput()
-            : null)}
+        {formData.paymentMethod === 'creditCard'
+          ? renderCreditCardInput()
+          : formData.paymentMethod === 'wallet'
+          ? renderWalletInput()
+          : null}
         {!user?.additionalContact && renderAdditionalContactInput()}
         <AcceptTermsLabel>
           {renderAcceptTermsCheckbox()}
