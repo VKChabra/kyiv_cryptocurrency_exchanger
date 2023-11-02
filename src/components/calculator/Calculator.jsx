@@ -28,8 +28,8 @@ const Calculator = ({ showSubmitButton = true }) => {
   const [receive, setReceive] = useState('');
   const [calculatorFormData, setCalculatorFormData] = useState({
     exchange: calcData?.exchange || '',
-    exchangeCurr: calcData?.exchangeCurr || options[0].value,
-    receiveCurr: calcData?.receiveCurr || options[3].value,
+    exchangeCurr: calcData?.exchangeCurr || options[0]?.value || 'Error',
+    receiveCurr: calcData?.receiveCurr || options[3]?.value || 'Error',
   });
 
   useEffect(() => {
