@@ -5,9 +5,9 @@ import Footer from 'layouts/Footer/Footer';
 import ChatButtons from 'components/chat/ChatButtons';
 import Loader from 'components/loader';
 
-const SharedLayout = ({ theme, toggleTheme }) => (
+const SharedLayout = () => (
   <>
-    <Header theme={theme} toggleTheme={toggleTheme} />
+    <Header />
     <Suspense fallback={<Loader />}>
       <Outlet />
     </Suspense>

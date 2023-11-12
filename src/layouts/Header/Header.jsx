@@ -9,7 +9,7 @@ import { NavWrap, HeaderBar, MobileButton, MobileMenu } from './Header.styled';
 import { useMediaQuery } from 'react-responsive';
 import { bp } from 'styles/breakpoints';
 
-const Header = ({ theme, toggleTheme }) => {
+const Header = () => {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -33,11 +33,7 @@ const Header = ({ theme, toggleTheme }) => {
       )}
       {mobileMenuOpen ? (
         <MobileMenu>
-          <HeaderNavigation
-            theme={theme}
-            toggleTheme={toggleTheme}
-            closeMobileMenu={closeMobileMenu}
-          />
+          <HeaderNavigation closeMobileMenu={closeMobileMenu} />
           {!isLoggedIn ? (
             <AuthNav closeMobileMenu={closeMobileMenu} />
           ) : (
@@ -46,7 +42,7 @@ const Header = ({ theme, toggleTheme }) => {
         </MobileMenu>
       ) : (
         <NavWrap>
-          <HeaderNavigation theme={theme} toggleTheme={toggleTheme} />
+          <HeaderNavigation />
           {!isLoggedIn ? <AuthNav /> : <UserNav />}
         </NavWrap>
       )}
