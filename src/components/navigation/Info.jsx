@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { DropdownMenu, InfoText, InfoImg, InfoBtn, LinkList, Link } from './info.styled';
 import { useTranslation } from 'react-i18next';
-import { bp } from 'styles/breakpoints';
+import useMediaQueries from 'components/hooks/useMediaQueries';
 
 const Info = ({ footer = 'false', closeMobileMenu }) => {
   const { t } = useTranslation();
@@ -14,7 +13,7 @@ const Info = ({ footer = 'false', closeMobileMenu }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const isDesktop = useMediaQuery({ minWidth: bp.desktop });
+  const { isDesktop, isHuge } = useMediaQueries();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -40,13 +39,13 @@ const Info = ({ footer = 'false', closeMobileMenu }) => {
 
   return (
     <DropdownMenu ref={dropdownRef} footer={footer}>
-      {isDesktop && (
+      {(isDesktop || isHuge) && (
         <InfoBtn onClick={toggleDropdown}>
           <InfoText>{t('nav.information')}</InfoText>
           <InfoImg footer={footer} alt="dropdown"></InfoImg>
         </InfoBtn>
       )}
-      {(isOpen || !isDesktop) && (
+      {(isOpen || (!isDesktop && !isHuge)) && (
         <LinkList footer={footer}>
           <Link to="/partnership" onClick={handleMenu}>
             <span>{t('nav.partnership')}</span>

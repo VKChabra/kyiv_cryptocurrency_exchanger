@@ -27,6 +27,15 @@ export const Form = styled.form`
       height: 200px;
     }
   }
+  ${mediaBp('huge')} {
+    padding: 40px;
+    width: 800px;
+    height: 400px;
+    textarea {
+      width: 600px;
+      height: 200px;
+    }
+  }
 `;
 
 // export const Button = styled.button`
@@ -41,7 +50,7 @@ export const Form = styled.form`
 //   cursor: pointer;
 //   color: ${({ theme }) => theme.colors.primary};
 //   text-align: center;
-//   font-family: Roboto;
+//
 //   font-size: 32px;
 //   font-style: normal;
 //   font-weight: 700;
@@ -58,7 +67,6 @@ export const Form = styled.form`
 export const Title = styled.h4`
   margin-bottom: 31px;
   color: ${({ theme }) => theme.colors.primary};
-  font-family: Phudu;
   font-size: 64px;
   font-style: normal;
   font-weight: 400;

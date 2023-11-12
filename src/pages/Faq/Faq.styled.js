@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
 export const Text = styled.p`
   display: flex;
   flex-direction: column;
-  font-family: Roboto;
+
   padding: 20px 50px;
   font-size: 16px;
   font-style: normal;
@@ -44,7 +44,6 @@ export const Title = styled.h2`
   padding: 60px 0;
   text-align: center;
 
-  font-family: Phudu;
   font-size: 64px;
   font-style: normal;
   font-weight: 400;

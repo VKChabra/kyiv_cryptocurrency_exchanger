@@ -12,6 +12,9 @@ export const HeaderBar = styled.div`
   ${mediaBp('desktop')} {
     justify-content: center;
   }
+  ${mediaBp('huge')} {
+    justify-content: center;
+  }
 `;
 
 export const NavWrap = styled.div`
@@ -24,6 +27,11 @@ export const NavWrap = styled.div`
     color: ${({ theme }) => theme.colors.primary};
   }
   ${mediaBp('desktop')} {
+    margin-left: 40px;
+    display: flex;
+    color: ${({ theme }) => theme.colors.primary};
+  }
+  ${mediaBp('huge')} {
     margin-left: 40px;
     display: flex;
     color: ${({ theme }) => theme.colors.primary};

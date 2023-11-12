@@ -21,6 +21,10 @@ export const SwiperWrapper = styled.div`
       display: block;
       padding: 40px 200px;
     }
+    ${mediaBp('huge')} {
+      display: block;
+      padding: 40px 200px;
+    }
   }
 `;
 
@@ -31,6 +35,16 @@ export const ReviewContainer = styled.div`
   justify-content: center;
   padding-bottom: 120px;
   color: ${({ theme }) => theme.colors.primary};
+  padding-top: 40px;
+  ${mediaBp('tablet')} {
+    padding-top: 80px;
+  }
+  ${mediaBp('desktop')} {
+    padding-top: 120px;
+  }
+  ${mediaBp('huge')} {
+    padding-top: 120px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -46,11 +60,14 @@ export const Title = styled.h2`
   ${mediaBp('desktop')} {
     font-size: 64px;
   }
+  ${mediaBp('huge')} {
+    font-size: 64px;
+  }
 `;
 
 export const SubTitle = styled.h3`
   color: ${({ theme }) => theme.colors.primary};
-  font-family: Roboto;
+
   text-align: center;
   font-size: 28px;
   font-style: normal;
@@ -60,6 +77,10 @@ export const SubTitle = styled.h3`
     font-size: 48px;
   }
   ${mediaBp('desktop')} {
+    width: 892px;
+    font-size: 64px;
+  }
+  ${mediaBp('huge')} {
     width: 892px;
     font-size: 64px;
   }

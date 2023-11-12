@@ -14,8 +14,7 @@ import { useTranslation } from 'react-i18next';
 import Button from 'layouts/Button';
 import { NavLink } from 'react-router-dom';
 import Loader from 'components/loader';
-import { useMediaQuery } from 'react-responsive';
-import { bp } from 'styles/breakpoints';
+import useMediaQueries from 'components/hooks/useMediaQueries';
 
 const CryptoItem = ({ onCryptoItemClick }) => {
   const [cryptoData, setCryptoData] = useState([]);
@@ -55,7 +54,7 @@ const CryptoItem = ({ onCryptoItemClick }) => {
     });
   };
 
-  const isMobile = useMediaQuery({ maxWidth: bp.tablet });
+  const { isMobile } = useMediaQueries();
 
   const cryptoDataItem = cryptoData.map(item => (
     <Item key={item.id}>

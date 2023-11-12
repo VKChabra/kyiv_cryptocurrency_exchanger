@@ -8,10 +8,17 @@ export const NavHeader = styled.div`
   ${mediaBp('desktop')} {
     flex-direction: row;
   }
+  ${mediaBp('huge')} {
+    flex-direction: row;
+  }
 `;
 
 export const TextWrapper = styled.div`
   ${mediaBp('desktop')} {
+    padding: 12px 24px;
+    border: 2px solid #fff;
+  }
+  ${mediaBp('huge')} {
     padding: 12px 24px;
     border: 2px solid #fff;
   }

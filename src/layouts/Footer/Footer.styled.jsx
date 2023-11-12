@@ -21,6 +21,14 @@ export const Container = styled.div`
     padding-top: 20px;
     padding-left: 0;
   }
+  ${mediaBp('huge')} {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+    padding-left: 0;
+  }
 `;
 
 export const Wrap = styled.div`
@@ -33,6 +41,13 @@ export const Wrap = styled.div`
     padding-left: 0;
   }
   ${mediaBp('desktop')} {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  ${mediaBp('huge')} {
     display: flex;
     align-items: center;
     flex-direction: row;

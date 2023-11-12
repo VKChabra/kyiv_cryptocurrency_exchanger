@@ -22,7 +22,7 @@ export const TitleWrap = styled.div`
 
 export const Title = styled.p`
   color: ${({ theme }) => theme.colors.primary};
-  font-family: Roboto;
+
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -66,7 +66,7 @@ export const TextWrap = styled.textarea`
 //   white-space: wrap;
 //   width: 100%;
 //   padding: 8px 16px;
-//   font-family: Roboto;
+//
 //   font-size: 16px;
 //   font-style: normal;
 //   font-weight: 400;
@@ -80,7 +80,7 @@ export const BtnDateWrap = styled.div`
   justify-content: space-around;
   p {
     color: ${({ theme }) => theme.colors.primary};
-    font-family: Roboto;
+
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

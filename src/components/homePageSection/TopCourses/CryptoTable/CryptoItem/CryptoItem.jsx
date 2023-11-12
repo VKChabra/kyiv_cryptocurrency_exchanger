@@ -12,10 +12,9 @@ import {
 } from './CryptoItem.styled';
 import { useTranslation } from 'react-i18next';
 import Loader from 'components/loader';
-import { useMediaQuery } from 'react-responsive';
-import { bp } from 'styles/breakpoints';
+import useMediaQueries from 'components/hooks/useMediaQueries';
 
-const CryptoItem = ({ onCryptoItemClick }) => {
+const CryptoItem = () => {
   const [cryptoData, setCryptoData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -38,7 +37,11 @@ const CryptoItem = ({ onCryptoItemClick }) => {
   }, []);
 
   const scrollToTop = useRef(null);
-  const isMobile = useMediaQuery({ maxWidth: bp.tablet });
+  const { isMobile } = useMediaQueries();
+
+  const onCryptoItemClick = item => {
+    console.log('Button clicked for crypto:', item.crypto); //
+  };
 
   const handleClick = item => {
     onCryptoItemClick(item);

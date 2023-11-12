@@ -32,10 +32,13 @@ export const Item = styled.li`
     padding: 60px 84px 20px 72px;
     border-right: none;
   }
+  ${mediaBp('huge')} {
+    padding: 60px 84px 20px 72px;
+    border-right: none;
+  }
 `;
 
 export const Title = styled.h4`
-  font-family: Roboto;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -46,7 +49,6 @@ export const Title = styled.h4`
 `;
 
 export const Text = styled.p`
-  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -57,6 +59,9 @@ export const Text = styled.p`
     max-width: 340px;
   }
   ${mediaBp('desktop')} {
+    width: 312px;
+  }
+  ${mediaBp('huge')} {
     width: 312px;
   }
 `;

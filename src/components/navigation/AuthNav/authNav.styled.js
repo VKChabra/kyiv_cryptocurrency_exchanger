@@ -9,4 +9,8 @@ export const RegistrationWrapper = styled.div`
     padding-left: 60px;
     flex-direction: row;
   }
+  ${mediaBp('huge')} {
+    padding-left: 60px;
+    flex-direction: row;
+  }
 `;

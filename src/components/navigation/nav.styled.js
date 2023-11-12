@@ -12,6 +12,10 @@ export const NavLinkWrapper = styled.div`
     flex-direction: row;
     color: ${({ footer, theme }) => (footer === 'true' ? '#fff' : theme.colors.primary)};
   }
+  ${mediaBp('huge')} {
+    flex-direction: row;
+    color: ${({ footer, theme }) => (footer === 'true' ? '#fff' : theme.colors.primary)};
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -29,6 +33,12 @@ export const Link = styled(NavLink)`
       padding-right: 0;
     }
   }
+  ${mediaBp('huge')} {
+    padding-right: 15px;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
 `;
 
 export const LineImg = styled(Line)`
@@ -36,6 +46,9 @@ export const LineImg = styled(Line)`
   height: 40px;
   stroke: ${({ footer, theme }) => (footer === 'true' ? '#fff' : theme.colors.line)};
   ${mediaBp('desktop')} {
+    display: block;
+  }
+  ${mediaBp('huge')} {
     display: block;
   }
   padding-right: 15px;

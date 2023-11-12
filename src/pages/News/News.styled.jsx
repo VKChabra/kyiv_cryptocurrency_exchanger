@@ -34,7 +34,6 @@ export const TextWrap = styled.div`
   h2 {
     margin-bottom: 30px;
     color: ${({ theme }) => theme.colors.primary};
-    font-family: Phudu;
     font-size: 64px;
     font-style: normal;
     font-weight: 400;

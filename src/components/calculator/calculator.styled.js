@@ -9,6 +9,9 @@ export const Form = styled.form`
   ${mediaBp('desktop')} {
     align-items: normal;
   }
+  ${mediaBp('huge')} {
+    align-items: normal;
+  }
 `;
 
 export const Wrap = styled.div`
@@ -19,6 +22,9 @@ export const Label = styled.label`
   display: flex;
   justify-content: center;
   ${mediaBp('desktop')} {
+    justify-content: normal;
+  }
+  ${mediaBp('huge')} {
     justify-content: normal;
   }
 `;
@@ -38,6 +44,11 @@ export const Input = styled.input`
     padding: 22px 14px;
     margin-right: 30px;
   }
+  ${mediaBp('huge')} {
+    width: 300px;
+    padding: 22px 14px;
+    margin-right: 30px;
+  }
 `;
 
 export const DropdownSelect = styled.select`
@@ -47,9 +58,11 @@ export const DropdownSelect = styled.select`
   background-color: ${({ theme }) => theme.colors.body};
   padding: 12px 6px;
   outline: none;
-  font-family: Roboto;
   font-weight: 700;
   ${mediaBp('desktop')} {
+    padding: 22px 14px;
+  }
+  ${mediaBp('huge')} {
     padding: 22px 14px;
   }
 `;

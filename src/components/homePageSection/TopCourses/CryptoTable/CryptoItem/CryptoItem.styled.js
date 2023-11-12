@@ -10,6 +10,9 @@ export const Wrapper = styled.div`
   ${mediaBp('desktop')} {
     padding: 0 20px;
   }
+  ${mediaBp('huge')} {
+    padding: 0 20px;
+  }
 `;
 
 export const ListTitle = styled.ul`
@@ -27,6 +30,11 @@ export const ListTitle = styled.ul`
     font-size: 18px;
   }
   ${mediaBp('desktop')} {
+    width: 85%;
+    font-size: 18px;
+    padding-left: auto;
+  }
+  ${mediaBp('huge')} {
     width: 85%;
     font-size: 18px;
     padding-left: auto;
@@ -66,6 +74,22 @@ export const ListTitleItem = styled.li`
       padding-left: 7%;
     }
   }
+  ${mediaBp('huge')} {
+    width: 16%;
+    margin: 0;
+    padding-left: 5.5%;
+    margin-right: 0;
+    &:nth-child(2) {
+      padding-left: 8%;
+      margin-right: 0;
+    }
+    &:nth-child(3) {
+      padding-left: 5%;
+    }
+    &:nth-child(4) {
+      padding-left: 7%;
+    }
+  }
 `;
 
 export const List = styled.ul`
@@ -79,7 +103,7 @@ export const List = styled.ul`
   list-style: none;
   counter-reset: item;
   font-size: 12px;
-  font-family: Roboto;
+
   font-style: bold;
   font-weight: 700;
   line-height: 100%;
@@ -87,6 +111,11 @@ export const List = styled.ul`
     font-size: 16px;
   }
   ${mediaBp('desktop')} {
+    font-size: 18px;
+    width: 100%;
+    padding-left: 0;
+  }
+  ${mediaBp('huge')} {
     font-size: 18px;
     width: 100%;
     padding-left: 0;
@@ -129,6 +158,15 @@ export const Item = styled.li`
       width: 20%;
     }
   }
+  ${mediaBp('huge')} {
+    padding-left: 5%;
+    & > * {
+      margin-right: 0;
+    }
+    p {
+      width: 20%;
+    }
+  }
 `;
 
 export const Table = styled.div`
@@ -137,7 +175,8 @@ export const Table = styled.div`
 `;
 
 export const Change = styled.span`
-  color: ${({ p }) => (p >= 0 ? '#06f239' : '#ff0000')};
+  -webkit-text-stroke-width: thin;
+  color: ${({ p }) => (p >= 0 ? '#06f239' : '#c90202')};
 `;
 
 export const Button = styled.button`
@@ -159,6 +198,10 @@ export const Button = styled.button`
     font-size: 16px;
   }
   ${mediaBp('desktop')} {
+    font-size: 18px;
+    padding: 12px 24px;
+  }
+  ${mediaBp('huge')} {
     font-size: 18px;
     padding: 12px 24px;
   }

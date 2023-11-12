@@ -29,6 +29,9 @@ export const Button = styled.button`
     //   background-color: ${({ theme }) => theme.colors.body};
     // }
   }
+  ${mediaBp('huge')} {
+    padding: 11px 82px;
+  }
 `;
 export const Text = styled.div`
   color: ${({ theme }) => theme.colors.primary};

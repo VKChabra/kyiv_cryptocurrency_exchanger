@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
 export const Text = styled.p`
   display: flex;
   flex-direction: column;
-  font-family: Roboto;
+
   padding: 20px 50px;
   font-size: 16px;
   font-style: normal;
@@ -43,13 +43,15 @@ export const Title = styled.h2`
   width: 100%;
   padding: 60px 0;
 
-  font-famaly: Phudu;
   font-size: 48px;
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 64px */
   color: ${({ theme }) => theme.colors.primary};
   ${mediaBp('desktop')} {
+    font-size: 64px;
+  }
+  ${mediaBp('huge')} {
     font-size: 64px;
   }
 `;

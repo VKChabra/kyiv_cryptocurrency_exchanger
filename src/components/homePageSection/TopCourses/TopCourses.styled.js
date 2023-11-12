@@ -11,11 +11,14 @@ export const Wrapper = styled.div`
     padding: 120px 0;
     margin: 0;
   }
+  ${mediaBp('huge')} {
+    padding: 120px 0;
+    margin: 0;
+  }
 `;
 
 export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.primary};
-  font-family: Phudu;
   font-size: 32px;
   font-style: normal;
   font-weight: 400;
@@ -27,11 +30,16 @@ export const Title = styled.h2`
     margin-bottom: 30px;
     text-align: inherit;
   }
+  ${mediaBp('huge')} {
+    font-size: 64px;
+    margin-bottom: 30px;
+    text-align: inherit;
+  }
 `;
 
 export const SubTitle = styled.h3`
   color: ${({ theme }) => theme.colors.primary};
-  font-family: Roboto;
+
   font-size: 20px;
   font-style: normal;
   font-weight: 300;
@@ -39,6 +47,11 @@ export const SubTitle = styled.h3`
   text-align: center;
   margin-bottom: 20px;
   ${mediaBp('desktop')} {
+    font-size: 32px;
+    margin-bottom: 60px;
+    text-align: inherit;
+  }
+  ${mediaBp('huge')} {
     font-size: 32px;
     margin-bottom: 60px;
     text-align: inherit;

@@ -14,7 +14,6 @@ export const NavFooter = styled.div`
 
 export const Text = styled.span`
   color: #fff;
-  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -31,6 +30,11 @@ export const TextWrapper = styled.div`
     margin-left: 10px;
     margin-right: 190px;
   }
+  ${mediaBp('huge')} {
+    align-items: flex-start;
+    margin-left: 10px;
+    margin-right: 190px;
+  }
 `;
 
 export const InfoList = styled.ul`
@@ -38,6 +42,10 @@ export const InfoList = styled.ul`
   background-color: transparent;
   z-index: 4;
   ${mediaBp('desktop')} {
+    position: absolute;
+    padding-top: 50px;
+  }
+  ${mediaBp('huge')} {
     position: absolute;
     padding-top: 50px;
   }
@@ -53,11 +61,16 @@ export const InfoItem = styled.li`
       padding-bottom: 0;
     }
   }
+  ${mediaBp('huge')} {
+    margin-bottom: 30px;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
 `;
 
 export const InfoText = styled.p`
   color: #fff;
-  font-family: Roboto;
   font-size: 90%;
   font-style: normal;
   font-weight: 300;
@@ -72,6 +85,12 @@ export const SocialList = styled.ul`
   background-color: transparent;
   z-index: 4;
   ${mediaBp('desktop')} {
+    position: absolute;
+    width: 280px;
+    padding-top: 50px;
+    padding-left: 5px;
+  }
+  ${mediaBp('huge')} {
     position: absolute;
     width: 280px;
     padding-top: 50px;

@@ -13,20 +13,19 @@ const LanguageButton = () => {
       name: 'EN',
     },
     {
-      code: 'ru',
-      country_code: 'ru',
-      name: 'RU',
-    },
-    {
       code: 'ua',
       country_code: 'ua',
       name: 'UA',
+    },
+    {
+      code: 'ru',
+      country_code: 'ru',
+      name: 'RU',
     },
   ];
 
   const handleLanguageChange = event => {
     const selectedLanguageCode = event.target.value;
-
 
     localStorage.setItem('i18nextLng', selectedLanguageCode);
     i18next.changeLanguage(selectedLanguageCode);

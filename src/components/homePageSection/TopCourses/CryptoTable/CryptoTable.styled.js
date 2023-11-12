@@ -36,6 +36,10 @@ export const CardWrapper = styled.div`
     width: 1220px;
     height: 590px;
   }
+  ${mediaBp('huge')} {
+    width: 1220px;
+    height: 590px;
+  }
 `;
 
 export const BackgroundImage = styled.img`
@@ -50,6 +54,9 @@ export const Image = styled.img`
   object-fit: cover;
   top: 60px;
   ${mediaBp('desktop')} {
+    left: 75px;
+  }
+  ${mediaBp('huge')} {
     left: 75px;
   }
 `;

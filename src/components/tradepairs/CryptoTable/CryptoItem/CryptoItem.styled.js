@@ -10,6 +10,9 @@ export const Wrapper = styled.div`
   ${mediaBp('desktop')} {
     padding: 0 20px;
   }
+  ${mediaBp('huge')} {
+    padding: 0 20px;
+  }
 `;
 
 export const ListTitle = styled.ul`
@@ -29,6 +32,11 @@ export const ListTitle = styled.ul`
     padding-right: 0;
     justify-content: normal;
   }
+  ${mediaBp('huge')} {
+    padding-left: 7%;
+    padding-right: 0;
+    justify-content: normal;
+  }
 `;
 
 export const ListTitleItem = styled.li`
@@ -42,6 +50,11 @@ export const ListTitleItem = styled.li`
     font-size: 16px;
   }
   ${mediaBp('desktop')} {
+    padding-bottom: 30px;
+    width: 22%;
+    font-size: 18px;
+  }
+  ${mediaBp('huge')} {
     padding-bottom: 30px;
     width: 22%;
     font-size: 18px;
@@ -81,7 +94,6 @@ export const Item = styled.li`
     font-size: 10px;
   }
   p {
-    font-family: Roboto;
     font-size: 12px;
     font-style: bold;
     font-weight: 700;
@@ -110,6 +122,18 @@ export const Item = styled.li`
       font-size: 18px;
     }
   }
+  ${mediaBp('huge')} {
+    justify-content: space-around;
+    padding: 15px;
+    ::before {
+      font-size: initial;
+      margin-right: 15px;
+    }
+    p {
+      width: 20%;
+      font-size: 18px;
+    }
+  }
 `;
 
 export const Table = styled.div`
@@ -120,10 +144,14 @@ export const Table = styled.div`
   ${mediaBp('desktop')} {
     margin-bottom: 0;
   }
+  ${mediaBp('huge')} {
+    margin-bottom: 0;
+  }
 `;
 
 export const Change = styled.span`
-  color: ${({ p }) => (p >= 0 ? '#06f239' : '#ff0000')};
+  -webkit-text-stroke-width: thin;
+  color: ${({ p }) => (p >= 0 ? '#06f239' : '#c90202')};
 `;
 
 export const ChangeButton = styled.button`

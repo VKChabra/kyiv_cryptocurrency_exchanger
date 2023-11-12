@@ -5,68 +5,41 @@ export const Wrap = styled.div`
   color: ${({ theme }) => theme.colors.primary};
 `;
 
-export const HeroSplitter = styled.div`
-  display: flex;
-  flex-direction: column;
-  ${mediaBp('tablet')} {
-    flex-direction: row;
-  }
-  ${mediaBp('desktop')} {
-    flex-direction: row;
-  }
-`;
-
-export const LeftFrame = styled.div`
-  display: flex;
-  flex: 67%;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
-  ${mediaBp('desktop')} {
-    align-items: normal;
-    flex: 67%;
-  }
-`;
-
-export const LeftWrap = styled.div`
-  display: flex;
-  flex: 67%;
-  align-items: center;
-  flex-direction: column;
-  ${mediaBp('desktop')} {
-    align-items: normal;
-    padding-left: 111px;
-    padding-bottom: 74px;
-    padding-top: 80px;
-    flex: 67%;
-  }
-`;
-
-export const RightFrame = styled.div`
-  display: none;
+export const HeroFrame = styled.div`
   position: relative;
-  align-items: flex-end;
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  border-left: 2px solid ${({ theme }) => theme.colors.primary};
+  padding-top: 60px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  ${'' /* border-bottom: 2px solid ${({ theme }) => theme.colors.primary}; */}
   ${mediaBp('tablet')} {
-    display: flex;
-    flex: 33%;
+    padding-bottom: 60px;
   }
   ${mediaBp('desktop')} {
-    display: flex;
-    flex: 33%;
+    padding-bottom: 100px;
+  }
+  ${mediaBp('huge')} {
+    padding-bottom: 100px;
   }
 `;
 
 export const CompanyName = styled.h1`
-  font-family: Phudu;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 100%;
   margin-bottom: 10px;
+  ${mediaBp('tablet')} {
+    font-size: 40px;
+  }
   ${mediaBp('desktop')} {
+    font-size: 84px;
+    font-weight: 400;
+    line-height: 100%;
+    margin-bottom: 60px;
+  }
+  ${mediaBp('huge')} {
     font-size: 84px;
     font-weight: 400;
     line-height: 100%;
@@ -75,7 +48,6 @@ export const CompanyName = styled.h1`
 `;
 
 export const Description = styled.h2`
-  font-family: Roboto;
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
@@ -90,18 +62,60 @@ export const Description = styled.h2`
     max-width: 750px;
     margin-bottom: 60px;
   }
+  ${mediaBp('huge')} {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%;
+    max-width: 750px;
+    margin-bottom: 60px;
+  }
 `;
 
-export const Background = styled.img`
+export const ImageWrapper = styled.div`
+  display: none;
   position: absolute;
+  left: ${props => props.left}%;
+  bottom: ${props => props.bottom}%;
+  right: ${props => props.right}%;
+  top: ${props => props.top}%;
+
+  border: 2px solid #fff;
+  border-radius: 20px;
+  transform: rotate(${props => props.rotation}deg);
+  filter: grayscale(1);
+  mix-blend-mode: luminosity;
+  ${mediaBp('tablet')} {
+    display: block;
+    height: 75%;
+    width: 25%;
+  }
+  ${mediaBp('desktop')} {
+    display: block;
+    height: 70%;
+    width: 30%;
+    max-width: 430px;
+  }
+  ${mediaBp('huge')} {
+    display: block;
+    height: 70%;
+    width: 30%;
+    max-width: 430px;
+  }
+`;
+
+const baseImageStyles = `
+  border-radius: 20px;
   height: 100%;
   width: 100%;
-  object-fit: cover;
 `;
 
-export const Coin = styled.img`
-  position: absolute;
-  top: 15%;
-  left: 10%;
-  height: 50%;
+export const LHeroImage = styled.img`
+  ${baseImageStyles}
+  transform: rotate(-10deg);
+`;
+
+export const RHeroImage = styled.img`
+  ${baseImageStyles}
+  transform: rotate(15deg);
 `;

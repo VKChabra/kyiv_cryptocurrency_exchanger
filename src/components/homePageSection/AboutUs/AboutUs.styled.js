@@ -10,17 +10,9 @@ export const AboutUsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 40px;
-  ${mediaBp('tablet')} {
-    padding-bottom: 80px;
-  }
-  ${mediaBp('desktop')} {
-    padding-bottom: 120px;
-  }
 `;
 
 export const Title = styled.h2`
-  font-famaly: Phudu;
   color: ${({ theme }) => theme.colors.primary};
   font-size: 32px;
   font-style: normal;
@@ -34,11 +26,14 @@ export const Title = styled.h2`
   ${mediaBp('desktop')} {
     font-size: 64px;
   }
+  ${mediaBp('huge')} {
+    font-size: 64px;
+  }
 `;
 
 export const SubTitle = styled.h3`
   color: ${({ theme }) => theme.colors.primary};
-  font-family: Roboto;
+
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
@@ -50,6 +45,10 @@ export const SubTitle = styled.h3`
     margin-bottom: 40px;
   }
   ${mediaBp('desktop')} {
+    font-size: 32px;
+    margin-bottom: 60px;
+  }
+  ${mediaBp('huge')} {
     font-size: 32px;
     margin-bottom: 60px;
   }

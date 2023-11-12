@@ -1,31 +1,17 @@
 import { css, Global } from '@emotion/react';
-import imageUrl from '../images/background1.svg';
 import imageUrl1 from '../images/background2.svg';
 export const themes = {
   light: {
     title: 'light',
     colors: {
-      body: '#F6F3E0',
-      primary: '#4D4D4D',
+      body: '#364e50',
+      primary: '#fff',
       secondary: '#3e45c3',
       line: '#808080',
       text: '#fff',
-      curses: '#fbf6e1',
+      courses: '#426366',
       hovers: '#cfad56',
       background: `${imageUrl1}`,
-    },
-  },
-  dark: {
-    title: 'dark',
-    colors: {
-      body: '#30302B',
-      primary: '#fff',
-      secondary: '#3e45c3',
-      line: '#fff',
-      text: '#fff',
-      curses: '#2C2C27',
-      hovers: '#f4de8b',
-      background: `${imageUrl}`,
     },
   },
 };
@@ -35,8 +21,7 @@ export const GlobalStyle = ({ theme }) => (
     styles={css`
       body {
         margin: 0;
-        font-family: Manrope, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Phudu', 'Helvetica Neue', sans-serif;
+        font-family: 'Atkinson Hyperlegible', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background-color: ${theme.colors.body};
@@ -66,16 +51,17 @@ export const GlobalStyle = ({ theme }) => (
         padding: 0;
       }
 
+      h1,
+      h2,
+      h3,
+      h4 {
+        text-align: center;
+        font-family: 'Unbounded', sans-serif;
+      }
+
       button {
         cursor: pointer;
         background: inherit;
-      }
-
-      input,
-      /* button, */
-      textarea,
-      select {
-        font: inherit;
       }
 
       img {

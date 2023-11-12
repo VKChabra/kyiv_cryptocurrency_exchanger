@@ -17,6 +17,10 @@ export const TextHeader = styled.p`
     display: block;
     color: ${({ theme }) => theme.colors.primary};
   }
+  ${mediaBp('huge')} {
+    display: block;
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 export const AvatarHeader = styled.div`
   cursor: ${({ role }) => (role === 'admin' ? 'pointer' : 'auto')};
@@ -45,6 +49,18 @@ export const AvatarHeader = styled.div`
     width: 50px;
     height: 50px;
   }
+  ${mediaBp('huge')} {
+    display: block;
+    border-radius: 50%;
+    text-align: center;
+    background-image: ${setBgImage};
+    margin: 20px;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+    color: white;
+    line-height: 3em;
+    width: 50px;
+    height: 50px;
+  }
 `;
 export const Text = styled.p`
   color: ${({ theme }) => theme.colors.primary};
@@ -61,6 +77,10 @@ export const ProfileWrapper = styled.div`
     display: flex;
     margin: 0 auto;
   }
+  ${mediaBp('huge')} {
+    display: flex;
+    margin: 0 auto;
+  }
 `;
 export const Box = styled.div`
   flex-direction: column;
@@ -71,6 +91,10 @@ export const Box = styled.div`
     padding: 20px 20px;
   }
   ${mediaBp('desktop')} {
+    min-width: 840px;
+    padding: 20px 20px;
+  }
+  ${mediaBp('huge')} {
     min-width: 840px;
     padding: 20px 20px;
   }
@@ -96,6 +120,9 @@ export const Avatar = styled.div`
   ${mediaBp('desktop')} {
     display: none;
   }
+  ${mediaBp('huge')} {
+    display: none;
+  }
 `;
 export const Flex = styled.div`
   padding: 5px 10px;
@@ -104,6 +131,10 @@ export const Flex = styled.div`
     justify-content: space-between;
   }
   ${mediaBp('desktop')} {
+    display: flex;
+    justify-content: space-between;
+  }
+  ${mediaBp('huge')} {
     display: flex;
     justify-content: space-between;
   }
@@ -119,6 +150,11 @@ export const InputText = styled.p`
     font-size: 16px;
     font-weight: 700;
   }
+  ${mediaBp('huge')} {
+    margin-right: 50px;
+    font-size: 16px;
+    font-weight: 700;
+  }
 `;
 export const Title = styled.p`
   color: ${({ theme }) => theme.colors.primary};
@@ -127,6 +163,10 @@ export const Title = styled.p`
     margin-right: 25px;
   }
   ${mediaBp('desktop')} {
+    margin-right: 60px;
+    font-size: 18px;
+  }
+  ${mediaBp('huge')} {
     margin-right: 60px;
     font-size: 18px;
   }
@@ -204,6 +244,31 @@ export const Link = styled(NavLink)`
       text-decoration: none;
     }
   }
+  ${mediaBp('huge')} {
+    padding-left: 20px;
+    align-items: center;
+    max-width: 304px;
+    height: 60px;
+    margin-top: 60px;
+    margin-right: 0;
+    margin-left: 20%;
+    border-right: none;
+    overflow: hidden;
+    svg {
+      width: 25px;
+      height: 25px;
+      display: block;
+      fill: ${({ theme }) => theme.colors.primary};
+      margin-right: 10px;
+    }
+    &.active {
+      border: 2px solid ${({ theme }) => theme.colors.primary};
+      border-right: transparent;
+      background-color: ${({ theme }) => theme.colors.body};
+      margin-right: -2px;
+      text-decoration: none;
+    }
+  }
 `;
 export const ProfileNav = styled.div`
   display: flex;
@@ -229,6 +294,17 @@ export const ProfileNav = styled.div`
     height: 100%;
     border-right: 2px solid ${({ theme }) => theme.colors.primary};
   }
+  ${mediaBp('huge')} {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url('${({ theme }) => theme.colors.background}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 390px;
+    height: 100%;
+    border-right: 2px solid ${({ theme }) => theme.colors.primary};
+  }
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
@@ -237,6 +313,9 @@ export const ButtonWrapper = styled.div`
     margin: 0 0 40px 70px;
   }
   ${mediaBp('desktop')} {
+    flex-direction: column;
+  }
+  ${mediaBp('huge')} {
     flex-direction: column;
   }
 `;
@@ -276,6 +355,34 @@ export const ExitButton = styled.button`
     }
   }
   ${mediaBp('desktop')} {
+    background: transparent;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primary};
+    &.active,
+    :hover {
+      color: ${({ theme }) => theme.colors.hovers};
+      text-decoration: none;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 44px;
+    margin: 140px 120px 80px 120px;
+    svg {
+      width: 25px;
+      height: 25px;
+      display: block;
+      fill: ${({ theme }) => theme.colors.primary};
+      margin-right: 10px;
+    }
+    :hover {
+      color: ${({ theme }) => theme.colors.hovers};
+      text-decoration: none;
+      background-color: ${({ theme }) => theme.colors.body};
+    }
+  }
+  ${mediaBp('huge')} {
     background: transparent;
     border: 2px solid ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.primary};

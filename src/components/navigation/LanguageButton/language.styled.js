@@ -12,7 +12,6 @@ export const LanguageChosen = styled.select`
   background-color: transparent;
   color: inherit;
   background-color: ${({ theme }) => theme.colors.body};
-  font: inherit;
   font-size: 16px;
   font-weight: 700;
   border: none;
@@ -26,6 +25,9 @@ export const LanguageWrapper = styled.div`
   margin-right: 12px;
   gap: 5px;
   ${mediaBp('desktop')} {
+    color: inherit;
+  }
+  ${mediaBp('huge')} {
     color: inherit;
   }
 `;

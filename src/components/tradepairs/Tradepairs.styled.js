@@ -17,7 +17,6 @@ export const Title = styled.h2`
   letter-spacing: 0em;
   text-align: center;
   color: ${({ theme }) => theme.colors.primary};
-  font-family: Phudu;
   margin-bottom: 30px;
   ${mediaBp('tablet')} {
     font-size: 32px;
@@ -25,10 +24,12 @@ export const Title = styled.h2`
   ${mediaBp('desktop')} {
     font-size: 64px;
   }
+  ${mediaBp('huge')} {
+    font-size: 64px;
+  }
 `;
 
 export const SubTitle = styled.h3`
-  font-family: Roboto;
   font-size: 20px;
   font-style: normal;
   font-weight: 300;
@@ -40,6 +41,9 @@ export const SubTitle = styled.h3`
     font-size: 26px;
   }
   ${mediaBp('desktop')} {
+    font-size: 32px;
+  }
+  ${mediaBp('huge')} {
     font-size: 32px;
   }
 `;

@@ -9,16 +9,23 @@ export const Wrap = styled.div`
   ${mediaBp('desktop')} {
     display: flex;
   }
+  ${mediaBp('huge')} {
+    display: flex;
+  }
 `;
 
 export const Frame = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
   ${mediaBp('tablet')} {
     flex: 67%;
   }
   ${mediaBp('desktop')} {
+    flex: 67%;
+  }
+  ${mediaBp('huge')} {
     flex: 67%;
   }
 `;
@@ -29,20 +36,7 @@ export const Icon = styled.div`
   ${mediaBp('desktop')} {
     font-size: 48px;
   }
-`;
-
-export const Blue = styled.div`
-  display: none;
-  background-color: #3e45c3;
-  border-left: 2px solid ${({ theme }) => theme.colors.primary};
-  ${mediaBp('tablet')} {
-    display: flex;
-    flex: 33%;
-    height: 80px;
-  }
-  ${mediaBp('desktop')} {
-    display: flex;
-    flex: 33%;
-    height: 120px;
+  ${mediaBp('huge')} {
+    font-size: 48px;
   }
 `;

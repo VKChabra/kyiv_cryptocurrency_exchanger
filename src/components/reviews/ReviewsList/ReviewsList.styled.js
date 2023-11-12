@@ -18,6 +18,12 @@ export const List = styled.ul`
     flex-wrap: wrap;
     flex-direction: row;
   }
+  ${mediaBp('huge')} {
+    margin-right: -105px;
+    margin-bottom: -45px;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
 `;
 
 export const Item = styled.li`
@@ -29,6 +35,12 @@ export const Item = styled.li`
     }
   }
   ${mediaBp('desktop')} {
+    flex-basis: (calc(100% - 2 * 105px) / 2);
+    &:nth-child(2n + 1) {
+      margin-right: 105px;
+    }
+  }
+  ${mediaBp('huge')} {
     flex-basis: (calc(100% - 2 * 105px) / 2);
     &:nth-child(2n + 1) {
       margin-right: 105px;

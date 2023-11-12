@@ -1,12 +1,11 @@
 import { Container, Wrapper, Title, Image, Text } from './Partnership.styled';
 import Aside from '../../images/partnership/Aside.svg';
 import { useTranslation } from 'react-i18next';
-import { useMediaQuery } from 'react-responsive';
-import { bp } from 'styles/breakpoints';
+import useMediaQueries from 'components/hooks/useMediaQueries';
 
 const Partnership = () => {
   const { t } = useTranslation();
-  const isMobile = useMediaQuery({ maxWidth: bp.tablet });
+  const { isMobile } = useMediaQueries();
 
   return (
     <Container>

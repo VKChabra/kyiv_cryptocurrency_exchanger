@@ -15,6 +15,11 @@ export const DropdownMenu = styled.div`
     flex-direction: row;
     color: ${({ footer, theme }) => (footer === 'true' ? '#fff' : theme.colors.primary)};
   }
+  ${mediaBp('huge')} {
+    display: flex;
+    flex-direction: row;
+    color: ${({ footer, theme }) => (footer === 'true' ? '#fff' : theme.colors.primary)};
+  }
 `;
 
 export const InfoBtn = styled.div`
@@ -48,6 +53,16 @@ export const LinkList = styled.ul`
     background-color: ${({ theme }) => theme.colors.body};
     z-index: 3;
   }
+  ${mediaBp('huge')} {
+    display: block;
+    position: absolute;
+    padding: 10px;
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.body};
+    z-index: 3;
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -60,6 +75,12 @@ export const Link = styled(NavLink)`
     text-decoration: underline;
   }
   ${mediaBp('desktop')} {
+    padding-bottom: 10px;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  ${mediaBp('huge')} {
     padding-bottom: 10px;
     &:last-child {
       padding-bottom: 0;

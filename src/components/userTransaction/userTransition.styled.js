@@ -43,6 +43,20 @@ export const Pagination = styled(TablePagination)`
       font-size: 14px;
     }
   }
+  ${mediaBp('huge')} {
+    background-color: ${({ theme }) => theme.colors.body};
+    label,
+    input,
+    &.MuiTablePagination-root {
+      color: ${({ theme }) => theme.colors.primary};
+    }
+    svg {
+      fill: ${({ theme }) => theme.colors.primary};
+    }
+    &.MuiTablePagination-selectLabel {
+      font-size: 14px;
+    }
+  }
 `;
 export const Cell = styled(TableCell)`
   background-color: transparent;
@@ -58,6 +72,10 @@ export const Cell = styled(TableCell)`
     font-size: 16px;
     padding: 18px;
   }
+  ${mediaBp('huge')} {
+    font-size: 16px;
+    padding: 18px;
+  }
 `;
 export const TContainer = styled(TableContainer)`
   mix-width: 200px;
@@ -68,6 +86,9 @@ export const TContainer = styled(TableContainer)`
     max-width: 440px;
   }
   ${mediaBp('desktop')} {
+    max-width: 800px;
+  }
+  ${mediaBp('huge')} {
     max-width: 800px;
   }
 `;

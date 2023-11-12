@@ -8,16 +8,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { useMediaQuery } from 'react-responsive';
-import { bp } from 'styles/breakpoints';
+import useMediaQueries from 'components/hooks/useMediaQueries';
 
 const HomePageReviews = () => {
   const { data } = useGetApprovedReviewsQuery();
   const reviews = data?.reviews;
   const { t } = useTranslation();
-
-  const isMobile = useMediaQuery({ maxWidth: bp.tablet });
-  const isTablet = useMediaQuery({ minWidth: bp.mobile, maxWidth: bp.desktop });
+  const { isMobile, isTablet } = useMediaQueries();
 
   // swiper settings
   const swiperSpaceBetween = () => {
@@ -32,30 +29,34 @@ const HomePageReviews = () => {
   const swiperWidth = () => window.screen.width;
 
   return (
-    <ReviewContainer>
-      <Title>{t('homeReviews.title')}</Title>
-      <SubTitle>{t('homeReviews.subTitle')}</SubTitle>
-      <SwiperWrapper>
-        <Swiper
-          className="swiper-container"
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={swiperSpaceBetween()}
-          slidesPerView={1}
-          navigation={true}
-          width={swiperWidth()}
-          centeredSlides={true}
-          pagination={{ clickable: true }}
-        >
-          {reviews?.map((item, index) => (
-            <SwiperSlide key={item._id || index}>
-              <Item>
-                <ReviewsItem className="reviewItem" data={item} />
-              </Item>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </SwiperWrapper>
-    </ReviewContainer>
+    <>
+      {reviews?.length !== 0 && (
+        <ReviewContainer>
+          <Title>{t('homeReviews.title')}</Title>
+          <SubTitle>{t('homeReviews.subTitle')}</SubTitle>
+          <SwiperWrapper>
+            <Swiper
+              className="swiper-container"
+              modules={[Navigation, Pagination, Scrollbar, A11y]}
+              spaceBetween={swiperSpaceBetween()}
+              slidesPerView={1}
+              navigation={true}
+              width={swiperWidth()}
+              centeredSlides={true}
+              pagination={{ clickable: true }}
+            >
+              {reviews?.map((item, index) => (
+                <SwiperSlide key={item._id || index}>
+                  <Item>
+                    <ReviewsItem className="reviewItem" data={item} />
+                  </Item>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </SwiperWrapper>
+        </ReviewContainer>
+      )}
+    </>
   );
 };
 

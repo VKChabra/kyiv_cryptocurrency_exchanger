@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 
 export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.primary};
-  font-family: Roboto;
+
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -60,7 +60,7 @@ export const Input = styled.input`
 
 export const Span = styled.span`
   margin-bottom: 8px;
-  font-family: Roboto;
+
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -78,7 +78,7 @@ export const Button = styled.button`
   outline: none;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.text};
-  font-family: Roboto;
+
   font-size: 14px;
   font-style: normal;
   font-weight: 700;

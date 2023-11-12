@@ -141,7 +141,7 @@
   "table": {
     "name": "Name",
     "price": "Price",
-    "change": "Change",
+    "change": "Change (24h)",
     "capital": "Capitalization"
   },
   "about": {
@@ -177,7 +177,7 @@
     "button": "Read"
   },
   "reviews": {
-    "title": "What they say about us",
+    "title": "What customers say about us",
     "subTitle": "Our service is open, we show all reviews",
     "formTitle": "Leave your feedback",
     "formSubTitle": "We will be glad to see your feedback which can be left after the first transaction",

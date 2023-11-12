@@ -6,14 +6,13 @@ import AuthNav from 'components/navigation/AuthNav';
 import UserNav from 'components/navigation/UserNav';
 import authSelectors from 'redux/auth/authSelectors';
 import { NavWrap, HeaderBar, MobileButton, MobileMenu } from './Header.styled';
-import { useMediaQuery } from 'react-responsive';
-import { bp } from 'styles/breakpoints';
+import useMediaQueries from 'components/hooks/useMediaQueries';
 
 const Header = () => {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const isDesktop = useMediaQuery({ minWidth: bp.desktop });
+  const { isDesktop, isHuge } = useMediaQueries();
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -24,7 +23,7 @@ const Header = () => {
   return (
     <HeaderBar>
       <Logo />
-      {!isDesktop && (
+      {!isDesktop && !isHuge && (
         <MobileButton onClick={toggleMobileMenu}>
           <div />
           <div />

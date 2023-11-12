@@ -26,6 +26,11 @@ export const Container = styled.div`
     height: 350px;
     padding: 52px;
   }
+  ${mediaBp('huge')} {
+    width: 530px;
+    height: 350px;
+    padding: 52px;
+  }
 `;
 
 export const BlueElipse = styled.img`
@@ -40,6 +45,9 @@ export const BlueElipse = styled.img`
     width: auto;
   }
   ${mediaBp('desktop')} {
+    width: auto;
+  }
+  ${mediaBp('huge')} {
     width: auto;
   }
 `;
@@ -60,6 +68,10 @@ export const OrangeElipse = styled.img`
     width: 180px;
     height: 187px;
   }
+  ${mediaBp('huge')} {
+    width: 180px;
+    height: 187px;
+  }
 `;
 
 export const NameLetter = styled.p`
@@ -69,7 +81,7 @@ export const NameLetter = styled.p`
   z-index: 18;
   text-align: center;
   color: #fff;
-  font-family: Roboto;
+
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
@@ -79,6 +91,10 @@ export const NameLetter = styled.p`
     left: 40px;
   }
   ${mediaBp('desktop')} {
+    top: -10px;
+    left: 35px;
+  }
+  ${mediaBp('huge')} {
     top: -10px;
     left: 35px;
   }
@@ -92,12 +108,15 @@ export const NameWpapper = styled.div`
   ${mediaBp('desktop')} {
     margin-bottom: 40px;
   }
+  ${mediaBp('huge')} {
+    margin-bottom: 40px;
+  }
 `;
 
 export const Name = styled.p`
   text-align: center;
   color: ${({ theme }) => theme.colors.primary};
-  font-family: Roboto;
+
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -125,6 +144,9 @@ export const ReviewWpapper = styled.div`
   ${mediaBp('desktop')} {
     width: 400px;
   }
+  ${mediaBp('huge')} {
+    width: 400px;
+  }
 `;
 
 export const DateStarWpapper = styled.div`
@@ -138,6 +160,10 @@ export const DateStarWpapper = styled.div`
     align-items: normal;
   }
   ${mediaBp('desktop')} {
+    width: 500px;
+    align-items: normal;
+  }
+  ${mediaBp('huge')} {
     width: 500px;
     align-items: normal;
   }
