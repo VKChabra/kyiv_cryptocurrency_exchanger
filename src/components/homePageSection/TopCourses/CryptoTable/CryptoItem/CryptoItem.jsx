@@ -13,6 +13,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import Loader from 'components/loader';
 import useMediaQueries from 'components/hooks/useMediaQueries';
+import HoverableComponent from 'components/hoverText/HoverableComponent';
 
 const CryptoItem = () => {
   const [cryptoData, setCryptoData] = useState([]);
@@ -75,7 +76,13 @@ const CryptoItem = () => {
             <ListTitleItem>{t('table.name')}</ListTitleItem>
             <ListTitleItem>{t('table.price')}</ListTitleItem>
             <ListTitleItem>{t('table.change')}</ListTitleItem>
-            {!isMobile && <ListTitleItem>{t('table.capital')}</ListTitleItem>}
+            {!isMobile && (
+              <HoverableComponent
+                Component={ListTitleItem}
+                text={t('table.capital')}
+                explanation={t('table.capital-explanation')}
+              />
+            )}
           </ListTitle>
           <List>{cryptoDataItem}</List>
         </Table>

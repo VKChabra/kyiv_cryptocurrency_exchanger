@@ -142,7 +142,8 @@
     "name": "Name",
     "price": "Price",
     "change": "Change (24h)",
-    "capital": "Capitalization"
+    "capital": "Capitalization",
+    "capital-explanation": "Volume in quote currency"
   },
   "about": {
     "title": "ABOUT OUR SERVICE",
