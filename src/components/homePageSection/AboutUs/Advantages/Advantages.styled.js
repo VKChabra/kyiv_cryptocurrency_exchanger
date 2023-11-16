@@ -46,6 +46,9 @@ export const Title = styled.h4`
   text-align: center;
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 20px;
+  ${mediaBp('huge')} {
+    font-size: calc(1.2vw);
+  }
 `;
 
 export const Text = styled.p`
@@ -63,5 +66,6 @@ export const Text = styled.p`
   }
   ${mediaBp('huge')} {
     width: 312px;
+    font-size: calc(1vw);
   }
 `;
