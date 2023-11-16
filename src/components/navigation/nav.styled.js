@@ -34,6 +34,7 @@ export const Link = styled(NavLink)`
     }
   }
   ${mediaBp('huge')} {
+    font-size: calc(6px + 1vw);
     padding-right: 15px;
     &:last-child {
       padding-right: 0;

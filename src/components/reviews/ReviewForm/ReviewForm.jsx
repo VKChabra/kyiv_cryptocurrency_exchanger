@@ -14,7 +14,7 @@ const ReviewForm = () => {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
   const navigate = useNavigate();
   const [addReview] = useAddReviewMutation();
-  const [starValue, setStarValue] = useState(3);
+  const [starValue, setStarValue] = useState(4);
   const [feedback, setFeedback] = useState('');
 
   const handleChange = e => {
@@ -35,7 +35,7 @@ const ReviewForm = () => {
       notifySuccess(t('reviews.success'));
       setFeedback('');
     } catch {
-      notifyError('Щось пішло е так...Ваш відгук не додано');
+      notifyError('Щось пішло не так...Ваш відгук не додано');
       return;
     }
   };

@@ -30,7 +30,7 @@ const HomePageReviews = () => {
 
   return (
     <>
-      {reviews?.length !== 0 && (
+      {reviews && reviews?.length !== 0 && (
         <ReviewContainer>
           <Title>{t('homeReviews.title')}</Title>
           <SubTitle>{t('homeReviews.subTitle')}</SubTitle>

@@ -19,12 +19,14 @@ export const Wrapper = styled.div`
 
 export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 32px;
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
   text-align: center;
   margin-bottom: 10px;
+  ${mediaBp('tablet')} {
+    font-size: 36px;
+  }
   ${mediaBp('desktop')} {
     font-size: 64px;
     margin-bottom: 30px;

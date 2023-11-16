@@ -14,35 +14,32 @@ export const Button = styled.button`
   font-style: normal;
   font-weight: 700;
   &:hover {
-    background-color: ${({ theme }) => theme.colors.body};
+    background-color: ${({ theme }) => theme.colors.hovers};
   }
   ${mediaBp('tablet')} {
     padding: 11px 82px;
   }
   ${mediaBp('desktop')} {
     padding: 11px 82px;
-    // cursor: pointer;
-    // background: transparent;
-    // font-style: normal;
-    // font-weight: 700;
-    // &:hover {
-    //   background-color: ${({ theme }) => theme.colors.body};
-    // }
   }
   ${mediaBp('huge')} {
-    padding: 11px 82px;
+    font-size: calc(4px + 1vw);
+    padding: 11px 42px;
   }
 `;
 export const Text = styled.div`
   color: ${({ theme }) => theme.colors.primary};
   width: 33%;
-  height: 30px;
 `;
 export const BoxWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 5px;
   width: 100%;
+  ${mediaBp('huge')} {
+    margin-bottom: 25px;
+  }
 `;
 export const ButtonSubmit = styled.button`
   margin-top: 50px;
@@ -57,6 +54,10 @@ export const ButtonSubmit = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.body};
   }
+  ${mediaBp('huge')} {
+    font-size: calc(8px + 1vw);
+    padding: 20px 82px;
+  }
 `;
 
 export const Select = styled.select`
@@ -66,6 +67,13 @@ export const Select = styled.select`
   border-radius: 4px;
   padding: 4px 20px;
   margin: 4px;
+  ${mediaBp('huge')} {
+    font-size: calc(8px + 1vw);
+    padding: 11px 10px;
+    option {
+      font-size: calc(1vw - 17%);
+    }
+  }
 `;
 
 export const Label = styled.label`

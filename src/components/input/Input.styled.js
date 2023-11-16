@@ -1,13 +1,20 @@
 import styled from '@emotion/styled';
 import { TextField } from '@mui/material';
+import mediaBp from 'styles/breakpoints';
 
 export const Input = styled(TextField)`
   background-color: ${({ theme }) => theme.colors.body};
   label {
     color: ${({ theme }) => theme.colors.primary};
+    ${mediaBp('huge')} {
+      font-size: calc(2px + 1vw);
+    }
   }
   input {
     color: ${({ theme }) => theme.colors.primary};
+    ${mediaBp('huge')} {
+      font-size: calc(6px + 1vw);
+    }
   }
   fieldset {
     border: 1px solid ${({ theme }) => theme.colors.primary};

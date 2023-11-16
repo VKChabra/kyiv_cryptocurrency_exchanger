@@ -10,6 +10,9 @@ export const NavFooter = styled.div`
       margin-right: 10px;
     }
   }
+  ${mediaBp('huge')} {
+    font-size: calc(6px + 1vw);
+  }
 `;
 
 export const Text = styled.span`
@@ -18,6 +21,10 @@ export const Text = styled.span`
   font-style: normal;
   font-weight: 700;
   line-height: 16px;
+  ${mediaBp('huge')} {
+    font-weight: normal;
+    font-size: calc(4px + 1vw);
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -32,7 +39,7 @@ export const TextWrapper = styled.div`
   }
   ${mediaBp('huge')} {
     align-items: flex-start;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 190px;
   }
 `;
@@ -40,7 +47,7 @@ export const TextWrapper = styled.div`
 export const InfoList = styled.ul`
   list-style: none;
   background-color: transparent;
-  z-index: 4;
+  z-index: 0;
   ${mediaBp('desktop')} {
     position: absolute;
     padding-top: 50px;
@@ -62,6 +69,7 @@ export const InfoItem = styled.li`
     }
   }
   ${mediaBp('huge')} {
+    font-size: calc(6px + 1vw);
     margin-bottom: 30px;
     &:last-child {
       padding-bottom: 0;

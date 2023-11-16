@@ -16,7 +16,7 @@ const FormUserInput = ({
   return (
     <BoxWrapper>
       <Text>{t(labelKey)}</Text>
-      <Text>{user[fieldName]}</Text>
+      {!visibleInput && <Text>{user[fieldName]}</Text>}
       {visibleInput ? (
         <Input
           label={t(labelKey)}

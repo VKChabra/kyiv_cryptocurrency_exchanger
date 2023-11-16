@@ -62,6 +62,7 @@ export const GlobalStyle = ({ theme }) => (
       button {
         cursor: pointer;
         background: inherit;
+        border-radius: 10px;
       }
 
       img {

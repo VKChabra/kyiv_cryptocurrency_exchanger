@@ -26,10 +26,14 @@ export const InfoBtn = styled.div`
   display: flex;
   cursor: pointer;
   width: max-content;
+  align-items: center;
 `;
 
 export const InfoText = styled.span`
   padding-right: 20px;
+  ${mediaBp('huge')} {
+    font-size: calc(6px + 1vw);
+  }
 `;
 
 export const InfoImg = styled(Dropdown)`
@@ -81,6 +85,7 @@ export const Link = styled(NavLink)`
     }
   }
   ${mediaBp('huge')} {
+    font-size: calc(6px + 1vw);
     padding-bottom: 10px;
     &:last-child {
       padding-bottom: 0;

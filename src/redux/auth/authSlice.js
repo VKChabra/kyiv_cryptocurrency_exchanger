@@ -47,8 +47,8 @@ const authSlice = createSlice({
       })
       .addCase(logIn.rejected, (state, { payload }) => {
         state.isRefreshing = false;
-        state.error = payload.message;
-        state.errorCode = payload.status;
+        state.error = payload?.message;
+        state.errorCode = payload?.status;
       })
       .addCase(register.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
@@ -59,8 +59,8 @@ const authSlice = createSlice({
       })
       .addCase(register.rejected, (state, { payload }) => {
         state.isRefreshing = false;
-        state.error = payload.message;
-        state.errorCode = payload.status;
+        state.error = payload?.message;
+        state.errorCode = payload?.status;
       })
       .addCase(verifyMail.fulfilled, handleUserEnter)
       .addCase(verifyMail.pending, state => {
@@ -68,8 +68,8 @@ const authSlice = createSlice({
       })
       .addCase(verifyMail.rejected, (state, { payload }) => {
         state.isRefreshing = false;
-        state.error = payload.message;
-        state.verifyErrorCode = payload.status;
+        state.error = payload?.message;
+        state.verifyErrorCode = payload?.status;
       })
       .addCase(logOut.fulfilled, state => {
         state.isLoggedIn = false;
@@ -96,8 +96,8 @@ const authSlice = createSlice({
       })
       .addCase(refresh.rejected, (state, { payload }) => {
         state.isRefreshing = false;
-        state.error = payload.message;
-        state.errorCode = payload.status;
+        state.error = payload?.message;
+        state.errorCode = payload?.status;
       })
       .addCase(update.fulfilled, (state, { payload }) => {
         state.user = payload;
@@ -110,8 +110,8 @@ const authSlice = createSlice({
       })
       .addCase(update.rejected, (state, { payload }) => {
         state.isRefreshing = false;
-        state.error = payload.message;
-        state.errorCode = payload.status;
+        state.error = payload?.message;
+        state.errorCode = payload?.status;
       }),
 });
 

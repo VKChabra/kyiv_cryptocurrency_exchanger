@@ -6,5 +6,6 @@ export const Hover = styled.p`
   padding: 5px;
   height: fit-content;
   outline: 2px solid gray;
+  text-wrap: nowrap;
   background-color: ${({ theme }) => theme.colors.body};
 `;
