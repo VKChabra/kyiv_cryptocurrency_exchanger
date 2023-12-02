@@ -112,3 +112,5 @@ export const SocialItem = styled.li`
     margin-right: 0;
   }
 `;
+
+export const SocialLink = styled.a``;

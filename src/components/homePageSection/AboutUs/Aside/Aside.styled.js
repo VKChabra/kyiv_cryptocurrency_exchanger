@@ -23,6 +23,6 @@ export const Block = styled.div`
   width: 99.9%;
   flex-shrink: 0;
   height: 120px;
-  background-color: #3e45c3;
+  background-color: ${({ theme }) => theme.colors.secondary};
   border-right: 1px solid ${({ theme }) => theme.colors.primary};
 `;

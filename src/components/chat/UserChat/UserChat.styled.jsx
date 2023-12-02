@@ -22,7 +22,7 @@ export const ChatHeader = styled.div`
   height: 10%;
   display: flex;
   align-items: center;
-  background-color: #3e45c3;
+  background-color: ;
   padding: 10px 20px 10px 20px;
   span {
     position: absolute;

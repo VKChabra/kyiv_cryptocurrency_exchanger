@@ -6,7 +6,7 @@ export const ChatButton = styled.button`
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #3e45c3;
+  background-color: ${({ theme }) => theme.colors.secondary};
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 3px 7px 49px 17px rgba(62, 69, 195, 0.75);
   position: fixed;

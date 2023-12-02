@@ -28,7 +28,7 @@ const ChatInput = ({ handleSendMsg, disabled }) => {
             <IoMdSend
               size={40}
               style={{
-                color: '#3e45c3',
+                color: 'olors.secondary',
               }}
             />
           </button>

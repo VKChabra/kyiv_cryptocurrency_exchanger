@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
-    purple: '#3E45C3',
+    purple: '#503647',
   },
 });
 

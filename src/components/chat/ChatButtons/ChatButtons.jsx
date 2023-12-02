@@ -47,7 +47,7 @@ const ChatButtons = () => {
       {expanded && (
         <ChatPanel expanded={expanded}>
           <li>
-            <a href="https://t.me/Bit2MeSupport" target="_blank" rel="noopener noreferrer">
+            <a href="https://t.me/kcoincryptohub" target="_blank" rel="noopener noreferrer">
               <FaTelegram
                 size={60}
                 style={{
@@ -75,7 +75,7 @@ const ChatButtons = () => {
               <IoChatboxEllipses
                 size={60}
                 style={{
-                  color: '#3e45c3',
+                  color: '#503647',
                 }}
               />
             </button>

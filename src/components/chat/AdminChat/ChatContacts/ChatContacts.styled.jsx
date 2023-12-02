@@ -39,7 +39,7 @@ export const Item = styled.li`
   transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     transform: scale(1.02);
-    background-color: #3e45c3;
+    background-color: ;
   }
   background-color: ${({ isSelected }) => (isSelected ? '#cfad56' : 'rgba(255, 255, 255, 0.3)')};
 `;

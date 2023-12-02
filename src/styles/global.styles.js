@@ -6,7 +6,7 @@ export const themes = {
     colors: {
       body: '#364e50',
       primary: '#fff',
-      secondary: '#3e45c3',
+      secondary: '#503647',
       line: '#808080',
       text: '#fff',
       courses: '#426366',
@@ -21,7 +21,8 @@ export const GlobalStyle = ({ theme }) => (
     styles={css`
       body {
         margin: 0;
-        font-family: 'Atkinson Hyperlegible', sans-serif;
+        font-family: 'Unbounded', sans-serif
+        ${'' /* font-family: 'Atkinson Hyperlegible', sans-serif; */}
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background-color: ${theme.colors.body};

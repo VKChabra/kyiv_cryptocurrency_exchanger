@@ -96,7 +96,7 @@ export const Btn = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: #3e45c3;
+  background-color: ${({ theme }) => theme.colors.secondary};
   &:active {
     transform: scale(0.99);
     transition: transform 0.1s ease-in-out;
