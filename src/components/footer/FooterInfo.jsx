@@ -55,9 +55,9 @@ export const FooterInfo = () => {
             >
               <FaTelegram
                 size={40}
-                // style={{
-                //   color: '#0088cc',
-                // }}
+                style={{
+                  color: '#fff',
+                }}
               />
             </SocialLink>
           </SocialItem>
